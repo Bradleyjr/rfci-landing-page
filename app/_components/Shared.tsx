@@ -135,25 +135,11 @@ export const Navigation = ({
                 <a
                   href={item.href || `#${item.title.toLowerCase()}`}
                   className="text-2xl font-display font-medium text-rfci-black flex justify-between items-center"
-                  onClick={() => !(item.dropdown || item.megaMenu) && setMobileMenuOpen(false)}
+                  onClick={() => !item.megaMenu && setMobileMenuOpen(false)}
                 >
                   {item.title}
-                  {(item.dropdown || item.megaMenu) && <CaretDown className="w-5 h-5 opacity-50" />}
+                  {item.megaMenu && <CaretDown className="w-5 h-5 opacity-50" />}
                 </a>
-                {item.dropdown && (
-                  <div className="flex flex-col gap-3 mt-4 pl-4 border-l-2 border-rfci-light-gray/50">
-                    {item.dropdown.map((dropItem) => (
-                      <a
-                        key={dropItem.label}
-                        href={dropItem.href}
-                        className="text-lg text-rfci-black/70"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {dropItem.label}
-                      </a>
-                    ))}
-                  </div>
-                )}
                 {item.megaMenu && (
                   <div className="flex flex-col gap-4 mt-4 pl-4 border-l-2 border-rfci-light-gray/50">
                     {item.megaMenu.map((megaItem) => (
