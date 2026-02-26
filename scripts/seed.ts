@@ -1,6 +1,8 @@
 import { loadEnvConfig } from '@next/env'
 loadEnvConfig(process.cwd(), true)
 
+const FORCE = process.argv.includes('--force')
+
 async function run() {
   const [{ default: payload }, { default: configPromise }] = await Promise.all([
     import('payload'),
@@ -9,12 +11,19 @@ async function run() {
 
   await payload.init({ config: configPromise, disableOnInit: true })
 
-  // ── Helper: skip if collection already has documents ─────────────────────
+  // ── Helper: seed a collection (skip if data exists, unless --force) ─────────
   async function seedCollection(slug: string, docs: object[], label: string) {
     const existing = await payload.find({ collection: slug as any, limit: 1 })
-    if (existing.totalDocs > 0) {
-      console.log(`⏭  ${label}: already has data, skipping`)
+    if (existing.totalDocs > 0 && !FORCE) {
+      console.log(`⏭  ${label}: already has data, skipping (use --force to overwrite)`)
       return
+    }
+    if (existing.totalDocs > 0 && FORCE) {
+      const all = await payload.find({ collection: slug as any, limit: 1000 })
+      for (const doc of all.docs) {
+        await payload.delete({ collection: slug as any, id: doc.id })
+      }
+      console.log(`🗑  ${label}: cleared ${all.docs.length} existing documents`)
     }
     for (const doc of docs) {
       await payload.create({ collection: slug as any, data: doc as any })
@@ -22,12 +31,22 @@ async function run() {
     console.log(`✅ ${label}: seeded ${docs.length} documents`)
   }
 
+  // ── Helper: seed a global (always upserts) ───────────────────────────────────
+  async function seedGlobal(slug: string, data: object, label: string) {
+    try {
+      await payload.updateGlobal({ slug: slug as any, data: data as any })
+      console.log(`✅ ${label}: global updated`)
+    } catch (err: any) {
+      console.warn(`⚠  ${label}: ${err.message}`)
+    }
+  }
+
   // ── Flooring Types ────────────────────────────────────────────────────────
   await seedCollection('flooring-types', [
     {
-      title: 'Luxury Vinyl',
-      subtitle: 'LVT · LVP · SPC · WPC',
-      description: 'The fastest-growing category in flooring. Waterproof, durable, and available in realistic wood and stone visuals—LVT leads commercial and residential markets alike.',
+      title: 'Flexible LVT',
+      subtitle: 'Luxury Vinyl Tile · Planks',
+      description: 'The most popular choice in residential and commercial flooring. Flexible LVT is waterproof, durable, and comes in wood and stone visuals. It installs easily and holds up in high-traffic areas.',
       accentColor: '#9CA3AF',
       tags: [
         { label: 'Waterproof', variant: 'green' },
@@ -37,49 +56,93 @@ async function run() {
       order: 1,
     },
     {
-      title: 'Sheet Vinyl',
-      subtitle: 'Homogeneous · Heterogeneous',
-      description: 'A seamless, hygienic surface ideal for healthcare and commercial environments. Broad design flexibility with outstanding durability.',
+      title: 'Rigid Core',
+      subtitle: 'SPC · WPC · Multilayer',
+      description: 'A stiffer, more dimensionally stable version of LVT. Rigid core products resist temperature swings and indentation, making them a strong choice for challenging environments.',
+      accentColor: '#78909C',
+      tags: [
+        { label: 'Waterproof', variant: 'green' },
+        { label: 'Dimensionally Stable', variant: 'tan' },
+      ],
+      order: 2,
+    },
+    {
+      title: 'Heterogeneous Sheet Vinyl',
+      subtitle: 'Multi-layer · Printed Design',
+      description: 'A multi-layer sheet vinyl with a printed design layer, giving it strong customization options. A go-to for healthcare, education, and commercial spaces that need both durability and design flexibility.',
       accentColor: '#B0C4DE',
       tags: [
         { label: 'Hygienic', variant: 'green' },
         { label: 'Seamless', variant: 'tan' },
       ],
-      order: 2,
+      order: 3,
+    },
+    {
+      title: 'Homogeneous Sheet Vinyl',
+      subtitle: 'Through-body · Single Layer',
+      description: 'A solid, single-layer vinyl sheet where the color and pattern run all the way through. Extremely durable and easy to maintain — widely used in hospitals and laboratories.',
+      accentColor: '#90A4AE',
+      tags: [
+        { label: 'Hygienic', variant: 'green' },
+        { label: 'Through-body Color', variant: 'tan' },
+      ],
+      order: 4,
+    },
+    {
+      title: 'Solid Vinyl Tile',
+      subtitle: 'SVT · Flexible Tiles',
+      description: 'Flexible vinyl tiles made from solid PVC compounds. A cost-effective, durable option for commercial spaces with the added benefit of individual tile replacement when needed.',
+      accentColor: '#A5B4BC',
+      tags: [
+        { label: 'Cost-effective', variant: 'green' },
+        { label: 'Replaceable Tiles', variant: 'tan' },
+      ],
+      order: 5,
+    },
+    {
+      title: 'Vinyl Composition Tile',
+      subtitle: 'VCT · Commercial Standard',
+      description: 'A proven commercial staple made from vinyl and limestone. VCT is extremely durable and cost-effective in high-traffic areas like retail and schools. Requires periodic waxing to maintain its finish.',
+      accentColor: '#CFD8DC',
+      tags: [
+        { label: 'Durable', variant: 'green' },
+        { label: 'Cost-effective', variant: 'tan' },
+      ],
+      order: 6,
     },
     {
       title: 'Rubber',
       subtitle: 'Vulcanized · Recycled Content',
-      description: 'Premium performance flooring offering unmatched resilience, acoustic properties, and slip resistance. The preferred choice for healthcare and education.',
+      description: 'Outstanding durability, acoustic performance, and slip resistance. Common in gyms, hospitals, and transit facilities. Often made with recycled rubber content.',
       accentColor: '#D4A574',
       tags: [
         { label: 'Acoustic', variant: 'green' },
         { label: 'Slip Resistant', variant: 'tan' },
         { label: 'Recycled Content', variant: 'gray' },
       ],
-      order: 3,
+      order: 7,
     },
     {
       title: 'Linoleum',
-      subtitle: 'Natural · Sustainable',
-      description: 'Made from natural raw materials including linseed oil, wood flour, and limestone. A 150-year legacy of sustainable, biobased flooring.',
+      subtitle: 'Natural · Bio-based',
+      description: 'Made from linseed oil, wood flour, and limestone — natural materials used in flooring for over 150 years. Biodegradable, antimicrobial, and carbon neutral.',
       accentColor: '#8FBC8F',
       tags: [
         { label: 'Bio-based', variant: 'green' },
         { label: 'Carbon Neutral', variant: 'green' },
       ],
-      order: 4,
+      order: 8,
     },
     {
       title: 'Cork',
       subtitle: 'Natural · Acoustic',
-      description: 'Harvested from the bark of cork oak trees without harming the tree, cork provides warmth, acoustic comfort, and natural beauty.',
+      description: 'Harvested from cork oak bark without cutting the tree. Warm underfoot, naturally acoustic, and a fully renewable resource.',
       accentColor: '#C4A882',
       tags: [
         { label: 'Renewable', variant: 'green' },
         { label: 'Acoustic', variant: 'tan' },
       ],
-      order: 5,
+      order: 9,
     },
   ], 'Flooring Types')
 
@@ -89,7 +152,7 @@ async function run() {
       slug: 'floorscore',
       title: 'FloorScore®',
       iconName: 'shieldCheck',
-      description: 'The leading IAQ certification for hard surface flooring products, adhesives, and underlayments. Developed with SCS Global Services, FloorScore tests for over 100 VOC emissions.',
+      description: 'The leading indoor air quality certification for hard surface flooring. Developed with SCS Global Services, FloorScore tests for over 100 VOC emissions. It is specified by LEED, WELL, and CHPS and recognized in commercial and government procurement worldwide.',
       stats: [
         { value: '10,000+', label: 'Certified Products' },
         { value: '97%', label: 'Market Coverage' },
@@ -97,15 +160,26 @@ async function run() {
       order: 1,
     },
     {
-      slug: 'rfci-program',
-      title: 'RFCI Program',
-      iconName: 'fileText',
-      description: 'Our comprehensive sustainability certification addresses lifecycle impacts, recycled content, and end-of-life recovery. Recognized by LEED, BREEAM, and WELL Building Standard.',
+      slug: 'nsf-ansi',
+      title: 'NSF/ANSI Sustainability',
+      iconName: 'leaf',
+      description: 'A third-party certification covering sustainability across the entire product lifecycle — from raw materials to end-of-life. NSF/ANSI 332 evaluates recycled content, product longevity, environmental stewardship, and responsible sourcing for resilient flooring.',
       stats: [
-        { value: '45+', label: 'Member Companies' },
-        { value: '1B+ sq ft', label: 'Certified Annually' },
+        { value: 'NSF/ANSI 332', label: 'Standard' },
+        { value: 'Full Lifecycle', label: 'Scope' },
       ],
       order: 2,
+    },
+    {
+      slug: 'epd',
+      title: 'Environmental Product Declaration',
+      iconName: 'globe',
+      description: 'An EPD is a standardized document that transparently reports the environmental impact of a product across its full lifecycle, from manufacturing through disposal. RFCI supports and promotes EPDs for resilient flooring as part of its sustainability commitment.',
+      stats: [
+        { value: 'ISO 14044', label: 'Standard' },
+        { value: 'Full Lifecycle', label: 'Assessment' },
+      ],
+      order: 3,
     },
   ], 'Certifications')
 
@@ -165,6 +239,24 @@ async function run() {
     { name: 'Wellmade',          website: 'https://wellmadefloors.com',   row: '2', order: 10 },
     { name: 'Windmöller',        website: 'https://windmoeller.com',      row: '2', order: 11 },
   ], 'Members')
+
+  // ── SiteSettings global ───────────────────────────────────────────────────
+  await seedGlobal('site-settings', {
+    heroLine1: 'THE HOME OF',
+    heroLine2: 'RESILIENT FLOORING.',
+    heroSubheading: 'RFCI is the trade association for the resilient flooring industry. We bring together manufacturers and suppliers to set standards, run certification programs, and advance the category.',
+    heroCta: 'Learn about RFCI',
+    heroBoxText: 'Find out who our members are, what certifications we run, and how we support the industry.',
+  }, 'SiteSettings')
+
+  // ── CommunityEvent global ─────────────────────────────────────────────────
+  await seedGlobal('community-event', {
+    sectionHeading: 'Industry people. Getting together twice a year.',
+    sectionSubheading: "Twice a year, RFCI members and industry professionals get together to share what's working, talk through technical standards, and discuss sustainability. If you work in resilient flooring, this is where you want to be.",
+    eventTitle: 'Fall Industry Meeting',
+    eventLocation: 'Austin, TX',
+    eventDate: 'Oct 12–14',
+  }, 'CommunityEvent')
 
   console.log('\n🌱 Seed complete.')
   await (payload.db as any).destroy?.()

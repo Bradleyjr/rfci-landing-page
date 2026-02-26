@@ -10,14 +10,14 @@ export const CommunityEvent: GlobalConfig = {
       name: 'sectionHeading',
       type: 'text',
       required: true,
-      defaultValue: 'More than a category. A community.',
+      defaultValue: 'Industry people. Getting together twice a year.',
     },
     {
       name: 'sectionSubheading',
       type: 'textarea',
       required: true,
       defaultValue:
-        "Twice a year, the resilient flooring community gathers to share knowledge, advance technical standards, and champion sustainability. It's the engine of our movement and an invitation to shape what's next.",
+        "Twice a year, RFCI members and industry professionals get together to share what's working, talk through technical standards, and discuss sustainability. If you work in resilient flooring, this is where you want to be.",
     },
     {
       name: 'eventTitle',

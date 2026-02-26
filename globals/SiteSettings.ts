@@ -10,7 +10,7 @@ export const SiteSettings: GlobalConfig = {
       name: 'heroLine1',
       type: 'text',
       required: true,
-      defaultValue: 'THE VOICE OF',
+      defaultValue: 'THE HOME OF',
       admin: {
         description: 'First line of hero headline (displayed in bold)',
       },
@@ -19,7 +19,7 @@ export const SiteSettings: GlobalConfig = {
       name: 'heroLine2',
       type: 'text',
       required: true,
-      defaultValue: 'A MOVEMENT.',
+      defaultValue: 'RESILIENT FLOORING.',
       admin: {
         description: 'Second line of hero headline (displayed italic + blue)',
       },
@@ -29,13 +29,13 @@ export const SiteSettings: GlobalConfig = {
       type: 'textarea',
       required: true,
       defaultValue:
-        'RFCI is more than an information resource—we are the community of manufacturers and suppliers shaping the future of resilient flooring through advocacy, standards, and education.',
+        'RFCI is the trade association for the resilient flooring industry. We bring together manufacturers and suppliers to set standards, run certification programs, and advance the category.',
     },
     {
       name: 'heroCta',
       type: 'text',
       required: true,
-      defaultValue: 'Get to know RFCI',
+      defaultValue: 'Learn about RFCI',
       admin: {
         description: 'CTA button text in the hero info card',
       },
@@ -45,7 +45,7 @@ export const SiteSettings: GlobalConfig = {
       type: 'textarea',
       required: true,
       defaultValue:
-        'Discover the people, events, and rigorous certifications driving the resilient flooring industry forward.',
+        'Find out who our members are, what certifications we run, and how we support the industry.',
       admin: {
         description: 'Body text inside the floating hero info card',
       },
