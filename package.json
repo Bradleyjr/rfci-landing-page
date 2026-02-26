@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate:types": "payload generate:types"
+    "generate:types": "payload generate:types",
+    "migrate": "tsx scripts/migrate.ts",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",
@@ -29,7 +31,9 @@
     "@types/node": "^22.14.0",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "patch-package": "^8.0.1",
     "tailwindcss": "^4.1.14",
+    "tsx": "^4.0.0",
     "typescript": "~5.8.2"
   }
 }
