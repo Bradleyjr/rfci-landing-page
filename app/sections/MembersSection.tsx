@@ -7,6 +7,7 @@ import { mediaUrl } from '../_lib/transforms'
 
 type MemberDoc = {
   name: string
+  logoUrl?: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   logo?: any
   website?: string
@@ -61,7 +62,7 @@ const TastefulShader = () => (
 )
 
 function MemberLogo({ member }: { member: MemberDoc }) {
-  const logoUrl = mediaUrl(member.logo)
+  const logoUrl = member.logoUrl || mediaUrl(member.logo)
   if (logoUrl) {
     return (
       <div className="group w-36 h-12 flex items-center justify-center shrink-0">
@@ -84,7 +85,7 @@ function MemberLogo({ member }: { member: MemberDoc }) {
 export function MembersSection({ members }: { members: any[] }) {
   // Show row1 members from CMS only if they have logo URLs; otherwise fall back to static list
   const cmsRow1 = (members ?? []).filter((m: MemberDoc) => !m.row || m.row === '1')
-  const cmsHasLogos = cmsRow1.some((m: MemberDoc) => mediaUrl(m.logo))
+  const cmsHasLogos = cmsRow1.some((m: MemberDoc) => m.logoUrl || mediaUrl(m.logo))
   const displayMembers: MemberDoc[] = cmsHasLogos ? cmsRow1 : MEMBERS_STATIC
 
   return (

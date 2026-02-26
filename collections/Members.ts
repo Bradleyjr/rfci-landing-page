@@ -13,9 +13,19 @@ export const Members: CollectionConfig = {
       required: true,
     },
     {
+      name: 'logoUrl',
+      type: 'text',
+      admin: {
+        description: 'Direct URL to the member logo image (e.g. from rfci.com/wp-content/uploads/...)',
+      },
+    },
+    {
       name: 'logo',
       type: 'upload',
       relationTo: 'media',
+      admin: {
+        description: 'Optional: uploaded logo file. logoUrl above takes priority if set.',
+      },
     },
     {
       name: 'website',
