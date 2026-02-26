@@ -1,4 +1,5 @@
 import type { ServerFunctionClient } from 'payload'
+import '@payloadcms/next/css'
 import { RootLayout, handleServerFunctions } from '@payloadcms/next/layouts'
 import { importMap } from './importMap'
 import configPromise from '@payload-config'
