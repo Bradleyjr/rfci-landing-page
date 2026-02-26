@@ -34,7 +34,7 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: process.env.DATABASE_URI?.startsWith('postgresql') || process.env.DATABASE_URI?.startsWith('postgres')
-    ? postgresAdapter({ pool: { connectionString: process.env.DATABASE_URI } })
+    ? postgresAdapter({ pool: { connectionString: process.env.DATABASE_URI }, push: true })
     : sqliteAdapter({ client: { url: process.env.DATABASE_URI || 'file:./rfci-dev.db' } }),
   sharp,
 })
