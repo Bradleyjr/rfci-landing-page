@@ -82,9 +82,10 @@ function MemberLogo({ member }: { member: MemberDoc }) {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function MembersSection({ members }: { members: any[] }) {
-  // Show row1 members from CMS; if none, fall back to static list
+  // Show row1 members from CMS only if they have logo URLs; otherwise fall back to static list
   const cmsRow1 = (members ?? []).filter((m: MemberDoc) => !m.row || m.row === '1')
-  const displayMembers: MemberDoc[] = cmsRow1.length ? cmsRow1 : MEMBERS_STATIC
+  const cmsHasLogos = cmsRow1.some((m: MemberDoc) => mediaUrl(m.logo))
+  const displayMembers: MemberDoc[] = cmsHasLogos ? cmsRow1 : MEMBERS_STATIC
 
   return (
     <section id="members" className="py-40 bg-rfci-black text-white relative overflow-hidden">
@@ -97,10 +98,10 @@ export function MembersSection({ members }: { members: any[] }) {
             <Users className="w-8 h-8 text-rfci-blue" />
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-6 leading-[1.1] tracking-tight">
-            The members driving <br /><span className="font-semibold text-rfci-blue">the movement.</span>
+            Meet our <br /><span className="font-semibold text-rfci-blue">member companies.</span>
           </h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            RFCI is comprised of the industry&apos;s leading manufacturers and suppliers. We don&apos;t just share a market—we share a commitment to advancing the built environment together.
+            RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.
           </p>
           <button className="text-xl md:text-2xl font-display font-light text-white hover:text-rfci-blue transition-colors flex items-center justify-center gap-4 group relative">
             <span className="relative">

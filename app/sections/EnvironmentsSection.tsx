@@ -41,14 +41,14 @@ export function EnvironmentsSection({ environments }: { environments: any[] }) {
             <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-6 flex items-center gap-2">
               <Leaf className="w-4 h-4" /> Commercial &amp; Residential
             </div>
-            <h2 className="text-4xl md:text-5xl font-display font-light mb-8">Performance where it matters most.</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-light mb-8">Built for real spaces.</h2>
             <p className="text-lg text-rfci-black/70 mb-8 leading-relaxed">
-              From healthcare facilities demanding rigorous hygiene to commercial spaces focused on durability and style, resilient flooring delivers unmatched versatility across every environment.
+              Resilient flooring works across a wide range of commercial and residential spaces—from hospitals that need hygienic, easy-to-clean surfaces to offices looking for something that holds up over time.
             </p>
             <button className="text-rfci-blue font-medium flex items-center gap-2 group relative">
               <span className="relative">
                 <span className="relative z-10 flex items-center gap-2">
-                  Explore Why Resilient <ArrowRight className="w-4 h-4 group-hover:text-rfci-black transition-colors" />
+                  Why choose resilient? <ArrowRight className="w-4 h-4 group-hover:text-rfci-black transition-colors" />
                 </span>
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-blue group-hover:w-full transition-all duration-300 ease-out" />
               </span>

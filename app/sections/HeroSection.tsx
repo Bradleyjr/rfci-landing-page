@@ -5,11 +5,11 @@ import { ArrowRight } from '@phosphor-icons/react'
 import { mediaUrl } from '../_lib/transforms'
 
 const HERO_STATIC = {
-  heroLine1: 'THE VOICE OF',
-  heroLine2: 'A MOVEMENT.',
-  heroSubheading: 'RFCI is more than an information resource—we are the community of manufacturers and suppliers shaping the future of resilient flooring through advocacy, standards, and education.',
-  heroCta: 'Get to know RFCI',
-  heroBoxText: 'Discover the people, events, and rigorous certifications driving the resilient flooring industry forward.',
+  heroLine1: 'THE HOME OF',
+  heroLine2: 'RESILIENT FLOORING.',
+  heroSubheading: 'RFCI is the trade association for the resilient flooring industry. We bring together manufacturers and suppliers to set standards, run certification programs, and advance the category.',
+  heroCta: 'Learn about RFCI',
+  heroBoxText: 'Find out who our members are, what certifications we run, and how we support the industry.',
   heroImageUrl: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop',
 }
 

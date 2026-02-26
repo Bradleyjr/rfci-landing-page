@@ -19,9 +19,9 @@ type FlooringTypeDoc = {
 
 const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
-    title: 'Luxury Vinyl',
-    subtitle: 'LVT · LVP · SPC · WPC',
-    description: 'The fastest-growing category in flooring. Waterproof, durable, and available in realistic wood and stone visuals—LVT leads commercial and residential markets alike.',
+    title: 'Flexible LVT',
+    subtitle: 'Luxury Vinyl Tile · Planks',
+    description: 'The most popular resilient product on the market. Flexible LVT comes in tile and plank formats with realistic wood and stone visuals, and holds up well in both commercial and residential spaces.',
     accentColor: '#9CA3AF',
     tags: [
       { label: 'Waterproof', variant: 'green' },
@@ -30,19 +30,63 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
     ],
   },
   {
-    title: 'Sheet Vinyl',
-    subtitle: 'Homogeneous · Heterogeneous',
-    description: 'A seamless, hygienic surface ideal for healthcare and commercial environments. Broad design flexibility with outstanding durability.',
+    title: 'Rigid Core',
+    subtitle: 'SPC · WPC · Multilayer',
+    description: 'A step up from flexible LVT. Rigid core products have a stiff, multilayer construction that resists denting, handles temperature swings well, and works great over uneven subfloors.',
+    accentColor: '#78909C',
+    tags: [
+      { label: 'Waterproof', variant: 'green' },
+      { label: 'Dimensionally Stable', variant: 'tan' },
+      { label: 'High Traffic', variant: 'gray' },
+    ],
+  },
+  {
+    title: 'Heterogeneous Sheet Vinyl',
+    subtitle: 'Multi-layer · Printed Design',
+    description: 'Multi-layer sheet vinyl with a printed design layer, giving you a lot of flexibility visually. A common choice in healthcare and commercial spaces where seamless installation matters.',
     accentColor: '#B0C4DE',
     tags: [
       { label: 'Hygienic', variant: 'green' },
       { label: 'Seamless', variant: 'tan' },
+      { label: 'Design Versatility', variant: 'gray' },
+    ],
+  },
+  {
+    title: 'Homogeneous Sheet Vinyl',
+    subtitle: 'Through-body · Single Layer',
+    description: 'Same material all the way through. Because the color and pattern run the full thickness, homogeneous sheet vinyl is extremely durable and easy to maintain—ideal for high-traffic commercial floors.',
+    accentColor: '#90A4AE',
+    tags: [
+      { label: 'Hygienic', variant: 'green' },
+      { label: 'Durable', variant: 'tan' },
+      { label: 'Low Maintenance', variant: 'gray' },
+    ],
+  },
+  {
+    title: 'Solid Vinyl Tile',
+    subtitle: 'SVT · Flexible Tiles',
+    description: 'Flexible vinyl cut into tiles—from sheet vinyl or manufactured in molds. A practical choice for healthcare, institutional, and education settings where durability and easy replacement matter.',
+    accentColor: '#A5B4BC',
+    tags: [
+      { label: 'Durable', variant: 'tan' },
+      { label: 'Easy Replacement', variant: 'gray' },
+    ],
+  },
+  {
+    title: 'Vinyl Composition Tile',
+    subtitle: 'VCT · Commercial Standard',
+    description: 'A workhorse in commercial flooring. VCT is affordable, durable, and available in a wide range of colors—making it easy to create custom patterns and effects across large spaces.',
+    accentColor: '#CFD8DC',
+    tags: [
+      { label: 'Cost Effective', variant: 'green' },
+      { label: 'Durable', variant: 'tan' },
+      { label: 'Custom Patterns', variant: 'gray' },
     ],
   },
   {
     title: 'Rubber',
     subtitle: 'Vulcanized · Recycled Content',
-    description: 'Premium performance flooring offering unmatched resilience, acoustic properties, and slip resistance. The preferred choice for healthcare and education.',
+    description: 'Tough, quiet, and slip-resistant. Rubber flooring is the go-to for hospitals, schools, and gyms—spaces that need a floor that can handle heavy use and still feel good underfoot.',
     accentColor: '#D4A574',
     tags: [
       { label: 'Acoustic', variant: 'green' },
@@ -52,8 +96,8 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   },
   {
     title: 'Linoleum',
-    subtitle: 'Natural · Sustainable',
-    description: 'Made from natural raw materials including linseed oil, wood flour, and limestone. A 150-year legacy of sustainable, biobased flooring.',
+    subtitle: 'Natural · Bio-based',
+    description: 'Made from linseed oil, wood flour, and limestone—natural materials that have been used in flooring for over 150 years. Biodegradable, long-lasting, and one of the most sustainable floors available.',
     accentColor: '#8FBC8F',
     tags: [
       { label: 'Bio-based', variant: 'green' },
@@ -63,7 +107,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Cork',
     subtitle: 'Natural · Acoustic',
-    description: 'Harvested from the bark of cork oak trees without harming the tree, cork provides warmth, acoustic comfort, and natural beauty.',
+    description: 'Harvested from the bark of cork oak trees—without cutting the tree down. Cork is naturally warm, quiet, and comfortable underfoot, making it a solid choice for residential and light commercial use.',
     accentColor: '#C4A882',
     tags: [
       { label: 'Renewable', variant: 'green' },
@@ -103,7 +147,7 @@ export function MaterialsCarousel({ flooringTypes }: { flooringTypes: any[] }) {
           <div className="max-w-2xl">
             <div className="text-xs font-bold tracking-widest uppercase text-rfci-black/50 mb-4">The Categories</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight">
-              A comprehensive suite of <br /><span className="font-semibold text-rfci-blue">resilient solutions.</span>
+              The full range of <br /><span className="font-semibold text-rfci-blue">resilient flooring.</span>
             </h2>
           </div>
           <div className="hidden md:flex gap-3">

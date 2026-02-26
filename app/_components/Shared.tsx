@@ -8,9 +8,9 @@ const sectionToNav: Record<string, string> = {
   'environments': 'About',
   'flooring-types': 'Learn',
   'standards': 'Certifications',
-  'community': 'Newsroom',
+  'community': 'About',
   'education': 'Learn',
-  'members': 'Members',
+  'members': 'Member Directory',
 }
 
 const navItems = [
@@ -21,10 +21,10 @@ const navItems = [
   {
     title: 'Learn',
     megaMenu: [
-      { label: 'Why Resilient', href: '/why-resilient', desc: 'Product categories, sustainability, and why resilient is growing.', icon: Leaf },
-      { label: 'Resources', href: '/resources', desc: 'Technical docs, standards, and sustainable guidance.', icon: FileText },
-      { label: 'Videos', href: '/videos', desc: 'Educational content for commercial end users and A&D.', icon: PlayCircle },
-      { label: 'FAQ', href: '/faq', desc: 'Common questions answered directly for all audiences.', icon: Question },
+      { label: 'Why Resilient', href: '/why-resilient', desc: 'What makes resilient flooring a smart choice for your space.', icon: Leaf },
+      { label: 'Resources', href: '/resources', desc: 'Technical documents, standards, and sustainability guides.', icon: FileText },
+      { label: 'Educational Videos', href: '/videos', desc: 'Short videos covering products, installation, and performance.', icon: PlayCircle },
+      { label: 'FAQ', href: '/faq', desc: 'Answers to common questions about resilient flooring.', icon: Question },
     ],
   },
   {
@@ -32,16 +32,8 @@ const navItems = [
     href: '/certifications',
   },
   {
-    title: 'Newsroom',
-    href: '/newsroom',
-  },
-  {
-    title: 'Members',
-    dropdown: [
-      { label: 'Board Companies', href: '/members/board-companies' },
-      { label: 'Associate Members', href: '/members/associate-members' },
-      { label: 'Member Directory', href: '/members/directory' },
-    ],
+    title: 'Member Directory',
+    href: '/members',
   },
 ]
 
@@ -218,8 +210,7 @@ export const Footer = () => (
             />
           </div>
           <p className="text-white/60 text-sm leading-relaxed max-w-sm mb-8">
-            The Resilient Floor Covering Institute is the voice of the resilient flooring industry, advancing the
-            category through standards, sustainability, and education.
+            The Resilient Floor Covering Institute represents the manufacturers and suppliers behind resilient flooring—working together on standards, certifications, and education.
           </p>
           <div className="flex gap-4">
             <div className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-rfci-teal transition-colors cursor-pointer">
@@ -247,7 +238,7 @@ export const Footer = () => (
           <ul className="space-y-4 text-sm text-white/70">
             <li><a href="/why-resilient" className="hover:text-rfci-teal transition-colors">Why Resilient</a></li>
             <li><a href="/resources" className="hover:text-rfci-teal transition-colors">Resources</a></li>
-            <li><a href="/videos" className="hover:text-rfci-teal transition-colors">Videos</a></li>
+            <li><a href="/videos" className="hover:text-rfci-teal transition-colors">Educational Videos</a></li>
             <li><a href="/faq" className="hover:text-rfci-teal transition-colors">FAQ</a></li>
           </ul>
         </div>
@@ -256,10 +247,7 @@ export const Footer = () => (
           <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">Organization</h4>
           <ul className="space-y-4 text-sm text-white/70">
             <li><a href="/certifications" className="hover:text-rfci-teal transition-colors">Certifications</a></li>
-            <li><a href="/newsroom" className="hover:text-rfci-teal transition-colors">Newsroom</a></li>
-            <li><a href="/members/board-companies" className="hover:text-rfci-teal transition-colors">Board Companies</a></li>
-            <li><a href="/members/associate-members" className="hover:text-rfci-teal transition-colors">Associate Members</a></li>
-            <li><a href="/members/directory" className="hover:text-rfci-teal transition-colors">Member Directory</a></li>
+            <li><a href="/members" className="hover:text-rfci-teal transition-colors">Member Directory</a></li>
           </ul>
         </div>
       </div>

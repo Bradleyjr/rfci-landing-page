@@ -27,8 +27,10 @@ export const Certifications: CollectionConfig = {
       required: true,
       defaultValue: 'shieldCheck',
       options: [
-        { label: 'Shield Check (certification badge)', value: 'shieldCheck' },
-        { label: 'File Text (document/EPD)', value: 'fileText' },
+        { label: 'Shield Check (FloorScore / certification badge)', value: 'shieldCheck' },
+        { label: 'File Text (document)', value: 'fileText' },
+        { label: 'Leaf (sustainability / NSF-ANSI)', value: 'leaf' },
+        { label: 'Globe (environmental / EPD)', value: 'globe' },
       ],
     },
     {

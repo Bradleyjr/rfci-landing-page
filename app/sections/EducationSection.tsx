@@ -49,14 +49,14 @@ export function EducationSection({ videos }: { videos: any[] }) {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
           <SectionReveal direction="left">
-            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">The Knowledge</div>
-            <h2 className="text-4xl md:text-5xl font-display font-light">Featured Insights</h2>
+            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Educational Videos</div>
+            <h2 className="text-4xl md:text-5xl font-display font-light">From our video library</h2>
           </SectionReveal>
           <SectionReveal direction="right">
             <button className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-rfci-blue transition-colors group">
               <span className="relative">
                 <span className="relative z-10 flex items-center gap-2">
-                  View All Education <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  View All Videos <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-black group-hover:w-full transition-all duration-300 ease-out" />
               </span>

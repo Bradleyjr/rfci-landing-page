@@ -25,8 +25,8 @@ const STATIC_PHOTO_URLS = [
 export function CommunitySection({ communityEvent }: { communityEvent: any }) {
   const arcRef = useRef<HTMLDivElement>(null)
 
-  const sectionHeading = communityEvent?.sectionHeading ?? 'More than a category. A community.'
-  const sectionSubheading = communityEvent?.sectionSubheading ?? "Twice a year, the resilient flooring community gathers to share knowledge, advance technical standards, and champion sustainability. It's the engine of our movement and an invitation to shape what's next."
+  const sectionHeading = communityEvent?.sectionHeading ?? 'Industry people. Getting together twice a year.'
+  const sectionSubheading = communityEvent?.sectionSubheading ?? "Twice a year, RFCI members and industry professionals get together to share what's working, talk through technical standards, and discuss sustainability. If you work in resilient flooring, this is where you want to be."
   const eventTitle = communityEvent?.eventTitle ?? 'Fall Industry Meeting'
   const eventLocation = communityEvent?.eventLocation ?? 'Austin, TX'
   const eventDate = communityEvent?.eventDate ?? 'Oct 12–14'

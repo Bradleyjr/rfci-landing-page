@@ -22,7 +22,7 @@ const CERTS_STATIC: CertDoc[] = [
     slug: 'floorscore',
     title: 'FloorScore®',
     iconName: 'shieldCheck',
-    description: 'The leading IAQ certification for hard surface flooring products, adhesives, and underlayments. Developed with SCS Global Services, FloorScore tests for over 100 VOC emissions.',
+    description: 'FloorScore is the flooring industry\'s most recognized indoor air quality certification. It\'s independently administered by SCS Global Services and verifies that a product meets California\'s strict VOC emissions standards—one of the toughest benchmarks in the world.',
     image: { url: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop' },
     stats: [
       { value: '10,000+', label: 'Certified Products' },
@@ -30,14 +30,25 @@ const CERTS_STATIC: CertDoc[] = [
     ],
   },
   {
-    slug: 'rfci-program',
-    title: 'RFCI Program',
-    iconName: 'fileText',
-    description: 'Our comprehensive sustainability certification addresses lifecycle impacts, recycled content, and end-of-life recovery. Recognized by LEED, BREEAM, and WELL Building Standard.',
-    image: { url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop' },
+    slug: 'nsf-ansi',
+    title: 'NSF/ANSI Sustainability',
+    iconName: 'leaf',
+    description: 'The NSF/ANSI Sustainability Assessment evaluates flooring products across their full environmental and social footprint—from raw materials to manufacturing practices. It\'s run by NSF International, an independent not-for-profit organization that sets standards for health and environmental safety.',
+    image: { url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200&auto=format&fit=crop' },
     stats: [
       { value: '45+', label: 'Member Companies' },
-      { value: '1B+ sq ft', label: 'Certified Annually' },
+      { value: '100%', label: 'Independent Verification' },
+    ],
+  },
+  {
+    slug: 'epd',
+    title: 'Environmental Product Declaration',
+    iconName: 'globe',
+    description: 'An EPD is a standardized, third-party-verified report that shows exactly what a flooring product is made of and how it impacts the environment across its full lifecycle. It\'s one of the clearest ways manufacturers can show transparency—and one of the most useful tools for architects and specifiers.',
+    image: { url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop' },
+    stats: [
+      { value: 'ISO 14025', label: 'International Standard' },
+      { value: 'Lifecycle', label: 'Full Scope Coverage' },
     ],
   },
 ]
@@ -109,10 +120,10 @@ export function StandardsSection({ certifications }: { certifications: any[] }) 
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <SectionReveal className="text-center mb-16">
-          <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Credibility &amp; Trust</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6">Standards that elevate the industry.</h2>
+          <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Certifications</div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6">Certifications you can rely on.</h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto font-light">
-            We manage the industry&apos;s leading certification programs, providing architects, designers, and facility managers with the assurance that products meet strict indoor air quality and sustainability metrics.
+            RFCI manages three of the flooring industry&apos;s most trusted certification programs. If you&apos;re specifying products or evaluating sustainability claims, these are the benchmarks that matter.
           </p>
         </SectionReveal>
 
