@@ -27,7 +27,6 @@ export const Environments: CollectionConfig = {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
-      required: true,
     },
     {
       name: 'order',

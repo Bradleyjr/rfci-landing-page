@@ -24,7 +24,6 @@ export const Videos: CollectionConfig = {
       name: 'thumbnail',
       type: 'upload',
       relationTo: 'media',
-      required: true,
     },
     {
       name: 'featured',

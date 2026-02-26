@@ -40,7 +40,6 @@ export const Certifications: CollectionConfig = {
       name: 'image',
       type: 'upload',
       relationTo: 'media',
-      required: true,
     },
     {
       name: 'stats',

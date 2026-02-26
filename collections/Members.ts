@@ -16,7 +16,6 @@ export const Members: CollectionConfig = {
       name: 'logo',
       type: 'upload',
       relationTo: 'media',
-      required: true,
     },
     {
       name: 'website',

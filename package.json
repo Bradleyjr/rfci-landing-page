@@ -9,6 +9,7 @@
     "lint": "next lint",
     "generate:types": "payload generate:types",
     "migrate": "tsx scripts/migrate.ts",
+    "seed": "tsx scripts/seed.ts",
     "postinstall": "patch-package"
   },
   "dependencies": {
