@@ -75,7 +75,7 @@ export const Navigation = ({
                     }`}
                   >
                     {item.title}
-                    {(item.dropdown || item.megaMenu) && (
+                    {item.megaMenu && (
                       <CaretDown className="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform duration-300" />
                     )}
                     <span
@@ -84,22 +84,6 @@ export const Navigation = ({
                       }`}
                     />
                   </a>
-
-                  {item.dropdown && (
-                    <div className="absolute top-full left-0 w-56 bg-white border border-black/5 shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50">
-                      <div className="py-2">
-                        {item.dropdown.map((dropItem) => (
-                          <a
-                            key={dropItem.label}
-                            href={dropItem.href}
-                            className="block px-5 py-2.5 text-sm text-rfci-black/70 hover:text-rfci-blue hover:bg-rfci-light-gray/20 transition-colors"
-                          >
-                            {dropItem.label}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
 
                   {item.megaMenu && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-white border border-black/5 shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50 p-6">
