@@ -2,6 +2,9 @@ import type { CollectionConfig } from 'payload'
 
 export const FlooringTypes: CollectionConfig = {
   slug: 'flooring-types',
+  access: {
+    read: () => true,
+  },
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'subtitle', 'order'],

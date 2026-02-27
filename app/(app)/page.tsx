@@ -25,6 +25,11 @@ export default async function Page() {
     payload.find({ collection: 'videos', sort: 'order', limit: 20 }),
   ])
 
+  // Debug: log CMS data counts on server
+  console.log('[PAGE] Flooring Types:', flooringTypesResult.totalDocs, flooringTypesResult.docs.map((d: any) => d.title))
+  console.log('[PAGE] Certifications:', certificationsResult.totalDocs, certificationsResult.docs.map((d: any) => d.title))
+  console.log('[PAGE] Members:', membersResult.totalDocs)
+
   return (
     <LandingPage
       siteSettings={siteSettings}

@@ -2,6 +2,9 @@ import type { CollectionConfig } from 'payload'
 
 export const Members: CollectionConfig = {
   slug: 'members',
+  access: {
+    read: () => true,
+  },
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'row', 'order'],
