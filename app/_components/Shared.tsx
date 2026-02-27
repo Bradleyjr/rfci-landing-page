@@ -1,17 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight, List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, Question } from '@phosphor-icons/react'
-
-const sectionToNav: Record<string, string> = {
-  'hero': 'About',
-  'environments': 'About',
-  'flooring-types': 'Learn',
-  'standards': 'Certifications',
-  'community': 'About',
-  'education': 'Learn',
-  'members': 'Member Directory',
-}
+import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, Question } from '@phosphor-icons/react'
 
 const navItems = [
   {
@@ -40,14 +30,11 @@ const navItems = [
 export const Navigation = ({
   isScrolled,
   theme = 'light',
-  activeSection = null,
 }: {
   isScrolled: boolean
   theme?: 'light' | 'dark'
-  activeSection?: string | null
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const activeNavTitle = activeSection ? sectionToNav[activeSection] : null
 
   return (
     <>
@@ -64,26 +51,18 @@ export const Navigation = ({
           </div>
 
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => {
-              const isActive = activeNavTitle === item.title
-              return (
-                <div key={item.title} className="relative group">
-                  <a
-                    href={item.href || `#${item.title.toLowerCase()}`}
-                    className={`relative flex items-center gap-1 text-sm font-medium tracking-wide py-4 transition-colors ${
-                      isActive ? 'text-rfci-blue' : 'text-rfci-black/80 hover:text-rfci-blue'
-                    }`}
-                  >
-                    {item.title}
-                    {item.megaMenu && (
-                      <CaretDown className="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform duration-300" />
-                    )}
-                    <span
-                      className={`absolute bottom-2 left-0 h-[2px] bg-rfci-blue transition-all duration-300 ${
-                        isActive ? 'w-full' : 'w-0'
-                      }`}
-                    />
-                  </a>
+            {navItems.map((item) => (
+              <div key={item.title} className="relative group">
+                <a
+                  href={item.href || `#${item.title.toLowerCase()}`}
+                  className="relative flex items-center gap-1 text-sm font-medium tracking-wide py-4 text-rfci-black/80 hover:text-rfci-blue transition-colors"
+                >
+                  {item.title}
+                  {item.megaMenu && (
+                    <CaretDown className="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform duration-300" />
+                  )}
+                  <span className="absolute bottom-2 left-0 h-[2px] bg-rfci-blue w-0 group-hover:w-full transition-all duration-300" />
+                </a>
 
                   {item.megaMenu && (
                     <div className="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-white border border-black/5 shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50 p-6">
@@ -109,8 +88,7 @@ export const Navigation = ({
                     </div>
                   )}
                 </div>
-              )
-            })}
+            ))}
           </div>
 
           <button

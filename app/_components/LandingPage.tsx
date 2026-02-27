@@ -13,33 +13,6 @@ import { CommunitySection } from '../sections/CommunitySection'
 import { EducationSection } from '../sections/EducationSection'
 import { MembersSection } from '../sections/MembersSection'
 
-const sectionIds = ['hero', 'environments', 'flooring-types', 'standards', 'community', 'education', 'members']
-
-function useActiveSection(ids: string[]) {
-  const [activeSection, setActiveSection] = useState<string | null>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter(e => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
-        if (visible.length > 0) {
-          setActiveSection(visible[0].target.id)
-        }
-      },
-      { rootMargin: '-40% 0px -40% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
-    )
-    ids.forEach(id => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    })
-    return () => observer.disconnect()
-  }, [ids])
-
-  return activeSection
-}
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function LandingPage(props: Record<string, any>) {
   const { siteSettings, communityEvent, members, flooringTypes, certifications, environments, videos } = props
@@ -53,8 +26,6 @@ export function LandingPage(props: Record<string, any>) {
 
   const { scrollY } = useScroll()
   const heroY = useTransform(scrollY, [0, 1000], [0, 300])
-
-  const activeSection = useActiveSection(sectionIds)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +45,7 @@ export function LandingPage(props: Record<string, any>) {
           style={{ scaleX }}
         />
 
-        <Navigation isScrolled={isScrolled} theme="dark" activeSection={activeSection} />
+        <Navigation isScrolled={isScrolled} theme="dark" />
 
         <HeroSection heroY={heroY} siteSettings={siteSettings} />
 
