@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, Question } from '@phosphor-icons/react'
+import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, Question, ShieldCheck, Seal, Certificate, Globe } from '@phosphor-icons/react'
 
 const navItems = [
   {
@@ -19,7 +19,12 @@ const navItems = [
   },
   {
     title: 'Certifications',
-    href: '/certifications',
+    megaMenu: [
+      { label: 'FloorScore®', href: '/certifications/floorscore', desc: 'The leading indoor air quality certification for hard surface flooring.', icon: ShieldCheck },
+      { label: 'ASSURE® Certified', href: '/certifications/assure', desc: 'Third-party sustainability certification across the full product lifecycle.', icon: Seal },
+      { label: 'AFFIRM™ Certified', href: '/certifications/affirm', desc: 'Material health certification for resilient flooring products.', icon: Certificate },
+      { label: 'Environmental Product Declaration', href: '/certifications/epd', desc: 'Transparent reporting of environmental impact across a product\'s lifecycle.', icon: Globe },
+    ],
   },
   {
     title: 'Member Directory',
