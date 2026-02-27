@@ -25,7 +25,7 @@ const STATIC_PHOTO_URLS = [
 export function CommunitySection({ communityEvent }: { communityEvent: any }) {
   const arcRef = useRef<HTMLDivElement>(null)
 
-  const sectionHeading = communityEvent?.sectionHeading ?? 'Industry people. Getting together twice a year.'
+  const sectionHeading = communityEvent?.sectionHeading ?? 'Where the industry comes together.'
   const sectionSubheading = communityEvent?.sectionSubheading ?? "Twice a year, RFCI members and industry professionals get together to share what's working, talk through technical standards, and discuss sustainability. If you work in resilient flooring, this is where you want to be."
   const eventTitle = communityEvent?.eventTitle ?? 'Fall Industry Meeting'
   const eventLocation = communityEvent?.eventLocation ?? 'Austin, TX'
