@@ -2,6 +2,9 @@ import type { CollectionConfig } from 'payload'
 
 export const Videos: CollectionConfig = {
   slug: 'videos',
+  access: {
+    read: () => true,
+  },
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'duration', 'featured', 'order'],
@@ -13,17 +16,41 @@ export const Videos: CollectionConfig = {
       required: true,
     },
     {
+      name: 'description',
+      type: 'textarea',
+      admin: {
+        description: 'Short description of what the video covers',
+      },
+    },
+    {
       name: 'duration',
       type: 'text',
       required: true,
       admin: {
-        description: 'Display duration (e.g. 12 min watch)',
+        description: 'Display duration (e.g. 17 min watch)',
+      },
+    },
+    {
+      name: 'thumbnailUrl',
+      type: 'text',
+      admin: {
+        description: 'Direct URL to the thumbnail image (e.g. from rfci.com/wp-content/uploads/...)',
       },
     },
     {
       name: 'thumbnail',
       type: 'upload',
       relationTo: 'media',
+      admin: {
+        description: 'Optional: uploaded thumbnail. thumbnailUrl above takes priority if set.',
+      },
+    },
+    {
+      name: 'courseUrl',
+      type: 'text',
+      admin: {
+        description: 'Link to the full course/video page (e.g. https://rfci.com/courses/...)',
+      },
     },
     {
       name: 'featured',
