@@ -5,8 +5,8 @@ import { ArrowRight } from '@phosphor-icons/react'
 import { mediaUrl } from '../_lib/transforms'
 
 const HERO_STATIC = {
-  heroLine1: 'THE HOME OF',
-  heroLine2: 'RESILIENT FLOORING.',
+  heroLine1: 'FLOORS WORTH',
+  heroLine2: 'STANDING ON.',
   heroSubheading: 'RFCI is the trade association for the resilient flooring industry. We bring together manufacturers and suppliers to set standards, run certification programs, and advance the category.',
   heroCta: 'Learn about RFCI',
   heroBoxText: 'Find out who our members are, what certifications we run, and how we support the industry.',
