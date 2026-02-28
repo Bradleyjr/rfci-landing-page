@@ -34,7 +34,7 @@ export default buildConfig({
     livePreview: {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       url: ({ data, collectionConfig, globalConfig }: any) => {
-        const base = process.env.NEXT_PUBLIC_PAYLOAD_URL || 'http://localhost:3000'
+        const base = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
         if (collectionConfig?.slug === 'faqs') return `${base}/faq`
         if (collectionConfig?.slug === 'resources') return `${base}/resources`
         if (collectionConfig?.slug === 'certifications') return `${base}/certifications/${data?.slug || ''}`

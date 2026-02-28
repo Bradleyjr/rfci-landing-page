@@ -6,11 +6,15 @@ import React from 'react'
 
 export const RefreshRouteOnSave: React.FC = () => {
   const router = useRouter()
+  const serverURL =
+    process.env.NEXT_PUBLIC_SERVER_URL || typeof window !== 'undefined'
+      ? window.location.origin
+      : 'http://localhost:3000'
 
   return (
     <PayloadLivePreview
       refresh={() => router.refresh()}
-      serverURL={process.env.NEXT_PUBLIC_PAYLOAD_URL || ''}
+      serverURL={serverURL}
     />
   )
 }
