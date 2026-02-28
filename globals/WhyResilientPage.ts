@@ -50,5 +50,18 @@ export const WhyResilientPage: GlobalConfig = {
         description: 'Rich text section about sustainability credentials',
       },
     },
+    {
+      name: 'historyMilestones',
+      type: 'array',
+      maxRows: 10,
+      admin: {
+        description: 'Timeline milestones shown on the Why Resilient page',
+      },
+      fields: [
+        { name: 'year', type: 'text', required: true },
+        { name: 'title', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
+      ],
+    },
   ],
 }

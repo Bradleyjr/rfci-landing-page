@@ -55,6 +55,7 @@ function AnimatedCounter({ target, suffix = '%' }: { target: number; suffix?: st
 export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]; environments: any[] }) {
   const statValue = pageData?.heroStatValue || '65'
   const statLabel = pageData?.heroStatLabel || 'of hard surface flooring installed in North America'
+  const milestones = pageData?.historyMilestones?.length ? pageData.historyMilestones : HISTORY_MILESTONES
 
   return (
     <PageLayout>
@@ -162,7 +163,7 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
             <div className="absolute left-4 top-0 bottom-0 w-px bg-rfci-blue/20 md:hidden" />
 
             <div className="flex flex-col gap-12">
-              {HISTORY_MILESTONES.map((milestone, idx) => (
+              {milestones.map((milestone: { year: string; title: string; description: string }, idx: number) => (
                 <SectionReveal key={idx} delay={idx * 0.08}>
                   <div className={`flex items-start gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                     {/* Content */}
