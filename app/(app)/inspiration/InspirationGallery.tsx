@@ -202,7 +202,7 @@ export function InspirationGallery({
             {filteredProjects.map((project: any, i: number) => (
               <SectionReveal key={project.id || project.title} delay={Math.min(i * 0.06, 0.3)}>
                 <div
-                  className="bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all rounded-lg overflow-hidden cursor-pointer group"
+                  className="bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all overflow-hidden cursor-pointer group"
                   onClick={() => setSelectedProject(i)}
                 >
                   {/* Image */}
@@ -224,12 +224,12 @@ export function InspirationGallery({
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-3">
                       {project.flooringType?.title && (
-                        <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-blue/10 text-rfci-blue px-2.5 py-1 rounded-full">
+                        <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-blue/10 text-rfci-blue px-2.5 py-1">
                           {project.flooringType.title}
                         </span>
                       )}
                       {project.environment?.name && (
-                        <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-black/5 text-rfci-black/60 px-2.5 py-1 rounded-full">
+                        <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-black/5 text-rfci-black/60 px-2.5 py-1">
                           {project.environment.name}
                         </span>
                       )}
@@ -310,19 +310,19 @@ export function InspirationGallery({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="bg-white max-w-4xl w-full mx-auto max-h-[90vh] overflow-y-auto rounded-xl my-4 md:my-8 relative"
+              className="bg-white max-w-4xl w-full mx-auto max-h-[90vh] overflow-y-auto my-4 md:my-8 relative"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 hover:bg-white transition-colors shadow-md"
+                className="absolute top-4 right-4 z-10 bg-white/90 backdrop-blur-sm p-2 hover:bg-white transition-colors shadow-md"
               >
                 <X weight="bold" className="w-5 h-5" />
               </button>
 
               {/* Featured Image */}
-              <div className="aspect-[16/9] overflow-hidden rounded-t-xl">
+              <div className="aspect-[16/9] overflow-hidden">
                 <img
                   src={getImageUrl(activeProject)}
                   alt={activeProject.title}
@@ -335,12 +335,12 @@ export function InspirationGallery({
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {activeProject.flooringType?.title && (
-                    <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-blue/10 text-rfci-blue px-2.5 py-1 rounded-full">
+                    <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-blue/10 text-rfci-blue px-2.5 py-1">
                       {activeProject.flooringType.title}
                     </span>
                   )}
                   {activeProject.environment?.name && (
-                    <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-black/5 text-rfci-black/60 px-2.5 py-1 rounded-full">
+                    <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-black/5 text-rfci-black/60 px-2.5 py-1">
                       {activeProject.environment.name}
                     </span>
                   )}
