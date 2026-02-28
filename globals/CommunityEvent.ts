@@ -53,6 +53,13 @@ export const CommunityEvent: GlobalConfig = {
           relationTo: 'media',
           required: true,
         },
+        {
+          name: 'caption',
+          type: 'text',
+          admin: {
+            description: 'Short caption shown on hover (e.g. "Fall Industry Meeting 2024")',
+          },
+        },
       ],
     },
   ],

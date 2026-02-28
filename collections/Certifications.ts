@@ -69,6 +69,60 @@ export const Certifications: CollectionConfig = {
         },
       ],
     },
+    // ── Detail page fields (used by /certifications/[slug]) ──────────
+    {
+      name: 'longDescription',
+      type: 'richText',
+      admin: {
+        description: 'Full page content for the certification detail page',
+      },
+    },
+    {
+      name: 'heroImage',
+      type: 'upload',
+      relationTo: 'media',
+      admin: {
+        description: 'Hero banner image for the detail page',
+      },
+    },
+    {
+      name: 'benefits',
+      type: 'array',
+      maxRows: 8,
+      admin: {
+        description: 'Key benefits of this certification program',
+      },
+      fields: [
+        { name: 'title', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
+      ],
+    },
+    {
+      name: 'process',
+      type: 'array',
+      maxRows: 10,
+      admin: {
+        description: 'Steps to achieve this certification',
+      },
+      fields: [
+        { name: 'step', type: 'text', required: true },
+        { name: 'description', type: 'textarea', required: true },
+      ],
+    },
+    {
+      name: 'ctaText',
+      type: 'text',
+      admin: {
+        description: 'Call-to-action button text (e.g. "Visit FloorScore.org")',
+      },
+    },
+    {
+      name: 'ctaUrl',
+      type: 'text',
+      admin: {
+        description: 'Call-to-action URL',
+      },
+    },
     {
       name: 'order',
       type: 'number',

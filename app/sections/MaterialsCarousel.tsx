@@ -21,7 +21,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Flexible LVT',
     subtitle: 'Luxury Vinyl Tile · Planks',
-    description: 'The most popular resilient product on the market. Flexible LVT comes in tile and plank formats with realistic wood and stone visuals, and holds up well in both commercial and residential spaces.',
+    description: 'The leading resilient flooring product in North America. Available in tile and plank formats with high-definition wood and stone visuals. Waterproof, dimensionally stable, and specified across residential and commercial projects for its combination of aesthetics and performance.',
     accentColor: '#9CA3AF',
     tags: [
       { label: 'Waterproof', variant: 'green' },
@@ -32,18 +32,18 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Rigid Core',
     subtitle: 'SPC · WPC · Multilayer',
-    description: 'A step up from flexible LVT. Rigid core products have a stiff, multilayer construction that resists denting, handles temperature swings well, and works great over uneven subfloors.',
+    description: 'A multilayer construction with a rigid mineral or polymer core. Dimensionally stable across temperature fluctuations and resistant to indentation under heavy static loads. Ideal for challenging substrates and environments where subfloor preparation is limited.',
     accentColor: '#78909C',
     tags: [
       { label: 'Waterproof', variant: 'green' },
       { label: 'Dimensionally Stable', variant: 'tan' },
-      { label: 'High Traffic', variant: 'gray' },
+      { label: 'ASSURE Eligible', variant: 'gray' },
     ],
   },
   {
     title: 'Heterogeneous Sheet Vinyl',
     subtitle: 'Multi-layer · Printed Design',
-    description: 'Multi-layer sheet vinyl with a printed design layer, giving you a lot of flexibility visually. A common choice in healthcare and commercial spaces where seamless installation matters.',
+    description: 'A multi-layer sheet product with a rotogravure-printed design layer that enables broad visual customization. Heat-welded seams create a hygienic, monolithic surface. Widely specified in healthcare, education, and commercial environments requiring seamless installation.',
     accentColor: '#B0C4DE',
     tags: [
       { label: 'Hygienic', variant: 'green' },
@@ -54,28 +54,29 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Homogeneous Sheet Vinyl',
     subtitle: 'Through-body · Single Layer',
-    description: 'Same material all the way through. Because the color and pattern run the full thickness, homogeneous sheet vinyl is extremely durable and easy to maintain—ideal for high-traffic commercial floors.',
+    description: 'Color and pattern run through the full thickness of the product, delivering consistent appearance as the floor wears. Through-body construction means the surface can be restored and maintained over decades. The standard for hospitals, laboratories, and cleanroom environments.',
     accentColor: '#90A4AE',
     tags: [
       { label: 'Hygienic', variant: 'green' },
-      { label: 'Durable', variant: 'tan' },
-      { label: 'Low Maintenance', variant: 'gray' },
+      { label: 'Through-body Color', variant: 'tan' },
+      { label: 'Restorable Surface', variant: 'gray' },
     ],
   },
   {
     title: 'Solid Vinyl Tile',
     subtitle: 'SVT · Flexible Tiles',
-    description: 'Flexible vinyl cut into tiles—from sheet vinyl or manufactured in molds. A practical choice for healthcare, institutional, and education settings where durability and easy replacement matter.',
+    description: 'Through-color vinyl tiles that perform under heavy rolling loads, making them a preferred choice in healthcare and institutional settings. No-wax formulations reduce lifecycle maintenance costs. Individual tiles can be replaced without disturbing adjacent flooring.',
     accentColor: '#A5B4BC',
     tags: [
-      { label: 'Durable', variant: 'tan' },
-      { label: 'Easy Replacement', variant: 'gray' },
+      { label: 'Rolling Loads', variant: 'green' },
+      { label: 'No-Wax', variant: 'tan' },
+      { label: 'Tile Replacement', variant: 'gray' },
     ],
   },
   {
     title: 'Vinyl Composition Tile',
     subtitle: 'VCT · Commercial Standard',
-    description: 'A workhorse in commercial flooring. VCT is affordable, durable, and available in a wide range of colors—making it easy to create custom patterns and effects across large spaces.',
+    description: 'Made from vinyl resins and limestone, VCT has been a commercial flooring staple for decades. Cost-effective at scale, durable under heavy foot traffic, and available in a wide color palette for custom patterns. Requires periodic waxing to maintain finish and appearance.',
     accentColor: '#CFD8DC',
     tags: [
       { label: 'Cost Effective', variant: 'green' },
@@ -86,32 +87,34 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Rubber',
     subtitle: 'Vulcanized · Recycled Content',
-    description: 'Tough, quiet, and slip-resistant. Rubber flooring is the go-to for hospitals, schools, and gyms—spaces that need a floor that can handle heavy use and still feel good underfoot.',
+    description: 'Virtually indestructible, quiet, and warm underfoot. Rubber flooring delivers superior slip resistance, acoustic performance, and comfort in high-demand environments. Frequently manufactured with recycled content and specified for healthcare, transit, fitness, and education facilities.',
     accentColor: '#D4A574',
     tags: [
-      { label: 'Acoustic', variant: 'green' },
-      { label: 'Slip Resistant', variant: 'tan' },
+      { label: 'Slip Resistant', variant: 'green' },
+      { label: 'Acoustic', variant: 'tan' },
       { label: 'Recycled Content', variant: 'gray' },
     ],
   },
   {
     title: 'Linoleum',
     subtitle: 'Natural · Bio-based',
-    description: 'Made from linseed oil, wood flour, and limestone—natural materials that have been used in flooring for over 150 years. Biodegradable, long-lasting, and one of the most sustainable floors available.',
+    description: 'Manufactured from linseed oil, cork, wood flour, limestone, and tree resins—natural ingredients used in flooring for over 150 years. Inherently antimicrobial, biodegradable, and carbon neutral. Color runs through the full thickness for long-term durability and wear performance.',
     accentColor: '#8FBC8F',
     tags: [
       { label: 'Bio-based', variant: 'green' },
       { label: 'Carbon Neutral', variant: 'green' },
+      { label: 'Antimicrobial', variant: 'gray' },
     ],
   },
   {
     title: 'Cork',
     subtitle: 'Natural · Acoustic',
-    description: 'Harvested from the bark of cork oak trees—without cutting the tree down. Cork is naturally warm, quiet, and comfortable underfoot, making it a solid choice for residential and light commercial use.',
+    description: 'Harvested from cork oak bark without cutting the tree, cork is a fully renewable resource. Naturally hypoallergenic, resistant to mold and mildew, and provides excellent thermal and acoustic insulation. Specified for residential and light commercial applications where comfort and sustainability matter.',
     accentColor: '#C4A882',
     tags: [
       { label: 'Renewable', variant: 'green' },
-      { label: 'Acoustic', variant: 'tan' },
+      { label: 'Hypoallergenic', variant: 'tan' },
+      { label: 'Acoustic', variant: 'gray' },
     ],
   },
 ]
@@ -141,11 +144,13 @@ export function MaterialsCarousel({ flooringTypes }: { flooringTypes: any[] }) {
   }
 
   return (
-    <section id="flooring-types" className="py-40 bg-white overflow-x-clip">
+    <section id="flooring-types" className="py-28 md:py-32 bg-white overflow-x-clip">
+      {/* Intentionally wider than max-w-7xl: carousel bleeds to viewport edge on scroll,
+          so a wider container improves the visual affordance for how many cards exist. */}
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <SectionReveal className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
-            <div className="text-xs font-bold tracking-widest uppercase text-rfci-black/50 mb-4">The Categories</div>
+            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">The Categories</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight">
               The full range of <br /><span className="font-semibold text-rfci-blue">resilient flooring.</span>
             </h2>
@@ -192,7 +197,7 @@ export function MaterialsCarousel({ flooringTypes }: { flooringTypes: any[] }) {
 
                   <div className="flex flex-col items-start mb-8 relative z-10 w-[80%]">
                     <h3 className="text-4xl md:text-5xl font-display font-light tracking-tight text-rfci-black mb-3">{type.title}</h3>
-                    <span className="text-[11px] font-bold tracking-widest uppercase text-rfci-black/40">{type.subtitle}</span>
+                    <span className="text-label font-bold tracking-widest uppercase text-rfci-black/60">{type.subtitle}</span>
                   </div>
 
                   <p className="text-rfci-black/60 mb-10 relative z-10 w-[85%] leading-relaxed font-light">
@@ -201,7 +206,7 @@ export function MaterialsCarousel({ flooringTypes }: { flooringTypes: any[] }) {
 
                   <div className="flex flex-wrap gap-2 mb-8 relative z-10 w-[85%]">
                     {tags.map((tag, tagIdx) => (
-                      <span key={tagIdx} className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-widest ${tag.style}`}>
+                      <span key={tagIdx} className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-label font-bold uppercase tracking-widest ${tag.style}`}>
                         {tag.dot && <span className={`w-1.5 h-1.5 rounded-full ${tag.dot}`} />}
                         {tag.label}
                       </span>
@@ -219,7 +224,7 @@ export function MaterialsCarousel({ flooringTypes }: { flooringTypes: any[] }) {
 
                   <div className="mt-auto relative z-10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                     <button className="bg-white text-rfci-black py-3.5 px-8 text-sm font-semibold shadow-sm hover:bg-rfci-black hover:text-white hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm transition-all duration-200 flex items-center gap-2">
-                      Technical Specs <ArrowRight className="w-4 h-4" />
+                      Learn More <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
 

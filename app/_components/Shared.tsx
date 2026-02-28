@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, Question, ShieldCheck, Seal, Certificate, Globe } from '@phosphor-icons/react'
+import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, Question, ShieldCheck, Seal, Certificate, Globe, Images, MapPin, Phone, EnvelopeSimple } from '@phosphor-icons/react'
 
 const navItems = [
   {
@@ -12,8 +12,10 @@ const navItems = [
     title: 'Learn',
     megaMenu: [
       { label: 'Why Resilient', href: '/why-resilient', desc: 'What makes resilient flooring a smart choice for your space.', icon: Leaf },
-      { label: 'Resources', href: '/resources', desc: 'Technical documents, standards, and sustainability guides.', icon: FileText },
+      { label: 'Flooring Types', href: '/flooring', desc: 'Explore the full range of resilient flooring products.', icon: FileText },
+      { label: 'Inspiration Gallery', href: '/inspiration', desc: 'Real installations showcasing resilient flooring in action.', icon: Images },
       { label: 'Educational Videos', href: '/videos', desc: 'Short videos covering products, installation, and performance.', icon: PlayCircle },
+      { label: 'Resources', href: '/resources', desc: 'Technical documents, standards, and sustainability guides.', icon: FileText },
       { label: 'FAQ', href: '/faq', desc: 'Answers to common questions about resilient flooring.', icon: Question },
     ],
   },
@@ -70,8 +72,8 @@ export const Navigation = ({
                 </a>
 
                   {item.megaMenu && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-white border border-black/5 shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50 p-6">
-                      <div className="grid grid-cols-2 gap-4">
+                    <div className={`absolute top-full left-1/2 -translate-x-1/2 bg-white border border-black/5 shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50 p-6 ${item.megaMenu.length > 4 ? 'w-[860px]' : 'w-[600px]'}`}>
+                      <div className={`grid gap-4 ${item.megaMenu.length > 4 ? 'grid-cols-3' : 'grid-cols-2'}`}>
                         {item.megaMenu.map((megaItem) => (
                           <a
                             key={megaItem.label}
@@ -190,6 +192,7 @@ export const Footer = () => (
           <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">Learn</h4>
           <ul className="space-y-4 text-sm text-white/70">
             <li><a href="/why-resilient" className="hover:text-rfci-teal transition-colors">Why Resilient</a></li>
+            <li><a href="/flooring" className="hover:text-rfci-teal transition-colors">Flooring Types</a></li>
             <li><a href="/resources" className="hover:text-rfci-teal transition-colors">Resources</a></li>
             <li><a href="/videos" className="hover:text-rfci-teal transition-colors">Educational Videos</a></li>
             <li><a href="/faq" className="hover:text-rfci-teal transition-colors">FAQ</a></li>
@@ -200,8 +203,39 @@ export const Footer = () => (
           <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">Organization</h4>
           <ul className="space-y-4 text-sm text-white/70">
             <li><a href="/certifications" className="hover:text-rfci-teal transition-colors">Certifications</a></li>
+            <li><a href="/certifications/floorscore" className="hover:text-rfci-teal transition-colors pl-3 text-white/50">FloorScore®</a></li>
+            <li><a href="/certifications/assure" className="hover:text-rfci-teal transition-colors pl-3 text-white/50">ASSURE® Certified</a></li>
             <li><a href="/members" className="hover:text-rfci-teal transition-colors">Member Directory</a></li>
+            <li><a href="/inspiration" className="hover:text-rfci-teal transition-colors">Inspiration Gallery</a></li>
           </ul>
+        </div>
+      </div>
+
+      {/* Contact Block */}
+      <div className="border-t border-white/10 pt-10 mb-10">
+        <div className="grid md:grid-cols-3 gap-8 text-sm text-white/60">
+          <div className="flex items-start gap-3">
+            <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-rfci-teal" />
+            <div>
+              <div className="font-medium text-white/80 mb-1">RFCI Headquarters</div>
+              115 Greystone Power Blvd<br />
+              LaGrange, GA 30240
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <Phone className="w-4 h-4 mt-0.5 shrink-0 text-rfci-teal" />
+            <div>
+              <div className="font-medium text-white/80 mb-1">Phone</div>
+              <a href="tel:+17068822710" className="hover:text-rfci-teal transition-colors">(706) 882-2710</a>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <EnvelopeSimple className="w-4 h-4 mt-0.5 shrink-0 text-rfci-teal" />
+            <div>
+              <div className="font-medium text-white/80 mb-1">Email</div>
+              <a href="mailto:info@rfci.com" className="hover:text-rfci-teal transition-colors">info@rfci.com</a>
+            </div>
+          </div>
         </div>
       </div>
 

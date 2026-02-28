@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'rfci.com' },
     ],
   },
+  allowedDevOrigins: ['http://127.0.0.1:3000', 'http://localhost:3000'],
 }
 
 export default withPayload(nextConfig)

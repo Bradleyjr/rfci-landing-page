@@ -13,8 +13,14 @@ import { FlooringTypes } from './collections/FlooringTypes'
 import { Certifications } from './collections/Certifications'
 import { Environments } from './collections/Environments'
 import { Videos } from './collections/Videos'
+import { LinkedInPosts } from './collections/LinkedInPosts'
+import { FAQs } from './collections/FAQs'
+import { Resources } from './collections/Resources'
+import { InspirationProjects } from './collections/InspirationProjects'
 import { SiteSettings } from './globals/SiteSettings'
 import { CommunityEvent } from './globals/CommunityEvent'
+import { AboutPage } from './globals/AboutPage'
+import { WhyResilientPage } from './globals/WhyResilientPage'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -26,8 +32,8 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Members, FlooringTypes, Certifications, Environments, Videos],
-  globals: [SiteSettings, CommunityEvent],
+  collections: [Users, Media, Members, FlooringTypes, Certifications, Environments, Videos, LinkedInPosts, FAQs, Resources, InspirationProjects],
+  globals: [SiteSettings, CommunityEvent, AboutPage, WhyResilientPage],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

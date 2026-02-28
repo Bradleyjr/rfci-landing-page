@@ -5,10 +5,17 @@
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
 
+  /* ── Type scale ──────────────────────────────────────────────────── */
+  /* Sub-xs label: 11px. Used for ALL-CAPS eyebrows/micro-labels only. */
+  --text-label: 0.6875rem;
+
+  /* ── Brand palette ───────────────────────────────────────────────── */
   --color-rfci-blue: #0164DB;
   --color-rfci-teal: #00C2D1;
   --color-rfci-black: #121212;
   --color-rfci-white: #ECEFF1;
+  /* Warm off-white used for the hero section background */
+  --color-rfci-cream: #F5F5F0;
   --color-rfci-light-gray: #CFD8DC;
 
   /* Semantic tag colors */

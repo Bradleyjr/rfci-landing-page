@@ -76,9 +76,7 @@ export function EducationSection({ videos }: { videos: any[] }) {
           </SectionReveal>
           <SectionReveal direction="right">
             <a
-              href="https://rfci.com/videos/"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/videos"
               className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-rfci-blue transition-colors group"
             >
               <span className="relative">
@@ -113,7 +111,7 @@ export function EducationSection({ videos }: { videos: any[] }) {
                 </div>
               </div>
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-[11px] font-bold uppercase tracking-widest text-rfci-black/50 flex items-center gap-2">
+                <span className="text-label font-bold uppercase tracking-widest text-rfci-black/60 flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-rfci-blue"></span>
                   {featured.duration}
                 </span>
@@ -152,7 +150,7 @@ export function EducationSection({ videos }: { videos: any[] }) {
                     </div>
                   </div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-rfci-black/40 flex items-center gap-2">
+                    <span className="text-label font-bold uppercase tracking-widest text-rfci-black/60 flex items-center gap-2">
                       <span className="w-1 h-1 rounded-full bg-rfci-blue/50"></span>
                       {video.duration}
                     </span>

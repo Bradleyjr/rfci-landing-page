@@ -185,10 +185,14 @@ async function run() {
 
   // ── Environments ──────────────────────────────────────────────────────────
   await seedCollection('environments', [
-    { name: 'Healthcare',    flooringType: 'Rubber Flooring',   order: 1 },
-    { name: 'Schools',       flooringType: 'Linoleum',          order: 2 },
-    { name: 'Corporations',  flooringType: 'Luxury Vinyl Tile', order: 3 },
-    { name: 'Retail Spaces', flooringType: 'Sheet Vinyl',       order: 4 },
+    { name: 'Single-Family Homes',  flooringType: 'Luxury Vinyl Plank',      order: 1 },
+    { name: 'Apartments & Condos',  flooringType: 'Rigid Core LVT',          order: 2 },
+    { name: 'Townhomes & Duplexes', flooringType: 'Flexible LVT',            order: 3 },
+    { name: 'Vacation & Rentals',   flooringType: 'Sheet Vinyl',             order: 4 },
+    { name: 'Senior Living',        flooringType: 'Rubber Flooring',         order: 5 },
+    { name: 'Offices',              flooringType: 'Luxury Vinyl Tile',       order: 6 },
+    { name: 'Healthcare',           flooringType: 'Homogeneous Sheet Vinyl', order: 7 },
+    { name: 'Education',            flooringType: 'Linoleum',                order: 8 },
   ], 'Environments')
 
   // ── Videos ────────────────────────────────────────────────────────────────
@@ -258,13 +262,49 @@ async function run() {
     { name: 'Windmöller',        logoUrl: 'https://rfci.com/wp-content/uploads/2020/02/windmoller-gray-1.jpg',       website: 'https://windmoeller.com',      row: '2', order: 11 },
   ], 'Members')
 
+  // ── LinkedIn Posts ────────────────────────────────────────────────────────
+  await seedCollection('linkedin-posts', [
+    {
+      title: 'RFCI Welcomes New Board Members for 2026',
+      excerpt: 'We are pleased to announce the appointment of three new board members who bring decades of industry experience to RFCI.',
+      imageUrl: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600&auto=format&fit=crop',
+      postUrl: 'https://www.linkedin.com/company/resilient-floor-covering-institute/',
+      postDate: 'Feb 20, 2026',
+      order: 1,
+    },
+    {
+      title: 'FloorScore Reaches 10,000 Certified Products',
+      excerpt: 'A milestone for indoor air quality certification — FloorScore now covers more than 10,000 products worldwide.',
+      imageUrl: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=600&auto=format&fit=crop',
+      postUrl: 'https://www.linkedin.com/company/resilient-floor-covering-institute/',
+      postDate: 'Feb 12, 2026',
+      order: 2,
+    },
+    {
+      title: 'Spring Industry Meeting Registration Open',
+      excerpt: 'Join us in Nashville this April for two days of technical sessions, networking, and industry updates.',
+      imageUrl: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=600&auto=format&fit=crop',
+      postUrl: 'https://www.linkedin.com/company/resilient-floor-covering-institute/',
+      postDate: 'Jan 30, 2026',
+      order: 3,
+    },
+    {
+      title: 'Resilient Flooring Market Hits Record High',
+      excerpt: 'New data confirms resilient flooring holds 65% of all hard surface flooring installations in North America.',
+      imageUrl: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=600&auto=format&fit=crop',
+      postUrl: 'https://www.linkedin.com/company/resilient-floor-covering-institute/',
+      postDate: 'Jan 18, 2026',
+      order: 4,
+    },
+  ], 'LinkedIn Posts')
+
   // ── SiteSettings global ───────────────────────────────────────────────────
   await seedGlobal('site-settings', {
-    heroLine1: 'FLOORS WORTH',
-    heroLine2: 'STANDING ON.',
-    heroSubheading: 'RFCI is the trade association for the resilient flooring industry. We bring together manufacturers and suppliers to set standards, run certification programs, and advance the category.',
-    heroCta: 'Learn about RFCI',
-    heroBoxText: 'Find out who our members are, what certifications we run, and how we support the industry.',
+    heroLine1: 'RESILIENT FLOOR',
+    heroLine2: 'COVERING INSTITUTE',
+    heroSubheading: 'The trade association representing the resilient flooring industry. Setting standards, running certification programs, and advancing the number one flooring category in North America since 1929.',
+    heroCta: 'Explore RFCI',
+    heroBoxText: 'Discover our certification programs, meet our member manufacturers, and learn how RFCI protects and promotes the resilient flooring industry.',
   }, 'SiteSettings')
 
   // ── CommunityEvent global ─────────────────────────────────────────────────

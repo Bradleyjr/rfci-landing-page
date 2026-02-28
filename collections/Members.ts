@@ -35,6 +35,23 @@ export const Members: CollectionConfig = {
       type: 'text',
     },
     {
+      name: 'description',
+      type: 'textarea',
+      admin: {
+        description: 'Brief company description for the member directory page',
+      },
+    },
+    {
+      name: 'tier',
+      type: 'select',
+      required: true,
+      defaultValue: 'board',
+      options: [
+        { label: 'Board Company', value: 'board' },
+        { label: 'Associate Member', value: 'associate' },
+      ],
+    },
+    {
       name: 'row',
       type: 'select',
       required: true,

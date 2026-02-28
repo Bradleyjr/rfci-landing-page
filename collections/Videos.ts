@@ -53,6 +53,27 @@ export const Videos: CollectionConfig = {
       },
     },
     {
+      name: 'category',
+      type: 'select',
+      defaultValue: 'ceu',
+      options: [
+        { label: 'CEU', value: 'ceu' },
+        { label: 'Product', value: 'product' },
+        { label: 'Installation', value: 'installation' },
+        { label: 'Sustainability', value: 'sustainability' },
+      ],
+      admin: {
+        description: 'Video category for filtering',
+      },
+    },
+    {
+      name: 'embedUrl',
+      type: 'text',
+      admin: {
+        description: 'YouTube/Vimeo embed URL for inline playback',
+      },
+    },
+    {
       name: 'featured',
       type: 'checkbox',
       defaultValue: false,

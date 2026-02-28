@@ -182,7 +182,7 @@ export function StandardsSection({ certifications }: { certifications: any[] }) 
                             <AnimatedStat key={`${tab.slug}-${i}`} value={stat.value} label={stat.label} />
                           ))}
                         </div>
-                        <a href="#" className="inline-flex items-center gap-2 text-rfci-blue font-medium hover:text-white transition-colors group">
+                        <a href={`/certifications/${tab.slug}`} className="inline-flex items-center gap-2 text-rfci-blue font-medium hover:text-white transition-colors group">
                           <span className="relative">
                             <span className="relative z-10 flex items-center gap-2">
                               Explore {tab.title} <ArrowRight className="w-4 h-4" />
@@ -244,11 +244,11 @@ export function StandardsSection({ certifications }: { certifications: any[] }) 
                             {(tab.stats ?? []).map((stat, i) => (
                               <div key={i} className="border-l-2 border-rfci-blue pl-4">
                                 <div className="text-2xl font-display font-light text-white mb-1">{stat.value}</div>
-                                <div className="text-[10px] font-bold tracking-widest uppercase text-white/40">{stat.label}</div>
+                                <div className="text-label font-bold tracking-widest uppercase text-white/40">{stat.label}</div>
                               </div>
                             ))}
                           </div>
-                          <a href="#" className="inline-flex items-center gap-2 text-rfci-blue font-medium hover:text-white transition-colors text-sm">
+                          <a href={`/certifications/${tab.slug}`} className="inline-flex items-center gap-2 text-rfci-blue font-medium hover:text-white transition-colors text-sm">
                             Explore {tab.title} <ArrowRight className="w-4 h-4" />
                           </a>
                         </div>

@@ -15,6 +15,7 @@ export default async function Page() {
     certificationsResult,
     environmentsResult,
     videosResult,
+    linkedInPostsResult,
   ] = await Promise.all([
     payload.findGlobal({ slug: 'site-settings' }),
     payload.findGlobal({ slug: 'community-event' }),
@@ -23,6 +24,7 @@ export default async function Page() {
     payload.find({ collection: 'certifications', sort: 'order', limit: 20 }),
     payload.find({ collection: 'environments', sort: 'order', limit: 10 }),
     payload.find({ collection: 'videos', sort: 'order', limit: 20 }),
+    payload.find({ collection: 'linkedin-posts', sort: 'order', limit: 10 }),
   ])
 
   return (
@@ -34,6 +36,7 @@ export default async function Page() {
       certifications={certificationsResult.docs}
       environments={environmentsResult.docs}
       videos={videosResult.docs}
+      linkedInPosts={linkedInPostsResult.docs}
     />
   )
 }

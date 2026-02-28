@@ -1,15 +1,15 @@
 'use client'
 
 import { motion, type MotionValue, type Variants } from 'motion/react'
-import { ArrowRight } from '@phosphor-icons/react'
+import { ArrowRight, Certificate } from '@phosphor-icons/react'
 import { mediaUrl } from '../_lib/transforms'
 
 const HERO_STATIC = {
-  heroLine1: 'FLOORS WORTH',
-  heroLine2: 'STANDING ON.',
-  heroSubheading: 'RFCI is the trade association for the resilient flooring industry. We bring together manufacturers and suppliers to set standards, run certification programs, and advance the category.',
-  heroCta: 'Learn about RFCI',
-  heroBoxText: 'Find out who our members are, what certifications we run, and how we support the industry.',
+  heroLine1: 'RESILIENT FLOOR',
+  heroLine2: 'COVERING INSTITUTE',
+  heroSubheading: 'The trade association representing the resilient flooring industry. Setting standards, running certification programs, and advancing the number one flooring category in North America since 1929.',
+  heroCta: 'Explore RFCI',
+  heroBoxText: 'Discover our certification programs, meet our member manufacturers, and learn how RFCI protects and promotes the resilient flooring industry.',
   heroImageUrl: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop',
 }
 
@@ -37,7 +37,7 @@ export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number
   const heroImageUrl = mediaUrl(siteSettings?.heroImage, HERO_STATIC.heroImageUrl)
 
   return (
-    <section id="hero" className="relative min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-[#F5F5F0] pt-32 pb-16 md:py-0 px-6 md:px-12">
+    <section id="hero" className="relative min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-rfci-cream pt-32 pb-16 md:pt-20 md:pb-0 px-6 md:px-12">
       <div className="absolute right-0 top-0 w-full md:w-[45%] h-full hidden md:block overflow-hidden">
         <motion.img
           initial={{ scale: 1.15, opacity: 0 }}
@@ -53,7 +53,8 @@ export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number
       <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center">
         <div className="w-full md:w-[55%] md:pr-16 lg:pr-24 flex flex-col">
           <div className="order-1 md:order-none">
-            <h1 className="text-[13vw] md:text-[4.5vw] lg:text-[4.5rem] font-display font-bold leading-[0.95] tracking-tighter text-rfci-black mb-6 md:mb-8">
+            {/* H1: replaced three-unit arbitrary sizes with design-system scale */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[0.95] tracking-tighter text-rfci-black mb-6 md:mb-8">
               <motion.span className="block overflow-hidden" custom={0} variants={lineVariants} initial="hidden" animate="visible">
                 {heroLine1}
               </motion.span>
@@ -89,15 +90,15 @@ export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number
             className="w-full max-w-sm bg-white p-8 md:p-12 border border-black/5 shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative md:-mt-0 -mt-16 z-20"
           >
             <div className="absolute -top-4 -left-4 w-8 h-8 bg-rfci-blue flex items-center justify-center text-white z-20">
-              <ArrowRight className="w-4 h-4 -rotate-45" />
+              <Certificate className="w-4 h-4" weight="fill" />
             </div>
             <p className="text-rfci-black/80 font-medium mb-8 md:mb-10 text-base leading-loose relative z-20">{heroBoxText}</p>
-            <button className="text-[11px] font-bold tracking-widest uppercase text-rfci-blue flex items-center gap-2 group relative z-20">
+            <button className="text-label font-bold tracking-widest uppercase text-rfci-blue flex items-center gap-2 group relative z-20">
               <span className="relative">
                 <span className="relative z-10 flex items-center gap-2">
                   {heroCta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-rfci-blue group-hover:h-[2px] transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-blue group-hover:w-full group-hover:h-[2px] transition-all duration-300" />
               </span>
             </button>
           </motion.div>
@@ -111,13 +112,13 @@ export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 0.6 }}
       >
-        <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-rfci-black/40">Scroll</span>
+        <span className="text-label font-bold tracking-widest uppercase text-rfci-black/50">Scroll</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
           className="w-5 h-8 border-2 border-rfci-black/20 rounded-full flex justify-center pt-1.5"
         >
-          <div className="w-1 h-1.5 bg-rfci-black/40 rounded-full" />
+          <div className="w-1 h-1.5 bg-rfci-black/50 rounded-full" />
         </motion.div>
       </motion.div>
     </section>

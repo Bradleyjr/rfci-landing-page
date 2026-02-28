@@ -75,7 +75,7 @@ function MemberLogo({ member }: { member: MemberDoc }) {
     )
   }
   return (
-    <span className="text-xs font-sans font-medium tracking-[0.2em] uppercase text-white/50 whitespace-nowrap">
+    <span className="text-xs font-sans font-medium tracking-widest uppercase text-white/50 whitespace-nowrap">
       {member.name}
     </span>
   )
@@ -124,7 +124,13 @@ export function MembersSection({ members }: { members: any[] }) {
         <div className="flex animate-marquee hover:[animation-play-state:paused]">
           {[...displayMembers, ...displayMembers, ...displayMembers].map((member, i) => (
             <div key={i} className="flex items-center gap-4 mx-12 shrink-0">
-              <MemberLogo member={member} />
+              {member.website ? (
+                <a href={member.website} target="_blank" rel="noopener noreferrer" title={member.name}>
+                  <MemberLogo member={member} />
+                </a>
+              ) : (
+                <MemberLogo member={member} />
+              )}
             </div>
           ))}
         </div>

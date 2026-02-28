@@ -6,16 +6,19 @@ import { IconContext } from '@phosphor-icons/react'
 import { Navigation, Footer } from './Shared'
 import { BackToTopButton } from './BackToTopButton'
 import { HeroSection } from '../sections/HeroSection'
-import { EnvironmentsSection } from '../sections/EnvironmentsSection'
 import { MaterialsCarousel } from '../sections/MaterialsCarousel'
+import { EnvironmentsSection } from '../sections/EnvironmentsSection'
+import { WhyResilientSection } from '../sections/WhyResilientSection'
+import { MissionSection } from '../sections/MissionSection'
 import { StandardsSection } from '../sections/StandardsSection'
 import { CommunitySection } from '../sections/CommunitySection'
-import { EducationSection } from '../sections/EducationSection'
+// import { EducationSection } from '../sections/EducationSection'
+import { LinkedInFeedSection } from '../sections/LinkedInFeedSection'
 import { MembersSection } from '../sections/MembersSection'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function LandingPage(props: Record<string, any>) {
-  const { siteSettings, communityEvent, members, flooringTypes, certifications, environments, videos } = props
+  const { siteSettings, communityEvent, members, flooringTypes, certifications, environments, videos, linkedInPosts } = props
 
   const [isScrolled, setIsScrolled] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
@@ -54,15 +57,21 @@ export function LandingPage(props: Record<string, any>) {
           <div className="h-px bg-gradient-to-r from-transparent via-rfci-light-gray to-transparent" />
         </div>
 
+        <MaterialsCarousel flooringTypes={flooringTypes} />
+
         <EnvironmentsSection environments={environments} />
 
-        <MaterialsCarousel flooringTypes={flooringTypes} />
+        <WhyResilientSection />
+
+        <MissionSection />
 
         <StandardsSection certifications={certifications} />
 
         <CommunitySection communityEvent={communityEvent} />
 
-        <EducationSection videos={videos} />
+        {/* <EducationSection videos={videos} /> */}
+
+        <LinkedInFeedSection linkedInPosts={linkedInPosts} />
 
         <MembersSection members={members} />
 

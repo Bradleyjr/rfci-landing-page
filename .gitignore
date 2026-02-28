@@ -11,3 +11,4 @@ coverage/
 *.db-journal
 rfci-dev.db
 .vercel
+.env*.local
