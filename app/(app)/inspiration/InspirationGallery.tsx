@@ -4,7 +4,7 @@
 
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { FunnelSimple, MapPin, Buildings, X, ArrowRight } from '@phosphor-icons/react'
+import { MapPin, Buildings, X, ArrowRight } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
@@ -149,48 +149,77 @@ export function InspirationGallery({
       <section className="bg-rfci-cream pb-6 pt-10">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal>
-            <div className="flex flex-wrap items-center gap-3">
-              <FunnelSimple className="w-5 h-5 text-rfci-black/40" weight="bold" />
-
-              <select
-                value={filterFlooringType}
-                onChange={(e) => setFilterFlooringType(e.target.value)}
-                className="border border-black/10 px-4 py-2.5 text-sm bg-white focus:border-rfci-blue outline-none rounded-md"
-              >
-                <option value="">All Flooring Types</option>
+            <div className="space-y-4">
+              {/* Flooring Type row */}
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-bold tracking-widest uppercase text-rfci-black/40 w-28 shrink-0">Flooring Type</span>
+                <button
+                  onClick={() => setFilterFlooringType('')}
+                  className={`text-label font-bold tracking-widest uppercase px-4 py-2 transition-colors ${
+                    filterFlooringType === ''
+                      ? 'bg-rfci-blue text-white'
+                      : 'bg-white text-rfci-black/60 hover:text-rfci-black'
+                  }`}
+                >
+                  All
+                </button>
                 {flooringTypeOptions.map((opt: string) => (
-                  <option key={opt} value={opt}>
+                  <button
+                    key={opt}
+                    onClick={() => setFilterFlooringType(filterFlooringType === opt ? '' : opt)}
+                    className={`text-label font-bold tracking-widest uppercase px-4 py-2 transition-colors ${
+                      filterFlooringType === opt
+                        ? 'bg-rfci-blue text-white'
+                        : 'bg-white text-rfci-black/60 hover:text-rfci-black'
+                    }`}
+                  >
                     {opt}
-                  </option>
+                  </button>
                 ))}
-              </select>
+              </div>
 
-              <select
-                value={filterEnvironment}
-                onChange={(e) => setFilterEnvironment(e.target.value)}
-                className="border border-black/10 px-4 py-2.5 text-sm bg-white focus:border-rfci-blue outline-none rounded-md"
-              >
-                <option value="">All Environments</option>
+              {/* Environment row */}
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-bold tracking-widest uppercase text-rfci-black/40 w-28 shrink-0">Environment</span>
+                <button
+                  onClick={() => setFilterEnvironment('')}
+                  className={`text-label font-bold tracking-widest uppercase px-4 py-2 transition-colors ${
+                    filterEnvironment === ''
+                      ? 'bg-rfci-blue text-white'
+                      : 'bg-white text-rfci-black/60 hover:text-rfci-black'
+                  }`}
+                >
+                  All
+                </button>
                 {environmentOptions.map((opt: string) => (
-                  <option key={opt} value={opt}>
+                  <button
+                    key={opt}
+                    onClick={() => setFilterEnvironment(filterEnvironment === opt ? '' : opt)}
+                    className={`text-label font-bold tracking-widest uppercase px-4 py-2 transition-colors ${
+                      filterEnvironment === opt
+                        ? 'bg-rfci-blue text-white'
+                        : 'bg-white text-rfci-black/60 hover:text-rfci-black'
+                    }`}
+                  >
                     {opt}
-                  </option>
+                  </button>
                 ))}
-              </select>
+              </div>
+            </div>
 
+            <div className="flex items-center gap-4 mt-4">
+              <p className="text-sm text-rfci-black/50">
+                Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
+              </p>
               {(filterFlooringType || filterEnvironment) && (
                 <button
                   onClick={resetFilters}
                   className="text-sm text-rfci-blue hover:text-rfci-blue/80 font-bold tracking-wider uppercase transition-colors"
                 >
-                  Reset
+                  Clear filters
                 </button>
               )}
             </div>
-
-            <p className="text-sm text-rfci-black/50 mt-4">
-              Showing {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
-            </p>
           </SectionReveal>
         </div>
       </section>
