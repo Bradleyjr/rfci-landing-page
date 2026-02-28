@@ -31,6 +31,7 @@ const MEMBERS_STATIC: MemberDoc[] = [
   { name: 'HMTX Industries', logo: { url: 'https://rfci.com/wp-content/uploads/2020/10/hmtx-gray.jpg' }, tier: 'board' },
   { name: 'Interface', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/interface-gray.jpg' }, tier: 'board' },
   { name: 'Karndean', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/karndean-gray.jpg' }, tier: 'board' },
+  { name: 'Lonseal', tier: 'board' },
   { name: 'Mannington', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/mannington-gray.jpg' }, tier: 'board' },
   { name: 'Mohawk', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/mohawk-gray.jpg' }, tier: 'board' },
   { name: 'MSI', logo: { url: 'https://rfci.com/wp-content/uploads/2022/04/MSI-gray.jpg' }, tier: 'board' },
@@ -42,6 +43,42 @@ const MEMBERS_STATIC: MemberDoc[] = [
   { name: 'Torlys', logo: { url: 'https://rfci.com/wp-content/uploads/2018/10/torlys-logo-gray.png' }, tier: 'board' },
   { name: 'Wellmade', logo: { url: 'https://rfci.com/wp-content/uploads/2020/02/wellmade-gray.jpg' }, tier: 'board' },
   { name: 'Windm\u00F6ller', logo: { url: 'https://rfci.com/wp-content/uploads/2020/02/windmoller-gray-1.jpg' }, tier: 'board' },
+  // Supply Chain Partners
+  { name: 'Amorim', tier: 'associate' },
+  { name: 'AM Stabilizers', tier: 'associate' },
+  { name: 'Baerlocher', tier: 'associate' },
+  { name: 'BASF', tier: 'associate' },
+  { name: 'Bostik', tier: 'associate' },
+  { name: 'DMX Membranes', tier: 'associate' },
+  { name: 'Dow', tier: 'associate' },
+  { name: 'Eastman Chemical', tier: 'associate' },
+  { name: 'Formosa Plastics', tier: 'associate' },
+  { name: 'Interprint', tier: 'associate' },
+  { name: 'i4F', tier: 'associate' },
+  { name: 'Klockner Pentaplast', tier: 'associate' },
+  { name: 'Lighthouse Adhesive', tier: 'associate' },
+  { name: 'Mapei', tier: 'associate' },
+  { name: 'Microban', tier: 'associate' },
+  { name: 'Mondo', tier: 'associate' },
+  { name: 'Revive', tier: 'associate' },
+  { name: 'Owens Corning', tier: 'associate' },
+  { name: 'OxyChem', tier: 'associate' },
+  { name: 'Patcham USA', tier: 'associate' },
+  { name: 'Penn Color', tier: 'associate' },
+  { name: 'Performance Additives', tier: 'associate' },
+  { name: 'PLI Pak-Lite', tier: 'associate' },
+  { name: 'POLYTEX', tier: 'associate' },
+  { name: 'Schattdecor', tier: 'associate' },
+  { name: 'SELIT', tier: 'associate' },
+  { name: 'Shintech', tier: 'associate' },
+  { name: 'Taylor Adhesives', tier: 'associate' },
+  { name: 'TEC', tier: 'associate' },
+  { name: 'TMT America', tier: 'associate' },
+  { name: 'V\u00E4linge', tier: 'associate' },
+  { name: 'Valtris', tier: 'associate' },
+  { name: 'Versatrim', tier: 'associate' },
+  { name: 'Vestolite', tier: 'associate' },
+  { name: 'WW Henry', tier: 'associate' },
 ]
 
 function MemberCard({ member }: { member: MemberDoc }) {
@@ -113,9 +150,9 @@ export function MembersDirectory({ members }: { members: any[] }) {
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="mb-12">
-            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-3">Board Companies</div>
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-3">Flooring Manufacturers</div>
             <p className="text-rfci-black/60 font-light max-w-2xl">
-              RFCI Board Company members are the leading manufacturers and suppliers of resilient flooring in North America.
+              RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America — represented on the RFCI Board of Directors.
             </p>
           </SectionReveal>
 
@@ -134,9 +171,9 @@ export function MembersDirectory({ members }: { members: any[] }) {
         <section className="py-20 md:py-28 bg-rfci-cream">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-3">Associate Members</div>
+              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-3">Supply Chain Partners</div>
               <p className="text-rfci-black/60 font-light max-w-2xl">
-                RFCI Associate Members are suppliers and partners who support the resilient flooring industry.
+                RFCI Supply Chain Partner members provide the raw materials, additives, adhesives, and components that make resilient flooring possible.
               </p>
             </SectionReveal>
 
