@@ -2,10 +2,19 @@
 
 import { useRef, useEffect, useState } from 'react'
 import { useInView } from 'motion/react'
-import { Broom, Drop, CurrencyDollar, Palette, Recycle, ShieldCheck, ThermometerSimple, SneakerMove, ArrowRight } from '@phosphor-icons/react'
+import { Broom, Drop, CurrencyDollar, Palette, Recycle, ShieldCheck, ThermometerSimple, SneakerMove, ArrowRight, Clock } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
+
+const HISTORY_MILESTONES = [
+  { year: '1845', title: 'Linoleum Invented', description: 'Frederick Walton patents linoleum in England, creating the first true resilient floor covering from linseed oil and natural materials.' },
+  { year: '1872', title: 'US Manufacturing Begins', description: 'The American Linoleum Manufacturing Company opens in Staten Island, New York, launching domestic resilient flooring production.' },
+  { year: '1933', title: 'Vinyl Composition Tile', description: 'VCT is introduced as a durable, affordable alternative for commercial spaces, quickly becoming the standard in schools and hospitals.' },
+  { year: '1950s', title: 'The Vinyl Boom', description: 'Post-war construction drives massive adoption of sheet vinyl and VCT across residential and commercial markets nationwide.' },
+  { year: '1960s', title: 'Cushioned Vinyl', description: 'Cushion-backed sheet vinyl delivers improved comfort underfoot and sound absorption, expanding resilient flooring into new applications.' },
+  { year: 'Today', title: '#2 in North America', description: 'Resilient flooring accounts for 65% of all hard surface flooring installed in North America, driven by LVT innovation and sustainability leadership.' },
+]
 
 const BENEFITS_STATIC = [
   { icon: Broom, title: 'Easy Maintenance', description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.' },
@@ -130,6 +139,48 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
                 </div>
               </div>
             </SectionReveal>
+          </div>
+        </div>
+      </section>
+
+      {/* History Timeline */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionReveal className="mb-16">
+            <div className="flex items-center gap-3 mb-4">
+              <Clock className="w-5 h-5 text-rfci-blue" weight="bold" />
+              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue">Our History</div>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-display font-light">
+              Over <span className="font-semibold">180 years</span> of innovation.
+            </h2>
+          </SectionReveal>
+
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-rfci-blue/20 -translate-x-1/2 hidden md:block" />
+            <div className="absolute left-4 top-0 bottom-0 w-px bg-rfci-blue/20 md:hidden" />
+
+            <div className="flex flex-col gap-12">
+              {HISTORY_MILESTONES.map((milestone, idx) => (
+                <SectionReveal key={idx} delay={idx * 0.08}>
+                  <div className={`flex items-start gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                    {/* Content */}
+                    <div className={`flex-1 pl-12 md:pl-0 ${idx % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'}`}>
+                      <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-2">{milestone.year}</div>
+                      <h3 className="text-xl font-display font-medium mb-2">{milestone.title}</h3>
+                      <p className="text-sm text-rfci-black/60 leading-relaxed font-light">{milestone.description}</p>
+                    </div>
+                    {/* Center dot (desktop) */}
+                    <div className="hidden md:flex items-center justify-center w-3 h-3 bg-rfci-blue rounded-full shrink-0 mt-1 relative z-10" />
+                    {/* Left dot (mobile) */}
+                    <div className="absolute left-4 w-3 h-3 bg-rfci-blue rounded-full -translate-x-1/2 mt-1 md:hidden" />
+                    {/* Spacer for alternating layout */}
+                    <div className="hidden md:block flex-1" />
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
