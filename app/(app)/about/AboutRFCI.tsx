@@ -45,11 +45,11 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; communityEve
 
             <SectionReveal direction="right" className="lg:col-span-5">
               <div className="flex items-center gap-6 text-sm text-rfci-black/50 mb-6">
-                <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> Est. 1929</span>
+                <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> Est. 1976</span>
                 <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4" /> LaGrange, Georgia</span>
               </div>
               <p className="text-rfci-black/70 leading-relaxed font-light">
-                {aboutPage?.heroSubheading || 'Founded in 1929, the Resilient Floor Covering Institute is the trade association for North America’s resilient flooring industry—representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring.'}
+                {aboutPage?.heroSubheading || 'Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America’s resilient flooring industry — representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring.'}
               </p>
             </SectionReveal>
           </div>
@@ -72,10 +72,10 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; communityEve
 
             <SectionReveal direction="right">
               <div className="bg-rfci-cream p-10 md:p-12">
-                <div className="text-5xl md:text-6xl font-display font-bold text-rfci-blue mb-4">97</div>
+                <div className="text-5xl md:text-6xl font-display font-bold text-rfci-blue mb-4">50</div>
                 <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-6">Years of industry leadership</div>
                 <p className="text-rfci-black/60 font-light leading-relaxed">
-                  Since 1929, RFCI has served as the unifying voice for resilient flooring—driving standards, advancing sustainability, and connecting the industry.
+                  Since 1976, RFCI has served as the unifying voice for resilient flooring — driving standards, advancing sustainability, and connecting the industry.
                 </p>
               </div>
             </SectionReveal>
