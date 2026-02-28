@@ -54,7 +54,9 @@ export const Navigation = ({
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex items-center">
-            <img src="/rfci-logo.svg" alt="RFCI – Resilient Floor Covering Institute" className="h-7 w-auto" />
+            <a href="/">
+              <img src="/rfci-logo.svg" alt="RFCI – Resilient Floor Covering Institute" className="h-7 w-auto" />
+            </a>
           </div>
 
           <div className="hidden md:flex items-center gap-8">
@@ -158,11 +160,13 @@ export const Footer = () => (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
         <div className="lg:col-span-4">
           <div className="mb-6">
-            <img
-              src="/rfci-logo.svg"
-              alt="RFCI – Resilient Floor Covering Institute"
-              className="h-7 w-auto brightness-0 invert"
-            />
+            <a href="/">
+              <img
+                src="/rfci-logo.svg"
+                alt="RFCI – Resilient Floor Covering Institute"
+                className="h-7 w-auto brightness-0 invert"
+              />
+            </a>
           </div>
           <p className="text-white/60 text-sm leading-relaxed max-w-sm mb-8">
             The Resilient Floor Covering Institute represents the manufacturers and suppliers behind resilient flooring—working together on standards, certifications, and education.
