@@ -119,13 +119,13 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
 
                 return (
                   <SectionReveal key={resource.title} delay={index * 0.06}>
-                    <div className="bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all p-8 h-full flex flex-col rounded-lg">
+                    <div className="bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all p-8 h-full flex flex-col">
                       {/* Icon + Badge Row */}
                       <div className="flex items-start justify-between mb-4">
-                        <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${iconBg}`}>
+                        <div className={`w-10 h-10 flex items-center justify-center ${iconBg}`}>
                           <FileText size={22} weight="light" />
                         </div>
-                        <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded-full ${typeColor}`}>
+                        <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 ${typeColor}`}>
                           {typeLabel}
                         </span>
                       </div>
