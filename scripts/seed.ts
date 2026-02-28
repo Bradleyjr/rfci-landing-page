@@ -364,6 +364,27 @@ async function run() {
     answer: textToLexical(f.answer),
   })), 'FAQs')
 
+  // ── Resources ─────────────────────────────────────────────────────────
+  await seedCollection('resources', [
+    { title: 'FloorScore Indoor Air Quality', description: 'Learn how FloorScore certification ensures hard surface flooring meets California Section 01350 VOC emission standards.', type: 'sustainability', externalUrl: 'https://rfci.com/floorscore/', order: 1 },
+    { title: 'ASSURE Certification Overview', description: 'ASSURE verifies that rigid core luxury flooring meets uniform quality standards for indoor air quality, performance, heavy metals, and phthalates.', type: 'sustainability', externalUrl: 'https://rfci.com/resources/assurecertified/', order: 2 },
+    { title: 'AFFIRM Sustainability Standard', description: 'AFFIRM is an ANSI-accredited sustainability certification for resilient flooring covering environmental, health, and social responsibility.', type: 'sustainability', externalUrl: 'https://rfci.com/affirm/', order: 3 },
+    { title: 'Resilient Flooring Installation Guide', description: 'Best practices for subfloor preparation, adhesive selection, acclimation, and proper installation of resilient flooring products.', type: 'technical', externalUrl: 'https://rfci.com/resources/', order: 4 },
+    { title: 'Recommended Work Practices for Removal of Resilient Floor Coverings', description: 'RFCI-recommended procedures for the safe removal of existing resilient flooring, including guidelines for handling older materials.', type: 'technical', externalUrl: 'https://rfci.com/installation/', order: 5 },
+    { title: 'NSF/ANSI 332 Assessment Standard', description: 'The sustainability assessment standard for resilient floor coverings covering raw materials, manufacturing, long-term value, and end-of-life management.', type: 'standard', externalUrl: 'https://rfci.com/resources/', order: 6 },
+    { title: 'Industry Wide EPDs (2024)', description: 'Updated 2024 Environmental Product Declarations for nine resilient flooring product types, based on ISO 14025 and ISO 14040 standards.', type: 'sustainability', externalUrl: 'https://rfci.com/environmental-product-declaration/', order: 7 },
+    { title: 'Resilient Flooring Care & Maintenance', description: 'Comprehensive guide to cleaning, maintaining, and extending the lifecycle of all resilient flooring types.', type: 'technical', externalUrl: 'https://rfci.com/resources/', order: 8 },
+    { title: 'Moisture Testing Standards', description: 'ASTM standards and procedures for testing subfloor moisture content before installing resilient flooring.', type: 'standard', externalUrl: 'https://rfci.com/installation/', order: 9 },
+    { title: 'CEU: Resilient Flooring Verified and Certified!', description: 'AIA-approved continuing education course covering FloorScore, ASSURE, AFFIRM, and EPD certifications for resilient flooring.', type: 'technical', externalUrl: 'https://rfci.com/courses/resilient-flooring-verified-and-certified/', order: 10 },
+    { title: 'CEU: Demystifying EPDs in Sustainable Design', description: 'AIA-approved course on understanding and utilizing Environmental Product Declarations for sustainable material specification.', type: 'sustainability', externalUrl: 'https://rfci.com/courses/demystifying-epds-in-sustainable-design/', order: 11 },
+    { title: 'CEU: Resilient Flooring and Sustainability', description: 'Multi-attribute approach for selecting resilient flooring products to verify performance, durability, and material health attributes.', type: 'sustainability', externalUrl: 'https://rfci.com/courses/resilient-flooring-and-sustainability/', order: 12 },
+    { title: 'CEU: Resilient Flooring and Materiality', description: 'Understanding the origin of material ingredients and how they are used to produce resilient floor products.', type: 'technical', externalUrl: 'https://rfci.com/courses/resilient-flooring-materiality/', order: 13 },
+    { title: 'Heterogeneous Sheet Vinyl EPD', description: 'Industry Wide Environmental Product Declaration for heterogeneous (multi-layer) sheet vinyl flooring.', type: 'sustainability', externalUrl: 'https://rfci.com/environmental-product-declaration/', order: 14 },
+    { title: 'Rigid Core SPC EPD', description: 'Industry Wide Environmental Product Declaration for rigid core SPC (Stone Polymer Composite) flooring.', type: 'sustainability', externalUrl: 'https://rfci.com/environmental-product-declaration/', order: 15 },
+    { title: 'Rigid Core WPC EPD', description: 'Industry Wide Environmental Product Declaration for rigid core WPC (Wood Polymer Composite) flooring.', type: 'sustainability', externalUrl: 'https://rfci.com/environmental-product-declaration/', order: 16 },
+    { title: 'VCT EPD', description: 'Industry Wide Environmental Product Declaration for vinyl composition tile (VCT) flooring products.', type: 'sustainability', externalUrl: 'https://rfci.com/environmental-product-declaration/', order: 17 },
+  ], 'Resources')
+
   console.log('\n🌱 Seed complete.')
   await (payload.db as any).destroy?.()
   process.exit(0)
