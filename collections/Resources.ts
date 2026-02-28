@@ -9,6 +9,9 @@ export const Resources: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'type', 'order'],
   },
+  versions: {
+    drafts: { autosave: true },
+  },
   fields: [
     {
       name: 'title',

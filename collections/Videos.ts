@@ -9,6 +9,9 @@ export const Videos: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'duration', 'featured', 'order'],
   },
+  versions: {
+    drafts: { autosave: true },
+  },
   fields: [
     {
       name: 'title',

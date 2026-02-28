@@ -6,6 +6,9 @@ export const Environments: CollectionConfig = {
     useAsTitle: 'name',
     defaultColumns: ['name', 'flooringType', 'order'],
   },
+  versions: {
+    drafts: { autosave: true },
+  },
   fields: [
     {
       name: 'name',

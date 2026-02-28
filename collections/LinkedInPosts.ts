@@ -9,6 +9,9 @@ export const LinkedInPosts: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'postDate', 'order'],
   },
+  versions: {
+    drafts: { autosave: true },
+  },
   fields: [
     {
       name: 'title',

@@ -9,6 +9,9 @@ export const InspirationProjects: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'featured', 'order'],
   },
+  versions: {
+    drafts: { autosave: true },
+  },
   fields: [
     {
       name: 'title',

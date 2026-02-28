@@ -9,6 +9,9 @@ export const Members: CollectionConfig = {
     useAsTitle: 'name',
     defaultColumns: ['name', 'row', 'order'],
   },
+  versions: {
+    drafts: { autosave: true },
+  },
   fields: [
     {
       name: 'name',

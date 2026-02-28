@@ -9,6 +9,9 @@ export const FAQs: CollectionConfig = {
     useAsTitle: 'question',
     defaultColumns: ['question', 'category', 'order'],
   },
+  versions: {
+    drafts: { autosave: true },
+  },
   fields: [
     {
       name: 'question',

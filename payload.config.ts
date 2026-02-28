@@ -31,6 +31,37 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    livePreview: {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      url: ({ data, collectionConfig, globalConfig }: any) => {
+        const base = process.env.NEXT_PUBLIC_PAYLOAD_URL || 'http://localhost:3000'
+        if (collectionConfig?.slug === 'faqs') return `${base}/faq`
+        if (collectionConfig?.slug === 'resources') return `${base}/resources`
+        if (collectionConfig?.slug === 'certifications') return `${base}/certifications/${data?.slug || ''}`
+        if (collectionConfig?.slug === 'flooring-types') return `${base}/flooring/${data?.slug || ''}`
+        if (collectionConfig?.slug === 'inspiration-projects') return `${base}/inspiration`
+        if (collectionConfig?.slug === 'members') return `${base}/members`
+        if (collectionConfig?.slug === 'videos') return `${base}/videos`
+        if (collectionConfig?.slug === 'environments') return `${base}/inspiration`
+        if (collectionConfig?.slug === 'linkedin-posts') return `${base}/`
+        if (globalConfig?.slug === 'site-settings') return `${base}/`
+        if (globalConfig?.slug === 'about-page') return `${base}/about`
+        if (globalConfig?.slug === 'why-resilient-page') return `${base}/why-resilient`
+        if (globalConfig?.slug === 'community-event') return `${base}/`
+        return `${base}/`
+      },
+      breakpoints: [
+        { label: 'Mobile', name: 'mobile', width: 375, height: 667 },
+        { label: 'Tablet', name: 'tablet', width: 768, height: 1024 },
+        { label: 'Desktop', name: 'desktop', width: 1280, height: 800 },
+      ],
+      collections: [
+        'faqs', 'resources', 'certifications', 'flooring-types',
+        'inspiration-projects', 'members', 'videos', 'environments',
+        'linkedin-posts',
+      ],
+      globals: ['site-settings', 'about-page', 'why-resilient-page', 'community-event'],
+    },
   },
   collections: [Users, Media, Members, FlooringTypes, Certifications, Environments, Videos, LinkedInPosts, FAQs, Resources, InspirationProjects],
   globals: [SiteSettings, CommunityEvent, AboutPage, WhyResilientPage],

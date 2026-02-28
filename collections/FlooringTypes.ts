@@ -9,6 +9,9 @@ export const FlooringTypes: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'subtitle', 'order'],
   },
+  versions: {
+    drafts: { autosave: true },
+  },
   fields: [
     {
       name: 'title',

@@ -9,6 +9,9 @@ export const Certifications: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug', 'order'],
   },
+  versions: {
+    drafts: { autosave: true },
+  },
   fields: [
     {
       name: 'slug',
