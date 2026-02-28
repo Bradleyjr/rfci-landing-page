@@ -1,6 +1,7 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { FlooringOverview } from './FlooringOverview'
+import { RefreshRouteOnSave } from '../../_components/RefreshRouteOnSave'
 
 export const dynamic = 'force-dynamic'
 
@@ -16,7 +17,13 @@ export default async function FlooringPage() {
     collection: 'flooring-types',
     sort: 'order',
     limit: 50,
+    draft: true,
   })
 
-  return <FlooringOverview flooringTypes={flooringTypesResult.docs} />
+  return (
+    <>
+      <RefreshRouteOnSave />
+      <FlooringOverview flooringTypes={flooringTypesResult.docs} />
+    </>
+  )
 }

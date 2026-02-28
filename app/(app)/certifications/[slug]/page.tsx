@@ -2,6 +2,7 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { notFound } from 'next/navigation'
 import { CertificationDetail } from './CertificationDetail'
+import { RefreshRouteOnSave } from '../../../_components/RefreshRouteOnSave'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const CERTS_FALLBACK: Record<string, any> = {
@@ -131,6 +132,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     collection: 'certifications',
     where: { slug: { equals: slug } },
     limit: 1,
+    draft: true,
   })
   const cert = result.docs[0] || CERTS_FALLBACK[slug]
   if (!cert) return { title: 'Certification | RFCI' }
@@ -150,11 +152,13 @@ export default async function CertificationPage({ params }: { params: Promise<{ 
       collection: 'certifications',
       where: { slug: { equals: slug } },
       limit: 1,
+      draft: true,
     }),
     payload.find({
       collection: 'certifications',
       sort: 'order',
       limit: 20,
+      draft: true,
     }),
   ])
 
@@ -169,5 +173,10 @@ export default async function CertificationPage({ params }: { params: Promise<{ 
     otherCerts = Object.values(CERTS_FALLBACK).filter((c) => c.slug !== slug)
   }
 
-  return <CertificationDetail certification={cert} otherCertifications={otherCerts} />
+  return (
+    <>
+      <RefreshRouteOnSave />
+      <CertificationDetail certification={cert} otherCertifications={otherCerts} />
+    </>
+  )
 }

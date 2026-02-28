@@ -2,6 +2,7 @@ import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { notFound } from 'next/navigation'
 import { FlooringDetail } from './FlooringDetail'
+import { RefreshRouteOnSave } from '../../../_components/RefreshRouteOnSave'
 
 export const dynamic = 'force-dynamic'
 
@@ -166,6 +167,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     collection: 'flooring-types',
     where: { slug: { equals: slug } },
     limit: 1,
+    draft: true,
   })
   const ft = result.docs[0]
   if (!ft) {
@@ -196,11 +198,13 @@ export default async function FlooringTypePage({ params }: { params: Promise<{ s
       collection: 'flooring-types',
       where: { slug: { equals: slug } },
       limit: 1,
+      draft: true,
     }),
     payload.find({
       collection: 'flooring-types',
       sort: 'order',
       limit: 50,
+      draft: true,
     }),
   ])
 
@@ -214,11 +218,21 @@ export default async function FlooringTypePage({ params }: { params: Promise<{ s
       ? allResult.docs.filter((t: any) => t.slug !== slug)
       : Object.values(FLOORING_FALLBACK).filter((t) => t.slug !== slug)
 
-    return <FlooringDetail flooringType={fallback} otherTypes={otherTypes} />
+    return (
+      <>
+        <RefreshRouteOnSave />
+        <FlooringDetail flooringType={fallback} otherTypes={otherTypes} />
+      </>
+    )
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const otherTypes = allResult.docs.filter((t: any) => t.slug !== slug)
 
-  return <FlooringDetail flooringType={ft} otherTypes={otherTypes} />
+  return (
+    <>
+      <RefreshRouteOnSave />
+      <FlooringDetail flooringType={ft} otherTypes={otherTypes} />
+    </>
+  )
 }

@@ -1,6 +1,7 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { CertificationsHub } from './CertificationsHub'
+import { RefreshRouteOnSave } from '../../_components/RefreshRouteOnSave'
 
 export const dynamic = 'force-dynamic'
 
@@ -16,7 +17,13 @@ export default async function CertificationsPage() {
     collection: 'certifications',
     sort: 'order',
     limit: 20,
+    draft: true,
   })
 
-  return <CertificationsHub certifications={certificationsResult.docs} />
+  return (
+    <>
+      <RefreshRouteOnSave />
+      <CertificationsHub certifications={certificationsResult.docs} />
+    </>
+  )
 }

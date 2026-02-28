@@ -1,6 +1,7 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { AboutRFCI } from './AboutRFCI'
+import { RefreshRouteOnSave } from '../../_components/RefreshRouteOnSave'
 
 export const dynamic = 'force-dynamic'
 
@@ -13,16 +14,19 @@ export default async function AboutPage() {
   const payload = await getPayload({ config: configPromise })
 
   const [aboutPage, communityEvent, membersResult] = await Promise.all([
-    payload.findGlobal({ slug: 'about-page' }),
-    payload.findGlobal({ slug: 'community-event' }),
-    payload.find({ collection: 'members', sort: 'order', limit: 100 }),
+    payload.findGlobal({ slug: 'about-page', draft: true }),
+    payload.findGlobal({ slug: 'community-event', draft: true }),
+    payload.find({ collection: 'members', sort: 'order', limit: 100, draft: true }),
   ])
 
   return (
-    <AboutRFCI
-      aboutPage={aboutPage}
-      communityEvent={communityEvent}
-      members={membersResult.docs}
-    />
+    <>
+      <RefreshRouteOnSave />
+      <AboutRFCI
+        aboutPage={aboutPage}
+        communityEvent={communityEvent}
+        members={membersResult.docs}
+      />
+    </>
   )
 }

@@ -1,6 +1,7 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { VideosLibrary } from './VideosLibrary'
+import { RefreshRouteOnSave } from '../../_components/RefreshRouteOnSave'
 
 export const dynamic = 'force-dynamic'
 
@@ -11,6 +12,11 @@ export const metadata = {
 
 export default async function VideosPage() {
   const payload = await getPayload({ config: configPromise })
-  const videosResult = await payload.find({ collection: 'videos', sort: 'order', limit: 50 })
-  return <VideosLibrary videos={videosResult.docs} />
+  const videosResult = await payload.find({ collection: 'videos', sort: 'order', limit: 50, draft: true })
+  return (
+    <>
+      <RefreshRouteOnSave />
+      <VideosLibrary videos={videosResult.docs} />
+    </>
+  )
 }

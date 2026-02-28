@@ -1,6 +1,7 @@
 import { getPayload } from 'payload'
 import configPromise from '@payload-config'
 import { MembersDirectory } from './MembersDirectory'
+import { RefreshRouteOnSave } from '../../_components/RefreshRouteOnSave'
 
 export const dynamic = 'force-dynamic'
 
@@ -16,7 +17,13 @@ export default async function MembersPage() {
     collection: 'members',
     sort: 'order',
     limit: 100,
+    draft: true,
   })
 
-  return <MembersDirectory members={membersResult.docs} />
+  return (
+    <>
+      <RefreshRouteOnSave />
+      <MembersDirectory members={membersResult.docs} />
+    </>
+  )
 }
