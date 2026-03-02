@@ -2,10 +2,11 @@
 
 import { useRef, useEffect, useState } from 'react'
 import { useInView } from 'motion/react'
-import { Broom, Drop, CurrencyDollar, Palette, Recycle, ShieldCheck, ThermometerSimple, SneakerMove, ArrowRight, Clock } from '@phosphor-icons/react'
+import { Broom, Drop, CurrencyDollar, Palette, Recycle, ShieldCheck, ThermometerSimple, SneakerMove, ArrowRight } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
+import { HistoryStackedReveal } from './HistoryStackedReveal'
 
 const HISTORY_MILESTONES = [
   { year: '1845', title: 'Linoleum Invented', description: 'Frederick Walton patents linoleum in England, creating the first true resilient floor covering from linseed oil and natural materials.' },
@@ -144,47 +145,8 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
         </div>
       </section>
 
-      {/* History Timeline */}
-      <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <SectionReveal className="mb-16">
-            <div className="flex items-center gap-3 mb-4">
-              <Clock className="w-5 h-5 text-rfci-blue" weight="bold" />
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue">Our History</div>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-display font-light">
-              Over <span className="font-semibold">180 years</span> of innovation.
-            </h2>
-          </SectionReveal>
-
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-rfci-blue/20 -translate-x-1/2 hidden md:block" />
-            <div className="absolute left-4 top-0 bottom-0 w-px bg-rfci-blue/20 md:hidden" />
-
-            <div className="flex flex-col gap-12">
-              {milestones.map((milestone: { year: string; title: string; description: string }, idx: number) => (
-                <SectionReveal key={idx} delay={idx * 0.08}>
-                  <div className={`flex items-start gap-8 ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                    {/* Content */}
-                    <div className={`flex-1 pl-12 md:pl-0 ${idx % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'}`}>
-                      <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-2">{milestone.year}</div>
-                      <h3 className="text-xl font-display font-medium mb-2">{milestone.title}</h3>
-                      <p className="text-sm text-rfci-black/60 leading-relaxed font-light">{milestone.description}</p>
-                    </div>
-                    {/* Center dot (desktop) */}
-                    <div className="hidden md:flex items-center justify-center w-3 h-3 bg-rfci-blue rounded-full shrink-0 mt-1 relative z-10" />
-                    {/* Left dot (mobile) */}
-                    <div className="absolute left-4 w-3 h-3 bg-rfci-blue rounded-full -translate-x-1/2 mt-1 md:hidden" />
-                    {/* Spacer for alternating layout */}
-                    <div className="hidden md:block flex-1" />
-                  </div>
-                </SectionReveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* History */}
+      <HistoryStackedReveal milestones={milestones} />
 
       {/* Flooring Types CTA */}
       <section className="py-20 md:py-28 bg-white">

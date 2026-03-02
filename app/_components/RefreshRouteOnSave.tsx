@@ -7,9 +7,8 @@ import React from 'react'
 export const RefreshRouteOnSave: React.FC = () => {
   const router = useRouter()
   const serverURL =
-    process.env.NEXT_PUBLIC_SERVER_URL || typeof window !== 'undefined'
-      ? window.location.origin
-      : 'http://localhost:3000'
+    process.env.NEXT_PUBLIC_SERVER_URL ||
+    (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000')
 
   return (
     <PayloadLivePreview

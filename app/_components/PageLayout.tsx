@@ -25,7 +25,7 @@ export function PageLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <IconContext.Provider value={{ weight: 'light' }}>
-      <div ref={containerRef} className="min-h-screen bg-white text-rfci-black font-sans selection:bg-rfci-blue selection:text-white overflow-hidden">
+      <div ref={containerRef} className="min-h-screen bg-white text-rfci-black font-sans selection:bg-rfci-blue selection:text-white [overflow-x:clip]">
         {/* Global Scroll Progress */}
         <motion.div
           className="fixed top-0 left-0 right-0 h-[2px] bg-rfci-blue origin-left z-[60] shadow-[0_0_10px_rgba(1,100,219,0.5)]"
