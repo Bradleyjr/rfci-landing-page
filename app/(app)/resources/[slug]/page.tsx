@@ -54,7 +54,8 @@ export default async function ResourceDetailPage({ params }: { params: Promise<{
   const sameCategory = otherResources.filter((r: any) => r.category && r.category === resource.category)
   const relatedResources = sameCategory.length >= 3
     ? sameCategory.slice(0, 3)
-    : [...sameCategory, ...otherResources.filter((r: unknown) => !sameCategory.includes(r))].slice(0, 3)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    : [...sameCategory, ...otherResources.filter((r: any) => !sameCategory.includes(r))].slice(0, 3)
 
   const DetailComponent = resource.type === 'video' ? VideoDetail : ArticleDetail
 
