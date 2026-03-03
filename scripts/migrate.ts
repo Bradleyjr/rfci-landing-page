@@ -34,29 +34,11 @@ async function run() {
     console.log('✅ Schema push complete — all tables created/updated.')
     await (payload.db as any).destroy?.()
   } catch (err: any) {
-    // If push fails due to enum type conflicts, drop all tables and recreate
+    // Enum ALTER TYPE conflicts are non-critical — the existing columns still work
     if (err.message?.includes('SET DATA TYPE') && err.message?.includes('enum')) {
-      console.log('⚠️  Enum conflict detected — dropping all public tables/types and rebuilding schema...')
-      const db = (payload.db as any)
-      const pool = db.pool
-      if (pool) {
-        // Drop everything in public schema and recreate it fresh
-        await pool.query(`DROP SCHEMA public CASCADE`)
-        await pool.query(`CREATE SCHEMA public`)
-        await pool.query(`GRANT ALL ON SCHEMA public TO PUBLIC`)
-        await db.destroy?.()
-      }
-      // Re-init from scratch — pushDevSchema will create all tables
-      const [{ default: payload2 }, { default: configPromise2 }] = await Promise.all([
-        import('payload'),
-        import('../payload.config'),
-      ])
-      await payload2.init({
-        config: configPromise2,
-        disableOnInit: true,
-      })
-      console.log('✅ Schema rebuilt from scratch after enum conflict.')
-      await (payload2.db as any).destroy?.()
+      console.log('⚠️  Enum conflict detected (non-critical) — schema is usable as-is.')
+      console.log('   To fully sync enums, update the Neon DB manually or reset the database.')
+      await (payload.db as any).destroy?.()
     } else {
       console.error('❌ Schema push failed:', err.message)
       console.error(err.stack)

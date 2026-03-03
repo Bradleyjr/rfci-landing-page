@@ -4,7 +4,6 @@ import configPromise from '@payload-config'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://rfci.com'
-  const payload = await getPayload({ config: configPromise })
 
   // Static routes
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -20,25 +19,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/faq`, changeFrequency: 'monthly', priority: 0.6 },
   ]
 
-  // Dynamic: certifications
-  const certs = await payload.find({ collection: 'certifications', limit: 50 })
-  const certRoutes: MetadataRoute.Sitemap = certs.docs
-    .filter((c) => c.slug)
-    .map((c) => ({
-      url: `${baseUrl}/certifications/${c.slug}`,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }))
+  try {
+    const payload = await getPayload({ config: configPromise })
 
-  // Dynamic: flooring types
-  const types = await payload.find({ collection: 'flooring-types', limit: 50 })
-  const typeRoutes: MetadataRoute.Sitemap = types.docs
-    .filter((t) => t.slug)
-    .map((t) => ({
-      url: `${baseUrl}/flooring/${t.slug}`,
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }))
+    // Dynamic: certifications
+    const certs = await payload.find({ collection: 'certifications', limit: 50 })
+    const certRoutes: MetadataRoute.Sitemap = certs.docs
+      .filter((c) => c.slug)
+      .map((c) => ({
+        url: `${baseUrl}/certifications/${c.slug}`,
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+      }))
 
-  return [...staticRoutes, ...certRoutes, ...typeRoutes]
+    // Dynamic: flooring types
+    const types = await payload.find({ collection: 'flooring-types', limit: 50 })
+    const typeRoutes: MetadataRoute.Sitemap = types.docs
+      .filter((t) => t.slug)
+      .map((t) => ({
+        url: `${baseUrl}/flooring/${t.slug}`,
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+      }))
+
+    return [...staticRoutes, ...certRoutes, ...typeRoutes]
+  } catch {
+    // If DB isn't ready during build, return static routes only
+    return staticRoutes
+  }
 }
