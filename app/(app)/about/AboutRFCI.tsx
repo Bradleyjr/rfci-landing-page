@@ -41,16 +41,24 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; communityEve
                 The voice of<br />
                 <span className="font-light italic text-rfci-blue">resilient flooring.</span>
               </h1>
-            </SectionReveal>
-
-            <SectionReveal direction="right" className="lg:col-span-5">
               <div className="flex items-center gap-6 text-sm text-rfci-black/50 mb-6">
                 <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> Est. 1976</span>
                 <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4" /> LaGrange, Georgia</span>
               </div>
-              <p className="text-rfci-black/70 leading-relaxed font-light">
-                {aboutPage?.heroSubheading || 'Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America’s resilient flooring industry — representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring.'}
+              <p className="text-rfci-black/70 leading-relaxed font-light max-w-xl">
+                {aboutPage?.heroSubheading || "Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America\u2019s resilient flooring industry \u2014 representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring."}
               </p>
+            </SectionReveal>
+
+            <SectionReveal direction="right" className="lg:col-span-5">
+              <div className="overflow-hidden border-4 border-white/80 shadow-lg">
+                <img
+                  src="/media/community/board-of-directors-2024.jpeg"
+                  alt="RFCI Board of Directors 2024"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              <p className="text-label font-bold tracking-widest uppercase text-rfci-black/40 mt-3 text-center">Board of Directors, 2024</p>
             </SectionReveal>
           </div>
         </div>

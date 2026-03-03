@@ -9,18 +9,18 @@ import { mediaUrl } from '../_lib/transforms'
 type PhotoItem = { url: string; caption?: string }
 
 const STATIC_PHOTOS: PhotoItem[] = [
-  { url: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1000&auto=format&fit=crop', caption: 'Fall Industry Meeting 2024' },
-  { url: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop', caption: 'Technical Advisory Committee' },
-  { url: 'https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=1000&auto=format&fit=crop', caption: 'Spring Industry Meeting' },
-  { url: 'https://images.unsplash.com/photo-1540575467063-178a50ab2352?q=80&w=1000&auto=format&fit=crop', caption: 'Member Networking Reception' },
-  { url: 'https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=1000&auto=format&fit=crop', caption: 'Awards Ceremony' },
-  { url: 'https://images.unsplash.com/photo-1559223607-a43c990c692c?q=80&w=1000&auto=format&fit=crop', caption: 'Sustainability Workshop' },
-  { url: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1000&auto=format&fit=crop', caption: 'Board of Directors Session' },
-  { url: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=1000&auto=format&fit=crop', caption: 'Industry Panel Discussion' },
-  { url: 'https://images.unsplash.com/photo-1560439514-4e9645039924?q=80&w=1000&auto=format&fit=crop', caption: 'FloorScore Certification Event' },
-  { url: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=1000&auto=format&fit=crop', caption: 'Standards Committee Review' },
-  { url: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1000&auto=format&fit=crop', caption: 'Member Spotlight Presentation' },
-  { url: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1000&auto=format&fit=crop', caption: 'Industry Networking Event' },
+  { url: '/media/community/all-member-spring-meeting-2025.jpeg', caption: 'All-Member Spring Meeting 2025' },
+  { url: '/media/community/reception-fall-2024.jpeg', caption: 'Reception, Fall 2024' },
+  { url: '/media/community/technical-committee-2025.jpeg', caption: 'Technical Committee 2025' },
+  { url: '/media/community/spring-reception-2025.jpeg', caption: 'Spring All-Member Reception 2025' },
+  { url: '/media/community/board-of-directors-2025.jpeg', caption: 'Board of Directors 2025' },
+  { url: '/media/community/fall-meeting-tuscon-2025.jpeg', caption: 'Fall Meeting, Tucson AZ 2025' },
+  { url: '/media/community/dinner-fall-2024.jpeg', caption: 'Dinner, Fall 2024' },
+  { url: '/media/community/sea-island-reception-2024.jpeg', caption: 'Sea Island Reception, Spring 2024' },
+  { url: '/media/community/chat-spring-meeting-2023.jpeg', caption: 'Spring Meeting 2023' },
+  { url: '/media/community/technical-meeting-fall-2024.jpeg', caption: 'Technical Meeting, Fall 2024' },
+  { url: '/media/community/lunch-all-member-meeting.jpeg', caption: 'Lunch at All-Member Meeting' },
+  { url: '/media/community/golf-tournament-winners.jpeg', caption: 'Golf Tournament Winners' },
 ]
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

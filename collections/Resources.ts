@@ -7,7 +7,7 @@ export const Resources: CollectionConfig = {
   },
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'type', 'order'],
+    defaultColumns: ['title', 'type', 'category', 'order'],
   },
   versions: {
     drafts: { autosave: true },
@@ -27,12 +27,35 @@ export const Resources: CollectionConfig = {
       type: 'select',
       defaultValue: 'technical',
       options: [
-        { label: 'Technical Guide', value: 'technical' },
-        { label: 'Sustainability', value: 'sustainability' },
-        { label: 'Standard', value: 'standard' },
-        { label: 'White Paper', value: 'whitepaper' },
-        { label: 'Brochure', value: 'brochure' },
+        { label: 'Technical Paper', value: 'technical' },
+        { label: 'Video', value: 'video' },
+        { label: 'Certification', value: 'certification' },
+        { label: 'Declaration', value: 'declaration' },
+        { label: 'Article', value: 'article' },
+        { label: 'Website', value: 'website' },
       ],
+    },
+    {
+      name: 'category',
+      type: 'text',
+      admin: {
+        description: 'Topic grouping (e.g., Sustainability, Installation, Cork)',
+      },
+    },
+    {
+      name: 'thumbnail',
+      type: 'upload',
+      relationTo: 'media',
+      admin: {
+        description: 'Thumbnail image for the resource card',
+      },
+    },
+    {
+      name: 'thumbnailUrl',
+      type: 'text',
+      admin: {
+        description: 'External thumbnail URL (used if no uploaded thumbnail)',
+      },
     },
     {
       name: 'file',
@@ -46,7 +69,21 @@ export const Resources: CollectionConfig = {
       name: 'externalUrl',
       type: 'text',
       admin: {
-        description: 'External URL if document is hosted elsewhere',
+        description: 'External URL (website link, resource page, etc.)',
+      },
+    },
+    {
+      name: 'downloadUrl',
+      type: 'text',
+      admin: {
+        description: 'Direct download URL for PDFs hosted externally',
+      },
+    },
+    {
+      name: 'videoUrl',
+      type: 'text',
+      admin: {
+        description: 'YouTube or video embed URL',
       },
     },
     {

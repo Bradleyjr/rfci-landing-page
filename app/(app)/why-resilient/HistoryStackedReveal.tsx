@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { motion, useScroll, useTransform, useMotionValueEvent, useInView } from 'motion/react'
+import { motion, useScroll, useTransform, useMotionValueEvent, useInView, type MotionValue } from 'motion/react'
 import { SectionReveal } from '../../_components/SectionReveal'
 
 type Milestone = { year: string; title: string; description: string }
@@ -15,7 +15,7 @@ function MilestoneCard({
   milestone: Milestone
   index: number
   total: number
-  progress: ReturnType<typeof useTransform<number>>
+  progress: MotionValue<number>
 }) {
   const bgClass = index % 2 === 0 ? 'bg-white' : 'bg-rfci-cream'
 
