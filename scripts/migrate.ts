@@ -34,24 +34,19 @@ async function run() {
     console.log('✅ Schema push complete — all tables created/updated.')
     await (payload.db as any).destroy?.()
   } catch (err: any) {
-    // If push fails due to enum type conflicts, drop the stale enums and retry
+    // If push fails due to enum type conflicts, drop all tables and recreate
     if (err.message?.includes('SET DATA TYPE') && err.message?.includes('enum')) {
-      console.log('⚠️  Enum conflict detected — dropping stale enum types and retrying...')
+      console.log('⚠️  Enum conflict detected — dropping all public tables/types and rebuilding schema...')
       const db = (payload.db as any)
       const pool = db.pool
       if (pool) {
-        // Drop all custom enum types so they can be recreated
-        const enumsResult = await pool.query(
-          `SELECT typname FROM pg_type WHERE typtype = 'e' AND typnamespace = (SELECT oid FROM pg_namespace WHERE nspname = 'public')`
-        )
-        for (const row of enumsResult.rows) {
-          try {
-            await pool.query(`DROP TYPE IF EXISTS "public"."${row.typname}" CASCADE`)
-          } catch { /* ignore */ }
-        }
+        // Drop everything in public schema and recreate it fresh
+        await pool.query(`DROP SCHEMA public CASCADE`)
+        await pool.query(`CREATE SCHEMA public`)
+        await pool.query(`GRANT ALL ON SCHEMA public TO PUBLIC`)
         await db.destroy?.()
       }
-      // Re-init from scratch
+      // Re-init from scratch — pushDevSchema will create all tables
       const [{ default: payload2 }, { default: configPromise2 }] = await Promise.all([
         import('payload'),
         import('../payload.config'),
@@ -60,7 +55,7 @@ async function run() {
         config: configPromise2,
         disableOnInit: true,
       })
-      console.log('✅ Schema push complete after enum fix.')
+      console.log('✅ Schema rebuilt from scratch after enum conflict.')
       await (payload2.db as any).destroy?.()
     } else {
       console.error('❌ Schema push failed:', err.message)
