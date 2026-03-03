@@ -81,9 +81,9 @@ export function CommunitySection({ communityEvent }: { communityEvent: any }) {
                   </p>
                 </div>
               </div>
-              <button className="w-full py-3 border border-rfci-light-gray text-sm font-medium hover:border-rfci-black hover:bg-rfci-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2 group">
-                View Event Details <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              <a href="mailto:info@rfci.com" className="w-full py-3 border border-rfci-light-gray text-sm font-medium hover:border-rfci-black hover:bg-rfci-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2 group">
+                Inquire About This Event <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
           </SectionReveal>
         </div>

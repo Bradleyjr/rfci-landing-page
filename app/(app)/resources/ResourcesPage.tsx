@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { FileText, Download, FunnelSimple, BookOpen, Leaf, Scales, Article, Notebook, ArrowSquareOut } from '@phosphor-icons/react'
+import Link from 'next/link'
+import { FileText, Download, FunnelSimple, BookOpen, Leaf, Scales, Article, Notebook, ArrowSquareOut, Play, ArrowRight } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
@@ -34,6 +35,8 @@ const TYPES = [
   { key: 'standard', label: 'Standards', icon: Scales },
   { key: 'whitepaper', label: 'White Papers', icon: Article },
   { key: 'brochure', label: 'Brochures', icon: Notebook },
+  { key: 'video', label: 'Videos', icon: Play },
+  { key: 'article', label: 'Articles', icon: Article },
 ]
 
 const TYPE_COLORS: Record<string, string> = {
@@ -42,6 +45,8 @@ const TYPE_COLORS: Record<string, string> = {
   standard: 'bg-amber-50 text-amber-700',
   whitepaper: 'bg-purple-50 text-purple-700',
   brochure: 'bg-rose-50 text-rose-700',
+  video: 'bg-indigo-50 text-indigo-700',
+  article: 'bg-rose-50 text-rose-700',
 }
 
 const TYPE_ICON_BG: Record<string, string> = {
@@ -50,6 +55,8 @@ const TYPE_ICON_BG: Record<string, string> = {
   standard: 'bg-amber-50 text-amber-600',
   whitepaper: 'bg-purple-50 text-purple-600',
   brochure: 'bg-rose-50 text-rose-600',
+  video: 'bg-indigo-50 text-indigo-600',
+  article: 'bg-rose-50 text-rose-600',
 }
 
 const TYPE_LABELS: Record<string, string> = {
@@ -58,10 +65,12 @@ const TYPE_LABELS: Record<string, string> = {
   standard: 'Standard',
   whitepaper: 'White Paper',
   brochure: 'Brochure',
+  video: 'Video',
+  article: 'Article',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function ResourcesPage({ resources }: { resources: any[] }) {
+export function ResourcesPage({ resources, pageSettings }: { resources: any[]; pageSettings?: any }) {
   const [activeType, setActiveType] = useState('all')
 
   const items = resources?.length ? resources : RESOURCES_STATIC
@@ -82,12 +91,8 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
     <PageLayout>
       <PageHero
         label="Resources"
-        heading={
-          <>
-            Resources & <span className="font-semibold text-rfci-blue">Technical Documents</span>
-          </>
-        }
-        subheading="Access technical guides, sustainability reports, standards documents, and white papers from RFCI."
+        heading={pageSettings?.heroHeading || <>Resources & <span className="font-semibold text-rfci-blue">Technical Documents</span></>}
+        subheading={pageSettings?.heroSubheading || 'Access technical guides, sustainability reports, standards documents, and white papers from RFCI.'}
       />
 
       {/* Type Filter Tabs */}
@@ -153,7 +158,15 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
 
                       {/* Action */}
                       <div className="mt-auto pt-4 border-t border-black/5">
-                        {downloadUrl ? (
+                        {resource.slug && (resource.type === 'video' || resource.type === 'article') ? (
+                          <Link
+                            href={`/resources/${resource.slug}`}
+                            className="inline-flex items-center gap-2 text-rfci-blue hover:text-rfci-blue/80 text-sm font-bold tracking-wider uppercase transition-colors"
+                          >
+                            <ArrowRight size={18} weight="bold" />
+                            {resource.type === 'video' ? 'Watch Video' : 'Read Article'}
+                          </Link>
+                        ) : downloadUrl ? (
                           <a
                             href={downloadUrl}
                             download
@@ -197,13 +210,13 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
         <div className="max-w-3xl mx-auto px-6 md:px-12 text-center">
           <SectionReveal>
             <h2 className="text-3xl md:text-4xl font-display font-light mb-4">
-              Need something specific?
+              {pageSettings?.ctaHeading || 'Need something specific?'}
             </h2>
             <p className="text-white/60 font-light leading-relaxed mb-8 max-w-xl mx-auto">
-              If you are looking for a specific document or technical resource, reach out to our team and we will help you find it.
+              {pageSettings?.ctaSubheading || 'If you are looking for a specific document or technical resource, reach out to our team and we will help you find it.'}
             </p>
             <a
-              href="mailto:info@rfci.com"
+              href={`mailto:${pageSettings?.ctaEmail || 'info@rfci.com'}`}
               className="inline-flex items-center gap-2 bg-rfci-blue text-white px-6 py-3 rounded-full font-bold text-label tracking-widest uppercase hover:bg-rfci-blue/90 transition-colors"
             >
               Contact Us

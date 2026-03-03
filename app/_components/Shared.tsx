@@ -172,12 +172,9 @@ export const Footer = () => (
             The Resilient Floor Covering Institute represents the manufacturers and suppliers behind resilient flooring—working together on standards, certifications, and education.
           </p>
           <div className="flex gap-4">
-            <div className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-rfci-teal transition-colors cursor-pointer">
+            <a href="https://www.linkedin.com/company/resilient-floor-covering-institute/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-rfci-teal transition-colors">
               <span className="text-xs font-bold">IN</span>
-            </div>
-            <div className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-rfci-teal transition-colors cursor-pointer">
-              <span className="text-xs font-bold">X</span>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -185,10 +182,10 @@ export const Footer = () => (
           <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">About</h4>
           <ul className="space-y-4 text-sm text-white/70">
             <li><a href="/about#who-we-are" className="hover:text-rfci-teal transition-colors">Who We Are</a></li>
-            <li><a href="/about#history-mission" className="hover:text-rfci-teal transition-colors">History & Mission</a></li>
+            <li><a href="/about#who-we-are" className="hover:text-rfci-teal transition-colors">History & Mission</a></li>
             <li><a href="/about#strategic-imperatives" className="hover:text-rfci-teal transition-colors">Strategic Imperatives</a></li>
             <li><a href="/about#board-of-directors" className="hover:text-rfci-teal transition-colors">Board of Directors</a></li>
-            <li><a href="/about#community-philanthropy" className="hover:text-rfci-teal transition-colors">Community & Philanthropy</a></li>
+            <li><a href="/about" className="hover:text-rfci-teal transition-colors">Community & Philanthropy</a></li>
           </ul>
         </div>
 
@@ -246,9 +243,7 @@ export const Footer = () => (
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 mt-16 pt-8 border-t border-white/10">
         <p>&copy; {new Date().getFullYear()} Resilient Floor Covering Institute. All rights reserved.</p>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          <a href="#" className="hover:text-white transition-colors">Contact</a>
+          <a href="mailto:info@rfci.com" className="hover:text-white transition-colors">Contact</a>
         </div>
       </div>
     </div>

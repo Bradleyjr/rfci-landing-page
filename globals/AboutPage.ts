@@ -15,7 +15,7 @@ export const AboutPage: GlobalConfig = {
       name: 'heroSubheading',
       type: 'textarea',
       defaultValue:
-        'Founded in 1929, the Resilient Floor Covering Institute is the trade association for North America\u2019s resilient flooring industry\u2014representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring.',
+        'Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America\u2019s resilient flooring industry\u2014representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring.',
     },
     {
       name: 'heroImage',

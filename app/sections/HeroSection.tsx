@@ -7,7 +7,7 @@ import { mediaUrl } from '../_lib/transforms'
 const HERO_STATIC = {
   heroLine1: 'RESILIENT FLOOR',
   heroLine2: 'COVERING INSTITUTE',
-  heroSubheading: 'The trade association representing the resilient flooring industry. Setting standards, running certification programs, and advancing the number one flooring category in North America since 1929.',
+  heroSubheading: 'The trade association representing the resilient flooring industry. Setting standards, running certification programs, and advancing the number one flooring category in North America since 1976.',
   heroCta: 'Explore RFCI',
   heroBoxText: 'Discover our certification programs, meet our member manufacturers, and learn how RFCI protects and promotes the resilient flooring industry.',
   heroImageUrl: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop',
@@ -93,14 +93,14 @@ export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number
               <Certificate className="w-4 h-4" weight="fill" />
             </div>
             <p className="text-rfci-black/80 font-medium mb-8 md:mb-10 text-base leading-loose relative z-20">{heroBoxText}</p>
-            <button className="text-label font-bold tracking-widest uppercase text-rfci-blue flex items-center gap-2 group relative z-20">
+            <a href="/about" className="text-label font-bold tracking-widest uppercase text-rfci-blue flex items-center gap-2 group relative z-20">
               <span className="relative">
                 <span className="relative z-10 flex items-center gap-2">
                   {heroCta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-blue group-hover:w-full group-hover:h-[2px] transition-all duration-300" />
               </span>
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>

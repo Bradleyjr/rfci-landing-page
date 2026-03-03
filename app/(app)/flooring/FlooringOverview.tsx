@@ -99,15 +99,15 @@ function slugify(title: string): string {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function FlooringOverview({ flooringTypes }: { flooringTypes: any[] }) {
+export function FlooringOverview({ flooringTypes, pageSettings }: { flooringTypes: any[]; pageSettings?: any }) {
   const displayTypes: FlooringTypeDoc[] = flooringTypes?.length ? flooringTypes : FLOORING_STATIC
 
   return (
     <PageLayout>
       <PageHero
         label="Flooring Types"
-        heading={<>The full range of <span className="font-semibold text-rfci-blue">resilient flooring.</span></>}
-        subheading="From luxury vinyl tile to linoleum, rubber to cork—resilient flooring offers the widest range of performance, aesthetics, and sustainability options in the hard surface category."
+        heading={pageSettings?.heroHeading || <>The full range of <span className="font-semibold text-rfci-blue">resilient flooring.</span></>}
+        subheading={pageSettings?.heroSubheading || 'From luxury vinyl tile to linoleum, rubber to cork—resilient flooring offers the widest range of performance, aesthetics, and sustainability options in the hard surface category.'}
       />
 
       {/* Flooring Type Grid */}

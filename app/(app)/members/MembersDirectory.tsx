@@ -132,7 +132,7 @@ function MemberCard({ member }: { member: MemberDoc }) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function MembersDirectory({ members }: { members: any[] }) {
+export function MembersDirectory({ members, pageSettings }: { members: any[]; pageSettings?: any }) {
   const displayMembers: MemberDoc[] = members?.length ? members : MEMBERS_STATIC
 
   const boardMembers = displayMembers.filter(m => !m.tier || m.tier === 'board')
@@ -142,17 +142,17 @@ export function MembersDirectory({ members }: { members: any[] }) {
     <PageLayout>
       <PageHero
         label="Member Directory"
-        heading={<>Meet our <span className="font-semibold text-rfci-blue">member companies.</span></>}
-        subheading="RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward."
+        heading={pageSettings?.heroHeading || <>Meet our <span className="font-semibold text-rfci-blue">member companies.</span></>}
+        subheading={pageSettings?.heroSubheading || 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.'}
       />
 
       {/* Board Companies */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="mb-12">
-            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-3">Flooring Manufacturers</div>
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-3">{pageSettings?.boardSectionHeading || 'Flooring Manufacturers'}</div>
             <p className="text-rfci-black/60 font-light max-w-2xl">
-              RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America — represented on the RFCI Board of Directors.
+              {pageSettings?.boardSectionDescription || 'RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America — represented on the RFCI Board of Directors.'}
             </p>
           </SectionReveal>
 
@@ -171,9 +171,9 @@ export function MembersDirectory({ members }: { members: any[] }) {
         <section className="py-20 md:py-28 bg-rfci-cream">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-3">Supply Chain Partners</div>
+              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-3">{pageSettings?.associateSectionHeading || 'Supply Chain Partners'}</div>
               <p className="text-rfci-black/60 font-light max-w-2xl">
-                RFCI Supply Chain Partner members provide the raw materials, additives, adhesives, and components that make resilient flooring possible.
+                {pageSettings?.associateSectionDescription || 'RFCI Supply Chain Partner members provide the raw materials, additives, adhesives, and components that make resilient flooring possible.'}
               </p>
             </SectionReveal>
 

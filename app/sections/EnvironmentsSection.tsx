@@ -37,7 +37,7 @@ const FALLBACK_IMGS = [
 ]
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function EnvironmentsSection({ environments }: { environments: any[] }) {
+export function EnvironmentsSection({ environments, siteSettings }: { environments: any[]; siteSettings?: any }) {
   const [activeTooltip, setActiveTooltip] = useState<number | null>(null)
   const displayEnvs: EnvDoc[] = environments?.length ? environments : ENVIRONMENTS_STATIC
 
@@ -49,10 +49,10 @@ export function EnvironmentsSection({ environments }: { environments: any[] }) {
             <Leaf className="w-4 h-4" /> Residential &amp; Commercial
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6 leading-tight">
-            Built for <span className="font-semibold text-rfci-blue">real spaces.</span>
+            {siteSettings?.environmentsHeading || <>Built for <span className="font-semibold text-rfci-blue">real spaces.</span></>}
           </h2>
           <p className="text-lg md:text-xl text-rfci-black/70 max-w-3xl mx-auto leading-relaxed font-light">
-            From single-family homes to hospitals and hotels, resilient flooring is the preferred choice across every segment of the built environment.
+            {siteSettings?.environmentsSubheading || 'From single-family homes to hospitals and hotels, resilient flooring is the preferred choice across every segment of the built environment.'}
           </p>
         </SectionReveal>
 

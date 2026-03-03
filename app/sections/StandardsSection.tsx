@@ -96,7 +96,7 @@ function AnimatedStat({ value, label }: { key?: Key; value: string; label: strin
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function StandardsSection({ certifications }: { certifications: any[] }) {
+export function StandardsSection({ certifications, siteSettings }: { certifications: any[]; siteSettings?: any }) {
   const displayCerts: CertDoc[] = certifications?.length ? certifications : CERTS_STATIC
   const [activeTab, setActiveTab] = useState(displayCerts[0]?.slug ?? '')
 
@@ -121,9 +121,9 @@ export function StandardsSection({ certifications }: { certifications: any[] }) 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <SectionReveal className="text-center mb-16">
           <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Certifications</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6">Certifications you can rely on.</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6">{siteSettings?.standardsHeading || 'Certifications you can rely on.'}</h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto font-light">
-            RFCI manages three of the flooring industry&apos;s most trusted certification programs. If you&apos;re specifying products or evaluating sustainability claims, these are the benchmarks that matter.
+            {siteSettings?.standardsSubheading || "RFCI manages three of the flooring industry\u2019s most trusted certification programs. If you\u2019re specifying products or evaluating sustainability claims, these are the benchmarks that matter."}
           </p>
         </SectionReveal>
 

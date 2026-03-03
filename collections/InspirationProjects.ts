@@ -34,7 +34,13 @@ export const InspirationProjects: CollectionConfig = {
       name: 'featuredImage',
       type: 'upload',
       relationTo: 'media',
-      required: true,
+    },
+    {
+      name: 'imageUrl',
+      type: 'text',
+      admin: {
+        description: 'Direct URL to featured image (used when no uploaded media). featuredImage upload takes priority.',
+      },
     },
     {
       name: 'gallery',
@@ -61,6 +67,13 @@ export const InspirationProjects: CollectionConfig = {
       },
     },
     {
+      name: 'memberName',
+      type: 'text',
+      admin: {
+        description: 'Manufacturer name (fallback when member relationship is not set)',
+      },
+    },
+    {
       name: 'flooringType',
       type: 'relationship',
       relationTo: 'flooring-types',
@@ -69,11 +82,25 @@ export const InspirationProjects: CollectionConfig = {
       },
     },
     {
+      name: 'flooringTypeName',
+      type: 'text',
+      admin: {
+        description: 'Flooring type name (fallback when relationship is not set)',
+      },
+    },
+    {
       name: 'environment',
       type: 'relationship',
       relationTo: 'environments',
       admin: {
         description: 'Environment/application type',
+      },
+    },
+    {
+      name: 'environmentName',
+      type: 'text',
+      admin: {
+        description: 'Environment name (fallback when relationship is not set)',
       },
     },
     {

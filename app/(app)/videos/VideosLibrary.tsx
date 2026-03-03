@@ -83,7 +83,7 @@ function getThumbSrc(video: VideoDoc): string {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function VideosLibrary({ videos }: { videos: any[] }) {
+export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSettings?: any }) {
   const [activeCategory, setActiveCategory] = useState('all')
 
   const displayVideos: VideoDoc[] = videos?.length ? videos : VIDEOS_STATIC
@@ -99,12 +99,8 @@ export function VideosLibrary({ videos }: { videos: any[] }) {
     <PageLayout>
       <PageHero
         label="Education"
-        heading={
-          <>
-            Education & <span className="font-semibold text-rfci-blue">CEU Courses</span>
-          </>
-        }
-        subheading="Explore RFCI's continuing education program — earn CEU credits and deepen your understanding of resilient flooring certifications, sustainability practices, and material health."
+        heading={pageSettings?.heroHeading || <>Education & <span className="font-semibold text-rfci-blue">CEU Courses</span></>}
+        subheading={pageSettings?.heroSubheading || "Explore RFCI's continuing education program — earn CEU credits and deepen your understanding of resilient flooring certifications, sustainability practices, and material health."}
       />
 
       {/* Category Filter Bar */}

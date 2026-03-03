@@ -21,6 +21,13 @@ import { SiteSettings } from './globals/SiteSettings'
 import { CommunityEvent } from './globals/CommunityEvent'
 import { AboutPage } from './globals/AboutPage'
 import { WhyResilientPage } from './globals/WhyResilientPage'
+import { FAQPage } from './globals/FAQPage'
+import { FlooringPage } from './globals/FlooringPage'
+import { ResourcesPage } from './globals/ResourcesPage'
+import { VideosPage } from './globals/VideosPage'
+import { MembersPage } from './globals/MembersPage'
+import { InspirationPage } from './globals/InspirationPage'
+import { CertificationsPage } from './globals/CertificationsPage'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -48,6 +55,13 @@ export default buildConfig({
         if (globalConfig?.slug === 'about-page') return `${base}/about`
         if (globalConfig?.slug === 'why-resilient-page') return `${base}/why-resilient`
         if (globalConfig?.slug === 'community-event') return `${base}/`
+        if (globalConfig?.slug === 'faq-page') return `${base}/faq`
+        if (globalConfig?.slug === 'flooring-page') return `${base}/flooring`
+        if (globalConfig?.slug === 'resources-page') return `${base}/resources`
+        if (globalConfig?.slug === 'videos-page') return `${base}/videos`
+        if (globalConfig?.slug === 'members-page') return `${base}/members`
+        if (globalConfig?.slug === 'inspiration-page') return `${base}/inspiration`
+        if (globalConfig?.slug === 'certifications-page') return `${base}/certifications`
         return `${base}/`
       },
       breakpoints: [
@@ -60,11 +74,15 @@ export default buildConfig({
         'inspiration-projects', 'members', 'videos', 'environments',
         'linkedin-posts',
       ],
-      globals: ['site-settings', 'about-page', 'why-resilient-page', 'community-event'],
+      globals: [
+        'site-settings', 'about-page', 'why-resilient-page', 'community-event',
+        'faq-page', 'flooring-page', 'resources-page', 'videos-page',
+        'members-page', 'inspiration-page', 'certifications-page',
+      ],
     },
   },
   collections: [Users, Media, Members, FlooringTypes, Certifications, Environments, Videos, LinkedInPosts, FAQs, Resources, InspirationProjects],
-  globals: [SiteSettings, CommunityEvent, AboutPage, WhyResilientPage],
+  globals: [SiteSettings, CommunityEvent, AboutPage, WhyResilientPage, FAQPage, FlooringPage, ResourcesPage, VideosPage, MembersPage, InspirationPage, CertificationsPage],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

@@ -64,7 +64,12 @@ function AnimatedCounter({ target, suffix = '%' }: { target: number; suffix?: st
   )
 }
 
-export function WhyResilientSection() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function WhyResilientSection({ siteSettings }: { siteSettings?: any } = {}) {
+  const cmsBenefits = siteSettings?.whyResilientBenefits
+  const statTarget = parseInt(siteSettings?.whyResilientStatValue || '65', 10)
+  const statLabel = siteSettings?.whyResilientStatLabel || 'of hard surface flooring\nin North America'
+  const imageUrl = siteSettings?.whyResilientImage?.url || 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop'
   return (
     <section id="why-resilient" className="py-28 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -73,19 +78,18 @@ export function WhyResilientSection() {
           {/* Left — Photo with stat badge */}
           <SectionReveal direction="left" className="lg:col-span-6">
             <div className="relative aspect-[4/5] overflow-hidden bg-rfci-black/5">
-              {/* TODO: Replace with RFCI's own photography */}
               <img
-                src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop"
+                src={imageUrl}
                 alt="Modern interior with resilient flooring"
                 className="w-full h-full object-cover"
               />
               {/* Stat badge — overlays bottom-left of photo */}
               <div className="absolute bottom-6 left-6 bg-white p-5 shadow-[0_8px_30px_rgba(0,0,0,0.15)]">
                 <div className="text-4xl md:text-5xl font-display font-bold text-rfci-blue leading-none mb-1">
-                  <AnimatedCounter target={65} />
+                  <AnimatedCounter target={statTarget} />
                 </div>
                 <p className="text-xs text-rfci-black/60 font-light leading-snug max-w-[130px]">
-                  of hard surface flooring<br />in North America
+                  {statLabel.split('\n').map((line: string, i: number) => <span key={i}>{i > 0 && <br />}{line}</span>)}
                 </p>
               </div>
             </div>
@@ -93,16 +97,15 @@ export function WhyResilientSection() {
 
           {/* Right — Heading + benefit list */}
           <SectionReveal direction="right" className="lg:col-span-6 lg:pt-4">
-            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Why Resilient?</div>
+            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">{siteSettings?.whyResilientHeading || 'Why Resilient?'}</div>
             <h2 className="text-4xl md:text-5xl font-display font-light leading-tight mb-10">
-              The number one flooring{' '}
-              <span className="font-semibold text-rfci-blue">category in North America.</span>
+              {siteSettings?.whyResilientSubheading || <>The number one flooring{' '}<span className="font-semibold text-rfci-blue">category in North America.</span></>}
             </h2>
 
             {/* Benefits — borderless divide-y list */}
             <div className="divide-y divide-rfci-black/10">
-              {BENEFITS.map((benefit, idx) => {
-                const Icon = benefit.icon
+              {(cmsBenefits?.length ? cmsBenefits : BENEFITS).map((benefit: { icon?: typeof Broom; title: string; description: string }, idx: number) => {
+                const Icon = benefit.icon ?? BENEFITS[idx]?.icon ?? Broom
                 return (
                   <div key={idx} className="flex gap-5 py-5 first:pt-0 last:pb-0 items-start group">
                     <div className="w-9 h-9 bg-rfci-blue/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-rfci-blue/20 transition-colors duration-300">

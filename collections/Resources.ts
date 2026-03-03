@@ -19,6 +19,16 @@ export const Resources: CollectionConfig = {
       required: true,
     },
     {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+      index: true,
+      admin: {
+        description: 'URL-friendly identifier (e.g., "demystifying-epds")',
+      },
+    },
+    {
       name: 'description',
       type: 'textarea',
     },
@@ -84,6 +94,13 @@ export const Resources: CollectionConfig = {
       type: 'text',
       admin: {
         description: 'YouTube or video embed URL',
+      },
+    },
+    {
+      name: 'body',
+      type: 'richText',
+      admin: {
+        description: 'Full article body content (used for article-type resources)',
       },
     },
     {

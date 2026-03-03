@@ -1,0 +1,113 @@
+import { ArrowLeft } from '@phosphor-icons/react/dist/ssr'
+import Link from 'next/link'
+import { RichText, defaultJSXConverters } from '@payloadcms/richtext-lexical/react'
+import { PageLayout } from '../../../_components/PageLayout'
+import { SectionReveal } from '../../../_components/SectionReveal'
+import { mediaUrl } from '../../../_lib/transforms'
+
+const TYPE_COLORS: Record<string, string> = {
+  article: 'bg-rose-50 text-rose-700',
+  video: 'bg-indigo-50 text-indigo-700',
+  technical: 'bg-blue-50 text-blue-700',
+  sustainability: 'bg-emerald-50 text-emerald-700',
+  standard: 'bg-amber-50 text-amber-700',
+  whitepaper: 'bg-purple-50 text-purple-700',
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function ArticleDetail({ resource, relatedResources }: { resource: any; relatedResources: any[] }) {
+  const thumbnailSrc = resource.thumbnailUrl || mediaUrl(resource.thumbnail)
+
+  return (
+    <PageLayout>
+      {/* Hero */}
+      <section className="bg-rfci-cream py-20 md:py-28 lg:py-32">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionReveal>
+            <Link href="/resources" className="inline-flex items-center gap-2 text-sm text-rfci-black/50 hover:text-rfci-blue transition-colors mb-10">
+              <ArrowLeft className="w-4 h-4" /> All Resources
+            </Link>
+
+            <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block mb-5 ${TYPE_COLORS[resource.type] || TYPE_COLORS.article}`}>
+              {resource.type === 'article' ? 'Article' : resource.type}
+            </span>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight mb-6">
+              {resource.title}
+            </h1>
+
+            {resource.description && (
+              <p className="text-lg md:text-xl text-rfci-black/60 max-w-3xl leading-relaxed font-light">
+                {resource.description}
+              </p>
+            )}
+          </SectionReveal>
+        </div>
+      </section>
+
+      {/* Hero Image */}
+      {thumbnailSrc && (
+        <section className="relative h-64 md:h-96 overflow-hidden">
+          <img src={thumbnailSrc} alt={resource.title} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
+        </section>
+      )}
+
+      {/* Article Body */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-3xl mx-auto px-6 md:px-12">
+          {resource.body?.root?.children?.length > 0 ? (
+            <div className="prose prose-lg prose-rfci max-w-none
+              prose-headings:font-display prose-headings:font-light prose-headings:text-rfci-black
+              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
+              prose-p:text-rfci-black/70 prose-p:leading-relaxed prose-p:font-light
+              prose-a:text-rfci-blue prose-a:no-underline hover:prose-a:underline
+              prose-strong:text-rfci-black prose-strong:font-medium
+              prose-blockquote:border-rfci-blue prose-blockquote:text-rfci-black/60
+              prose-li:text-rfci-black/70 prose-li:font-light
+            ">
+              <RichText data={resource.body} converters={defaultJSXConverters} />
+            </div>
+          ) : (
+            <p className="text-rfci-black/50 text-center font-light">
+              Article content will appear here once added through the CMS.
+            </p>
+          )}
+        </div>
+      </section>
+
+      {/* Related Resources */}
+      {relatedResources.length > 0 && (
+        <section className="py-20 md:py-28 bg-rfci-cream">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <SectionReveal className="mb-12">
+              <h2 className="text-2xl md:text-3xl font-display font-light">
+                Related <span className="font-semibold text-rfci-blue">resources</span>
+              </h2>
+            </SectionReveal>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {relatedResources.slice(0, 3).map((r, i) => (
+                <SectionReveal key={r.slug || r.title} delay={i * 0.1}>
+                  <Link
+                    href={r.slug ? `/resources/${r.slug}` : (r.externalUrl || '#')}
+                    className="group block p-8 bg-white border border-black/5 hover:border-rfci-blue/30 hover:shadow-lg transition-all h-full"
+                  >
+                    <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block mb-4 ${TYPE_COLORS[r.type] || TYPE_COLORS.technical}`}>
+                      {r.type}
+                    </span>
+                    <h3 className="text-lg font-display font-light group-hover:text-rfci-blue transition-colors mb-2 line-clamp-2">
+                      {r.title}
+                    </h3>
+                    <p className="text-sm text-rfci-black/60 font-light line-clamp-2">{r.description}</p>
+                  </Link>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+    </PageLayout>
+  )
+}

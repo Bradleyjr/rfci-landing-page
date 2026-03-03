@@ -10,14 +10,15 @@ export const metadata = {
   description: 'Explore real-world resilient flooring installations across healthcare, education, hospitality, and more — featuring projects from RFCI member companies.',
 }
 
-export default async function InspirationPage() {
+export default async function InspirationRoute() {
   const payload = await getPayload({ config: configPromise })
 
-  const [projectsResult, flooringTypesResult, environmentsResult, membersResult] = await Promise.all([
+  const [projectsResult, flooringTypesResult, environmentsResult, membersResult, pageSettings] = await Promise.all([
     payload.find({ collection: 'inspiration-projects', sort: 'order', limit: 100, draft: true }),
     payload.find({ collection: 'flooring-types', sort: 'order', limit: 50, draft: true }),
     payload.find({ collection: 'environments', sort: 'order', limit: 20, draft: true }),
     payload.find({ collection: 'members', sort: 'order', limit: 100, draft: true }),
+    payload.findGlobal({ slug: 'inspiration-page', draft: true }).catch(() => null),
   ])
 
   return (
@@ -28,6 +29,7 @@ export default async function InspirationPage() {
         flooringTypes={flooringTypesResult.docs}
         environments={environmentsResult.docs}
         members={membersResult.docs}
+        pageSettings={pageSettings}
       />
     </>
   )

@@ -51,15 +51,15 @@ const CERTS_STATIC: CertDoc[] = [
 ]
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function CertificationsHub({ certifications }: { certifications: any[] }) {
+export function CertificationsHub({ certifications, pageSettings }: { certifications: any[]; pageSettings?: any }) {
   const displayCerts: CertDoc[] = certifications?.length ? certifications : CERTS_STATIC
 
   return (
     <PageLayout>
       <PageHero
         label="Certifications"
-        heading={<>Certifications you can <span className="font-semibold text-rfci-blue">rely on.</span></>}
-        subheading="RFCI’s certification programs verify indoor air quality, sustainability, and material transparency—giving architects and designers confidence in every specification."
+        heading={pageSettings?.heroHeading || <>Certifications you can <span className="font-semibold text-rfci-blue">rely on.</span></>}
+        subheading={pageSettings?.heroSubheading || "RFCI’s certification programs verify indoor air quality, sustainability, and material transparency—giving architects and designers confidence in every specification."}
       />
 
       {/* Certification Cards */}

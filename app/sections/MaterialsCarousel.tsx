@@ -120,7 +120,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
 ]
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function MaterialsCarousel({ flooringTypes }: { flooringTypes: any[] }) {
+export function MaterialsCarousel({ flooringTypes, siteSettings }: { flooringTypes: any[]; siteSettings?: any }) {
   const displayTypes: FlooringTypeDoc[] = flooringTypes?.length ? flooringTypes : FLOORING_STATIC
   const carouselRef = useRef<HTMLDivElement>(null)
   const [carouselProgress, setCarouselProgress] = useState(0)
@@ -152,7 +152,7 @@ export function MaterialsCarousel({ flooringTypes }: { flooringTypes: any[] }) {
           <div className="max-w-2xl">
             <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">The Categories</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight">
-              The full range of <br /><span className="font-semibold text-rfci-blue">resilient flooring.</span>
+              {siteSettings?.materialsHeading || <>The full range of <br /><span className="font-semibold text-rfci-blue">resilient flooring.</span></>}
             </h2>
           </div>
           <div className="hidden md:flex gap-3">

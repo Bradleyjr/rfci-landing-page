@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'motion/react'
 import { Users, ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
@@ -82,7 +83,7 @@ function MemberLogo({ member }: { member: MemberDoc }) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function MembersSection({ members }: { members: any[] }) {
+export function MembersSection({ members, siteSettings }: { members: any[]; siteSettings?: any }) {
   // Show row1 members from CMS only if they have logo URLs; otherwise fall back to static list
   const cmsRow1 = (members ?? []).filter((m: MemberDoc) => !m.row || m.row === '1')
   const cmsHasLogos = cmsRow1.some((m: MemberDoc) => m.logoUrl || mediaUrl(m.logo))
@@ -99,19 +100,19 @@ export function MembersSection({ members }: { members: any[] }) {
             <Users className="w-8 h-8 text-rfci-blue" />
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-6 leading-[1.1] tracking-tight">
-            Meet our <br /><span className="font-semibold text-rfci-blue">member companies.</span>
+            {siteSettings?.membersHeading || <>Meet our <br /><span className="font-semibold text-rfci-blue">member companies.</span></>}
           </h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.
+            {siteSettings?.membersSubheading || 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.'}
           </p>
-          <button className="text-xl md:text-2xl font-display font-light text-white hover:text-rfci-blue transition-colors flex items-center justify-center gap-4 group relative">
+          <Link href="/members" className="text-xl md:text-2xl font-display font-light text-white hover:text-rfci-blue transition-colors flex items-center justify-center gap-4 group relative">
             <span className="relative">
               <span className="relative z-10 flex items-center gap-4">
-                View Member Directory <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                {siteSettings?.membersCtaText || 'View Member Directory'} <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
               </span>
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white/30 group-hover:bg-rfci-blue transition-colors duration-300" />
             </span>
-          </button>
+          </Link>
         </SectionReveal>
       </div>
 

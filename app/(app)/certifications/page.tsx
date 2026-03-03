@@ -10,20 +10,18 @@ export const metadata = {
   description: 'RFCI certification programs for resilient flooring — FloorScore, ASSURE, AFFIRM, and Environmental Product Declarations.',
 }
 
-export default async function CertificationsPage() {
+export default async function CertificationsRoute() {
   const payload = await getPayload({ config: configPromise })
 
-  const certificationsResult = await payload.find({
-    collection: 'certifications',
-    sort: 'order',
-    limit: 20,
-    draft: true,
-  })
+  const [certificationsResult, pageSettings] = await Promise.all([
+    payload.find({ collection: 'certifications', sort: 'order', limit: 20, draft: true }),
+    payload.findGlobal({ slug: 'certifications-page', draft: true }).catch(() => null),
+  ])
 
   return (
     <>
       <RefreshRouteOnSave />
-      <CertificationsHub certifications={certificationsResult.docs} />
+      <CertificationsHub certifications={certificationsResult.docs} pageSettings={pageSettings} />
     </>
   )
 }

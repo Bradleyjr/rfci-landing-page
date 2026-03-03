@@ -37,7 +37,7 @@ const CATEGORIES = [
 ]
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function FAQPage({ faqs }: { faqs: any[] }) {
+export function FAQPage({ faqs, pageSettings }: { faqs: any[]; pageSettings?: any }) {
   const [searchTerm, setSearchTerm] = useState('')
   const [activeCategory, setActiveCategory] = useState('all')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -78,12 +78,8 @@ export function FAQPage({ faqs }: { faqs: any[] }) {
     <PageLayout>
       <PageHero
         label="FAQ"
-        heading={
-          <>
-            Frequently Asked <span className="font-semibold text-rfci-blue">Questions</span>
-          </>
-        }
-        subheading="Find answers to common questions about resilient flooring, RFCI certifications, sustainability, and membership."
+        heading={pageSettings?.heroHeading || <>Frequently Asked <span className="font-semibold text-rfci-blue">Questions</span></>}
+        subheading={pageSettings?.heroSubheading || 'Find answers to common questions about resilient flooring, RFCI certifications, sustainability, and membership.'}
       />
 
       {/* Search Bar */}
@@ -188,13 +184,13 @@ export function FAQPage({ faqs }: { faqs: any[] }) {
         <div className="max-w-3xl mx-auto px-6 md:px-12 text-center">
           <SectionReveal>
             <h2 className="text-3xl md:text-4xl font-display font-light mb-4">
-              Still have questions?
+              {pageSettings?.ctaHeading || 'Still have questions?'}
             </h2>
             <p className="text-white/60 font-light leading-relaxed mb-8 max-w-xl mx-auto">
-              We are here to help. Reach out to our team and we will get back to you as soon as possible.
+              {pageSettings?.ctaSubheading || 'We are here to help. Reach out to our team and we will get back to you as soon as possible.'}
             </p>
             <a
-              href="mailto:info@rfci.com"
+              href={`mailto:${pageSettings?.ctaEmail || 'info@rfci.com'}`}
               className="inline-flex items-center gap-2 bg-rfci-blue text-white px-6 py-3 rounded-full font-bold text-label tracking-widest uppercase hover:bg-rfci-blue/90 transition-colors"
             >
               <Envelope size={18} weight="bold" />

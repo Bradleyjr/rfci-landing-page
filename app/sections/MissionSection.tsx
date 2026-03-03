@@ -32,7 +32,10 @@ const PILLARS = [
   },
 ]
 
-export function MissionSection() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function MissionSection({ siteSettings }: { siteSettings?: any } = {}) {
+  const cmsPillars = siteSettings?.missionPillars
+  const displayPillars = cmsPillars?.length ? cmsPillars : PILLARS
   // Hover-driven — whichever row the user mouses over updates the sticky panel
   const [hoveredPillar, setHoveredPillar] = useState(0)
 
@@ -47,26 +50,24 @@ export function MissionSection() {
           {/* Left — statement heading, within design-system type scale */}
           <SectionReveal direction="left" className="lg:col-span-6">
             {/* text-label (11px) — design-system token, replaces off-scale text-[10px] */}
-            <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">About RFCI</div>
+            <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">{siteSettings?.missionLabel || 'About RFCI'}</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
-              The voice of
+              {siteSettings?.missionHeading || 'The voice of'}
               <br />
-              {/* white/80 keeps the italic softer while still meeting 4.29:1 for large headings */}
-              <span className="font-light italic text-white/80">resilient flooring.</span>
+              <span className="font-light italic text-white/80">{siteSettings?.missionHeadingItalic || 'resilient flooring.'}</span>
             </h2>
           </SectionReveal>
 
           {/* Right — founding metadata + description + CTA */}
           <SectionReveal direction="right" className="lg:col-span-6">
             <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">
-              Est. 1929 &bull; LaGrange, Georgia
+              {siteSettings?.missionFoundedText || 'Est. 1976 \u2022 LaGrange, Georgia'}
             </div>
-            {/* white/90 = ~4.95:1 on rfci-blue — passes WCAG AA for body text */}
             <p className="text-white/90 font-light leading-relaxed mb-4">
-              Founded in 1929, RFCI is the non-profit trade association representing and protecting the resilient flooring industry in ways that no single manufacturer can.
+              {siteSettings?.missionDescription1 || 'Founded in 1976, RFCI is the non-profit trade association representing and protecting the resilient flooring industry in ways that no single manufacturer can.'}
             </p>
             <p className="text-white/90 font-light leading-relaxed mb-8">
-              From setting technical standards to running third-party certification programs, we advance the category for the entire built environment.
+              {siteSettings?.missionDescription2 || 'From setting technical standards to running third-party certification programs, we advance the category for the entire built environment.'}
             </p>
             <a href="/about" className="text-white font-medium flex items-center gap-2 group text-sm">
               <span className="relative">
@@ -90,15 +91,13 @@ export function MissionSection() {
           <div className="hidden lg:flex lg:col-span-4 lg:sticky lg:top-32 flex-col pt-8 pb-8">
             {/* clamp() moved from style= to className; decorative display number can use lower opacity */}
             <div className="text-[clamp(6rem,11vw,11rem)] font-display font-bold leading-none text-white/40 select-none transition-all duration-300">
-              {PILLARS[hoveredPillar].number}
+              {displayPillars[hoveredPillar].number}
             </div>
-            {/* text-label replaces off-scale text-[10px]; white/70 = ~3.09:1 for bold uppercase labels */}
             <div className="mt-4 text-label font-bold tracking-widest uppercase text-white/70 leading-relaxed transition-all duration-300">
-              {PILLARS[hoveredPillar].title}
+              {displayPillars[hoveredPillar].title}
             </div>
-            {/* Counter is a decorative position indicator — white/50 acceptable for non-content */}
             <div className="mt-6 text-label font-bold tracking-widest uppercase text-white/50">
-              {String(hoveredPillar + 1).padStart(2, '0')} / 0{PILLARS.length}
+              {String(hoveredPillar + 1).padStart(2, '0')} / 0{displayPillars.length}
             </div>
           </div>
 
@@ -107,11 +106,11 @@ export function MissionSection() {
             <div className="py-4 border-b border-white/10">
               {/* text-label replaces off-scale text-[10px] */}
               <span className="text-label font-bold tracking-widest uppercase text-white/70">
-                Our Strategic Focus
+                {siteSettings?.missionPillarsHeading || 'Our Strategic Focus'}
               </span>
             </div>
 
-            {PILLARS.map((pillar, idx) => (
+            {displayPillars.map((pillar: { number: string; title: string; description: string }, idx: number) => (
               <SectionReveal key={idx} delay={idx * 0.08}>
                 <div
                   onMouseEnter={() => setHoveredPillar(idx)}

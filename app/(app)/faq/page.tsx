@@ -12,11 +12,14 @@ export const metadata = {
 
 export default async function FAQRoute() {
   const payload = await getPayload({ config: configPromise })
-  const faqsResult = await payload.find({ collection: 'faqs', sort: 'order', limit: 100, draft: true })
+  const [faqsResult, pageSettings] = await Promise.all([
+    payload.find({ collection: 'faqs', sort: 'order', limit: 100, draft: true }),
+    payload.findGlobal({ slug: 'faq-page', draft: true }).catch(() => null),
+  ])
   return (
     <>
       <RefreshRouteOnSave />
-      <FAQPage faqs={faqsResult.docs} />
+      <FAQPage faqs={faqsResult.docs} pageSettings={pageSettings} />
     </>
   )
 }

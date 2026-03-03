@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, ArrowLeft, Atom } from '@phosphor-icons/react'
+import { ArrowRight, ArrowLeft, Atom, DownloadSimple, FileText } from '@phosphor-icons/react'
 import { PageLayout } from '../../../_components/PageLayout'
 import { SectionReveal } from '../../../_components/SectionReveal'
 import { CERT_ICONS, mediaUrl } from '../../../_lib/transforms'
@@ -12,6 +12,15 @@ export function CertificationDetail({ certification: cert, otherCertifications }
   const benefits: Array<{ title: string; description: string }> = cert.benefits ?? []
   const process: Array<{ step: string; description: string }> = cert.process ?? []
   const stats: Array<{ value: string; label: string }> = cert.stats ?? []
+  const downloads: Array<{ title: string; description?: string; file?: { url?: string }; url?: string; year?: string; category?: string }> = cert.downloads ?? []
+
+  // Group downloads by category
+  const downloadCategories = downloads.reduce<Record<string, typeof downloads>>((acc, dl) => {
+    const cat = dl.category || 'Documents'
+    if (!acc[cat]) acc[cat] = []
+    acc[cat].push(dl)
+    return acc
+  }, {})
 
   return (
     <PageLayout>
@@ -134,6 +143,66 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                 </SectionReveal>
               ))}
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Downloads */}
+      {downloads.length > 0 && (
+        <section className="py-20 md:py-28 bg-rfci-cream">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <SectionReveal className="mb-16">
+              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Downloads</div>
+              <h2 className="text-3xl md:text-4xl font-display font-light">
+                Available <span className="font-semibold">documents</span>
+              </h2>
+            </SectionReveal>
+
+            {Object.entries(downloadCategories).map(([category, items]) => (
+              <div key={category} className="mb-12 last:mb-0">
+                {Object.keys(downloadCategories).length > 1 && (
+                  <SectionReveal>
+                    <h3 className="text-xl font-display font-medium text-rfci-black mb-6">{category}</h3>
+                  </SectionReveal>
+                )}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {items.map((dl, i) => {
+                    const href = mediaUrl(dl.file) || dl.url || '#'
+                    return (
+                      <SectionReveal key={dl.title} delay={i * 0.06}>
+                        <a
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group block p-6 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all h-full"
+                        >
+                          <div className="flex items-start justify-between mb-3">
+                            <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center text-rfci-blue group-hover:bg-rfci-blue group-hover:text-white transition-colors shrink-0">
+                              <FileText className="w-5 h-5" />
+                            </div>
+                            {dl.year && (
+                              <span className="text-xs font-bold tracking-wider uppercase px-2.5 py-1 bg-rfci-blue/10 text-rfci-blue">
+                                {dl.year}
+                              </span>
+                            )}
+                          </div>
+                          <h4 className="text-sm font-display font-medium text-rfci-black mb-1 leading-snug group-hover:text-rfci-blue transition-colors">
+                            {dl.title}
+                          </h4>
+                          {dl.description && (
+                            <p className="text-xs text-rfci-black/50 leading-relaxed font-light mb-3">{dl.description}</p>
+                          )}
+                          <div className="flex items-center gap-1.5 text-rfci-blue text-xs font-bold tracking-wider uppercase mt-auto">
+                            <DownloadSimple className="w-4 h-4" weight="bold" />
+                            Download PDF
+                          </div>
+                        </a>
+                      </SectionReveal>
+                    )
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         </section>
       )}

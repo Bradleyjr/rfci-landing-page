@@ -24,7 +24,7 @@ type MemberDoc = {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function AboutRFCI({ aboutPage, members }: { aboutPage: any; communityEvent: any; members: any[] }) {
+export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any[] }) {
   const [activePillar, setActivePillar] = useState(0)
   const pillars = aboutPage?.strategicPillars?.length ? aboutPage.strategicPillars : PILLARS_STATIC
   const boardMembers: MemberDoc[] = (members ?? []).filter((m: MemberDoc) => !m.tier || m.tier === 'board')

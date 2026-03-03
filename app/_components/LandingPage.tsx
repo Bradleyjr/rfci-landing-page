@@ -57,23 +57,23 @@ export function LandingPage(props: Record<string, any>) {
           <div className="h-px bg-gradient-to-r from-transparent via-rfci-light-gray to-transparent" />
         </div>
 
-        <MaterialsCarousel flooringTypes={flooringTypes} />
+        <MaterialsCarousel flooringTypes={flooringTypes} siteSettings={siteSettings} />
 
-        <EnvironmentsSection environments={environments} />
+        <EnvironmentsSection environments={environments} siteSettings={siteSettings} />
 
-        <WhyResilientSection />
+        <WhyResilientSection siteSettings={siteSettings} />
 
-        <MissionSection />
+        <MissionSection siteSettings={siteSettings} />
 
-        <StandardsSection certifications={certifications} />
+        <StandardsSection certifications={certifications} siteSettings={siteSettings} />
 
         <CommunitySection communityEvent={communityEvent} />
 
-        {/* <EducationSection videos={videos} /> */}
+        {/* <EducationSection videos={videos} siteSettings={siteSettings} /> */}
 
-        <LinkedInFeedSection linkedInPosts={linkedInPosts} />
+        <LinkedInFeedSection linkedInPosts={linkedInPosts} siteSettings={siteSettings} />
 
-        <MembersSection members={members} />
+        <MembersSection members={members} siteSettings={siteSettings} />
 
         <Footer />
 

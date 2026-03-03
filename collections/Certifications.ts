@@ -113,6 +113,42 @@ export const Certifications: CollectionConfig = {
       ],
     },
     {
+      name: 'downloads',
+      type: 'array',
+      admin: {
+        description: 'Downloadable documents (PDFs, flyers, applications, etc.)',
+      },
+      fields: [
+        { name: 'title', type: 'text', required: true },
+        {
+          name: 'description',
+          type: 'textarea',
+          admin: { description: 'Optional short description of the document' },
+        },
+        {
+          name: 'file',
+          type: 'upload',
+          relationTo: 'media',
+          admin: { description: 'Upload a PDF or document file' },
+        },
+        {
+          name: 'url',
+          type: 'text',
+          admin: { description: 'External download URL (used if no uploaded file)' },
+        },
+        {
+          name: 'year',
+          type: 'text',
+          admin: { description: 'Year or version label (e.g., "2024", "2019 Archived")' },
+        },
+        {
+          name: 'category',
+          type: 'text',
+          admin: { description: 'Grouping label (e.g., "Current EPDs", "Archived EPDs")' },
+        },
+      ],
+    },
+    {
       name: 'ctaText',
       type: 'text',
       admin: {

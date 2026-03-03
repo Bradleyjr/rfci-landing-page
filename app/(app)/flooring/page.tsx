@@ -13,17 +13,15 @@ export const metadata = {
 export default async function FlooringPage() {
   const payload = await getPayload({ config: configPromise })
 
-  const flooringTypesResult = await payload.find({
-    collection: 'flooring-types',
-    sort: 'order',
-    limit: 50,
-    draft: true,
-  })
+  const [flooringTypesResult, pageSettings] = await Promise.all([
+    payload.find({ collection: 'flooring-types', sort: 'order', limit: 50, draft: true }),
+    payload.findGlobal({ slug: 'flooring-page', draft: true }).catch(() => null),
+  ])
 
   return (
     <>
       <RefreshRouteOnSave />
-      <FlooringOverview flooringTypes={flooringTypesResult.docs} />
+      <FlooringOverview flooringTypes={flooringTypesResult.docs} pageSettings={pageSettings} />
     </>
   )
 }

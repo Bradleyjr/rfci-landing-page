@@ -10,20 +10,18 @@ export const metadata = {
   description: 'Meet the manufacturers and suppliers behind resilient flooring. RFCI member companies set standards, share knowledge, and move the category forward.',
 }
 
-export default async function MembersPage() {
+export default async function MembersRoute() {
   const payload = await getPayload({ config: configPromise })
 
-  const membersResult = await payload.find({
-    collection: 'members',
-    sort: 'order',
-    limit: 100,
-    draft: true,
-  })
+  const [membersResult, pageSettings] = await Promise.all([
+    payload.find({ collection: 'members', sort: 'order', limit: 100, draft: true }),
+    payload.findGlobal({ slug: 'members-page', draft: true }).catch(() => null),
+  ])
 
   return (
     <>
       <RefreshRouteOnSave />
-      <MembersDirectory members={membersResult.docs} />
+      <MembersDirectory members={membersResult.docs} pageSettings={pageSettings} />
     </>
   )
 }
