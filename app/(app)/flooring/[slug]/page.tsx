@@ -176,7 +176,7 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
   }
 }
 
-export function generateSlugFromTitle(title: string): string {
+function generateSlugFromTitle(title: string): string {
   return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
 }
 
