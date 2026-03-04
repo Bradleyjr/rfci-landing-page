@@ -156,9 +156,13 @@ const FLOORING_FALLBACK: Record<string, any> = {
   },
 }
 
+function generateSlugFromTitle(title: string): string {
+  return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const ft = FLOORING_TYPES.find(f => f.slug === slug)
+  const ft = FLOORING_TYPES.find(f => (f.slug || generateSlugFromTitle(f.title)) === slug)
   if (!ft) {
     const fallback = FLOORING_FALLBACK[slug]
     if (fallback) {
@@ -178,13 +182,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export function generateStaticParams() {
   return FLOORING_TYPES.map(ft => ({
-    slug: ft.slug,
+    slug: ft.slug || generateSlugFromTitle(ft.title),
   }))
 }
 
 export default async function FlooringTypePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const ft = FLOORING_TYPES.find(f => f.slug === slug)
+  const ft = FLOORING_TYPES.find(f => (f.slug || generateSlugFromTitle(f.title)) === slug)
 
   if (!ft) {
     const fallback = FLOORING_FALLBACK[slug]
