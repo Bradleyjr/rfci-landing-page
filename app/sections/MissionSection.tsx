@@ -8,27 +8,27 @@ import { SITE_SETTINGS } from '../_data/site-settings'
 const PILLARS = [
   {
     number: '01',
-    title: 'Advocacy & Engagement',
+    title: 'Lorem Ipsum Dolor',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
   },
   {
     number: '02',
-    title: 'Technical Standards',
+    title: 'Sit Amet Consectetur',
     description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
   },
   {
     number: '03',
-    title: 'Sustainability & Certifications',
+    title: 'Adipiscing Elit Sed',
     description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
   {
     number: '04',
-    title: 'Promotion & Education',
+    title: 'Eiusmod Tempor Magna',
     description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.',
   },
   {
     number: '05',
-    title: 'Member Development',
+    title: 'Veniam Nostrud Labore',
     description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.',
   },
 ]
@@ -71,7 +71,7 @@ export function MissionSection() {
             <a href="/about" className="text-white font-medium flex items-center gap-2 group text-sm">
               <span className="relative">
                 <span className="relative z-10 flex items-center gap-2">
-                  Learn more about RFCI <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Lorem ipsum dolor <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white group-hover:w-full transition-all duration-300 ease-out" />
               </span>

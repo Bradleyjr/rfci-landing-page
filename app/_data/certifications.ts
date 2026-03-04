@@ -16,7 +16,7 @@ export type Certification = {
 export const CERTIFICATIONS: Certification[] = [
   {
     slug: 'floorscore',
-    title: 'FloorScore\u00ae',
+    title: 'Lorem Ipsum\u00ae',
     iconName: 'shieldCheck',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     stats: [
@@ -24,12 +24,12 @@ export const CERTIFICATIONS: Certification[] = [
       { value: '90%', label: 'Of time spent indoors' },
     ],
     benefits: [
-      { title: 'Indoor Air Quality Protection', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur.' },
-      { title: 'Independent SCS Verification', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis.' },
-      { title: 'LEED & Green Building Credits', description: 'Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.' },
-      { title: 'Healthier Occupant Environments', description: 'Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.' },
-      { title: 'Annual Re-Testing Required', description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non.' },
-      { title: 'Hard Surface Advantage', description: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.' },
+      { title: 'Lorem Ipsum Dolor', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur.' },
+      { title: 'Sit Amet Consectetur', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis.' },
+      { title: 'Adipiscing Elit Sed', description: 'Natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.' },
+      { title: 'Eiusmod Tempor Magna', description: 'Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.' },
+      { title: 'Veniam Nostrud Labore', description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non.' },
+      { title: 'Aliquip Commodo Nisi', description: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.' },
     ],
     process: [
       { step: 'Product Submission', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.' },
@@ -47,7 +47,7 @@ export const CERTIFICATIONS: Certification[] = [
   },
   {
     slug: 'assure',
-    title: 'ASSURE\u00ae Certified',
+    title: 'Dolor Sit\u00ae Amet',
     iconName: 'leaf',
     description: 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur esse possimus omnes quas voluptates sit aspernatur aut odit aut.',
     stats: [
@@ -55,12 +55,12 @@ export const CERTIFICATIONS: Certification[] = [
       { value: '100PPM', label: 'Max Heavy Metals' },
     ],
     benefits: [
-      { title: 'Indoor Air Quality Assurance', description: 'At explicabo ipsa sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus.' },
-      { title: 'Performance Testing', description: 'Error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.' },
-      { title: 'Heavy Metals Free', description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.' },
-      { title: 'Ortho-Phthalates Free', description: 'Voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.' },
-      { title: 'Supply Chain Transparency', description: 'Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est, qui dolorem ipsum quia dolor.' },
-      { title: 'Fastest Growing Segment', description: 'Amet, consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam.' },
+      { title: 'Dolor Reprehenderit', description: 'At explicabo ipsa sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus.' },
+      { title: 'Voluptate Velit', description: 'Error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.' },
+      { title: 'Cillum Dolore Fugiat', description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.' },
+      { title: 'Pariatur Excepteur', description: 'Voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae.' },
+      { title: 'Occaecat Cupidatat', description: 'Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est, qui dolorem ipsum quia dolor.' },
+      { title: 'Proident Sunt Culpa', description: 'Amet, consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam.' },
     ],
     process: [
       { step: 'Application to SCS Global', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore dolore magna aliqua.' },
@@ -79,7 +79,7 @@ export const CERTIFICATIONS: Certification[] = [
   },
   {
     slug: 'affirm',
-    title: 'AFFIRM\u2122 Certified',
+    title: 'Consectetur\u2122 Adipiscing',
     iconName: 'globe',
     description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum quia dolor sit amet.',
     stats: [
@@ -87,12 +87,12 @@ export const CERTIFICATIONS: Certification[] = [
       { value: 'Level 1 + 2', label: 'Certification Tiers' },
     ],
     benefits: [
-      { title: 'ANSI-Accredited Standard', description: 'Consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim.' },
-      { title: 'Three Impact Areas', description: 'Ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in.' },
-      { title: 'Two Certification Levels', description: 'Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culpa.' },
-      { title: 'Public Health Council Review', description: 'Qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.' },
-      { title: 'Specifier Confidence', description: 'Laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem.' },
-      { title: 'Government Procurement Ready', description: 'Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam.' },
+      { title: 'Lorem Amet Dolor', description: 'Consectetur adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim.' },
+      { title: 'Ipsum Sit Consectetur', description: 'Ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in.' },
+      { title: 'Adipiscing Sed Eiusmod', description: 'Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culpa.' },
+      { title: 'Tempor Incididunt Labore', description: 'Qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque.' },
+      { title: 'Dolore Magna Aliqua', description: 'Laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem.' },
+      { title: 'Minim Veniam Quis', description: 'Quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam.' },
     ],
     process: [
       { step: 'Application', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' },
@@ -107,7 +107,7 @@ export const CERTIFICATIONS: Certification[] = [
   },
   {
     slug: 'epd',
-    title: 'Environmental Product Declarations',
+    title: 'Sed Eiusmod Tempor Incididunt',
     iconName: 'globe',
     description: 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur esse possimus omnes quas voluptates sit aspernatur aut odit aut fugit sed.',
     stats: [
@@ -115,12 +115,12 @@ export const CERTIFICATIONS: Certification[] = [
       { value: '9', label: 'Product Types Covered' },
     ],
     benefits: [
-      { title: 'Full Lifecycle Transparency', description: 'Quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur.' },
-      { title: 'LEED & Green Globes Credits', description: 'Adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad.' },
-      { title: 'Industry Wide EPDs Available', description: 'Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.' },
-      { title: 'ISO 14025 Compliant', description: 'Voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.' },
-      { title: 'Comparative Analysis Tool', description: 'Mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.' },
-      { title: '2024 EPDs Now Available', description: 'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas.' },
+      { title: 'Nostrud Exercitation', description: 'Quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur.' },
+      { title: 'Ullamco Laboris Nisi', description: 'Adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad.' },
+      { title: 'Aliquip Commodo Ea', description: 'Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.' },
+      { title: 'Consequat Duis Aute', description: 'Voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.' },
+      { title: 'Irure Dolor Velit', description: 'Mollit anim id est laborum sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.' },
+      { title: 'Esse Cillum Dolore', description: 'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas.' },
     ],
     process: [
       { step: 'Life Cycle Assessment', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquam.' },

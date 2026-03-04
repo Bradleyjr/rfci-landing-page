@@ -14,7 +14,7 @@ export function LinkedInFeedSection() {
           <div className="bg-white border border-black/5 p-10 md:p-16 flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <div className="flex-1">
               <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-3 flex items-center gap-2">
-                <LinkedinLogo className="w-4 h-4" weight="fill" /> Stay Connected
+                <LinkedinLogo className="w-4 h-4" weight="fill" /> Lorem Ipsum
               </div>
               <h2 className="text-3xl md:text-4xl font-display font-light leading-tight mb-4">
                 {SITE_SETTINGS.linkedinHeading}
@@ -30,7 +30,7 @@ export function LinkedInFeedSection() {
               className="inline-flex items-center gap-3 bg-[#0A66C2] text-white px-8 py-4 font-semibold text-sm hover:bg-[#004182] transition-colors duration-200 group shrink-0"
             >
               <LinkedinLogo className="w-5 h-5" weight="fill" />
-              Follow on LinkedIn
+              Lorem Ipsum
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>

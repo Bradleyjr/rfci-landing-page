@@ -1,8 +1,8 @@
 export const COMMUNITY_EVENT = {
-  sectionHeading: 'Where the industry comes together.',
+  sectionHeading: 'Lorem ipsum dolor sit amet.',
   sectionSubheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
-  eventTitle: 'Fall Industry Meeting',
-  eventLocation: 'Austin, TX',
-  eventDate: 'Oct 12\u201314',
+  eventTitle: 'Lorem Ipsum Dolor',
+  eventLocation: 'Lorem, IP',
+  eventDate: 'Jan 00\u201300',
   photos: [] as Array<{ photo?: { url: string }; caption?: string }>,
 }

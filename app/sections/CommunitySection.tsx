@@ -9,18 +9,18 @@ import { COMMUNITY_EVENT } from '../_data/community-event'
 type PhotoItem = { url: string; caption?: string }
 
 const STATIC_PHOTOS: PhotoItem[] = [
-  { url: '/media/community/all-member-spring-meeting-2025.jpeg', caption: 'All-Member Spring Meeting 2025' },
-  { url: '/media/community/reception-fall-2024.jpeg', caption: 'Reception, Fall 2024' },
-  { url: '/media/community/technical-committee-2025.jpeg', caption: 'Technical Committee 2025' },
-  { url: '/media/community/spring-reception-2025.jpeg', caption: 'Spring All-Member Reception 2025' },
-  { url: '/media/community/board-of-directors-2025.jpeg', caption: 'Board of Directors 2025' },
-  { url: '/media/community/fall-meeting-tuscon-2025.jpeg', caption: 'Fall Meeting, Tucson AZ 2025' },
-  { url: '/media/community/dinner-fall-2024.jpeg', caption: 'Dinner, Fall 2024' },
-  { url: '/media/community/sea-island-reception-2024.jpeg', caption: 'Sea Island Reception, Spring 2024' },
-  { url: '/media/community/chat-spring-meeting-2023.jpeg', caption: 'Spring Meeting 2023' },
-  { url: '/media/community/technical-meeting-fall-2024.jpeg', caption: 'Technical Meeting, Fall 2024' },
-  { url: '/media/community/lunch-all-member-meeting.jpeg', caption: 'Lunch at All-Member Meeting' },
-  { url: '/media/community/golf-tournament-winners.jpeg', caption: 'Golf Tournament Winners' },
+  { url: '/media/community/all-member-spring-meeting-2025.jpeg', caption: 'Lorem ipsum dolor sit' },
+  { url: '/media/community/reception-fall-2024.jpeg', caption: 'Consectetur adipiscing' },
+  { url: '/media/community/technical-committee-2025.jpeg', caption: 'Sed do eiusmod tempor' },
+  { url: '/media/community/spring-reception-2025.jpeg', caption: 'Ut enim ad minim' },
+  { url: '/media/community/board-of-directors-2025.jpeg', caption: 'Quis nostrud exercitation' },
+  { url: '/media/community/fall-meeting-tuscon-2025.jpeg', caption: 'Duis aute irure dolor' },
+  { url: '/media/community/dinner-fall-2024.jpeg', caption: 'Excepteur sint occaecat' },
+  { url: '/media/community/sea-island-reception-2024.jpeg', caption: 'Cupidatat non proident' },
+  { url: '/media/community/chat-spring-meeting-2023.jpeg', caption: 'Sunt in culpa qui' },
+  { url: '/media/community/technical-meeting-fall-2024.jpeg', caption: 'Officia deserunt mollit' },
+  { url: '/media/community/lunch-all-member-meeting.jpeg', caption: 'Anim id est laborum' },
+  { url: '/media/community/golf-tournament-winners.jpeg', caption: 'Voluptate velit esse' },
 ]
 
 export function CommunitySection() {
