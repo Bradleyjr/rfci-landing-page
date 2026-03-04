@@ -1,6 +1,6 @@
 export const COMMUNITY_EVENT = {
   sectionHeading: 'Where the industry comes together.',
-  sectionSubheading: "Twice a year, RFCI members and industry professionals get together to share what\u2019s working, talk through technical standards, and discuss sustainability. If you work in resilient flooring, this is where you want to be.",
+  sectionSubheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.',
   eventTitle: 'Fall Industry Meeting',
   eventLocation: 'Austin, TX',
   eventDate: 'Oct 12\u201314',

@@ -17,7 +17,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Flexible LVT',
     subtitle: 'Luxury Vinyl Tile \u00b7 Planks',
-    description: 'The most popular choice in residential and commercial flooring. Flexible LVT is waterproof, durable, and comes in wood and stone visuals. It installs easily and holds up in high-traffic areas.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
     accentColor: '#9CA3AF',
     tags: [
       { label: 'Waterproof', variant: 'green' },
@@ -29,7 +29,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Rigid Core',
     subtitle: 'SPC \u00b7 WPC \u00b7 Multilayer',
-    description: 'A stiffer, more dimensionally stable version of LVT. Rigid core products resist temperature swings and indentation, making them a strong choice for challenging environments.',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim.',
     accentColor: '#78909C',
     tags: [
       { label: 'Waterproof', variant: 'green' },
@@ -40,7 +40,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Heterogeneous Sheet Vinyl',
     subtitle: 'Multi-layer \u00b7 Printed Design',
-    description: 'A multi-layer sheet vinyl with a printed design layer, giving it strong customization options. A go-to for healthcare, education, and commercial spaces that need both durability and design flexibility.',
+    description: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
     accentColor: '#B0C4DE',
     tags: [
       { label: 'Hygienic', variant: 'green' },
@@ -51,7 +51,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Homogeneous Sheet Vinyl',
     subtitle: 'Through-body \u00b7 Single Layer',
-    description: 'A solid, single-layer vinyl sheet where the color and pattern run all the way through. Extremely durable and easy to maintain \u2014 widely used in hospitals and laboratories.',
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est, qui dolorem ipsum amet.',
     accentColor: '#90A4AE',
     tags: [
       { label: 'Hygienic', variant: 'green' },
@@ -62,7 +62,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Solid Vinyl Tile',
     subtitle: 'SVT \u00b7 Flexible Tiles',
-    description: 'Flexible vinyl tiles made from solid PVC compounds. A cost-effective, durable option for commercial spaces with the added benefit of individual tile replacement when needed.',
+    description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident similique sunt in culpa.',
     accentColor: '#A5B4BC',
     tags: [
       { label: 'Cost-effective', variant: 'green' },
@@ -73,7 +73,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Vinyl Composition Tile',
     subtitle: 'VCT \u00b7 Commercial Standard',
-    description: 'A proven commercial staple made from vinyl and limestone. VCT is extremely durable and cost-effective in high-traffic areas like retail and schools. Requires periodic waxing to maintain its finish.',
+    description: 'Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur quis autem vel eum iure reprehenderit qui in ea voluptate velit esse.',
     accentColor: '#CFD8DC',
     tags: [
       { label: 'Durable', variant: 'green' },
@@ -84,7 +84,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Rubber',
     subtitle: 'Vulcanized \u00b7 Recycled Content',
-    description: 'Outstanding durability, acoustic performance, and slip resistance. Common in gyms, hospitals, and transit facilities. Often made with recycled rubber content.',
+    description: 'Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt neque porro quisquam est qui dolorem ipsum amet consectetur adipisci velit sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem ut enim ad minima veniam quis nostrum exercitationem ullam corporis suscipit laboriosam nisi ut aliquid ex ea commodi consequatur.',
     accentColor: '#D4A574',
     tags: [
       { label: 'Acoustic', variant: 'green' },
@@ -96,7 +96,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Linoleum',
     subtitle: 'Natural \u00b7 Bio-based',
-    description: 'Made from linseed oil, wood flour, and limestone \u2014 natural materials used in flooring for over 150 years. Biodegradable, antimicrobial, and carbon neutral.',
+    description: 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur sed delectus ut aut reiciendis voluptatibus.',
     accentColor: '#8FBC8F',
     tags: [
       { label: 'Bio-based', variant: 'green' },
@@ -107,7 +107,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Cork',
     subtitle: 'Natural \u00b7 Acoustic',
-    description: 'Harvested from cork oak bark without cutting the tree. Warm underfoot, naturally acoustic, and a fully renewable resource.',
+    description: 'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit voluptate velit esse cillum.',
     accentColor: '#C4A882',
     tags: [
       { label: 'Renewable', variant: 'green' },
