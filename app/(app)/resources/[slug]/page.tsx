@@ -5,7 +5,6 @@ import { VideoDetail } from './VideoDetail'
 import { ArticleDetail } from './ArticleDetail'
 import { RefreshRouteOnSave } from '../../../_components/RefreshRouteOnSave'
 
-export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params

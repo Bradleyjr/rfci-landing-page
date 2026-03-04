@@ -4,7 +4,6 @@ import { notFound } from 'next/navigation'
 import { FlooringDetail } from './FlooringDetail'
 import { RefreshRouteOnSave } from '../../../_components/RefreshRouteOnSave'
 
-export const dynamic = 'force-dynamic'
 
 const CERT_FLOORSCORE = { slug: 'floorscore', title: 'FloorScore®', iconName: 'shieldCheck', description: 'Indoor air quality certification verifying low VOC emissions.' }
 const CERT_ASSURE = { slug: 'assure', title: 'ASSURE® Certified', iconName: 'leaf', description: 'Third-party sustainability certification across the full product lifecycle.' }

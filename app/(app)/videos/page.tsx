@@ -3,7 +3,6 @@ import configPromise from '@payload-config'
 import { VideosLibrary } from './VideosLibrary'
 import { RefreshRouteOnSave } from '../../_components/RefreshRouteOnSave'
 
-export const dynamic = 'force-dynamic'
 
 export const metadata = {
   title: 'Education & CEU Courses | RFCI',

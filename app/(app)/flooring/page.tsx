@@ -3,7 +3,6 @@ import configPromise from '@payload-config'
 import { FlooringOverview } from './FlooringOverview'
 import { RefreshRouteOnSave } from '../../_components/RefreshRouteOnSave'
 
-export const dynamic = 'force-dynamic'
 
 export const metadata = {
   title: 'Resilient Flooring Types | RFCI',

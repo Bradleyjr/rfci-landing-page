@@ -3,7 +3,6 @@ import configPromise from '@payload-config'
 import { LandingPage } from '../_components/LandingPage'
 import { RefreshRouteOnSave } from '../_components/RefreshRouteOnSave'
 
-export const dynamic = 'force-dynamic'
 
 export default async function Page() {
   const payload = await getPayload({ config: configPromise })

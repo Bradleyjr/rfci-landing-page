@@ -196,15 +196,15 @@ export function MaterialsCarousel({ flooringTypes, siteSettings }: { flooringTyp
                   <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-rfci-blue transition-all duration-500 z-10" />
 
                   <div className="flex flex-col items-start mb-8 relative z-10 w-[80%]">
-                    <h3 className="text-4xl md:text-5xl font-display font-light tracking-tight text-rfci-black mb-3">{type.title}</h3>
+                    <h3 className="text-3xl md:text-4xl font-display font-light tracking-tight text-rfci-black mb-3">{type.title}</h3>
                     <span className="text-label font-bold tracking-widest uppercase text-rfci-black/60">{type.subtitle}</span>
                   </div>
 
-                  <p className="text-rfci-black/60 mb-10 relative z-10 w-[85%] leading-relaxed font-light">
+                  <p className="text-rfci-black/60 relative z-10 w-[85%] leading-relaxed font-light line-clamp-3 mb-6">
                     {type.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-8 relative z-10 w-[85%]">
+                  <div className="flex flex-wrap gap-2 relative z-10 w-[85%]">
                     {tags.map((tag, tagIdx) => (
                       <span key={tagIdx} className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-label font-bold uppercase tracking-widest ${tag.style}`}>
                         {tag.dot && <span className={`w-1.5 h-1.5 rounded-full ${tag.dot}`} />}
@@ -222,7 +222,7 @@ export function MaterialsCarousel({ flooringTypes, siteSettings }: { flooringTyp
                     <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-black/10" />
                   </div>
 
-                  <div className="mt-auto relative z-10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="mt-auto pt-6 relative z-10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                     <button className="bg-white text-rfci-black py-3.5 px-8 text-sm font-semibold shadow-sm hover:bg-rfci-black hover:text-white hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm transition-all duration-200 flex items-center gap-2">
                       Learn More <ArrowRight className="w-4 h-4" />
                     </button>

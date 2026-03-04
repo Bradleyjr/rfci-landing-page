@@ -3,7 +3,6 @@ import configPromise from '@payload-config'
 import { AboutRFCI } from './AboutRFCI'
 import { RefreshRouteOnSave } from '../../_components/RefreshRouteOnSave'
 
-export const dynamic = 'force-dynamic'
 
 export const metadata = {
   title: 'About RFCI | Resilient Floor Covering Institute',
