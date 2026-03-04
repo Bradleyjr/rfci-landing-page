@@ -160,23 +160,23 @@ export function StandardsSection() {
                 <div key={tab.slug} className="bg-white/5 border border-white/10 overflow-hidden flex flex-col">
                   <button
                     onClick={() => setActiveTab(activeTab === tab.slug ? '' : tab.slug)}
-                    className={`w-full text-left py-6 px-6 border-l-2 transition-all duration-300 flex items-center justify-between group ${
+                    className={`w-full text-left py-6 px-4 sm:px-6 border-l-2 transition-all duration-300 flex items-center justify-between gap-3 group ${
                       activeTab === tab.slug
                         ? 'bg-white/5 border-rfci-blue'
                         : 'bg-transparent border-white/10'
                     }`}
                   >
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                       <div className={`w-10 h-10 flex items-center justify-center shrink-0 transition-colors rounded-full ${
                         activeTab === tab.slug ? 'bg-rfci-blue/20 text-rfci-blue' : 'bg-white/5 text-white/40'
                       }`}>
                         <IconComp className="w-5 h-5" />
                       </div>
-                      <h3 className={`text-xl font-display font-light tracking-tight transition-colors ${activeTab === tab.slug ? 'text-white' : 'text-white/40'}`}>
+                      <h3 className={`text-lg sm:text-xl font-display font-light tracking-tight transition-colors truncate ${activeTab === tab.slug ? 'text-white' : 'text-white/40'}`}>
                         {tab.title}
                       </h3>
                     </div>
-                    <CaretDown className={`w-5 h-5 text-white/40 transition-transform duration-300 ${activeTab === tab.slug ? 'rotate-180 text-white' : ''}`} />
+                    <CaretDown className={`w-5 h-5 shrink-0 text-white/40 transition-transform duration-300 ${activeTab === tab.slug ? 'rotate-180 text-white' : ''}`} />
                   </button>
 
                   <AnimatePresence>

@@ -7,6 +7,10 @@ import { TAG_STYLES } from '../_lib/transforms'
 import { FLOORING_TYPES } from '../_data/flooring-types'
 import { SITE_SETTINGS } from '../_data/site-settings'
 
+function getSlug(title: string, slug?: string): string {
+  return slug || title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+}
+
 export function MaterialsCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null)
   const [carouselProgress, setCarouselProgress] = useState(0)
@@ -77,7 +81,7 @@ export function MaterialsCarousel() {
 
             return (
               <SectionReveal key={idx} direction="right" delay={idx * 0.08} className="snap-start shrink-0 w-[85vw] sm:w-[360px] md:w-[440px] group">
-                <div className="bg-rfci-white p-8 md:p-10 h-[500px] md:h-[550px] flex flex-col relative overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(1,100,219,0.1)] hover:-translate-y-2 border border-black/5 hover:border-rfci-blue/30">
+                <a href={`/flooring/${getSlug(type.title, type.slug)}`} className="block bg-rfci-white p-8 md:p-10 h-[500px] md:h-[550px] flex flex-col relative overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(1,100,219,0.1)] hover:-translate-y-2 border border-black/5 hover:border-rfci-blue/30">
                   {/* Blue line reveal at top */}
                   <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-rfci-blue transition-all duration-500 z-10" />
 
@@ -108,12 +112,13 @@ export function MaterialsCarousel() {
                     <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-black/10" />
                   </div>
 
-                  <div className="mt-auto pt-6 relative z-10 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                    <button className="bg-white text-rfci-black py-3.5 px-8 text-sm font-semibold shadow-sm hover:bg-rfci-black hover:text-white hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 active:shadow-sm transition-all duration-200 flex items-center gap-2">
+                  {/* Always visible on mobile, hover-reveal on desktop */}
+                  <div className="mt-auto pt-6 relative z-10 md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300">
+                    <span className="bg-white text-rfci-black py-3.5 px-8 text-sm font-semibold shadow-sm group-hover:bg-rfci-black group-hover:text-white group-hover:shadow-lg transition-all duration-200 inline-flex items-center gap-2">
                       Learn More <ArrowRight className="w-4 h-4" />
-                    </button>
+                    </span>
                   </div>
-                </div>
+                </a>
               </SectionReveal>
             )
           })}
