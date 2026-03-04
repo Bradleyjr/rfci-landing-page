@@ -8,27 +8,27 @@ const PILLARS = [
   {
     number: '01',
     title: 'Advocacy & Engagement',
-    description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
   },
   {
     number: '02',
     title: 'Technical Standards',
-    description: 'Developing and maintaining the performance standards that define product quality, safety, and installation best practices.',
+    description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
   },
   {
     number: '03',
     title: 'Sustainability & Certifications',
-    description: 'Running FloorScore, ASSURE, and AFFIRM — the programs that validate environmental and health performance for specifiers worldwide.',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
   {
     number: '04',
     title: 'Promotion & Education',
-    description: 'Advancing industry knowledge through continuing education, original research, and market promotion to the architecture and design community.',
+    description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.',
   },
   {
     number: '05',
     title: 'Member Development',
-    description: 'Growing and supporting a membership of leading manufacturers and supply chain partners who shape the future of resilient flooring.',
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.',
   },
 ]
 
@@ -52,9 +52,9 @@ export function MissionSection({ siteSettings }: { siteSettings?: any } = {}) {
             {/* text-label (11px) — design-system token, replaces off-scale text-[10px] */}
             <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">{siteSettings?.missionLabel || 'About RFCI'}</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
-              {siteSettings?.missionHeading || 'The voice of'}
+              {siteSettings?.missionHeading || 'Lorem ipsum'}
               <br />
-              <span className="font-light italic text-white/80">{siteSettings?.missionHeadingItalic || 'resilient flooring.'}</span>
+              <span className="font-light italic text-white/80">{siteSettings?.missionHeadingItalic || 'dolor sit amet.'}</span>
             </h2>
           </SectionReveal>
 
@@ -64,10 +64,10 @@ export function MissionSection({ siteSettings }: { siteSettings?: any } = {}) {
               {siteSettings?.missionFoundedText || 'Est. 1976 \u2022 LaGrange, Georgia'}
             </div>
             <p className="text-white/90 font-light leading-relaxed mb-4">
-              {siteSettings?.missionDescription1 || 'Founded in 1976, RFCI is the non-profit trade association representing and protecting the resilient flooring industry in ways that no single manufacturer can.'}
+              {siteSettings?.missionDescription1 || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus.'}
             </p>
             <p className="text-white/90 font-light leading-relaxed mb-8">
-              {siteSettings?.missionDescription2 || 'From setting technical standards to running third-party certification programs, we advance the category for the entire built environment.'}
+              {siteSettings?.missionDescription2 || 'Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.'}
             </p>
             <a href="/about" className="text-white font-medium flex items-center gap-2 group text-sm">
               <span className="relative">

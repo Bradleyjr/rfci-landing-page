@@ -31,11 +31,11 @@ export default async function Page() {
     <>
       <RefreshRouteOnSave />
       <LandingPage
-        siteSettings={siteSettings}
-        communityEvent={communityEvent}
+        siteSettings={{}}
+        communityEvent={{}}
         members={membersResult.docs}
-        flooringTypes={flooringTypesResult.docs}
-        certifications={certificationsResult.docs}
+        flooringTypes={[]}
+        certifications={[]}
         environments={environmentsResult.docs}
         videos={videosResult.docs}
         linkedInPosts={linkedInPostsResult.docs}

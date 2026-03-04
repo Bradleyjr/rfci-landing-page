@@ -57,13 +57,13 @@ export function LandingPage(props: Record<string, any>) {
           <div className="h-px bg-gradient-to-r from-transparent via-rfci-light-gray to-transparent" />
         </div>
 
+        <MissionSection siteSettings={siteSettings} />
+
         <MaterialsCarousel flooringTypes={flooringTypes} siteSettings={siteSettings} />
 
         <EnvironmentsSection environments={environments} siteSettings={siteSettings} />
 
         <WhyResilientSection siteSettings={siteSettings} />
-
-        <MissionSection siteSettings={siteSettings} />
 
         <StandardsSection certifications={certifications} siteSettings={siteSettings} />
 

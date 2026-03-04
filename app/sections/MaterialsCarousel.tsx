@@ -21,7 +21,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Flexible LVT',
     subtitle: 'Luxury Vinyl Tile · Planks',
-    description: 'The leading resilient flooring product in North America. Available in tile and plank formats with high-definition wood and stone visuals. Waterproof, dimensionally stable, and specified across residential and commercial projects for its combination of aesthetics and performance.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.',
     accentColor: '#9CA3AF',
     tags: [
       { label: 'Waterproof', variant: 'green' },
@@ -32,7 +32,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Rigid Core',
     subtitle: 'SPC · WPC · Multilayer',
-    description: 'A multilayer construction with a rigid mineral or polymer core. Dimensionally stable across temperature fluctuations and resistant to indentation under heavy static loads. Ideal for challenging substrates and environments where subfloor preparation is limited.',
+    description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.',
     accentColor: '#78909C',
     tags: [
       { label: 'Waterproof', variant: 'green' },
@@ -43,7 +43,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Heterogeneous Sheet Vinyl',
     subtitle: 'Multi-layer · Printed Design',
-    description: 'A multi-layer sheet product with a rotogravure-printed design layer that enables broad visual customization. Heat-welded seams create a hygienic, monolithic surface. Widely specified in healthcare, education, and commercial environments requiring seamless installation.',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat.',
     accentColor: '#B0C4DE',
     tags: [
       { label: 'Hygienic', variant: 'green' },
@@ -54,7 +54,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Homogeneous Sheet Vinyl',
     subtitle: 'Through-body · Single Layer',
-    description: 'Color and pattern run through the full thickness of the product, delivering consistent appearance as the floor wears. Through-body construction means the surface can be restored and maintained over decades. The standard for hospitals, laboratories, and cleanroom environments.',
+    description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis.',
     accentColor: '#90A4AE',
     tags: [
       { label: 'Hygienic', variant: 'green' },
@@ -65,7 +65,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Solid Vinyl Tile',
     subtitle: 'SVT · Flexible Tiles',
-    description: 'Through-color vinyl tiles that perform under heavy rolling loads, making them a preferred choice in healthcare and institutional settings. No-wax formulations reduce lifecycle maintenance costs. Individual tiles can be replaced without disturbing adjacent flooring.',
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.',
     accentColor: '#A5B4BC',
     tags: [
       { label: 'Rolling Loads', variant: 'green' },
@@ -76,7 +76,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Vinyl Composition Tile',
     subtitle: 'VCT · Commercial Standard',
-    description: 'Made from vinyl resins and limestone, VCT has been a commercial flooring staple for decades. Cost-effective at scale, durable under heavy foot traffic, and available in a wide color palette for custom patterns. Requires periodic waxing to maintain finish and appearance.',
+    description: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.',
     accentColor: '#CFD8DC',
     tags: [
       { label: 'Cost Effective', variant: 'green' },
@@ -87,7 +87,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Rubber',
     subtitle: 'Vulcanized · Recycled Content',
-    description: 'Virtually indestructible, quiet, and warm underfoot. Rubber flooring delivers superior slip resistance, acoustic performance, and comfort in high-demand environments. Frequently manufactured with recycled content and specified for healthcare, transit, fitness, and education facilities.',
+    description: 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum.',
     accentColor: '#D4A574',
     tags: [
       { label: 'Slip Resistant', variant: 'green' },
@@ -98,7 +98,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Linoleum',
     subtitle: 'Natural · Bio-based',
-    description: 'Manufactured from linseed oil, cork, wood flour, limestone, and tree resins—natural ingredients used in flooring for over 150 years. Inherently antimicrobial, biodegradable, and carbon neutral. Color runs through the full thickness for long-term durability and wear performance.',
+    description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.',
     accentColor: '#8FBC8F',
     tags: [
       { label: 'Bio-based', variant: 'green' },
@@ -109,7 +109,7 @@ const FLOORING_STATIC: FlooringTypeDoc[] = [
   {
     title: 'Cork',
     subtitle: 'Natural · Acoustic',
-    description: 'Harvested from cork oak bark without cutting the tree, cork is a fully renewable resource. Naturally hypoallergenic, resistant to mold and mildew, and provides excellent thermal and acoustic insulation. Specified for residential and light commercial applications where comfort and sustainability matter.',
+    description: 'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.',
     accentColor: '#C4A882',
     tags: [
       { label: 'Renewable', variant: 'green' },
@@ -152,7 +152,7 @@ export function MaterialsCarousel({ flooringTypes, siteSettings }: { flooringTyp
           <div className="max-w-2xl">
             <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">The Categories</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight">
-              {siteSettings?.materialsHeading || <>The full range of <br /><span className="font-semibold text-rfci-blue">resilient flooring.</span></>}
+              {siteSettings?.materialsHeading || <>Lorem ipsum dolor <br /><span className="font-semibold text-rfci-blue">sit amet consectetur.</span></>}
             </h2>
           </div>
           <div className="hidden md:flex gap-3">

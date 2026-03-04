@@ -9,27 +9,27 @@ const BENEFITS = [
   {
     icon: Broom,
     title: 'Easy Maintenance',
-    description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.',
   },
   {
     icon: Drop,
     title: 'Water Resistance',
-    description: 'Engineered to handle moisture-prone environments—from kitchens and baths to healthcare and hospitality.',
+    description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
   },
   {
     icon: CurrencyDollar,
     title: 'Cost Effective',
-    description: 'Competitive installed cost paired with a long service life delivers strong value across the full lifecycle.',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
   {
     icon: Palette,
     title: 'Design Versatility',
-    description: 'Realistic wood, stone, and custom visuals across tile, plank, and sheet formats for any design vision.',
+    description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.',
   },
   {
     icon: Recycle,
     title: 'Sustainability',
-    description: 'Recyclable materials, low-VOC manufacturing, and third-party certifications support green building goals.',
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur.',
   },
 ]
 
@@ -99,7 +99,7 @@ export function WhyResilientSection({ siteSettings }: { siteSettings?: any } = {
           <SectionReveal direction="right" className="lg:col-span-6 lg:pt-4">
             <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">{siteSettings?.whyResilientHeading || 'Why Resilient?'}</div>
             <h2 className="text-4xl md:text-5xl font-display font-light leading-tight mb-10">
-              {siteSettings?.whyResilientSubheading || <>The number one flooring{' '}<span className="font-semibold text-rfci-blue">category in North America.</span></>}
+              {siteSettings?.whyResilientSubheading || <>Lorem ipsum dolor sit{' '}<span className="font-semibold text-rfci-blue">amet consectetur elit.</span></>}
             </h2>
 
             {/* Benefits — borderless divide-y list */}

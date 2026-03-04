@@ -17,10 +17,10 @@ export function LinkedInFeedSection({ siteSettings }: { linkedInPosts?: any[]; s
                 <LinkedinLogo className="w-4 h-4" weight="fill" /> Stay Connected
               </div>
               <h2 className="text-3xl md:text-4xl font-display font-light leading-tight mb-4">
-                {siteSettings?.linkedinHeading || <>Follow RFCI on <span className="font-semibold text-rfci-blue">LinkedIn.</span></>}
+                {siteSettings?.linkedinHeading || <>Lorem ipsum on <span className="font-semibold text-rfci-blue">LinkedIn.</span></>}
               </h2>
               <p className="text-rfci-black/60 font-light leading-relaxed max-w-lg">
-                Stay up to date with industry news, certification updates, member spotlights, and upcoming events from the Resilient Floor Covering Institute.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.
               </p>
             </div>
             <a

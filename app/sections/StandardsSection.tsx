@@ -22,7 +22,7 @@ const CERTS_STATIC: CertDoc[] = [
     slug: 'floorscore',
     title: 'FloorScore®',
     iconName: 'shieldCheck',
-    description: 'FloorScore is the flooring industry\'s most recognized indoor air quality certification. It\'s independently administered by SCS Global Services and verifies that a product meets California\'s strict VOC emissions standards—one of the toughest benchmarks in the world.',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
     image: { url: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop' },
     stats: [
       { value: '10,000+', label: 'Certified Products' },
@@ -33,7 +33,7 @@ const CERTS_STATIC: CertDoc[] = [
     slug: 'assure',
     title: 'ASSURE® Certified',
     iconName: 'leaf',
-    description: 'ASSURE® is RFCI\'s third-party sustainability certification for resilient flooring products. It evaluates products across the full lifecycle—raw materials, manufacturing, product performance, and end-of-life—giving manufacturers a rigorous and credible way to demonstrate sustainability leadership.',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa.',
     image: { url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200&auto=format&fit=crop' },
     stats: [
       { value: 'Full Lifecycle', label: 'Assessment Scope' },
@@ -44,7 +44,7 @@ const CERTS_STATIC: CertDoc[] = [
     slug: 'affirm',
     title: 'AFFIRM™ Certified',
     iconName: 'globe',
-    description: 'AFFIRM™ is RFCI\'s material health certification program for resilient flooring. It evaluates and discloses the chemical ingredients in flooring products, helping manufacturers demonstrate transparency and enabling specifiers to make informed decisions about material health.',
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
     image: { url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop' },
     stats: [
       { value: 'Ingredient', label: 'Level Transparency' },
@@ -121,9 +121,9 @@ export function StandardsSection({ certifications, siteSettings }: { certificati
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <SectionReveal className="text-center mb-16">
           <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Certifications</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6">{siteSettings?.standardsHeading || 'Certifications you can rely on.'}</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6">{siteSettings?.standardsHeading || 'Lorem ipsum dolor sit amet.'}</h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto font-light">
-            {siteSettings?.standardsSubheading || "RFCI manages three of the flooring industry\u2019s most trusted certification programs. If you\u2019re specifying products or evaluating sustainability claims, these are the benchmarks that matter."}
+            {siteSettings?.standardsSubheading || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam nostrud.'}
           </p>
         </SectionReveal>
 

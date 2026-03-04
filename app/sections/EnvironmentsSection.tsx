@@ -46,13 +46,13 @@ export function EnvironmentsSection({ environments, siteSettings }: { environmen
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionReveal className="text-center mb-16 md:mb-24">
           <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4 flex items-center justify-center gap-2">
-            <Leaf className="w-4 h-4" /> Residential &amp; Commercial
+            Residential &amp; Commercial
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6 leading-tight">
-            {siteSettings?.environmentsHeading || <>Built for <span className="font-semibold text-rfci-blue">real spaces.</span></>}
+            {siteSettings?.environmentsHeading || <>Lorem ipsum <span className="font-semibold text-rfci-blue">dolor sit amet.</span></>}
           </h2>
           <p className="text-lg md:text-xl text-rfci-black/70 max-w-3xl mx-auto leading-relaxed font-light">
-            {siteSettings?.environmentsSubheading || 'From single-family homes to hospitals and hotels, resilient flooring is the preferred choice across every segment of the built environment.'}
+            {siteSettings?.environmentsSubheading || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.'}
           </p>
         </SectionReveal>
 

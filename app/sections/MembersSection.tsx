@@ -84,10 +84,9 @@ function MemberLogo({ member }: { member: MemberDoc }) {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function MembersSection({ members, siteSettings }: { members: any[]; siteSettings?: any }) {
-  // Show row1 members from CMS only if they have logo URLs; otherwise fall back to static list
-  const cmsRow1 = (members ?? []).filter((m: MemberDoc) => !m.row || m.row === '1')
-  const cmsHasLogos = cmsRow1.some((m: MemberDoc) => m.logoUrl || mediaUrl(m.logo))
-  const displayMembers: MemberDoc[] = cmsHasLogos ? cmsRow1 : MEMBERS_STATIC
+  // Show row1 members from CMS that have logos; otherwise fall back to static list
+  const cmsRow1 = (members ?? []).filter((m: MemberDoc) => (!m.row || m.row === '1') && (m.logoUrl || mediaUrl(m.logo)))
+  const displayMembers: MemberDoc[] = cmsRow1.length ? cmsRow1 : MEMBERS_STATIC
 
   return (
     <section id="members" className="py-40 bg-rfci-black text-white relative overflow-hidden">
@@ -100,10 +99,10 @@ export function MembersSection({ members, siteSettings }: { members: any[]; site
             <Users className="w-8 h-8 text-rfci-blue" />
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-6 leading-[1.1] tracking-tight">
-            {siteSettings?.membersHeading || <>Meet our <br /><span className="font-semibold text-rfci-blue">member companies.</span></>}
+            {siteSettings?.membersHeading || <>Lorem ipsum <br /><span className="font-semibold text-rfci-blue">dolor sit amet.</span></>}
           </h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            {siteSettings?.membersSubheading || 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.'}
+            {siteSettings?.membersSubheading || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.'}
           </p>
           <Link href="/members" className="text-xl md:text-2xl font-display font-light text-white hover:text-rfci-blue transition-colors flex items-center justify-center gap-4 group relative">
             <span className="relative">

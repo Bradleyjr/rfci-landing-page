@@ -7,9 +7,9 @@ import { mediaUrl } from '../_lib/transforms'
 const HERO_STATIC = {
   heroLine1: 'RESILIENT FLOOR',
   heroLine2: 'COVERING INSTITUTE',
-  heroSubheading: 'The trade association representing the resilient flooring industry. Setting standards, running certification programs, and advancing the number one flooring category in North America since 1976.',
+  heroSubheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam nostrud.',
   heroCta: 'Explore RFCI',
-  heroBoxText: 'Discover our certification programs, meet our member manufacturers, and learn how RFCI protects and promotes the resilient flooring industry.',
+  heroBoxText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui.',
   heroImageUrl: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop',
 }
 

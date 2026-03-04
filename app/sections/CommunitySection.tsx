@@ -27,8 +27,8 @@ const STATIC_PHOTOS: PhotoItem[] = [
 export function CommunitySection({ communityEvent }: { communityEvent: any }) {
   const arcRef = useRef<HTMLDivElement>(null)
 
-  const sectionHeading = communityEvent?.sectionHeading ?? 'Where the industry comes together.'
-  const sectionSubheading = communityEvent?.sectionSubheading ?? "Twice a year, RFCI members and industry professionals get together to share what's working, talk through technical standards, and discuss sustainability. If you work in resilient flooring, this is where you want to be."
+  const sectionHeading = communityEvent?.sectionHeading ?? 'Lorem ipsum dolor sit amet.'
+  const sectionSubheading = communityEvent?.sectionSubheading ?? 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.'
   const eventTitle = communityEvent?.eventTitle ?? 'Fall Industry Meeting'
   const eventLocation = communityEvent?.eventLocation ?? 'Austin, TX'
   const eventDate = communityEvent?.eventDate ?? 'Oct 12–14'
