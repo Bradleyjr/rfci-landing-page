@@ -3,8 +3,8 @@ import { VideoDetail } from './VideoDetail'
 import { ArticleDetail } from './ArticleDetail'
 import { RESOURCES } from '../../../_data/resources'
 
-export function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const slug = params.slug as string
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   const resource = RESOURCES.find(r => r.slug === slug)
   if (!resource) return { title: 'Resource | RFCI' }
 
@@ -14,14 +14,14 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
   }
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return RESOURCES.map(resource => ({
     slug: resource.slug,
   }))
 }
 
-export default function ResourceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
-  const slug = params.slug as string
+export default async function ResourceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   const resource = RESOURCES.find(r => r.slug === slug)
   if (!resource) notFound()
 

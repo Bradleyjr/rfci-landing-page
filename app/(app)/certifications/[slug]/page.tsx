@@ -142,8 +142,9 @@ const CERTS_FALLBACK: Record<string, any> = {
 }
 
 
-export function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const cert = CERTIFICATIONS.find(c => c.slug === params.slug) || CERTS_FALLBACK[params.slug]
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const cert = CERTIFICATIONS.find(c => c.slug === slug) || CERTS_FALLBACK[slug]
   if (!cert) return { title: 'Certification | RFCI' }
 
   return {
@@ -152,14 +153,14 @@ export function generateMetadata({ params }: { params: Promise<{ slug: string }>
   }
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return CERTIFICATIONS.map(cert => ({
     slug: cert.slug,
   }))
 }
 
-export default function CertificationPage({ params }: { params: Promise<{ slug: string }> }) {
-  const slug = params.slug as string
+export default async function CertificationPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   const cert = CERTIFICATIONS.find(c => c.slug === slug) || CERTS_FALLBACK[slug]
   if (!cert) notFound()
 
