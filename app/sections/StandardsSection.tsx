@@ -80,7 +80,7 @@ export function StandardsSection() {
           </p>
         </SectionReveal>
 
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+        <div className="grid lg:grid-cols-12 gap-12 items-start min-w-0">
           {/* Desktop Tabs List */}
           <div className="hidden lg:block lg:col-span-5 space-y-4">
             {CERTIFICATIONS.map((tab) => {
@@ -152,12 +152,12 @@ export function StandardsSection() {
           </div>
 
           {/* Mobile Accordion */}
-          <div className="lg:hidden col-span-12 flex flex-col gap-4">
+          <div className="lg:hidden col-span-full min-w-0 flex flex-col gap-4">
             {CERTIFICATIONS.map((tab) => {
               const IconComp = CERT_ICONS[tab.iconName] ?? FileText
               const tabImageUrl = tab.image?.url || 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop'
               return (
-                <div key={tab.slug} className="bg-white/5 border border-white/10 overflow-hidden flex flex-col">
+                <div key={tab.slug} className="bg-white/5 border border-white/10 overflow-hidden flex flex-col min-w-0">
                   <button
                     onClick={() => setActiveTab(activeTab === tab.slug ? '' : tab.slug)}
                     className={`w-full text-left py-6 px-4 sm:px-6 border-l-2 transition-all duration-300 flex items-center justify-between gap-3 group ${
@@ -188,16 +188,16 @@ export function StandardsSection() {
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                         className="overflow-hidden"
                       >
-                        <div className="p-6 pt-0 flex flex-col">
+                        <div className="p-6 pt-0 flex flex-col min-w-0">
                           <div className="relative h-48 w-full mb-6 mt-4 overflow-hidden">
                             <img src={tabImageUrl} alt={tab.title} className="w-full h-full object-cover" />
                           </div>
-                          <p className="text-base text-white/80 leading-relaxed mb-8">{tab.description}</p>
-                          <div className="grid grid-cols-2 gap-4 mb-8">
+                          <p className="text-base text-white/80 leading-relaxed mb-8 break-words">{tab.description}</p>
+                          <div className="grid grid-cols-2 gap-4 mb-8 min-w-0">
                             {(tab.stats ?? []).map((stat, i) => (
-                              <div key={i} className="border-l-2 border-rfci-blue pl-4">
+                              <div key={i} className="border-l-2 border-rfci-blue pl-4 min-w-0">
                                 <div className="text-2xl font-display font-light text-white mb-1">{stat.value}</div>
-                                <div className="text-label font-bold tracking-widest uppercase text-white/40">{stat.label}</div>
+                                <div className="text-label font-bold tracking-widest uppercase text-white/40 break-words">{stat.label}</div>
                               </div>
                             ))}
                           </div>
