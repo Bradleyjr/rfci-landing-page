@@ -28,7 +28,7 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
   const heroSubheading = SITE_SETTINGS.heroSubheading
   const heroCta = SITE_SETTINGS.heroCta
   const heroBoxText = SITE_SETTINGS.heroBoxText
-  const heroImageUrl = SITE_SETTINGS.heroImage?.url || HERO_STATIC.heroImageUrl
+  const heroImageUrl = HERO_STATIC.heroImageUrl
 
   return (
     <section id="hero" className="relative min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-rfci-cream pt-32 pb-16 md:pt-20 md:pb-0 px-6 md:px-12">

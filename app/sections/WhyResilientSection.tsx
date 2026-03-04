@@ -69,7 +69,7 @@ export function WhyResilientSection() {
   const cmsBenefits = SITE_SETTINGS.whyResilientBenefits
   const statTarget = parseInt(SITE_SETTINGS.whyResilientStatValue || '65', 10)
   const statLabel = SITE_SETTINGS.whyResilientStatLabel || 'of hard surface flooring\nin North America'
-  const imageUrl = SITE_SETTINGS.whyResilientImage?.url || 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop'
+  const imageUrl = 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop'
   return (
     <section id="why-resilient" className="py-28 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
