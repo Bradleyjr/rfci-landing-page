@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
-import { getPayload } from 'payload'
-import configPromise from '@payload-config'
+import { CERTIFICATIONS } from './_data/certifications'
+import { FLOORING_TYPES } from './_data/flooring-types'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://rfci.com'
@@ -19,32 +19,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/faq`, changeFrequency: 'monthly', priority: 0.6 },
   ]
 
-  try {
-    const payload = await getPayload({ config: configPromise })
+  // Dynamic: certifications
+  const certRoutes: MetadataRoute.Sitemap = CERTIFICATIONS.filter((c) => c.slug).map((c) => ({
+    url: `${baseUrl}/certifications/${c.slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
 
-    // Dynamic: certifications
-    const certs = await payload.find({ collection: 'certifications', limit: 50 })
-    const certRoutes: MetadataRoute.Sitemap = certs.docs
-      .filter((c) => c.slug)
-      .map((c) => ({
-        url: `${baseUrl}/certifications/${c.slug}`,
+  // Dynamic: flooring types
+  const typeRoutes: MetadataRoute.Sitemap = FLOORING_TYPES.filter((t) => t.title)
+    .map((t) => {
+      const slug = t.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+      return {
+        url: `${baseUrl}/flooring/${slug}`,
         changeFrequency: 'monthly' as const,
         priority: 0.7,
-      }))
+      }
+    })
 
-    // Dynamic: flooring types
-    const types = await payload.find({ collection: 'flooring-types', limit: 50 })
-    const typeRoutes: MetadataRoute.Sitemap = types.docs
-      .filter((t) => t.slug)
-      .map((t) => ({
-        url: `${baseUrl}/flooring/${t.slug}`,
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
-      }))
-
-    return [...staticRoutes, ...certRoutes, ...typeRoutes]
-  } catch {
-    // If DB isn't ready during build, return static routes only
-    return staticRoutes
-  }
+  return [...staticRoutes, ...certRoutes, ...typeRoutes]
 }

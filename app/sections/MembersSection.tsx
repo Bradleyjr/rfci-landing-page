@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { motion } from 'motion/react'
 import { Users, ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
-import { mediaUrl } from '../_lib/transforms'
+import { MEMBERS } from '../_data/members'
+import { SITE_SETTINGS } from '../_data/site-settings'
 
 type MemberDoc = {
   name: string
@@ -15,32 +16,6 @@ type MemberDoc = {
   row?: string
   order?: number
 }
-
-const MEMBERS_STATIC: MemberDoc[] = [
-  { name: 'AHF Products',       logo: { url: 'https://rfci.com/wp-content/uploads/2022/01/AHF-gray.jpg' } },
-  { name: 'American Biltrite',  logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/American-Biltrite-gray.jpg' } },
-  { name: 'Beauflor',           logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/beauflor-gray.jpg' } },
-  { name: 'Bentley',            logo: { url: 'https://rfci.com/wp-content/uploads/2023/07/Bentley-gray.jpg' } },
-  { name: 'CFL',                logo: { url: 'https://rfci.com/wp-content/uploads/2021/01/cfl-grey-1.jpg' } },
-  { name: 'Classen',            logo: { url: 'https://rfci.com/wp-content/uploads/2025/02/classen-gray-img.jpg' } },
-  { name: 'Congoleum',          logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/congoleum-gray.jpg' } },
-  { name: 'Engineered Floors',  logo: { url: 'https://rfci.com/wp-content/uploads/2020/02/Engineered-Floors-gray.jpg' } },
-  { name: 'Gerflor',            logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/gerflor-gray.jpg' } },
-  { name: 'HMTX Industries',    logo: { url: 'https://rfci.com/wp-content/uploads/2020/10/hmtx-gray.jpg' } },
-  { name: 'Interface',          logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/interface-gray.jpg' } },
-  { name: 'Karndean',           logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/karndean-gray.jpg' } },
-  { name: 'Mannington',         logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/mannington-gray.jpg' } },
-  { name: 'Mohawk',             logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/mohawk-gray.jpg' } },
-  { name: 'MSI',                logo: { url: 'https://rfci.com/wp-content/uploads/2022/04/MSI-gray.jpg' } },
-  { name: 'Novalis',            logo: { url: 'https://rfci.com/wp-content/uploads/2020/10/Novalis-gray.jpg' } },
-  { name: 'NOX Corp',           logo: { url: 'https://rfci.com/wp-content/uploads/2020/10/nox-corp-gray.jpg' } },
-  { name: 'Roppe',              logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/roppe-gray.jpg' } },
-  { name: 'Shaw',               logo: { url: 'https://rfci.com/wp-content/uploads/2022/04/Shaw-gray.jpg' } },
-  { name: 'Tarkett',            logo: { url: 'https://rfci.com/wp-content/uploads/2020/10/Tarkett-gray.jpg' } },
-  { name: 'Torlys',             logo: { url: 'https://rfci.com/wp-content/uploads/2018/10/torlys-logo-gray.png' } },
-  { name: 'Wellmade',           logo: { url: 'https://rfci.com/wp-content/uploads/2020/02/wellmade-gray.jpg' } },
-  { name: 'Windmöller',         logo: { url: 'https://rfci.com/wp-content/uploads/2020/02/windmoller-gray-1.jpg' } },
-]
 
 const TastefulShader = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none bg-rfci-black z-0">
@@ -63,7 +38,7 @@ const TastefulShader = () => (
 )
 
 function MemberLogo({ member }: { member: MemberDoc }) {
-  const logoUrl = member.logoUrl || mediaUrl(member.logo)
+  const logoUrl = member.logoUrl || member.logo?.url
   if (logoUrl) {
     return (
       <div className="group w-36 h-12 flex items-center justify-center shrink-0">
@@ -82,11 +57,9 @@ function MemberLogo({ member }: { member: MemberDoc }) {
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function MembersSection({ members, siteSettings }: { members: any[]; siteSettings?: any }) {
-  // Show row1 members from CMS that have logos; otherwise fall back to static list
-  const cmsRow1 = (members ?? []).filter((m: MemberDoc) => (!m.row || m.row === '1') && (m.logoUrl || mediaUrl(m.logo)))
-  const displayMembers: MemberDoc[] = cmsRow1.length ? cmsRow1 : MEMBERS_STATIC
+export function MembersSection() {
+  // Show row1 members that have logos
+  const displayMembers = MEMBERS.filter(m => (!m.row || m.row === '1') && (m.logoUrl || m.logo?.url))
 
   return (
     <section id="members" className="py-40 bg-rfci-black text-white relative overflow-hidden">
@@ -99,15 +72,15 @@ export function MembersSection({ members, siteSettings }: { members: any[]; site
             <Users className="w-8 h-8 text-rfci-blue" />
           </div>
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-6 leading-[1.1] tracking-tight">
-            {siteSettings?.membersHeading || <>Lorem ipsum <br /><span className="font-semibold text-rfci-blue">dolor sit amet.</span></>}
+            {SITE_SETTINGS.membersHeading}
           </h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
-            {siteSettings?.membersSubheading || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.'}
+            {SITE_SETTINGS.membersSubheading}
           </p>
           <Link href="/members" className="text-xl md:text-2xl font-display font-light text-white hover:text-rfci-blue transition-colors flex items-center justify-center gap-4 group relative">
             <span className="relative">
               <span className="relative z-10 flex items-center gap-4">
-                {siteSettings?.membersCtaText || 'View Member Directory'} <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                {SITE_SETTINGS.membersCtaText || 'View Member Directory'} <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
               </span>
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white/30 group-hover:bg-rfci-blue transition-colors duration-300" />
             </span>

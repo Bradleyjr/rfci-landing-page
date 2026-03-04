@@ -1,9 +1,6 @@
-import { getPayload } from 'payload'
-import configPromise from '@payload-config'
 import { notFound } from 'next/navigation'
 import { FlooringDetail } from './FlooringDetail'
-import { RefreshRouteOnSave } from '../../../_components/RefreshRouteOnSave'
-
+import { FLOORING_TYPES } from '../../../_data/flooring-types'
 
 const CERT_FLOORSCORE = { slug: 'floorscore', title: 'FloorScore®', iconName: 'shieldCheck', description: 'Indoor air quality certification verifying low VOC emissions.' }
 const CERT_ASSURE = { slug: 'assure', title: 'ASSURE® Certified', iconName: 'leaf', description: 'Third-party sustainability certification across the full product lifecycle.' }
@@ -159,16 +156,9 @@ const FLOORING_FALLBACK: Record<string, any> = {
   },
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
-  const payload = await getPayload({ config: configPromise })
-  const result = await payload.find({
-    collection: 'flooring-types',
-    where: { slug: { equals: slug } },
-    limit: 1,
-    draft: true,
-  })
-  const ft = result.docs[0]
+export function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = params.slug as string
+  const ft = FLOORING_TYPES.find(f => f.slug === slug)
   if (!ft) {
     const fallback = FLOORING_FALLBACK[slug]
     if (fallback) {
@@ -181,57 +171,33 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    title: `${(ft as any).title} | RFCI Resilient Flooring`,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    description: (ft as any).description,
+    title: `${ft.title} | RFCI Resilient Flooring`,
+    description: ft.description,
   }
 }
 
-export default async function FlooringTypePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
-  const payload = await getPayload({ config: configPromise })
+export function generateSlugFromTitle(title: string): string {
+  return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+}
 
-  const [ftResult, allResult] = await Promise.all([
-    payload.find({
-      collection: 'flooring-types',
-      where: { slug: { equals: slug } },
-      limit: 1,
-      draft: true,
-    }),
-    payload.find({
-      collection: 'flooring-types',
-      sort: 'order',
-      limit: 50,
-      draft: true,
-    }),
-  ])
+export async function generateStaticParams() {
+  return FLOORING_TYPES.map(ft => ({
+    slug: ft.slug,
+  }))
+}
 
-  const ft = ftResult.docs[0]
+export default function FlooringTypePage({ params }: { params: Promise<{ slug: string }> }) {
+  const slug = params.slug as string
+  const ft = FLOORING_TYPES.find(f => f.slug === slug)
+
   if (!ft) {
     const fallback = FLOORING_FALLBACK[slug]
     if (!fallback) notFound()
 
-    const otherTypes = allResult.docs.length > 0
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ? allResult.docs.filter((t: any) => t.slug !== slug)
-      : Object.values(FLOORING_FALLBACK).filter((t) => t.slug !== slug)
-
-    return (
-      <>
-        <RefreshRouteOnSave />
-        <FlooringDetail flooringType={fallback} otherTypes={otherTypes} />
-      </>
-    )
+    const otherTypes = Object.values(FLOORING_FALLBACK).filter((t) => t.slug !== slug)
+    return <FlooringDetail flooringType={fallback} otherTypes={otherTypes} />
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const otherTypes = allResult.docs.filter((t: any) => t.slug !== slug)
-
-  return (
-    <>
-      <RefreshRouteOnSave />
-      <FlooringDetail flooringType={ft} otherTypes={otherTypes} />
-    </>
-  )
+  const otherTypes = FLOORING_TYPES.filter((t) => t.slug !== slug)
+  return <FlooringDetail flooringType={ft} otherTypes={otherTypes} />
 }

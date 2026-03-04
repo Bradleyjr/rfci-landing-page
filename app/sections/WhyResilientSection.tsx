@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 import { useInView } from 'motion/react'
 import { Broom, Drop, CurrencyDollar, Palette, Recycle, ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
+import { SITE_SETTINGS } from '../_data/site-settings'
 
 const BENEFITS = [
   {
@@ -64,12 +65,11 @@ function AnimatedCounter({ target, suffix = '%' }: { target: number; suffix?: st
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function WhyResilientSection({ siteSettings }: { siteSettings?: any } = {}) {
-  const cmsBenefits = siteSettings?.whyResilientBenefits
-  const statTarget = parseInt(siteSettings?.whyResilientStatValue || '65', 10)
-  const statLabel = siteSettings?.whyResilientStatLabel || 'of hard surface flooring\nin North America'
-  const imageUrl = siteSettings?.whyResilientImage?.url || 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop'
+export function WhyResilientSection() {
+  const cmsBenefits = SITE_SETTINGS.whyResilientBenefits
+  const statTarget = parseInt(SITE_SETTINGS.whyResilientStatValue || '65', 10)
+  const statLabel = SITE_SETTINGS.whyResilientStatLabel || 'of hard surface flooring\nin North America'
+  const imageUrl = SITE_SETTINGS.whyResilientImage?.url || 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop'
   return (
     <section id="why-resilient" className="py-28 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -97,9 +97,9 @@ export function WhyResilientSection({ siteSettings }: { siteSettings?: any } = {
 
           {/* Right — Heading + benefit list */}
           <SectionReveal direction="right" className="lg:col-span-6 lg:pt-4">
-            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">{siteSettings?.whyResilientHeading || 'Why Resilient?'}</div>
+            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">{SITE_SETTINGS.whyResilientHeading || 'Why Resilient?'}</div>
             <h2 className="text-4xl md:text-5xl font-display font-light leading-tight mb-10">
-              {siteSettings?.whyResilientSubheading || <>Lorem ipsum dolor sit{' '}<span className="font-semibold text-rfci-blue">amet consectetur elit.</span></>}
+              {SITE_SETTINGS.whyResilientSubheading}
             </h2>
 
             {/* Benefits — borderless divide-y list */}

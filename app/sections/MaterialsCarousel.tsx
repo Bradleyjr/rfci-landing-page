@@ -3,125 +3,11 @@
 import { useRef, useEffect, useState } from 'react'
 import { ArrowRight, ArrowLeft, ArrowsLeftRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
-import { TAG_STYLES, mediaUrl } from '../_lib/transforms'
+import { TAG_STYLES } from '../_lib/transforms'
+import { FLOORING_TYPES } from '../_data/flooring-types'
+import { SITE_SETTINGS } from '../_data/site-settings'
 
-type FlooringTypeDoc = {
-  title: string
-  subtitle: string
-  description: string
-  accentColor: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  tags?: Array<{ label: string; variant: string; id?: any }>
-  order?: number
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  image?: any
-}
-
-const FLOORING_STATIC: FlooringTypeDoc[] = [
-  {
-    title: 'Flexible LVT',
-    subtitle: 'Luxury Vinyl Tile · Planks',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.',
-    accentColor: '#9CA3AF',
-    tags: [
-      { label: 'Waterproof', variant: 'green' },
-      { label: 'High Traffic', variant: 'tan' },
-      { label: 'Easy Install', variant: 'gray' },
-    ],
-  },
-  {
-    title: 'Rigid Core',
-    subtitle: 'SPC · WPC · Multilayer',
-    description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.',
-    accentColor: '#78909C',
-    tags: [
-      { label: 'Waterproof', variant: 'green' },
-      { label: 'Dimensionally Stable', variant: 'tan' },
-      { label: 'ASSURE Eligible', variant: 'gray' },
-    ],
-  },
-  {
-    title: 'Heterogeneous Sheet Vinyl',
-    subtitle: 'Multi-layer · Printed Design',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat.',
-    accentColor: '#B0C4DE',
-    tags: [
-      { label: 'Hygienic', variant: 'green' },
-      { label: 'Seamless', variant: 'tan' },
-      { label: 'Design Versatility', variant: 'gray' },
-    ],
-  },
-  {
-    title: 'Homogeneous Sheet Vinyl',
-    subtitle: 'Through-body · Single Layer',
-    description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis.',
-    accentColor: '#90A4AE',
-    tags: [
-      { label: 'Hygienic', variant: 'green' },
-      { label: 'Through-body Color', variant: 'tan' },
-      { label: 'Restorable Surface', variant: 'gray' },
-    ],
-  },
-  {
-    title: 'Solid Vinyl Tile',
-    subtitle: 'SVT · Flexible Tiles',
-    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione.',
-    accentColor: '#A5B4BC',
-    tags: [
-      { label: 'Rolling Loads', variant: 'green' },
-      { label: 'No-Wax', variant: 'tan' },
-      { label: 'Tile Replacement', variant: 'gray' },
-    ],
-  },
-  {
-    title: 'Vinyl Composition Tile',
-    subtitle: 'VCT · Commercial Standard',
-    description: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.',
-    accentColor: '#CFD8DC',
-    tags: [
-      { label: 'Cost Effective', variant: 'green' },
-      { label: 'Durable', variant: 'tan' },
-      { label: 'Custom Patterns', variant: 'gray' },
-    ],
-  },
-  {
-    title: 'Rubber',
-    subtitle: 'Vulcanized · Recycled Content',
-    description: 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum.',
-    accentColor: '#D4A574',
-    tags: [
-      { label: 'Slip Resistant', variant: 'green' },
-      { label: 'Acoustic', variant: 'tan' },
-      { label: 'Recycled Content', variant: 'gray' },
-    ],
-  },
-  {
-    title: 'Linoleum',
-    subtitle: 'Natural · Bio-based',
-    description: 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores.',
-    accentColor: '#8FBC8F',
-    tags: [
-      { label: 'Bio-based', variant: 'green' },
-      { label: 'Carbon Neutral', variant: 'green' },
-      { label: 'Antimicrobial', variant: 'gray' },
-    ],
-  },
-  {
-    title: 'Cork',
-    subtitle: 'Natural · Acoustic',
-    description: 'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus.',
-    accentColor: '#C4A882',
-    tags: [
-      { label: 'Renewable', variant: 'green' },
-      { label: 'Hypoallergenic', variant: 'tan' },
-      { label: 'Acoustic', variant: 'gray' },
-    ],
-  },
-]
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function MaterialsCarousel({ flooringTypes, siteSettings }: { flooringTypes: any[]; siteSettings?: any }) {
-  const displayTypes: FlooringTypeDoc[] = flooringTypes?.length ? flooringTypes : FLOORING_STATIC
+export function MaterialsCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null)
   const [carouselProgress, setCarouselProgress] = useState(0)
 
@@ -152,7 +38,7 @@ export function MaterialsCarousel({ flooringTypes, siteSettings }: { flooringTyp
           <div className="max-w-2xl">
             <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">The Categories</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight">
-              {siteSettings?.materialsHeading || <>Lorem ipsum dolor <br /><span className="font-semibold text-rfci-blue">sit amet consectetur.</span></>}
+              {SITE_SETTINGS.materialsHeading}
             </h2>
           </div>
           <div className="hidden md:flex gap-3">
@@ -183,7 +69,7 @@ export function MaterialsCarousel({ flooringTypes, siteSettings }: { flooringTyp
           ref={carouselRef}
           className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 pb-12 pt-4 -mt-4 -mx-6 px-6 md:-mx-12 md:px-12"
         >
-          {displayTypes.map((type, idx) => {
+          {FLOORING_TYPES.map((type, idx) => {
             const tags = (type.tags ?? []).map(tag => ({
               label: tag.label,
               ...(TAG_STYLES[tag.variant] ?? TAG_STYLES.gray),
@@ -227,13 +113,6 @@ export function MaterialsCarousel({ flooringTypes, siteSettings }: { flooringTyp
                       Learn More <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
-
-                  {/* Show uploaded image if present */}
-                  {type.image && (
-                    <div className="absolute inset-0 z-0 opacity-10">
-                      <img src={mediaUrl(type.image)} alt={type.title} className="w-full h-full object-cover" />
-                    </div>
-                  )}
                 </div>
               </SectionReveal>
             )

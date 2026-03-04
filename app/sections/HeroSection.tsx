@@ -2,14 +2,9 @@
 
 import { motion, type MotionValue, type Variants } from 'motion/react'
 import { ArrowRight, Certificate } from '@phosphor-icons/react'
-import { mediaUrl } from '../_lib/transforms'
+import { SITE_SETTINGS } from '../_data/site-settings'
 
 const HERO_STATIC = {
-  heroLine1: 'RESILIENT FLOOR',
-  heroLine2: 'COVERING INSTITUTE',
-  heroSubheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam nostrud.',
-  heroCta: 'Explore RFCI',
-  heroBoxText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui.',
   heroImageUrl: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop',
 }
 
@@ -27,14 +22,13 @@ const lineVariants: Variants = {
   }),
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number>; siteSettings: any }) {
-  const heroLine1 = siteSettings?.heroLine1 ?? HERO_STATIC.heroLine1
-  const heroLine2 = siteSettings?.heroLine2 ?? HERO_STATIC.heroLine2
-  const heroSubheading = siteSettings?.heroSubheading ?? HERO_STATIC.heroSubheading
-  const heroCta = siteSettings?.heroCta ?? HERO_STATIC.heroCta
-  const heroBoxText = siteSettings?.heroBoxText ?? HERO_STATIC.heroBoxText
-  const heroImageUrl = mediaUrl(siteSettings?.heroImage, HERO_STATIC.heroImageUrl)
+export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
+  const heroLine1 = SITE_SETTINGS.heroLine1
+  const heroLine2 = SITE_SETTINGS.heroLine2
+  const heroSubheading = SITE_SETTINGS.heroSubheading
+  const heroCta = SITE_SETTINGS.heroCta
+  const heroBoxText = SITE_SETTINGS.heroBoxText
+  const heroImageUrl = SITE_SETTINGS.heroImage?.url || HERO_STATIC.heroImageUrl
 
   return (
     <section id="hero" className="relative min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-rfci-cream pt-32 pb-16 md:pt-20 md:pb-0 px-6 md:px-12">

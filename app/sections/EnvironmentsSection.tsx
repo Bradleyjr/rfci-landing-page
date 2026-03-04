@@ -4,42 +4,12 @@ import { useState } from 'react'
 import { motion } from 'motion/react'
 import { Leaf, ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
-import { ENV_DOT_POSITIONS, ENV_DELAYS, mediaUrl } from '../_lib/transforms'
+import { ENV_DOT_POSITIONS, ENV_DELAYS } from '../_lib/transforms'
+import { ENVIRONMENTS } from '../_data/environments'
+import { SITE_SETTINGS } from '../_data/site-settings'
 
-type EnvDoc = {
-  name: string
-  flooringType: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  image?: any
-  order?: number
-}
-
-const ENVIRONMENTS_STATIC: EnvDoc[] = [
-  { name: 'Single-Family Homes', flooringType: 'Luxury Vinyl Plank',      image: { url: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop' } },
-  { name: 'Apartments & Condos', flooringType: 'Rigid Core LVT',          image: { url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop' } },
-  { name: 'Townhomes & Duplexes',flooringType: 'Flexible LVT',            image: { url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop' } },
-  { name: 'Vacation & Rentals',  flooringType: 'Sheet Vinyl',             image: { url: 'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=800&auto=format&fit=crop' } },
-  { name: 'Senior Living',       flooringType: 'Rubber Flooring',         image: { url: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=800&auto=format&fit=crop' } },
-  { name: 'Offices',             flooringType: 'Luxury Vinyl Tile',       image: { url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop' } },
-  { name: 'Healthcare',          flooringType: 'Homogeneous Sheet Vinyl', image: { url: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop' } },
-  { name: 'Education',           flooringType: 'Linoleum',                image: { url: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop' } },
-]
-
-const FALLBACK_IMGS = [
-  'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop',
-]
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function EnvironmentsSection({ environments, siteSettings }: { environments: any[]; siteSettings?: any }) {
+export function EnvironmentsSection() {
   const [activeTooltip, setActiveTooltip] = useState<number | null>(null)
-  const displayEnvs: EnvDoc[] = environments?.length ? environments : ENVIRONMENTS_STATIC
 
   return (
     <section id="environments" className="py-28 md:py-32 bg-rfci-white relative">
@@ -49,20 +19,20 @@ export function EnvironmentsSection({ environments, siteSettings }: { environmen
             Residential &amp; Commercial
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6 leading-tight">
-            {siteSettings?.environmentsHeading || <>Lorem ipsum <span className="font-semibold text-rfci-blue">dolor sit amet.</span></>}
+            {SITE_SETTINGS.environmentsHeading}
           </h2>
           <p className="text-lg md:text-xl text-rfci-black/70 max-w-3xl mx-auto leading-relaxed font-light">
-            {siteSettings?.environmentsSubheading || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.'}
+            {SITE_SETTINGS.environmentsSubheading}
           </p>
         </SectionReveal>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {displayEnvs.map((env, i) => (
+          {ENVIRONMENTS.map((env, i) => (
             <SectionReveal key={i} delay={ENV_DELAYS[i] ?? 0} className="">
               <motion.div className="relative aspect-[4/5] group cursor-pointer">
                 <div className="absolute inset-0 overflow-hidden shadow-sm">
                   <img
-                    src={mediaUrl(env.image, FALLBACK_IMGS[i] ?? FALLBACK_IMGS[0])}
+                    src={env.image?.url || 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop'}
                     alt={env.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:-translate-y-1"
                   />

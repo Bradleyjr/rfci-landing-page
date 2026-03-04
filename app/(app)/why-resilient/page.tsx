@@ -1,31 +1,19 @@
-import { getPayload } from 'payload'
-import configPromise from '@payload-config'
 import { WhyResilient } from './WhyResilient'
-import { RefreshRouteOnSave } from '../../_components/RefreshRouteOnSave'
-
+import { WHY_RESILIENT_PAGE } from '../../_data/pages'
+import { FLOORING_TYPES } from '../../_data/flooring-types'
+import { ENVIRONMENTS } from '../../_data/environments'
 
 export const metadata = {
   title: 'Why Resilient Flooring | RFCI',
   description: 'Discover why resilient flooring is the fastest-growing segment of the hard surface market — unmatched versatility across design, performance, and sustainability.',
 }
 
-export default async function WhyResilientPage() {
-  const payload = await getPayload({ config: configPromise })
-
-  const [whyResilientPage, flooringTypesResult, environmentsResult] = await Promise.all([
-    payload.findGlobal({ slug: 'why-resilient-page', draft: true }),
-    payload.find({ collection: 'flooring-types', sort: 'order', limit: 50, draft: true }),
-    payload.find({ collection: 'environments', sort: 'order', limit: 10, draft: true }),
-  ])
-
+export default function WhyResilientPage() {
   return (
-    <>
-      <RefreshRouteOnSave />
-      <WhyResilient
-        pageData={whyResilientPage}
-        flooringTypes={flooringTypesResult.docs}
-        environments={environmentsResult.docs}
-      />
-    </>
+    <WhyResilient
+      pageData={WHY_RESILIENT_PAGE}
+      flooringTypes={FLOORING_TYPES}
+      environments={ENVIRONMENTS}
+    />
   )
 }

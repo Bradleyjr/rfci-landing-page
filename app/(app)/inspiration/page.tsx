@@ -1,35 +1,23 @@
-import { getPayload } from 'payload'
-import configPromise from '@payload-config'
 import { InspirationGallery } from './InspirationGallery'
-import { RefreshRouteOnSave } from '../../_components/RefreshRouteOnSave'
-
+import { INSPIRATION_PAGE } from '../../_data/pages'
+import { INSPIRATION_PROJECTS } from '../../_data/inspiration-projects'
+import { FLOORING_TYPES } from '../../_data/flooring-types'
+import { ENVIRONMENTS } from '../../_data/environments'
+import { MEMBERS } from '../../_data/members'
 
 export const metadata = {
   title: 'Inspiration Gallery | RFCI',
   description: 'Explore real-world resilient flooring installations across healthcare, education, hospitality, and more — featuring projects from RFCI member companies.',
 }
 
-export default async function InspirationRoute() {
-  const payload = await getPayload({ config: configPromise })
-
-  const [projectsResult, flooringTypesResult, environmentsResult, membersResult, pageSettings] = await Promise.all([
-    payload.find({ collection: 'inspiration-projects', sort: 'order', limit: 100, draft: true }),
-    payload.find({ collection: 'flooring-types', sort: 'order', limit: 50, draft: true }),
-    payload.find({ collection: 'environments', sort: 'order', limit: 20, draft: true }),
-    payload.find({ collection: 'members', sort: 'order', limit: 100, draft: true }),
-    payload.findGlobal({ slug: 'inspiration-page', draft: true }).catch(() => null),
-  ])
-
+export default function InspirationRoute() {
   return (
-    <>
-      <RefreshRouteOnSave />
-      <InspirationGallery
-        projects={projectsResult.docs}
-        flooringTypes={flooringTypesResult.docs}
-        environments={environmentsResult.docs}
-        members={membersResult.docs}
-        pageSettings={pageSettings}
-      />
-    </>
+    <InspirationGallery
+      projects={INSPIRATION_PROJECTS}
+      flooringTypes={FLOORING_TYPES}
+      environments={ENVIRONMENTS}
+      members={MEMBERS}
+      pageSettings={INSPIRATION_PAGE}
+    />
   )
 }

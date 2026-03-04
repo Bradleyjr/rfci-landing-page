@@ -4,54 +4,9 @@ import { useState, useRef, useEffect, type Key } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { Atom, ArrowRight, CaretDown, ShieldCheck, FileText } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
-import { CERT_ICONS, mediaUrl } from '../_lib/transforms'
-
-type CertDoc = {
-  slug: string
-  title: string
-  iconName: string
-  description: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  image?: any
-  stats?: Array<{ value: string; label: string; id?: string }>
-  order?: number
-}
-
-const CERTS_STATIC: CertDoc[] = [
-  {
-    slug: 'floorscore',
-    title: 'FloorScore®',
-    iconName: 'shieldCheck',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.',
-    image: { url: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop' },
-    stats: [
-      { value: '10,000+', label: 'Certified Products' },
-      { value: '97%', label: 'Market Coverage' },
-    ],
-  },
-  {
-    slug: 'assure',
-    title: 'ASSURE® Certified',
-    iconName: 'leaf',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident sunt in culpa.',
-    image: { url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200&auto=format&fit=crop' },
-    stats: [
-      { value: 'Full Lifecycle', label: 'Assessment Scope' },
-      { value: '100%', label: 'Third-Party Verified' },
-    ],
-  },
-  {
-    slug: 'affirm',
-    title: 'AFFIRM™ Certified',
-    iconName: 'globe',
-    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
-    image: { url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop' },
-    stats: [
-      { value: 'Ingredient', label: 'Level Transparency' },
-      { value: '100%', label: 'Third-Party Verified' },
-    ],
-  },
-]
+import { CERT_ICONS } from '../_lib/transforms'
+import { CERTIFICATIONS } from '../_data/certifications'
+import { SITE_SETTINGS } from '../_data/site-settings'
 
 function AnimatedStat({ value, label }: { key?: Key; value: string; label: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -95,17 +50,15 @@ function AnimatedStat({ value, label }: { key?: Key; value: string; label: strin
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function StandardsSection({ certifications, siteSettings }: { certifications: any[]; siteSettings?: any }) {
-  const displayCerts: CertDoc[] = certifications?.length ? certifications : CERTS_STATIC
-  const [activeTab, setActiveTab] = useState(displayCerts[0]?.slug ?? '')
+export function StandardsSection() {
+  const [activeTab, setActiveTab] = useState(CERTIFICATIONS[0]?.slug ?? '')
 
   // Update activeTab if certifications change (e.g., after SSR hydration)
   useEffect(() => {
-    if (displayCerts.length && !displayCerts.find(c => c.slug === activeTab)) {
-      setActiveTab(displayCerts[0].slug)
+    if (CERTIFICATIONS.length && !CERTIFICATIONS.find(c => c.slug === activeTab)) {
+      setActiveTab(CERTIFICATIONS[0].slug)
     }
-  }, [displayCerts, activeTab])
+  }, [activeTab])
 
   return (
     <section id="standards" className="py-40 bg-rfci-black text-white relative overflow-hidden">
@@ -121,16 +74,16 @@ export function StandardsSection({ certifications, siteSettings }: { certificati
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <SectionReveal className="text-center mb-16">
           <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Certifications</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6">{siteSettings?.standardsHeading || 'Lorem ipsum dolor sit amet.'}</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6">{SITE_SETTINGS.standardsHeading}</h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto font-light">
-            {siteSettings?.standardsSubheading || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam nostrud.'}
+            {SITE_SETTINGS.standardsSubheading}
           </p>
         </SectionReveal>
 
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           {/* Desktop Tabs List */}
           <div className="hidden lg:block lg:col-span-5 space-y-4">
-            {displayCerts.map((tab) => {
+            {CERTIFICATIONS.map((tab) => {
               const IconComp = CERT_ICONS[tab.iconName] ?? ShieldCheck
               return (
                 <button
@@ -160,8 +113,8 @@ export function StandardsSection({ certifications, siteSettings }: { certificati
           {/* Desktop Tab Content with AnimatePresence */}
           <div className="hidden lg:block lg:col-span-7 relative">
             <AnimatePresence mode="wait">
-              {displayCerts.filter(tab => tab.slug === activeTab).map(tab => {
-                const tabImageUrl = mediaUrl(tab.image, 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop')
+              {CERTIFICATIONS.filter(tab => tab.slug === activeTab).map(tab => {
+                const tabImageUrl = tab.image?.url || 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop'
                 return (
                   <motion.div
                     key={tab.slug}
@@ -200,9 +153,9 @@ export function StandardsSection({ certifications, siteSettings }: { certificati
 
           {/* Mobile Accordion */}
           <div className="lg:hidden col-span-12 flex flex-col gap-4">
-            {displayCerts.map((tab) => {
+            {CERTIFICATIONS.map((tab) => {
               const IconComp = CERT_ICONS[tab.iconName] ?? FileText
-              const tabImageUrl = mediaUrl(tab.image, 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop')
+              const tabImageUrl = tab.image?.url || 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop'
               return (
                 <div key={tab.slug} className="bg-white/5 border border-white/10 overflow-hidden flex flex-col">
                   <button

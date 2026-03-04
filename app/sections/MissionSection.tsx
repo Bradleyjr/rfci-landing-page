@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
+import { SITE_SETTINGS } from '../_data/site-settings'
 
 const PILLARS = [
   {
@@ -32,10 +33,8 @@ const PILLARS = [
   },
 ]
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function MissionSection({ siteSettings }: { siteSettings?: any } = {}) {
-  const cmsPillars = siteSettings?.missionPillars
-  const displayPillars = cmsPillars?.length ? cmsPillars : PILLARS
+export function MissionSection() {
+  const displayPillars = SITE_SETTINGS.missionPillars?.length ? SITE_SETTINGS.missionPillars : PILLARS
   // Hover-driven — whichever row the user mouses over updates the sticky panel
   const [hoveredPillar, setHoveredPillar] = useState(0)
 
@@ -50,24 +49,24 @@ export function MissionSection({ siteSettings }: { siteSettings?: any } = {}) {
           {/* Left — statement heading, within design-system type scale */}
           <SectionReveal direction="left" className="lg:col-span-6">
             {/* text-label (11px) — design-system token, replaces off-scale text-[10px] */}
-            <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">{siteSettings?.missionLabel || 'About RFCI'}</div>
+            <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">{SITE_SETTINGS.missionLabel}</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
-              {siteSettings?.missionHeading || 'Lorem ipsum'}
+              {SITE_SETTINGS.missionHeading}
               <br />
-              <span className="font-light italic text-white/80">{siteSettings?.missionHeadingItalic || 'dolor sit amet.'}</span>
+              <span className="font-light italic text-white/80">{SITE_SETTINGS.missionHeadingItalic}</span>
             </h2>
           </SectionReveal>
 
           {/* Right — founding metadata + description + CTA */}
           <SectionReveal direction="right" className="lg:col-span-6">
             <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">
-              {siteSettings?.missionFoundedText || 'Est. 1976 \u2022 LaGrange, Georgia'}
+              {SITE_SETTINGS.missionFoundedText}
             </div>
             <p className="text-white/90 font-light leading-relaxed mb-4">
-              {siteSettings?.missionDescription1 || 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus.'}
+              {SITE_SETTINGS.missionDescription1}
             </p>
             <p className="text-white/90 font-light leading-relaxed mb-8">
-              {siteSettings?.missionDescription2 || 'Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.'}
+              {SITE_SETTINGS.missionDescription2}
             </p>
             <a href="/about" className="text-white font-medium flex items-center gap-2 group text-sm">
               <span className="relative">
@@ -106,7 +105,7 @@ export function MissionSection({ siteSettings }: { siteSettings?: any } = {}) {
             <div className="py-4 border-b border-white/10">
               {/* text-label replaces off-scale text-[10px] */}
               <span className="text-label font-bold tracking-widest uppercase text-white/70">
-                {siteSettings?.missionPillarsHeading || 'Our Strategic Focus'}
+                {SITE_SETTINGS.missionPillarsHeading}
               </span>
             </div>
 
