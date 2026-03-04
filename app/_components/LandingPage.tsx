@@ -12,14 +12,10 @@ import { WhyResilientSection } from '../sections/WhyResilientSection'
 import { MissionSection } from '../sections/MissionSection'
 import { StandardsSection } from '../sections/StandardsSection'
 import { CommunitySection } from '../sections/CommunitySection'
-// import { EducationSection } from '../sections/EducationSection'
 import { LinkedInFeedSection } from '../sections/LinkedInFeedSection'
 import { MembersSection } from '../sections/MembersSection'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function LandingPage(props: Record<string, any>) {
-  const { siteSettings, communityEvent, members, flooringTypes, certifications, environments, videos, linkedInPosts } = props
-
+export function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -50,30 +46,28 @@ export function LandingPage(props: Record<string, any>) {
 
         <Navigation isScrolled={isScrolled} theme="dark" />
 
-        <HeroSection heroY={heroY} siteSettings={siteSettings} />
+        <HeroSection heroY={heroY} />
 
         {/* Section divider */}
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="h-px bg-gradient-to-r from-transparent via-rfci-light-gray to-transparent" />
         </div>
 
-        <MaterialsCarousel flooringTypes={flooringTypes} siteSettings={siteSettings} />
+        <MaterialsCarousel />
 
-        <EnvironmentsSection environments={environments} siteSettings={siteSettings} />
+        <EnvironmentsSection />
 
-        <WhyResilientSection siteSettings={siteSettings} />
+        <WhyResilientSection />
 
-        <MissionSection siteSettings={siteSettings} />
+        <MissionSection />
 
-        <StandardsSection certifications={certifications} siteSettings={siteSettings} />
+        <StandardsSection />
 
-        <CommunitySection communityEvent={communityEvent} />
+        <CommunitySection />
 
-        {/* <EducationSection videos={videos} siteSettings={siteSettings} /> */}
+        <LinkedInFeedSection />
 
-        <LinkedInFeedSection linkedInPosts={linkedInPosts} siteSettings={siteSettings} />
-
-        <MembersSection members={members} siteSettings={siteSettings} />
+        <MembersSection />
 
         <Footer />
 

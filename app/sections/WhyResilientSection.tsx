@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from 'react'
 import { useInView } from 'motion/react'
 import { Broom, Drop, CurrencyDollar, Palette, Recycle, ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
+import { SITE_SETTINGS } from '../_data/site-settings'
 
 const BENEFITS = [
   {
@@ -64,12 +65,9 @@ function AnimatedCounter({ target, suffix = '%' }: { target: number; suffix?: st
   )
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function WhyResilientSection({ siteSettings }: { siteSettings?: any } = {}) {
-  const cmsBenefits = siteSettings?.whyResilientBenefits
-  const statTarget = parseInt(siteSettings?.whyResilientStatValue || '65', 10)
-  const statLabel = siteSettings?.whyResilientStatLabel || 'of hard surface flooring\nin North America'
-  const imageUrl = siteSettings?.whyResilientImage?.url || 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop'
+export function WhyResilientSection() {
+  const statTarget = parseInt(SITE_SETTINGS.whyResilientStatValue, 10)
+
   return (
     <section id="why-resilient" className="py-28 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -79,7 +77,7 @@ export function WhyResilientSection({ siteSettings }: { siteSettings?: any } = {
           <SectionReveal direction="left" className="lg:col-span-6">
             <div className="relative aspect-[4/5] overflow-hidden bg-rfci-black/5">
               <img
-                src={imageUrl}
+                src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop"
                 alt="Modern interior with resilient flooring"
                 className="w-full h-full object-cover"
               />
@@ -89,7 +87,7 @@ export function WhyResilientSection({ siteSettings }: { siteSettings?: any } = {
                   <AnimatedCounter target={statTarget} />
                 </div>
                 <p className="text-xs text-rfci-black/60 font-light leading-snug max-w-[130px]">
-                  {statLabel.split('\n').map((line: string, i: number) => <span key={i}>{i > 0 && <br />}{line}</span>)}
+                  {SITE_SETTINGS.whyResilientStatLabel}
                 </p>
               </div>
             </div>
@@ -97,15 +95,15 @@ export function WhyResilientSection({ siteSettings }: { siteSettings?: any } = {
 
           {/* Right — Heading + benefit list */}
           <SectionReveal direction="right" className="lg:col-span-6 lg:pt-4">
-            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">{siteSettings?.whyResilientHeading || 'Why Resilient?'}</div>
+            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">{SITE_SETTINGS.whyResilientHeading}</div>
             <h2 className="text-4xl md:text-5xl font-display font-light leading-tight mb-10">
-              {siteSettings?.whyResilientSubheading || <>The number one flooring{' '}<span className="font-semibold text-rfci-blue">category in North America.</span></>}
+              {SITE_SETTINGS.whyResilientSubheading}
             </h2>
 
             {/* Benefits — borderless divide-y list */}
             <div className="divide-y divide-rfci-black/10">
-              {(cmsBenefits?.length ? cmsBenefits : BENEFITS).map((benefit: { icon?: typeof Broom; title: string; description: string }, idx: number) => {
-                const Icon = benefit.icon ?? BENEFITS[idx]?.icon ?? Broom
+              {BENEFITS.map((benefit, idx) => {
+                const Icon = benefit.icon
                 return (
                   <div key={idx} className="flex gap-5 py-5 first:pt-0 last:pb-0 items-start group">
                     <div className="w-9 h-9 bg-rfci-blue/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-rfci-blue/20 transition-colors duration-300">

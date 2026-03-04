@@ -1,11 +1,14 @@
 import type { MetadataRoute } from 'next'
-import { getPayload } from 'payload'
-import configPromise from '@payload-config'
+import { CERTIFICATIONS } from './_data/certifications'
+import { FLOORING_TYPES } from './_data/flooring-types'
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+function slugify(title: string) {
+  return title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'https://rfci.com'
 
-  // Static routes
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: baseUrl, changeFrequency: 'weekly', priority: 1 },
     { url: `${baseUrl}/about`, changeFrequency: 'monthly', priority: 0.8 },
@@ -19,32 +22,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/faq`, changeFrequency: 'monthly', priority: 0.6 },
   ]
 
-  try {
-    const payload = await getPayload({ config: configPromise })
+  const certRoutes: MetadataRoute.Sitemap = CERTIFICATIONS.map((c) => ({
+    url: `${baseUrl}/certifications/${c.slug}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
 
-    // Dynamic: certifications
-    const certs = await payload.find({ collection: 'certifications', limit: 50 })
-    const certRoutes: MetadataRoute.Sitemap = certs.docs
-      .filter((c) => c.slug)
-      .map((c) => ({
-        url: `${baseUrl}/certifications/${c.slug}`,
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
-      }))
+  const typeRoutes: MetadataRoute.Sitemap = FLOORING_TYPES.map((t) => ({
+    url: `${baseUrl}/flooring/${t.slug || slugify(t.title)}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }))
 
-    // Dynamic: flooring types
-    const types = await payload.find({ collection: 'flooring-types', limit: 50 })
-    const typeRoutes: MetadataRoute.Sitemap = types.docs
-      .filter((t) => t.slug)
-      .map((t) => ({
-        url: `${baseUrl}/flooring/${t.slug}`,
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
-      }))
-
-    return [...staticRoutes, ...certRoutes, ...typeRoutes]
-  } catch {
-    // If DB isn't ready during build, return static routes only
-    return staticRoutes
-  }
+  return [...staticRoutes, ...certRoutes, ...typeRoutes]
 }

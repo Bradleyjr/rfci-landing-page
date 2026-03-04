@@ -2,11 +2,9 @@
 
 import { LinkedinLogo, ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
+import { SITE_SETTINGS } from '../_data/site-settings'
 
-const RFCI_LINKEDIN_URL = 'https://www.linkedin.com/company/resilient-floor-covering-institute/'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function LinkedInFeedSection({ siteSettings }: { linkedInPosts?: any[]; siteSettings?: any }) {
+export function LinkedInFeedSection() {
   return (
     <section id="linkedin" className="py-24 md:py-28 bg-rfci-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -17,14 +15,14 @@ export function LinkedInFeedSection({ siteSettings }: { linkedInPosts?: any[]; s
                 <LinkedinLogo className="w-4 h-4" weight="fill" /> Stay Connected
               </div>
               <h2 className="text-3xl md:text-4xl font-display font-light leading-tight mb-4">
-                {siteSettings?.linkedinHeading || <>Follow RFCI on <span className="font-semibold text-rfci-blue">LinkedIn.</span></>}
+                {SITE_SETTINGS.linkedinHeading}
               </h2>
               <p className="text-rfci-black/60 font-light leading-relaxed max-w-lg">
                 Stay up to date with industry news, certification updates, member spotlights, and upcoming events from the Resilient Floor Covering Institute.
               </p>
             </div>
             <a
-              href={siteSettings?.linkedinUrl || RFCI_LINKEDIN_URL}
+              href={SITE_SETTINGS.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 bg-[#0A66C2] text-white px-8 py-4 font-semibold text-sm hover:bg-[#004182] transition-colors duration-200 group shrink-0"

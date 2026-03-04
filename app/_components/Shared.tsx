@@ -42,6 +42,17 @@ export const Navigation = ({
   theme?: 'light' | 'dark'
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [openMenu, setOpenMenu] = useState<string | null>(null)
+  const [closeTimeout, setCloseTimeout] = useState<ReturnType<typeof setTimeout> | null>(null)
+
+  const handleEnter = (title: string) => {
+    if (closeTimeout) clearTimeout(closeTimeout)
+    setOpenMenu(title)
+  }
+  const handleLeave = () => {
+    const timeout = setTimeout(() => setOpenMenu(null), 150)
+    setCloseTimeout(timeout)
+  }
 
   return (
     <>
@@ -61,41 +72,24 @@ export const Navigation = ({
 
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
-              <div key={item.title} className="relative group">
+              <div
+                key={item.title}
+                className="relative"
+                onMouseEnter={() => item.megaMenu && handleEnter(item.title)}
+                onMouseLeave={() => item.megaMenu && handleLeave()}
+              >
                 <a
                   href={item.href || `#${item.title.toLowerCase()}`}
-                  className="relative flex items-center gap-1 text-sm font-medium tracking-wide py-4 text-rfci-black/80 hover:text-rfci-blue transition-colors"
+                  className={`relative flex items-center gap-1 text-sm font-medium tracking-wide py-4 transition-colors ${
+                    openMenu === item.title ? 'text-rfci-blue' : 'text-rfci-black/80 hover:text-rfci-blue'
+                  }`}
                 >
                   {item.title}
                   {item.megaMenu && (
-                    <CaretDown className="w-3 h-3 opacity-50 group-hover:rotate-180 transition-transform duration-300" />
+                    <CaretDown className={`w-3 h-3 opacity-50 transition-transform duration-300 ${openMenu === item.title ? 'rotate-180' : ''}`} />
                   )}
-                  <span className="absolute bottom-2 left-0 h-[2px] bg-rfci-blue w-0 group-hover:w-full transition-all duration-300" />
+                  <span className={`absolute bottom-2 left-0 h-[2px] bg-rfci-blue transition-all duration-300 ${openMenu === item.title ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                 </a>
-
-                  {item.megaMenu && (
-                    <div className={`absolute top-full left-1/2 -translate-x-1/2 bg-white border border-black/5 shadow-2xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300 z-50 p-6 ${item.megaMenu.length > 4 ? 'w-[860px]' : 'w-[600px]'}`}>
-                      <div className={`grid gap-4 ${item.megaMenu.length > 4 ? 'grid-cols-3' : 'grid-cols-2'}`}>
-                        {item.megaMenu.map((megaItem) => (
-                          <a
-                            key={megaItem.label}
-                            href={megaItem.href}
-                            className="flex items-start gap-4 p-4 hover:bg-rfci-light-gray/30 transition-colors group/card border border-transparent hover:border-black/5"
-                          >
-                            <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center shrink-0 text-rfci-blue group-hover/card:bg-rfci-blue group-hover/card:text-white transition-colors">
-                              <megaItem.icon className="w-5 h-5" />
-                            </div>
-                            <div>
-                              <h4 className="font-display font-medium text-rfci-black mb-1 group-hover/card:text-rfci-blue transition-colors">
-                                {megaItem.label}
-                              </h4>
-                              <p className="text-xs text-rfci-black/60 leading-relaxed">{megaItem.desc}</p>
-                            </div>
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
             ))}
           </div>
@@ -112,6 +106,42 @@ export const Navigation = ({
             )}
           </button>
         </div>
+
+        {/* Mega menu panels — drop from nav bottom edge */}
+        {navItems.filter(item => item.megaMenu).map((item) => (
+          <div
+            key={item.title}
+            className={`hidden md:block absolute top-full left-0 w-full bg-white shadow-2xl border-t border-black/5 transition-all duration-300 ${
+              openMenu === item.title
+                ? 'opacity-100 visible'
+                : 'opacity-0 invisible pointer-events-none'
+            }`}
+            onMouseEnter={() => handleEnter(item.title)}
+            onMouseLeave={handleLeave}
+          >
+            <div className={`max-w-7xl mx-auto px-6 md:px-12 py-8`}>
+              <div className={`grid gap-4 ${item.megaMenu!.length > 4 ? 'grid-cols-3' : 'grid-cols-2'} max-w-[860px]`}>
+                {item.megaMenu!.map((megaItem) => (
+                  <a
+                    key={megaItem.label}
+                    href={megaItem.href}
+                    className="flex items-start gap-4 p-4 hover:bg-rfci-light-gray/30 transition-colors group/card border border-transparent hover:border-black/5"
+                  >
+                    <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center shrink-0 text-rfci-blue group-hover/card:bg-rfci-blue group-hover/card:text-white transition-colors">
+                      <megaItem.icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h4 className="font-display font-medium text-rfci-black mb-1 group-hover/card:text-rfci-blue transition-colors">
+                        {megaItem.label}
+                      </h4>
+                      <p className="text-xs text-rfci-black/60 leading-relaxed">{megaItem.desc}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </nav>
 
       {mobileMenuOpen && (

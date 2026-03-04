@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { motion, useScroll, useSpring, useTransform } from 'motion/react'
 import { Calendar, MapPin, ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
-import { mediaUrl } from '../_lib/transforms'
+import { COMMUNITY_EVENT } from '../_data/community-event'
 
 type PhotoItem = { url: string; caption?: string }
 
@@ -23,24 +23,16 @@ const STATIC_PHOTOS: PhotoItem[] = [
   { url: '/media/community/golf-tournament-winners.jpeg', caption: 'Golf Tournament Winners' },
 ]
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function CommunitySection({ communityEvent }: { communityEvent: any }) {
+export function CommunitySection() {
   const arcRef = useRef<HTMLDivElement>(null)
 
-  const sectionHeading = communityEvent?.sectionHeading ?? 'Where the industry comes together.'
-  const sectionSubheading = communityEvent?.sectionSubheading ?? "Twice a year, RFCI members and industry professionals get together to share what's working, talk through technical standards, and discuss sustainability. If you work in resilient flooring, this is where you want to be."
-  const eventTitle = communityEvent?.eventTitle ?? 'Fall Industry Meeting'
-  const eventLocation = communityEvent?.eventLocation ?? 'Austin, TX'
-  const eventDate = communityEvent?.eventDate ?? 'Oct 12–14'
+  const sectionHeading = COMMUNITY_EVENT.sectionHeading
+  const sectionSubheading = COMMUNITY_EVENT.sectionSubheading
+  const eventTitle = COMMUNITY_EVENT.eventTitle
+  const eventLocation = COMMUNITY_EVENT.eventLocation
+  const eventDate = COMMUNITY_EVENT.eventDate
 
-  // Extract photos from Payload photos array, fallback to static
-  const cmsPhotos: PhotoItem[] = (communityEvent?.photos ?? [])
-    .map((p: { photo?: { url?: string | null } | null; caption?: string }) => {
-      const url = mediaUrl(p?.photo)
-      return url ? { url, caption: p?.caption } : null
-    })
-    .filter(Boolean) as PhotoItem[]
-  const photos = cmsPhotos.length ? cmsPhotos : STATIC_PHOTOS
+  const photos = STATIC_PHOTOS
 
   const { scrollYProgress: arcScroll } = useScroll({
     target: arcRef,

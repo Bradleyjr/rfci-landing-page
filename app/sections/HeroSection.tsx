@@ -2,16 +2,9 @@
 
 import { motion, type MotionValue, type Variants } from 'motion/react'
 import { ArrowRight, Certificate } from '@phosphor-icons/react'
-import { mediaUrl } from '../_lib/transforms'
+import { SITE_SETTINGS } from '../_data/site-settings'
 
-const HERO_STATIC = {
-  heroLine1: 'RESILIENT FLOOR',
-  heroLine2: 'COVERING INSTITUTE',
-  heroSubheading: 'The trade association representing the resilient flooring industry. Setting standards, running certification programs, and advancing the number one flooring category in North America since 1976.',
-  heroCta: 'Explore RFCI',
-  heroBoxText: 'Discover our certification programs, meet our member manufacturers, and learn how RFCI protects and promotes the resilient flooring industry.',
-  heroImageUrl: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop',
-}
+const HERO_IMAGE_URL = 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop'
 
 const lineVariants: Variants = {
   hidden: { clipPath: 'inset(0 0 100% 0)', y: 30, opacity: 0 },
@@ -27,15 +20,7 @@ const lineVariants: Variants = {
   }),
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number>; siteSettings: any }) {
-  const heroLine1 = siteSettings?.heroLine1 ?? HERO_STATIC.heroLine1
-  const heroLine2 = siteSettings?.heroLine2 ?? HERO_STATIC.heroLine2
-  const heroSubheading = siteSettings?.heroSubheading ?? HERO_STATIC.heroSubheading
-  const heroCta = siteSettings?.heroCta ?? HERO_STATIC.heroCta
-  const heroBoxText = siteSettings?.heroBoxText ?? HERO_STATIC.heroBoxText
-  const heroImageUrl = mediaUrl(siteSettings?.heroImage, HERO_STATIC.heroImageUrl)
-
+export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
   return (
     <section id="hero" className="relative min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-rfci-cream pt-32 pb-16 md:pt-20 md:pb-0 px-6 md:px-12">
       <div className="absolute right-0 top-0 w-full md:w-[45%] h-full hidden md:block overflow-hidden">
@@ -44,7 +29,7 @@ export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           style={{ y: heroY }}
-          src={heroImageUrl}
+          src={HERO_IMAGE_URL}
           className="w-full h-[120%] object-cover -top-[10%]"
           alt="Resilient flooring production"
         />
@@ -56,10 +41,10 @@ export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number
             {/* H1: replaced three-unit arbitrary sizes with design-system scale */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[0.95] tracking-tighter text-rfci-black mb-6 md:mb-8">
               <motion.span className="block overflow-hidden" custom={0} variants={lineVariants} initial="hidden" animate="visible">
-                {heroLine1}
+                {SITE_SETTINGS.heroLine1}
               </motion.span>
               <motion.span className="block overflow-hidden italic font-light text-rfci-blue" custom={1} variants={lineVariants} initial="hidden" animate="visible">
-                {heroLine2}
+                {SITE_SETTINGS.heroLine2}
               </motion.span>
             </h1>
             <motion.p
@@ -68,7 +53,7 @@ export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number
               transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="text-lg md:text-xl text-rfci-black/70 max-w-lg font-light mb-8 md:mb-12 leading-relaxed"
             >
-              {heroSubheading}
+              {SITE_SETTINGS.heroSubheading}
             </motion.p>
           </div>
 
@@ -78,7 +63,7 @@ export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full h-[40vh] relative md:hidden order-2 mb-8"
           >
-            <img src={heroImageUrl} className="w-full h-full object-cover shadow-sm" alt="Resilient Flooring" />
+            <img src={HERO_IMAGE_URL} className="w-full h-full object-cover shadow-sm" alt="Resilient Flooring" />
           </motion.div>
         </div>
 
@@ -92,11 +77,11 @@ export function HeroSection({ heroY, siteSettings }: { heroY: MotionValue<number
             <div className="absolute -top-4 -left-4 w-8 h-8 bg-rfci-blue flex items-center justify-center text-white z-20">
               <Certificate className="w-4 h-4" weight="fill" />
             </div>
-            <p className="text-rfci-black/80 font-medium mb-8 md:mb-10 text-base leading-loose relative z-20">{heroBoxText}</p>
+            <p className="text-rfci-black/80 font-medium mb-8 md:mb-10 text-base leading-loose relative z-20">{SITE_SETTINGS.heroBoxText}</p>
             <a href="/about" className="text-label font-bold tracking-widest uppercase text-rfci-blue flex items-center gap-2 group relative z-20">
               <span className="relative">
                 <span className="relative z-10 flex items-center gap-2">
-                  {heroCta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  {SITE_SETTINGS.heroCta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-blue group-hover:w-full group-hover:h-[2px] transition-all duration-300" />
               </span>

@@ -3,39 +3,10 @@
 import { useState } from 'react'
 import { ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
+import { SITE_SETTINGS } from '../_data/site-settings'
 
-const PILLARS = [
-  {
-    number: '01',
-    title: 'Advocacy & Engagement',
-    description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.',
-  },
-  {
-    number: '02',
-    title: 'Technical Standards',
-    description: 'Developing and maintaining the performance standards that define product quality, safety, and installation best practices.',
-  },
-  {
-    number: '03',
-    title: 'Sustainability & Certifications',
-    description: 'Running FloorScore, ASSURE, and AFFIRM — the programs that validate environmental and health performance for specifiers worldwide.',
-  },
-  {
-    number: '04',
-    title: 'Promotion & Education',
-    description: 'Advancing industry knowledge through continuing education, original research, and market promotion to the architecture and design community.',
-  },
-  {
-    number: '05',
-    title: 'Member Development',
-    description: 'Growing and supporting a membership of leading manufacturers and supply chain partners who shape the future of resilient flooring.',
-  },
-]
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function MissionSection({ siteSettings }: { siteSettings?: any } = {}) {
-  const cmsPillars = siteSettings?.missionPillars
-  const displayPillars = cmsPillars?.length ? cmsPillars : PILLARS
+export function MissionSection() {
+  const displayPillars = SITE_SETTINGS.missionPillars
   // Hover-driven — whichever row the user mouses over updates the sticky panel
   const [hoveredPillar, setHoveredPillar] = useState(0)
 
@@ -50,24 +21,24 @@ export function MissionSection({ siteSettings }: { siteSettings?: any } = {}) {
           {/* Left — statement heading, within design-system type scale */}
           <SectionReveal direction="left" className="lg:col-span-6">
             {/* text-label (11px) — design-system token, replaces off-scale text-[10px] */}
-            <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">{siteSettings?.missionLabel || 'About RFCI'}</div>
+            <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">{SITE_SETTINGS.missionLabel}</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
-              {siteSettings?.missionHeading || 'The voice of'}
+              {SITE_SETTINGS.missionHeading}
               <br />
-              <span className="font-light italic text-white/80">{siteSettings?.missionHeadingItalic || 'resilient flooring.'}</span>
+              <span className="font-light italic text-white/80">{SITE_SETTINGS.missionHeadingItalic}</span>
             </h2>
           </SectionReveal>
 
           {/* Right — founding metadata + description + CTA */}
           <SectionReveal direction="right" className="lg:col-span-6">
             <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">
-              {siteSettings?.missionFoundedText || 'Est. 1976 \u2022 LaGrange, Georgia'}
+              {SITE_SETTINGS.missionFoundedText}
             </div>
             <p className="text-white/90 font-light leading-relaxed mb-4">
-              {siteSettings?.missionDescription1 || 'Founded in 1976, RFCI is the non-profit trade association representing and protecting the resilient flooring industry in ways that no single manufacturer can.'}
+              {SITE_SETTINGS.missionDescription1}
             </p>
             <p className="text-white/90 font-light leading-relaxed mb-8">
-              {siteSettings?.missionDescription2 || 'From setting technical standards to running third-party certification programs, we advance the category for the entire built environment.'}
+              {SITE_SETTINGS.missionDescription2}
             </p>
             <a href="/about" className="text-white font-medium flex items-center gap-2 group text-sm">
               <span className="relative">
@@ -106,11 +77,11 @@ export function MissionSection({ siteSettings }: { siteSettings?: any } = {}) {
             <div className="py-4 border-b border-white/10">
               {/* text-label replaces off-scale text-[10px] */}
               <span className="text-label font-bold tracking-widest uppercase text-white/70">
-                {siteSettings?.missionPillarsHeading || 'Our Strategic Focus'}
+                {SITE_SETTINGS.missionPillarsHeading}
               </span>
             </div>
 
-            {displayPillars.map((pillar: { number: string; title: string; description: string }, idx: number) => (
+            {displayPillars.map((pillar, idx) => (
               <SectionReveal key={idx} delay={idx * 0.08}>
                 <div
                   onMouseEnter={() => setHoveredPillar(idx)}
