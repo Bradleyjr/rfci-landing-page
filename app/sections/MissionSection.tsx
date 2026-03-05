@@ -5,6 +5,14 @@ import { ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
 import { SITE_SETTINGS } from '../_data/site-settings'
 
+const PILLAR_IMAGES = [
+  'https://images.unsplash.com/photo-1501466044931-62695aada8e9?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop',
+]
+
 const PILLARS = [
   {
     number: '01',
@@ -86,16 +94,25 @@ export function MissionSection() {
         {/* ── Layer 2: Pinboard ─────────────────────────────────────────── */}
         <div className="grid lg:grid-cols-12 lg:gap-16 items-start">
 
-          {/* Left — sticky panel, updated by hover (desktop only) */}
+          {/* Left — sticky panel with image, updated by hover (desktop only) */}
           <div className="hidden lg:flex lg:col-span-4 lg:sticky lg:top-32 flex-col pt-8 pb-8">
-            {/* clamp() moved from style= to className; decorative display number can use lower opacity */}
-            <div className="text-[clamp(6rem,11vw,11rem)] font-display font-bold leading-none text-white/40 select-none transition-all duration-300">
-              {displayPillars[hoveredPillar].number}
+            <div className="relative aspect-square w-full overflow-hidden mb-6">
+              {PILLAR_IMAGES.map((src, idx) => (
+                <img
+                  key={idx}
+                  src={src}
+                  alt={displayPillars[idx]?.title ?? ''}
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
+                    hoveredPillar === idx ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+                  }`}
+                />
+              ))}
+              <div className="absolute inset-0 bg-gradient-to-t from-rfci-blue/30 to-transparent" />
             </div>
-            <div className="mt-4 text-label font-bold tracking-widest uppercase text-white/70 leading-relaxed transition-all duration-300">
+            <div className="text-label font-bold tracking-widest uppercase text-white/70 leading-relaxed transition-all duration-300">
               {displayPillars[hoveredPillar].title}
             </div>
-            <div className="mt-6 text-label font-bold tracking-widest uppercase text-white/50">
+            <div className="mt-3 text-label font-bold tracking-widest uppercase text-white/50">
               {String(hoveredPillar + 1).padStart(2, '0')} / 0{displayPillars.length}
             </div>
           </div>

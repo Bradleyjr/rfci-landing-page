@@ -33,15 +33,26 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
   return (
     <section id="hero" className="relative min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-rfci-cream pt-32 pb-16 md:pt-20 md:pb-0 px-6 md:px-12">
       <div className="absolute right-0 top-0 w-full md:w-[45%] h-full hidden md:block overflow-hidden">
-        <motion.img
-          initial={{ scale: 1.15, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           style={{ y: heroY }}
-          src={heroImageUrl}
-          className="w-full h-[120%] object-cover -top-[10%]"
-          alt="Resilient flooring production"
-        />
+          className="w-full h-[120%] -top-[10%] relative"
+        >
+          {/* Video-ready: replace src with provided video file */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={heroImageUrl}
+            className="w-full h-full object-cover"
+          >
+            <source src="/media/hero-video.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-rfci-cream/10" />
+        </motion.div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center">
@@ -72,7 +83,7 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full h-[40vh] relative md:hidden order-2 mb-8"
           >
-            <img src={heroImageUrl} className="w-full h-full object-cover shadow-sm" alt="Resilient Flooring" />
+            <img src={heroImageUrl} className="w-full h-full object-cover shadow-sm" alt="Resilient Flooring" style={{ animation: 'hero-zoom 20s ease-in-out infinite alternate' }} />
           </motion.div>
         </div>
 

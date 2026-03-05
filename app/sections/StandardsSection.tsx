@@ -44,8 +44,8 @@ function AnimatedStat({ value, label }: { key?: Key; value: string; label: strin
 
   return (
     <div ref={ref} className="border-l-2 border-rfci-blue pl-6">
-      <div className="text-4xl font-display font-light text-white mb-2">{display}</div>
-      <div className="text-xs font-bold tracking-widest uppercase text-white/40">{label}</div>
+      <div className="text-4xl font-display font-light text-rfci-black mb-2">{display}</div>
+      <div className="text-xs font-bold tracking-widest uppercase text-rfci-black/40">{label}</div>
     </div>
   )
 }
@@ -61,12 +61,12 @@ export function StandardsSection() {
   }, [activeTab])
 
   return (
-    <section id="standards" className="py-40 bg-rfci-black text-white relative overflow-hidden">
+    <section id="standards" className="py-40 bg-stone-50 text-rfci-black relative overflow-hidden">
       {/* Atomic Icon Background */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 150, repeat: Infinity, ease: 'linear' }}
-        className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 opacity-5 pointer-events-none"
+        className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 opacity-[0.03] pointer-events-none"
       >
         <Atom className="w-[800px] h-[800px]" />
       </motion.div>
@@ -75,7 +75,7 @@ export function StandardsSection() {
         <SectionReveal className="text-center mb-16">
           <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Lorem Ipsum</div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6">{SITE_SETTINGS.standardsHeading}</h2>
-          <p className="text-xl text-white/60 max-w-2xl mx-auto font-light">
+          <p className="text-xl text-rfci-black/60 max-w-2xl mx-auto font-light">
             {SITE_SETTINGS.standardsSubheading}
           </p>
         </SectionReveal>
@@ -91,17 +91,17 @@ export function StandardsSection() {
                   onClick={() => setActiveTab(tab.slug)}
                   className={`w-full text-left py-8 px-10 border-l-2 transition-all duration-300 flex items-center gap-6 group ${
                     activeTab === tab.slug
-                      ? 'bg-white/5 border-rfci-blue'
-                      : 'bg-transparent border-white/10 hover:bg-white/5 hover:border-white/30'
+                      ? 'bg-rfci-blue/5 border-rfci-blue'
+                      : 'bg-transparent border-rfci-black/10 hover:bg-rfci-blue/5 hover:border-rfci-black/30'
                   }`}
                 >
                   <div className={`w-12 h-12 flex items-center justify-center shrink-0 transition-colors rounded-full ${
-                    activeTab === tab.slug ? 'bg-rfci-blue/20 text-rfci-blue' : 'bg-white/5 text-white/40 group-hover:bg-white/10 group-hover:text-white/80'
+                    activeTab === tab.slug ? 'bg-rfci-blue/10 text-rfci-blue' : 'bg-rfci-black/5 text-rfci-black/40 group-hover:bg-rfci-black/10 group-hover:text-rfci-black/80'
                   }`}>
                     <IconComp className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className={`text-2xl font-display font-light tracking-tight transition-colors ${activeTab === tab.slug ? 'text-white' : 'text-white/40 group-hover:text-white/80'}`}>
+                    <h3 className={`text-2xl font-display font-light tracking-tight transition-colors ${activeTab === tab.slug ? 'text-rfci-black' : 'text-rfci-black/40 group-hover:text-rfci-black/80'}`}>
                       {tab.title}
                     </h3>
                   </div>
@@ -122,20 +122,20 @@ export function StandardsSection() {
                     animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
                     exit={{ opacity: 0, x: -30, filter: 'blur(4px)' }}
                     transition={{ duration: 0.4, ease: 'easeInOut' }}
-                    className="bg-white/5 border border-white/10 overflow-hidden flex flex-col"
+                    className="bg-white border border-rfci-black/5 shadow-sm overflow-hidden flex flex-col"
                   >
                     <div className="relative h-64 md:h-80 shrink-0 overflow-hidden">
                       <img src={tabImageUrl} alt={tab.title} className="w-full h-full object-cover" />
                     </div>
                     <div className="p-10 md:p-12 flex-1 flex flex-col justify-between">
-                      <p className="text-xl text-white/80 leading-relaxed mb-10">{tab.description}</p>
+                      <p className="text-xl text-rfci-black/70 leading-relaxed mb-10">{tab.description}</p>
                       <div>
                         <div className="grid grid-cols-2 gap-8 mb-10">
                           {(tab.stats ?? []).map((stat, i) => (
                             <AnimatedStat key={`${tab.slug}-${i}`} value={stat.value} label={stat.label} />
                           ))}
                         </div>
-                        <a href={`/certifications/${tab.slug}`} className="inline-flex items-center gap-2 text-rfci-blue font-medium hover:text-white transition-colors group">
+                        <a href={`/certifications/${tab.slug}`} className="inline-flex items-center gap-2 text-rfci-blue font-medium hover:text-rfci-black transition-colors group">
                           <span className="relative">
                             <span className="relative z-10 flex items-center gap-2">
                               Explore {tab.title} <ArrowRight className="w-4 h-4" />
@@ -157,26 +157,26 @@ export function StandardsSection() {
               const IconComp = CERT_ICONS[tab.iconName] ?? FileText
               const tabImageUrl = tab.image?.url || 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop'
               return (
-                <div key={tab.slug} className="bg-white/5 border border-white/10 overflow-hidden flex flex-col min-w-0">
+                <div key={tab.slug} className="bg-white border border-rfci-black/5 shadow-sm overflow-hidden flex flex-col min-w-0">
                   <button
                     onClick={() => setActiveTab(activeTab === tab.slug ? '' : tab.slug)}
                     className={`w-full text-left py-6 px-4 sm:px-6 border-l-2 transition-all duration-300 flex items-center justify-between gap-3 group ${
                       activeTab === tab.slug
-                        ? 'bg-white/5 border-rfci-blue'
-                        : 'bg-transparent border-white/10'
+                        ? 'bg-rfci-blue/5 border-rfci-blue'
+                        : 'bg-transparent border-rfci-black/10'
                     }`}
                   >
                     <div className="flex items-center gap-3 sm:gap-4 min-w-0">
                       <div className={`w-10 h-10 flex items-center justify-center shrink-0 transition-colors rounded-full ${
-                        activeTab === tab.slug ? 'bg-rfci-blue/20 text-rfci-blue' : 'bg-white/5 text-white/40'
+                        activeTab === tab.slug ? 'bg-rfci-blue/10 text-rfci-blue' : 'bg-rfci-black/5 text-rfci-black/40'
                       }`}>
                         <IconComp className="w-5 h-5" />
                       </div>
-                      <h3 className={`text-lg sm:text-xl font-display font-light tracking-tight transition-colors truncate ${activeTab === tab.slug ? 'text-white' : 'text-white/40'}`}>
+                      <h3 className={`text-lg sm:text-xl font-display font-light tracking-tight transition-colors truncate ${activeTab === tab.slug ? 'text-rfci-black' : 'text-rfci-black/40'}`}>
                         {tab.title}
                       </h3>
                     </div>
-                    <CaretDown className={`w-5 h-5 shrink-0 text-white/40 transition-transform duration-300 ${activeTab === tab.slug ? 'rotate-180 text-white' : ''}`} />
+                    <CaretDown className={`w-5 h-5 shrink-0 text-rfci-black/40 transition-transform duration-300 ${activeTab === tab.slug ? 'rotate-180 text-rfci-black' : ''}`} />
                   </button>
 
                   <AnimatePresence>
@@ -192,16 +192,16 @@ export function StandardsSection() {
                           <div className="relative h-48 w-full mb-6 mt-4 overflow-hidden">
                             <img src={tabImageUrl} alt={tab.title} className="w-full h-full object-cover" />
                           </div>
-                          <p className="text-base text-white/80 leading-relaxed mb-8 break-words">{tab.description}</p>
+                          <p className="text-base text-rfci-black/70 leading-relaxed mb-8 break-words">{tab.description}</p>
                           <div className="grid grid-cols-2 gap-4 mb-8 min-w-0">
                             {(tab.stats ?? []).map((stat, i) => (
                               <div key={i} className="border-l-2 border-rfci-blue pl-4 min-w-0">
-                                <div className="text-2xl font-display font-light text-white mb-1">{stat.value}</div>
-                                <div className="text-label font-bold tracking-widest uppercase text-white/40 break-words">{stat.label}</div>
+                                <div className="text-2xl font-display font-light text-rfci-black mb-1">{stat.value}</div>
+                                <div className="text-label font-bold tracking-widest uppercase text-rfci-black/40 break-words">{stat.label}</div>
                               </div>
                             ))}
                           </div>
-                          <a href={`/certifications/${tab.slug}`} className="inline-flex items-center gap-2 text-rfci-blue font-medium hover:text-white transition-colors text-sm">
+                          <a href={`/certifications/${tab.slug}`} className="inline-flex items-center gap-2 text-rfci-blue font-medium hover:text-rfci-black transition-colors text-sm">
                             Explore {tab.title} <ArrowRight className="w-4 h-4" />
                           </a>
                         </div>
