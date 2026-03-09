@@ -1,6 +1,6 @@
-import { FlooringOverview } from './FlooringOverview'
 import { FLOORING_PAGE } from '../../_data/pages'
 import { FLOORING_TYPES } from '../../_data/flooring-types'
+import { FlooringOverview } from './FlooringOverview'
 
 export const metadata = {
   title: 'Resilient Flooring Types | RFCI',
@@ -8,7 +8,5 @@ export const metadata = {
 }
 
 export default function FlooringPage() {
-  return (
-    <FlooringOverview flooringTypes={FLOORING_TYPES} pageSettings={FLOORING_PAGE} />
-  )
+  return <FlooringOverview flooringTypes={FLOORING_TYPES} pageSettings={FLOORING_PAGE} />
 }

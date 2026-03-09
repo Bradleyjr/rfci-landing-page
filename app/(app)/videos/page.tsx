@@ -8,7 +8,5 @@ export const metadata = {
 }
 
 export default function VideosRoute() {
-  return (
-    <VideosLibrary videos={VIDEOS} pageSettings={VIDEOS_PAGE} />
-  )
+  return <VideosLibrary videos={VIDEOS} pageSettings={VIDEOS_PAGE} />
 }

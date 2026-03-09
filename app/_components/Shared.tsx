@@ -66,7 +66,7 @@ export const Navigation = ({
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <div className="flex items-center">
             <a href="/">
-              <img src="/rfci-logo.svg" alt="RFCI – Resilient Floor Covering Institute" className="h-7 w-auto" />
+              <img src="/rfci-logo.svg" alt="RFCI – Resilient Floor Covering Institute" className="h-10 w-auto" />
             </a>
           </div>
 

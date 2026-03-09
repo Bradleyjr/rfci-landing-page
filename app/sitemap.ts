@@ -22,17 +22,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/faq`, changeFrequency: 'monthly', priority: 0.6 },
   ]
 
-  const certRoutes: MetadataRoute.Sitemap = CERTIFICATIONS.map((c) => ({
+  // Dynamic: certifications
+  const certRoutes: MetadataRoute.Sitemap = CERTIFICATIONS.filter((c) => c.slug).map((c) => ({
     url: `${baseUrl}/certifications/${c.slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }))
 
-  const typeRoutes: MetadataRoute.Sitemap = FLOORING_TYPES.map((t) => ({
-    url: `${baseUrl}/flooring/${t.slug || slugify(t.title)}`,
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }))
+  // Dynamic: flooring types
+  const typeRoutes: MetadataRoute.Sitemap = FLOORING_TYPES.filter((t) => t.title)
+    .map((t) => {
+      const slug = t.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+      return {
+        url: `${baseUrl}/flooring/${slug}`,
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
+      }
+    })
 
   return [...staticRoutes, ...certRoutes, ...typeRoutes]
 }

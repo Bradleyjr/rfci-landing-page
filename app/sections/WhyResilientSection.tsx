@@ -9,28 +9,28 @@ import { SITE_SETTINGS } from '../_data/site-settings'
 const BENEFITS = [
   {
     icon: Broom,
-    title: 'Easy Maintenance',
-    description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.',
+    title: 'Lorem Ipsum',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.',
   },
   {
     icon: Drop,
-    title: 'Water Resistance',
-    description: 'Engineered to handle moisture-prone environments—from kitchens and baths to healthcare and hospitality.',
+    title: 'Dolor Sit Amet',
+    description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
   },
   {
     icon: CurrencyDollar,
-    title: 'Cost Effective',
-    description: 'Competitive installed cost paired with a long service life delivers strong value across the full lifecycle.',
+    title: 'Consectetur Elit',
+    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
   {
     icon: Palette,
-    title: 'Design Versatility',
-    description: 'Realistic wood, stone, and custom visuals across tile, plank, and sheet formats for any design vision.',
+    title: 'Sed Do Eiusmod',
+    description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.',
   },
   {
     icon: Recycle,
-    title: 'Sustainability',
-    description: 'Recyclable materials, low-VOC manufacturing, and third-party certifications support green building goals.',
+    title: 'Tempor Incididunt',
+    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur.',
   },
 ]
 
@@ -66,8 +66,10 @@ function AnimatedCounter({ target, suffix = '%' }: { target: number; suffix?: st
 }
 
 export function WhyResilientSection() {
-  const statTarget = parseInt(SITE_SETTINGS.whyResilientStatValue, 10)
-
+  const cmsBenefits = SITE_SETTINGS.whyResilientBenefits
+  const statTarget = parseInt(SITE_SETTINGS.whyResilientStatValue || '65', 10)
+  const statLabel = SITE_SETTINGS.whyResilientStatLabel || 'lorem ipsum dolor\nsit amet consectetur'
+  const imageUrl = 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop'
   return (
     <section id="why-resilient" className="py-28 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -95,7 +97,7 @@ export function WhyResilientSection() {
 
           {/* Right — Heading + benefit list */}
           <SectionReveal direction="right" className="lg:col-span-6 lg:pt-4">
-            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">{SITE_SETTINGS.whyResilientHeading}</div>
+            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">{SITE_SETTINGS.whyResilientHeading || 'Lorem Ipsum?'}</div>
             <h2 className="text-4xl md:text-5xl font-display font-light leading-tight mb-10">
               {SITE_SETTINGS.whyResilientSubheading}
             </h2>
@@ -122,7 +124,7 @@ export function WhyResilientSection() {
               <a href="/why-resilient" className="text-rfci-blue font-medium flex items-center gap-2 group text-sm">
                 <span className="relative">
                   <span className="relative z-10 flex items-center gap-2">
-                    Explore why resilient <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    Lorem ipsum dolor <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                   <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-blue group-hover:w-full transition-all duration-300 ease-out" />
                 </span>

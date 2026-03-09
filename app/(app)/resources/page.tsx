@@ -1,6 +1,6 @@
-import { ResourcesPage } from './ResourcesPage'
 import { RESOURCES_PAGE } from '../../_data/pages'
 import { RESOURCES } from '../../_data/resources'
+import { ResourcesPage } from './ResourcesPage'
 
 export const metadata = {
   title: 'Resources & Technical Documents | RFCI',
@@ -8,7 +8,5 @@ export const metadata = {
 }
 
 export default function ResourcesRoute() {
-  return (
-    <ResourcesPage resources={RESOURCES} pageSettings={RESOURCES_PAGE} />
-  )
+  return <ResourcesPage resources={RESOURCES} pageSettings={RESOURCES_PAGE} />
 }

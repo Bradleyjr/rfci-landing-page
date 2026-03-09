@@ -57,7 +57,8 @@ function MemberLogo({ member }: { member: MemberDoc }) {
 }
 
 export function MembersSection() {
-  const displayMembers: MemberDoc[] = MEMBERS.filter(m => m.row === '1' && m.logoUrl)
+  // Show row1 members that have logos
+  const displayMembers = MEMBERS.filter(m => (!m.row || m.row === '1') && (m.logoUrl || m.logo?.url))
 
   return (
     <section id="members" className="py-40 bg-rfci-black text-white relative overflow-hidden">
@@ -78,7 +79,7 @@ export function MembersSection() {
           <Link href="/members" className="text-xl md:text-2xl font-display font-light text-white hover:text-rfci-blue transition-colors flex items-center justify-center gap-4 group relative">
             <span className="relative">
               <span className="relative z-10 flex items-center gap-4">
-                {SITE_SETTINGS.membersCtaText} <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
+                {SITE_SETTINGS.membersCtaText || 'View Member Directory'} <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />
               </span>
               <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white/30 group-hover:bg-rfci-blue transition-colors duration-300" />
             </span>

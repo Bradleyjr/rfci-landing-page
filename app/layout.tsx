@@ -15,7 +15,8 @@ export const metadata: Metadata = {
   },
 }
 
-// Root layout — app/(app)/layout.tsx renders the html+body shell
+// Root layout must not render <html>/<body> — each route group manages its own shell.
+// - app/(app)/layout.tsx  → html+body for the landing page
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return children
 }

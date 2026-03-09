@@ -1,6 +1,6 @@
-import { FAQPage } from './FAQPage'
 import { FAQ_PAGE } from '../../_data/pages'
 import { FAQS } from '../../_data/faqs'
+import { FAQPage } from './FAQPage'
 
 export const metadata = {
   title: 'Frequently Asked Questions | RFCI',
@@ -8,7 +8,5 @@ export const metadata = {
 }
 
 export default function FAQRoute() {
-  return (
-    <FAQPage faqs={FAQS} pageSettings={FAQ_PAGE} />
-  )
+  return <FAQPage faqs={FAQS} pageSettings={FAQ_PAGE} />
 }

@@ -5,7 +5,7 @@ import { RESOURCES } from '../../../_data/resources'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const resource = RESOURCES.find((r) => r.slug === slug)
+  const resource = RESOURCES.find(r => r.slug === slug)
   if (!resource) return { title: 'Resource | RFCI' }
 
   return {
@@ -14,9 +14,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 }
 
+export function generateStaticParams() {
+  return RESOURCES.map(resource => ({
+    slug: resource.slug,
+  }))
+}
+
 export default async function ResourceDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const resource = RESOURCES.find((r) => r.slug === slug)
+  const resource = RESOURCES.find(r => r.slug === slug)
   if (!resource) notFound()
 
   // Get related resources: same category first, then any others, excluding current
@@ -28,7 +34,5 @@ export default async function ResourceDetailPage({ params }: { params: Promise<{
 
   const DetailComponent = resource.type === 'video' ? VideoDetail : ArticleDetail
 
-  return (
-    <DetailComponent resource={resource} relatedResources={relatedResources} />
-  )
+  return <DetailComponent resource={resource} relatedResources={relatedResources} />
 }

@@ -11,6 +11,7 @@ import { EnvironmentsSection } from '../sections/EnvironmentsSection'
 import { WhyResilientSection } from '../sections/WhyResilientSection'
 import { MissionSection } from '../sections/MissionSection'
 import { StandardsSection } from '../sections/StandardsSection'
+import { EcomedesSection } from '../sections/EcomedesSection'
 import { CommunitySection } from '../sections/CommunitySection'
 import { LinkedInFeedSection } from '../sections/LinkedInFeedSection'
 import { MembersSection } from '../sections/MembersSection'
@@ -53,15 +54,17 @@ export function LandingPage() {
           <div className="h-px bg-gradient-to-r from-transparent via-rfci-light-gray to-transparent" />
         </div>
 
+        <MissionSection />
+
         <MaterialsCarousel />
 
         <EnvironmentsSection />
 
         <WhyResilientSection />
 
-        <MissionSection />
-
         <StandardsSection />
+
+        <EcomedesSection />
 
         <CommunitySection />
 

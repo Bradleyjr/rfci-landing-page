@@ -12,3 +12,4 @@ coverage/
 rfci-dev.db
 .vercel
 .env*.local
+.firecrawl/

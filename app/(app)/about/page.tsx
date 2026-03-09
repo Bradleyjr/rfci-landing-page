@@ -1,6 +1,6 @@
-import { AboutRFCI } from './AboutRFCI'
 import { ABOUT_PAGE } from '../../_data/pages'
 import { MEMBERS } from '../../_data/members'
+import { AboutRFCI } from './AboutRFCI'
 
 export const metadata = {
   title: 'About RFCI | Resilient Floor Covering Institute',
@@ -8,10 +8,5 @@ export const metadata = {
 }
 
 export default function AboutPage() {
-  return (
-    <AboutRFCI
-      aboutPage={ABOUT_PAGE}
-      members={MEMBERS}
-    />
-  )
+  return <AboutRFCI aboutPage={ABOUT_PAGE} members={MEMBERS} />
 }

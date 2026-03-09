@@ -1,6 +1,6 @@
-import { CertificationsHub } from './CertificationsHub'
 import { CERTIFICATIONS_PAGE } from '../../_data/pages'
 import { CERTIFICATIONS } from '../../_data/certifications'
+import { CertificationsHub } from './CertificationsHub'
 
 export const metadata = {
   title: 'Certifications | RFCI',
@@ -8,7 +8,5 @@ export const metadata = {
 }
 
 export default function CertificationsRoute() {
-  return (
-    <CertificationsHub certifications={CERTIFICATIONS} pageSettings={CERTIFICATIONS_PAGE} />
-  )
+  return <CertificationsHub certifications={CERTIFICATIONS} pageSettings={CERTIFICATIONS_PAGE} />
 }

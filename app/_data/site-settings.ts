@@ -1,62 +1,62 @@
 export const SITE_SETTINGS = {
   // Hero
-  heroLine1: 'RESILIENT FLOOR',
-  heroLine2: 'COVERING INSTITUTE',
-  heroSubheading: 'The trade association representing the resilient flooring industry. Setting standards, running certification programs, and advancing the number one flooring category in North America since 1976.',
-  heroCta: 'Explore RFCI',
-  heroBoxText: 'Discover our certification programs, meet our member manufacturers, and learn how RFCI protects and promotes the resilient flooring industry.',
+  heroLine1: 'LOREM IPSUM',
+  heroLine2: 'DOLOR SIT AMET',
+  heroSubheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam nostrud.',
+  heroCta: 'Explore More',
+  heroBoxText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui.',
 
   // Materials Carousel
-  materialsHeading: 'The full range of resilient flooring.',
+  materialsHeading: 'Lorem ipsum dolor sit amet.',
 
   // Environments
-  environmentsHeading: 'Built for real spaces.',
-  environmentsSubheading: 'From single-family homes to hospitals and hotels, resilient flooring delivers in any environment.',
+  environmentsHeading: 'Lorem ipsum dolor sit.',
+  environmentsSubheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.',
 
   // Why Resilient
-  whyResilientHeading: 'Why Resilient?',
-  whyResilientSubheading: 'The number one flooring category in North America.',
+  whyResilientHeading: 'Lorem Ipsum?',
+  whyResilientSubheading: 'Lorem ipsum dolor sit amet consectetur.',
   whyResilientStatValue: '65',
-  whyResilientStatLabel: 'of hard surface flooring in North America',
+  whyResilientStatLabel: 'lorem ipsum dolor\nsit amet consectetur',
   whyResilientBenefits: [
-    { title: 'Easy Maintenance', description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.' },
-    { title: 'Water Resistance', description: 'Engineered to handle moisture-prone environments\u2014from kitchens and baths to healthcare and hospitality.' },
-    { title: 'Cost Effective', description: 'Competitive installed cost paired with a long service life delivers strong value across the full lifecycle.' },
-    { title: 'Design Versatility', description: 'Realistic wood, stone, and custom visuals across tile, plank, and sheet formats for any design vision.' },
-    { title: 'Sustainability', description: 'Recyclable materials, low-VOC manufacturing, and third-party certifications support green building goals.' },
+    { title: 'Lorem Ipsum', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.' },
+    { title: 'Dolor Sit Amet', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.' },
+    { title: 'Consectetur Elit', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { title: 'Sed Do Eiusmod', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.' },
+    { title: 'Tempor Incididunt', description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed quia consequuntur.' },
   ],
 
   // Mission
-  missionLabel: 'About RFCI',
-  missionHeading: 'The voice of',
-  missionHeadingItalic: 'resilient flooring.',
-  missionFoundedText: 'Est. 1976 \u00b7 LaGrange, Georgia',
-  missionDescription1: 'Founded in 1976, RFCI is the non-profit trade association representing and protecting the resilient flooring industry in ways that no single manufacturer can.',
-  missionDescription2: 'From setting technical standards to running third-party certification programs, we advance the category for the entire built environment.',
-  missionPillarsHeading: 'Our Strategic Focus',
+  missionLabel: 'Lorem Ipsum',
+  missionHeading: 'Lorem ipsum',
+  missionHeadingItalic: 'dolor sit amet.',
+  missionFoundedText: 'Est. 0000 \u00b7 Lorem, Ipsum',
+  missionDescription1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus.',
+  missionDescription2: 'Maecenas sed diam eget risus varius blandit sit amet non magna. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+  missionPillarsHeading: 'Lorem Ipsum Dolor',
   missionPillars: [
-    { number: '01', title: 'Advocacy & Engagement', description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.' },
-    { number: '02', title: 'Technical Standards', description: 'Developing and maintaining the performance standards that define product quality, safety, and installation best practices.' },
-    { number: '03', title: 'Sustainability & Certifications', description: 'Running FloorScore, ASSURE, and AFFIRM \u2014 the programs that validate environmental and health performance for specifiers worldwide.' },
-    { number: '04', title: 'Promotion & Education', description: 'Advancing industry knowledge through continuing education, original research, and market promotion to the architecture and design community.' },
-    { number: '05', title: 'Member Development', description: 'Growing and supporting a membership of leading manufacturers and supply chain partners who shape the future of resilient flooring.' },
+    { number: '01', title: 'Lorem Ipsum Dolor', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.' },
+    { number: '02', title: 'Sit Amet Consectetur', description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.' },
+    { number: '03', title: 'Adipiscing Elit Sed', description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.' },
+    { number: '04', title: 'Eiusmod Tempor Magna', description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.' },
+    { number: '05', title: 'Veniam Nostrud Labore', description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.' },
   ],
 
   // Standards
-  standardsHeading: 'Certifications you can rely on',
-  standardsSubheading: 'RFCI manages three of the flooring industry\u2019s most trusted certification programs\u2014built on rigorous testing, transparency, and continuous improvement.',
-  standardsCtaText: 'More about our certifications',
+  standardsHeading: 'Lorem ipsum dolor sit amet',
+  standardsSubheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam nostrud.',
+  standardsCtaText: 'Lorem ipsum dolor sit',
 
   // Education
-  educationHeading: 'From our video library',
-  educationSubheading: 'Continuing education and technical training',
+  educationHeading: 'Lorem ipsum dolor sit',
+  educationSubheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 
   // LinkedIn
-  linkedinHeading: 'Latest from RFCI',
+  linkedinHeading: 'Lorem ipsum dolor',
   linkedinUrl: 'https://www.linkedin.com/company/resilient-floor-covering-institute/',
 
   // Members
-  membersHeading: 'Meet our member companies.',
-  membersSubheading: 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.',
-  membersCtaText: 'View Member Directory',
+  membersHeading: 'Lorem ipsum dolor sit amet.',
+  membersSubheading: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.',
+  membersCtaText: 'Lorem Ipsum Dolor',
 }

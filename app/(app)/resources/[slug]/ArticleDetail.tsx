@@ -56,19 +56,18 @@ export function ArticleDetail({ resource, relatedResources }: { resource: any; r
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-3xl mx-auto px-6 md:px-12">
           {resource.body ? (
-            <div
-              className="prose prose-lg prose-rfci max-w-none
-                prose-headings:font-display prose-headings:font-light prose-headings:text-rfci-black
-                prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
-                prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
-                prose-p:text-rfci-black/70 prose-p:leading-relaxed prose-p:font-light
-                prose-a:text-rfci-blue prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-rfci-black prose-strong:font-medium
-                prose-blockquote:border-rfci-blue prose-blockquote:text-rfci-black/60
-                prose-li:text-rfci-black/70 prose-li:font-light
-              "
-              dangerouslySetInnerHTML={{ __html: resource.body }}
-            />
+            <div className="prose prose-lg prose-rfci max-w-none
+              prose-headings:font-display prose-headings:font-light prose-headings:text-rfci-black
+              prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4
+              prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3
+              prose-p:text-rfci-black/70 prose-p:leading-relaxed prose-p:font-light
+              prose-a:text-rfci-blue prose-a:no-underline hover:prose-a:underline
+              prose-strong:text-rfci-black prose-strong:font-medium
+              prose-blockquote:border-rfci-blue prose-blockquote:text-rfci-black/60
+              prose-li:text-rfci-black/70 prose-li:font-light
+            ">
+              <div dangerouslySetInnerHTML={{ __html: resource.body }} />
+            </div>
           ) : (
             <p className="text-rfci-black/50 text-center font-light">
               No article content available.
