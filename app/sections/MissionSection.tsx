@@ -16,28 +16,28 @@ const PILLAR_IMAGES = [
 const PILLARS = [
   {
     number: '01',
-    title: 'Lorem Ipsum Dolor',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.',
+    title: 'Industry Standards',
+    description: 'Developing and maintaining rigorous standards that ensure resilient flooring products meet the highest benchmarks for quality and performance.',
   },
   {
     number: '02',
-    title: 'Sit Amet Consectetur',
-    description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.',
+    title: 'Product Transparency',
+    description: 'Championing environmental product declarations, health product declarations, and third-party certifications that give specifiers confidence.',
   },
   {
     number: '03',
-    title: 'Adipiscing Elit Sed',
-    description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+    title: 'Sustainability Leadership',
+    description: 'Driving the resilient flooring industry toward lower environmental impact through recyclability, low-VOC manufacturing, and responsible sourcing.',
   },
   {
     number: '04',
-    title: 'Eiusmod Tempor Magna',
-    description: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.',
+    title: 'Education & Advocacy',
+    description: 'Providing architects, designers, and facility managers with the knowledge they need to make informed flooring decisions through CEU courses and resources.',
   },
   {
     number: '05',
-    title: 'Veniam Nostrud Labore',
-    description: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.',
+    title: 'Member Collaboration',
+    description: 'Bringing together manufacturers, suppliers, and industry partners to advance shared goals and shape the future of resilient flooring.',
   },
 ]
 
@@ -79,7 +79,7 @@ export function MissionSection() {
             <a href="/about" className="text-white font-medium flex items-center gap-2 group text-sm">
               <span className="relative">
                 <span className="relative z-10 flex items-center gap-2">
-                  Lorem ipsum dolor <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Learn more about RFCI <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white group-hover:w-full transition-all duration-300 ease-out" />
               </span>

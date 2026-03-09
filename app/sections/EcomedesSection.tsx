@@ -20,7 +20,7 @@ export function EcomedesSection() {
 
             {/* Description */}
             <p className="text-rfci-black/60 font-light leading-relaxed flex-1 text-sm md:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+              Ecomedes is RFCI's product transparency and sustainability data platform. It provides architects, designers, and specifiers with instant access to environmental certifications, EPDs, HPDs, and green building credit data for resilient flooring products — all in one place.
             </p>
 
             {/* CTA */}
@@ -30,7 +30,7 @@ export function EcomedesSection() {
               rel="noopener noreferrer"
               className="shrink-0 inline-flex items-center gap-2 px-8 py-3.5 border border-rfci-blue/40 text-rfci-blue text-sm font-semibold hover:bg-rfci-blue hover:text-white transition-all duration-300 group"
             >
-              Lorem Ipsum <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Explore Ecomedes <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </SectionReveal>

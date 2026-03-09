@@ -9,10 +9,10 @@ const RFCI_LINKEDIN_URL = 'https://www.linkedin.com/company/resilient-floor-cove
 const FAKE_POSTS = [
   {
     avatar: '/rfci-logo.svg',
-    name: 'Lorem Ipsum Corp.',
-    handle: 'lorem-ipsum-corp',
+    name: 'Resilient Floor Covering Institute',
+    handle: 'resilient-floor-covering-institute',
     time: '2d',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+    text: 'Exciting news from RFCI! Our members continue to lead the way in resilient flooring innovation, sustainability, and product transparency. Learn how certified resilient flooring supports healthier indoor environments.',
     image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600&auto=format&fit=crop',
     likes: 47,
     comments: 12,
@@ -20,20 +20,20 @@ const FAKE_POSTS = [
   },
   {
     avatar: '/rfci-logo.svg',
-    name: 'Lorem Ipsum Corp.',
-    handle: 'lorem-ipsum-corp',
+    name: 'Resilient Floor Covering Institute',
+    handle: 'resilient-floor-covering-institute',
     time: '5d',
-    text: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident. #LoremIpsum #DolorSit',
+    text: 'RFCI is proud to support the development of rigorous industry standards that give architects and designers confidence in their material selections. #ResilientFlooring #Sustainability',
     likes: 83,
     comments: 24,
     reposts: 11,
   },
   {
     avatar: '/rfci-logo.svg',
-    name: 'Lorem Ipsum Corp.',
-    handle: 'lorem-ipsum-corp',
+    name: 'Resilient Floor Covering Institute',
+    handle: 'resilient-floor-covering-institute',
     time: '1w',
-    text: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.',
+    text: 'From EPDs to FloorScore certification, RFCI members are committed to product transparency and environmental stewardship. Discover how resilient flooring is advancing green building goals.',
     image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=600&auto=format&fit=crop',
     likes: 62,
     comments: 8,
@@ -48,7 +48,7 @@ export function LinkedInFeedSection() {
         <SectionReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
             <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4 flex items-center gap-2">
-              <LinkedinLogo className="w-4 h-4" weight="fill" /> Lorem Ipsum
+              <LinkedinLogo className="w-4 h-4" weight="fill" /> Stay Connected
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-light leading-tight">
               {SITE_SETTINGS.linkedinHeading}
@@ -63,7 +63,7 @@ export function LinkedInFeedSection() {
             <LinkedinLogo className="w-4 h-4" weight="fill" />
             <span className="relative">
               <span className="relative z-10 flex items-center gap-2">
-                Lorem ipsum <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Follow on LinkedIn <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-blue group-hover:w-full transition-all duration-300 ease-out" />
             </span>

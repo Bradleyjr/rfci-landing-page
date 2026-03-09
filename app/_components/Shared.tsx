@@ -9,7 +9,7 @@ const navItems = [
     href: '/about',
   },
   {
-    title: 'Learn',
+    title: 'Resources',
     megaMenu: [
       { label: 'Why Resilient', href: '/why-resilient', desc: 'What makes resilient flooring a smart choice for your space.', icon: Leaf },
       { label: 'Flooring Types', href: '/flooring', desc: 'Explore the full range of resilient flooring products.', icon: FileText },
@@ -220,7 +220,7 @@ export const Footer = () => (
         </div>
 
         <div className="lg:col-span-2">
-          <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">Learn</h4>
+          <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">Resources</h4>
           <ul className="space-y-4 text-sm text-white/70">
             <li><a href="/why-resilient" className="hover:text-rfci-teal transition-colors">Why Resilient</a></li>
             <li><a href="/flooring" className="hover:text-rfci-teal transition-colors">Flooring Types</a></li>
