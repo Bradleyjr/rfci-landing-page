@@ -96,15 +96,21 @@ export function CertificationDetail({ certification: cert, otherCertifications }
               </h2>
             </SectionReveal>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="space-y-6">
               {benefits.map((benefit, i) => (
-                <SectionReveal key={i} delay={i * 0.08}>
-                  <div className="p-8 bg-white border border-black/5 h-full">
-                    <div className="text-2xl font-display font-light text-rfci-blue mb-2">
-                      {String(i + 1).padStart(2, '0')}
+                <SectionReveal key={i} delay={i * 0.06}>
+                  <div className="grid md:grid-cols-12 gap-4 md:gap-8 py-6 border-b border-rfci-black/5 last:border-0">
+                    <div className="md:col-span-1">
+                      <span className="text-2xl font-display font-light text-rfci-blue/40">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
                     </div>
-                    <h3 className="text-lg font-display font-medium mb-3">{benefit.title}</h3>
-                    <p className="text-rfci-black/60 text-sm leading-relaxed font-light">{benefit.description}</p>
+                    <div className="md:col-span-3">
+                      <h3 className="text-lg font-display font-semibold">{benefit.title}</h3>
+                    </div>
+                    <div className="md:col-span-8">
+                      <p className="text-rfci-black/60 text-sm leading-relaxed">{benefit.description}</p>
+                    </div>
                   </div>
                 </SectionReveal>
               ))}

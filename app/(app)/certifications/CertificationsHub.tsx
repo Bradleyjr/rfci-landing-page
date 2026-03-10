@@ -92,7 +92,7 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
                     <div className="p-8 md:p-10">
                       {/* Icon + Title */}
                       <div className="flex items-start gap-4 mb-4">
-                        <div className="w-12 h-12 bg-rfci-blue/10 flex items-center justify-center shrink-0 text-rfci-blue group-hover:bg-rfci-blue group-hover:text-white transition-colors">
+                        <div className="w-12 h-12 border border-rfci-blue/20 flex items-center justify-center shrink-0 text-rfci-blue group-hover:border-rfci-blue group-hover:bg-rfci-blue group-hover:text-white transition-all">
                           <Icon className="w-6 h-6" />
                         </div>
                         <div>
@@ -102,7 +102,7 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
                         </div>
                       </div>
 
-                      <p className="text-rfci-black/60 leading-relaxed font-light mb-6">
+                      <p className="text-rfci-black/60 leading-relaxed mb-6">
                         {cert.description}
                       </p>
 

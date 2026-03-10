@@ -193,9 +193,8 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-16">
               <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Performance</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light">
-                Key <span className="font-semibold">features</span>
+              <h2 className="text-3xl md:text-4xl font-display font-medium">
+                Key features
               </h2>
             </SectionReveal>
 
@@ -299,9 +298,8 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
               <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Certifications</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light">
-                Applicable <span className="font-semibold">certifications</span>
+              <h2 className="text-3xl md:text-4xl font-display font-medium">
+                Applicable certifications
               </h2>
             </SectionReveal>
 
