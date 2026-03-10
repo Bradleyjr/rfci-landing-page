@@ -52,7 +52,7 @@ export function CommunitySection() {
         <div className="grid lg:grid-cols-12 gap-16 items-center">
           <SectionReveal direction="left" className="lg:col-span-7">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-8 leading-tight">
-              {firstPart ? <>{firstPart}<br /></> : null}<span className="font-semibold text-rfci-teal">{lastPart}</span>
+              {firstPart ? <>{firstPart}<br /></> : null}<span className="font-semibold text-rfci-blue">{lastPart}</span>
             </h2>
             <p className="text-xl text-rfci-black/70 font-light leading-relaxed max-w-2xl">
               {sectionSubheading}

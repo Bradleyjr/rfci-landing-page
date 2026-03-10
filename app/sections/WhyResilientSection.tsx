@@ -85,7 +85,7 @@ export function WhyResilientSection() {
               />
               {/* Stat badge — overlays bottom-left of photo */}
               <div className="absolute bottom-6 left-6 bg-white p-5 shadow-[0_8px_30px_rgba(0,0,0,0.15)]">
-                <div className="text-4xl md:text-5xl font-display font-bold text-rfci-teal leading-none mb-1">
+                <div className="text-4xl md:text-5xl font-display font-bold text-rfci-blue leading-none mb-1">
                   <AnimatedCounter target={statTarget} />
                 </div>
                 <p className="text-xs text-rfci-black/60 font-light leading-snug max-w-[130px]">
@@ -108,10 +108,9 @@ export function WhyResilientSection() {
                 const Icon = benefit.icon
                 return (
                   <div key={idx} className="flex gap-5 py-5 first:pt-0 last:pb-0 items-start group">
-                    <div className="w-px self-stretch bg-rfci-blue/20 group-hover:bg-rfci-blue transition-colors duration-300 shrink-0" />
                     <div>
                       <div className="flex items-center gap-2 mb-1">
-                        <Icon className="w-4 h-4 text-rfci-blue/50" />
+                        <Icon className="w-4 h-4 text-rfci-blue/40" />
                         <h3 className="font-display font-semibold text-rfci-black">{benefit.title}</h3>
                       </div>
                       <p className="text-sm text-rfci-black/60 leading-relaxed">{benefit.description}</p>
