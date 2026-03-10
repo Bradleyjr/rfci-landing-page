@@ -1,0 +1,254 @@
+'use client'
+
+import { useState } from 'react'
+import { MapPin, Phone, EnvelopeSimple, LinkedinLogo, ArrowRight, CheckCircle } from '@phosphor-icons/react'
+import { PageLayout } from '../../_components/PageLayout'
+import { PageHero } from '../../_components/PageHero'
+import { SectionReveal } from '../../_components/SectionReveal'
+
+const CONTACT_INFO = [
+  {
+    icon: MapPin,
+    label: 'Headquarters',
+    value: '115 Greystone Power Blvd',
+    detail: 'LaGrange, GA 30240',
+    href: 'https://maps.google.com/?q=115+Greystone+Power+Blvd+LaGrange+GA+30240',
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '(706) 882-2710',
+    href: 'tel:+17068822710',
+  },
+  {
+    icon: EnvelopeSimple,
+    label: 'Email',
+    value: 'info@rfci.com',
+    href: 'mailto:info@rfci.com',
+  },
+  {
+    icon: LinkedinLogo,
+    label: 'LinkedIn',
+    value: 'Follow RFCI',
+    href: 'https://www.linkedin.com/company/resilient-floor-covering-institute/',
+    external: true,
+  },
+]
+
+export function ContactPage() {
+  const [submitted, setSubmitted] = useState(false)
+
+  return (
+    <PageLayout>
+      <PageHero
+        label="Contact"
+        heading={<>Get in <span className="font-semibold">touch.</span></>}
+        subheading="Have a question about certifications, membership, or resilient flooring? We're here to help."
+        theme="light"
+      />
+
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-5 gap-16 lg:gap-20">
+
+            {/* Contact Info */}
+            <SectionReveal direction="left" className="lg:col-span-2">
+              <div className="space-y-8">
+                {CONTACT_INFO.map((item) => {
+                  const Icon = item.icon
+                  return (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      target={item.external ? '_blank' : undefined}
+                      rel={item.external ? 'noopener noreferrer' : undefined}
+                      className="flex items-start gap-4 group"
+                    >
+                      <Icon className="w-5 h-5 mt-0.5 shrink-0 text-rfci-blue" />
+                      <div>
+                        <div className="text-label font-bold tracking-widest uppercase text-rfci-black/40 mb-1">{item.label}</div>
+                        <div className="text-rfci-black group-hover:text-rfci-blue transition-colors">{item.value}</div>
+                        {item.detail && (
+                          <div className="text-rfci-black/60 text-sm">{item.detail}</div>
+                        )}
+                      </div>
+                    </a>
+                  )
+                })}
+              </div>
+
+              <div className="mt-12 pt-8 border-t border-rfci-black/10">
+                <h3 className="font-display font-medium text-lg mb-3">Membership Inquiries</h3>
+                <p className="text-sm text-rfci-black/60 leading-relaxed mb-4">
+                  Interested in becoming an RFCI member? Contact us to learn about membership benefits and how to join.
+                </p>
+                <a
+                  href="mailto:info@rfci.com?subject=Membership Inquiry"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all"
+                >
+                  Email about membership <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </SectionReveal>
+
+            {/* Contact Form */}
+            <SectionReveal direction="right" className="lg:col-span-3">
+              {submitted ? (
+                <div className="bg-rfci-cream p-12 text-center">
+                  <CheckCircle className="w-12 h-12 text-rfci-blue mx-auto mb-4" weight="fill" />
+                  <h3 className="text-2xl font-display font-medium mb-3">Message sent.</h3>
+                  <p className="text-rfci-black/60">
+                    Thank you for reaching out. Our team will get back to you within 1-2 business days.
+                  </p>
+                </div>
+              ) : (
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault()
+                    setSubmitted(true)
+                  }}
+                  className="space-y-6"
+                >
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="firstName" className="block text-label font-bold tracking-widest uppercase text-rfci-black/40 mb-2">
+                        First Name
+                      </label>
+                      <input
+                        id="firstName"
+                        name="firstName"
+                        type="text"
+                        required
+                        className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-0 outline-none transition-colors"
+                        placeholder="Jane"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="lastName" className="block text-label font-bold tracking-widest uppercase text-rfci-black/40 mb-2">
+                        Last Name
+                      </label>
+                      <input
+                        id="lastName"
+                        name="lastName"
+                        type="text"
+                        required
+                        className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-0 outline-none transition-colors"
+                        placeholder="Smith"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-label font-bold tracking-widest uppercase text-rfci-black/40 mb-2">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-0 outline-none transition-colors"
+                      placeholder="jane@company.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="company" className="block text-label font-bold tracking-widest uppercase text-rfci-black/40 mb-2">
+                      Company / Organization
+                    </label>
+                    <input
+                      id="company"
+                      name="company"
+                      type="text"
+                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-0 outline-none transition-colors"
+                      placeholder="Optional"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="subject" className="block text-label font-bold tracking-widest uppercase text-rfci-black/40 mb-2">
+                      Subject
+                    </label>
+                    <select
+                      id="subject"
+                      name="subject"
+                      required
+                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black focus:border-rfci-blue focus:ring-0 outline-none transition-colors"
+                      defaultValue=""
+                    >
+                      <option value="" disabled>Select a topic</option>
+                      <option value="certifications">Certifications (FloorScore, ASSURE, AFFIRM)</option>
+                      <option value="membership">Membership Inquiry</option>
+                      <option value="technical">Technical Question</option>
+                      <option value="media">Media / Press</option>
+                      <option value="general">General Inquiry</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="message" className="block text-label font-bold tracking-widest uppercase text-rfci-black/40 mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={5}
+                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-0 outline-none transition-colors resize-none"
+                      placeholder="How can we help?"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full md:w-auto px-10 py-3.5 bg-rfci-blue text-white font-semibold text-sm hover:bg-rfci-black transition-colors flex items-center justify-center gap-2 group"
+                  >
+                    Send Message <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </form>
+              )}
+            </SectionReveal>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Map / Location */}
+      <section className="bg-rfci-cream py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionReveal>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-display font-medium mb-4">
+                  Visit us in LaGrange, Georgia.
+                </h2>
+                <p className="text-rfci-black/60 leading-relaxed mb-6">
+                  RFCI is headquartered in LaGrange, Georgia — at the heart of the American flooring industry.
+                  Our team is available Monday through Friday, 8:00 AM to 5:00 PM Eastern.
+                </p>
+                <a
+                  href="https://maps.google.com/?q=115+Greystone+Power+Blvd+LaGrange+GA+30240"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all"
+                >
+                  Get directions <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+              <div className="aspect-[4/3] bg-rfci-black/5 overflow-hidden">
+                <iframe
+                  title="RFCI Headquarters Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3355.5!2d-85.0394!3d33.0356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x888b4e5a8f5c1c1d%3A0x1234567890abcdef!2s115+Greystone+Power+Blvd%2C+LaGrange%2C+GA+30240!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  className="w-full h-full border-0"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+    </PageLayout>
+  )
+}
