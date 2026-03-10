@@ -5,12 +5,12 @@ import { SectionReveal } from '../../../_components/SectionReveal'
 import { mediaUrl } from '../../../_lib/transforms'
 
 const TYPE_COLORS: Record<string, string> = {
-  article: 'bg-rose-50 text-rose-700',
-  video: 'bg-indigo-50 text-indigo-700',
-  technical: 'bg-blue-50 text-blue-700',
+  article: 'bg-rfci-blue/10 text-rfci-blue',
+  video: 'bg-sky-50 text-sky-700',
+  technical: 'bg-slate-100 text-slate-600',
   sustainability: 'bg-emerald-50 text-emerald-700',
   standard: 'bg-amber-50 text-amber-700',
-  whitepaper: 'bg-purple-50 text-purple-700',
+  whitepaper: 'bg-slate-100 text-slate-600',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -23,13 +23,15 @@ export function ArticleDetail({ resource, relatedResources }: { resource: any; r
       <section className="bg-rfci-cream py-20 md:py-28 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal>
-            <Link href="/resources" className="inline-flex items-center gap-2 text-sm text-rfci-black/50 hover:text-rfci-blue transition-colors mb-10">
+            <Link href="/resources" className="inline-flex items-center gap-2 text-sm text-rfci-black/50 hover:text-rfci-blue transition-colors mb-8">
               <ArrowLeft className="w-4 h-4" /> All Resources
             </Link>
 
-            <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block mb-5 ${TYPE_COLORS[resource.type] || TYPE_COLORS.article}`}>
-              {resource.type === 'article' ? 'Article' : resource.type}
-            </span>
+            <div className="mb-5">
+              <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block ${TYPE_COLORS[resource.type] || TYPE_COLORS.article}`}>
+                {resource.type === 'article' ? 'Article' : resource.type}
+              </span>
+            </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight mb-6">
               {resource.title}

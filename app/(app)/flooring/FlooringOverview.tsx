@@ -98,6 +98,17 @@ function slugify(title: string): string {
   return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
 
+function getTags(type: FlooringTypeDoc) {
+  return (type.tags ?? []).map(tag => ({
+    label: tag.label,
+    ...(TAG_STYLES[tag.variant] ?? TAG_STYLES.gray),
+  }))
+}
+
+function getHref(type: FlooringTypeDoc) {
+  return `/flooring/${type.slug || slugify(type.title)}`
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function FlooringOverview({ flooringTypes, pageSettings }: { flooringTypes: any[]; pageSettings?: any }) {
   const displayTypes: FlooringTypeDoc[] = flooringTypes?.length ? flooringTypes : FLOORING_STATIC
@@ -107,36 +118,34 @@ export function FlooringOverview({ flooringTypes, pageSettings }: { flooringType
       <PageHero
         label="Flooring Types"
         heading={pageSettings?.heroHeading || <>The full range of <span className="font-semibold text-rfci-blue">resilient flooring.</span></>}
-        subheading={pageSettings?.heroSubheading || 'From luxury vinyl tile to linoleum, rubber to cork—resilient flooring offers the widest range of performance, aesthetics, and sustainability options in the hard surface category.'}
+        subheading={pageSettings?.heroSubheading || 'From luxury vinyl tile to linoleum, rubber to cork\u2014resilient flooring offers the widest range of performance, aesthetics, and sustainability options in the hard surface category.'}
       />
 
-      {/* Flooring Type Grid */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-16 md:py-24 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {displayTypes.map((type, idx) => {
-              const tags = (type.tags ?? []).map(tag => ({
-                label: tag.label,
-                ...(TAG_STYLES[tag.variant] ?? TAG_STYLES.gray),
-              }))
-              const href = `/flooring/${type.slug || slugify(type.title)}`
-              const imgSrc = mediaUrl(type.image)
+              const tags = getTags(type)
+              const href = getHref(type)
 
               return (
-                <SectionReveal key={idx} delay={idx * 0.06}>
+                <SectionReveal key={type.title} delay={idx * 0.05}>
                   <a href={href} className="group block h-full">
-                    <div className="bg-rfci-white border border-black/5 hover:border-rfci-blue/30 hover:shadow-[0_20px_60px_rgba(1,100,219,0.08)] transition-all duration-500 h-full flex flex-col overflow-hidden relative">
-                      {/* Blue line reveal at top */}
+                    <div className="h-full flex flex-col border border-black/5 hover:border-rfci-blue/20 transition-all duration-500 overflow-hidden relative">
+                      {/* Accent color radial gradient */}
+                      <div
+                        className="absolute top-0 right-0 w-32 h-32 opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none"
+                        style={{ background: `radial-gradient(circle at top right, ${type.accentColor ?? '#9CA3AF'}, transparent 70%)` }}
+                      />
+
+                      {/* Blue line reveal on hover */}
                       <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-rfci-blue transition-all duration-500 z-10" />
 
-                      {/* Color accent bar */}
-                      <div className="h-2" style={{ backgroundColor: type.accentColor ?? '#9CA3AF' }} />
-
-                      <div className="p-8 md:p-10 flex flex-col flex-1">
-                        <h2 className="text-2xl md:text-3xl font-display font-light tracking-tight text-rfci-black mb-1 group-hover:text-rfci-blue transition-colors">
+                      <div className="flex-1 flex flex-col p-7 md:p-9">
+                        <h2 className="text-2xl font-display font-light tracking-tight text-rfci-black group-hover:text-rfci-blue transition-colors duration-300 mb-1">
                           {type.title}
                         </h2>
-                        <span className="text-label font-bold tracking-widest uppercase text-rfci-black/60 mb-4">
+                        <span className="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-4">
                           {type.subtitle}
                         </span>
 
@@ -145,7 +154,7 @@ export function FlooringOverview({ flooringTypes, pageSettings }: { flooringType
                         </p>
 
                         {/* Tags */}
-                        <div className="flex flex-wrap gap-2 mb-6">
+                        <div className="flex flex-wrap gap-2 mb-5">
                           {tags.map((tag, tagIdx) => (
                             <span key={tagIdx} className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label font-bold uppercase tracking-widest ${tag.style}`}>
                               {tag.dot && <span className={`w-1.5 h-1.5 rounded-full ${tag.dot}`} />}
@@ -159,13 +168,6 @@ export function FlooringOverview({ flooringTypes, pageSettings }: { flooringType
                           Explore {type.title} <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>
-
-                      {/* Background image if present */}
-                      {imgSrc && (
-                        <div className="absolute inset-0 z-0 opacity-5">
-                          <img src={imgSrc} alt={type.title} className="w-full h-full object-cover" />
-                        </div>
-                      )}
                     </div>
                   </a>
                 </SectionReveal>

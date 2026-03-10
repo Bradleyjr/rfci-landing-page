@@ -40,23 +40,23 @@ const TYPES = [
 ]
 
 const TYPE_COLORS: Record<string, string> = {
-  technical: 'bg-blue-50 text-blue-700',
+  technical: 'bg-slate-100 text-slate-600',
   sustainability: 'bg-emerald-50 text-emerald-700',
   standard: 'bg-amber-50 text-amber-700',
-  whitepaper: 'bg-purple-50 text-purple-700',
-  brochure: 'bg-rose-50 text-rose-700',
-  video: 'bg-indigo-50 text-indigo-700',
-  article: 'bg-rose-50 text-rose-700',
+  whitepaper: 'bg-slate-100 text-slate-600',
+  brochure: 'bg-rfci-blue/10 text-rfci-blue',
+  video: 'bg-sky-50 text-sky-700',
+  article: 'bg-rfci-blue/10 text-rfci-blue',
 }
 
 const TYPE_ICON_BG: Record<string, string> = {
-  technical: 'bg-blue-50 text-blue-600',
+  technical: 'bg-slate-100 text-slate-600',
   sustainability: 'bg-emerald-50 text-emerald-600',
   standard: 'bg-amber-50 text-amber-600',
-  whitepaper: 'bg-purple-50 text-purple-600',
-  brochure: 'bg-rose-50 text-rose-600',
-  video: 'bg-indigo-50 text-indigo-600',
-  article: 'bg-rose-50 text-rose-600',
+  whitepaper: 'bg-slate-100 text-slate-500',
+  brochure: 'bg-rfci-blue/10 text-rfci-blue',
+  video: 'bg-sky-50 text-sky-600',
+  article: 'bg-rfci-blue/10 text-rfci-blue',
 }
 
 const TYPE_LABELS: Record<string, string> = {
@@ -91,7 +91,7 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
     <PageLayout>
       <PageHero
         label="Resources"
-        heading={pageSettings?.heroHeading || <>Resources & <span className="font-semibold text-rfci-blue">Technical Documents</span></>}
+        heading={pageSettings?.heroHeading || <>Resources & <span className="font-semibold text-rfci-blue">technical documents.</span></>}
         subheading={pageSettings?.heroSubheading || 'Access technical guides, sustainability reports, standards documents, and white papers from RFCI.'}
       />
 

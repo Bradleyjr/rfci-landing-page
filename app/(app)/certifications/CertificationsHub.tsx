@@ -58,8 +58,9 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
     <PageLayout>
       <PageHero
         label="Certifications"
-        heading={pageSettings?.heroHeading || <>Certifications you can <span className="font-semibold text-rfci-blue">rely on.</span></>}
+        heading={pageSettings?.heroHeading || <>Certifications you can <span className="font-semibold">rely on.</span></>}
         subheading={pageSettings?.heroSubheading || "RFCI’s certification programs verify indoor air quality, sustainability, and material transparency—giving architects and designers confidence in every specification."}
+        theme="blue"
       />
 
       {/* Certification Cards */}

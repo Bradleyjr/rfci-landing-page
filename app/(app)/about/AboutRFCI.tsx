@@ -37,9 +37,8 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
             <SectionReveal direction="left" className="lg:col-span-7">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">About RFCI</div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6">
-                The voice of<br />
-                <span className="font-light italic text-rfci-blue">resilient flooring.</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight mb-6">
+                The voice of <span className="font-semibold text-rfci-blue">resilient flooring.</span>
               </h1>
               <div className="flex items-center gap-6 text-sm text-rfci-black/50 mb-6">
                 <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> Est. 1976</span>

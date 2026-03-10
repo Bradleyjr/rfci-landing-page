@@ -560,6 +560,7 @@ export function InspirationGallery({
         label="Inspiration"
         heading={pageSettings?.heroHeading || <>Real-world <span className="font-semibold text-rfci-blue">installations.</span></>}
         subheading={pageSettings?.heroSubheading || 'Explore resilient flooring projects from RFCI member companies across healthcare, education, hospitality, corporate, and more.'}
+        theme="dark"
       />
 
       {/* ============================================================ */}

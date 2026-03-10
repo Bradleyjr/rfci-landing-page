@@ -144,6 +144,7 @@ export function MembersDirectory({ members, pageSettings }: { members: any[]; pa
         label="Member Directory"
         heading={pageSettings?.heroHeading || <>Meet our <span className="font-semibold text-rfci-blue">member companies.</span></>}
         subheading={pageSettings?.heroSubheading || 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.'}
+        theme="dark"
       />
 
       {/* Board Companies */}

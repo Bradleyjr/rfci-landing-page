@@ -7,12 +7,12 @@ import { SectionReveal } from '../../../_components/SectionReveal'
 import { mediaUrl } from '../../../_lib/transforms'
 
 const TYPE_COLORS: Record<string, string> = {
-  video: 'bg-indigo-50 text-indigo-700',
-  technical: 'bg-blue-50 text-blue-700',
+  video: 'bg-sky-50 text-sky-700',
+  technical: 'bg-slate-100 text-slate-600',
   sustainability: 'bg-emerald-50 text-emerald-700',
   standard: 'bg-amber-50 text-amber-700',
-  whitepaper: 'bg-purple-50 text-purple-700',
-  article: 'bg-rose-50 text-rose-700',
+  whitepaper: 'bg-slate-100 text-slate-600',
+  article: 'bg-rfci-blue/10 text-rfci-blue',
 }
 
 function getEmbedUrl(url: string): string | null {

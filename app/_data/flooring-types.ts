@@ -17,7 +17,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Flexible LVT',
     subtitle: 'Luxury Vinyl Tile \u00b7 Planks',
-    description: 'The most popular choice in residential and commercial flooring. Flexible LVT is waterproof, durable, and comes in wood and stone visuals. It installs easily and holds up in high-traffic areas.',
+    description: 'Luxury vinyl tile (LVT) is a type of flexible resilient flooring produced in either tiles or planks. Amazing visuals and design realism combined with low installation costs, water resistance, and low maintenance make LVT a smart alternative to ceramic tile, stone, and hardwood.',
     accentColor: '#9CA3AF',
     tags: [
       { label: 'Waterproof', variant: 'green' },
@@ -29,7 +29,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Rigid Core',
     subtitle: 'SPC \u00b7 WPC \u00b7 Multilayer',
-    description: 'A stiffer, more dimensionally stable version of LVT. Rigid core products resist temperature swings and indentation, making them a strong choice for challenging environments.',
+    description: 'An entirely new class of stepped-up LVT products with a rigid polymeric core, a decorative top surface, and an optional soft underlayment. Available in WPC and SPC constructions, both waterproof with unique locking systems for floating installation.',
     accentColor: '#78909C',
     tags: [
       { label: 'Waterproof', variant: 'green' },
@@ -40,7 +40,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Heterogeneous Sheet Vinyl',
     subtitle: 'Multi-layer \u00b7 Printed Design',
-    description: 'A multi-layer sheet vinyl with a printed design layer, giving it strong customization options. A go-to for healthcare, education, and commercial spaces that need both durability and design flexibility.',
+    description: 'The vinyl sheet flooring offered today is the product of years of advancements in manufacturing technology providing more depth and texture than ever before. Typically offered in 6\' and 12\' widths for commercial and residential spaces.',
     accentColor: '#B0C4DE',
     tags: [
       { label: 'Hygienic', variant: 'green' },
@@ -51,7 +51,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Homogeneous Sheet Vinyl',
     subtitle: 'Through-body \u00b7 Single Layer',
-    description: 'A solid, single-layer vinyl sheet where the color and pattern run all the way through. Extremely durable and easy to maintain \u2014 widely used in hospitals and laboratories.',
+    description: 'Made of a single layer with through-color construction, meaning the color and visual on the surface goes all the way through the floor. This gives the flooring rigidity, toughness, and vibrancy. Incredibly durable and stain resistant.',
     accentColor: '#90A4AE',
     tags: [
       { label: 'Hygienic', variant: 'green' },
@@ -62,7 +62,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Solid Vinyl Tile',
     subtitle: 'SVT \u00b7 Flexible Tiles',
-    description: 'Flexible vinyl tiles made from solid PVC compounds. A cost-effective, durable option for commercial spaces with the added benefit of individual tile replacement when needed.',
+    description: 'Solid vinyl tile (SVT) is a type of flexible resilient flooring often used in healthcare, institutional, and educational settings. Versatile and easy to handle, SVT can be used to create patterns and shapes within an overall creative floor design.',
     accentColor: '#A5B4BC',
     tags: [
       { label: 'Cost-effective', variant: 'green' },
@@ -73,7 +73,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Vinyl Composition Tile',
     subtitle: 'VCT \u00b7 Commercial Standard',
-    description: 'A proven commercial staple made from vinyl and limestone. VCT is extremely durable and cost-effective in high-traffic areas like retail and schools. Requires periodic waxing to maintain its finish.',
+    description: 'Vinyl Composition Tile (VCT) is a finished flooring material used primarily in commercial and institutional applications. A popular choice due to its low cost and durability, with through-color construction that provides years of lasting beauty.',
     accentColor: '#CFD8DC',
     tags: [
       { label: 'Durable', variant: 'green' },
@@ -84,7 +84,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Rubber',
     subtitle: 'Vulcanized \u00b7 Recycled Content',
-    description: 'Outstanding durability, acoustic performance, and slip resistance. Common in gyms, hospitals, and transit facilities. Often made with recycled rubber content.',
+    description: 'Available in sheets or tiles, this resilient flooring option is sleek, contemporary, and comfortable underfoot. Colors are contained throughout the thickness and won\'t fade or wear. Waterproof and slip-resistant, ideal for high-traffic institutional and commercial facilities.',
     accentColor: '#D4A574',
     tags: [
       { label: 'Acoustic', variant: 'green' },
@@ -96,7 +96,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Linoleum',
     subtitle: 'Natural \u00b7 Bio-based',
-    description: 'Made from linseed oil, wood flour, and limestone \u2014 natural materials used in flooring for over 150 years. Biodegradable, antimicrobial, and carbon neutral.',
+    description: 'Invented in the 1860s, linoleum is experiencing a revival in popularity due to its natural ingredients and environmental properties. Made from linseed oil, wood flour, limestone, cork, tree resins, and jute backing.',
     accentColor: '#8FBC8F',
     tags: [
       { label: 'Bio-based', variant: 'green' },
@@ -107,7 +107,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Cork',
     subtitle: 'Natural \u00b7 Acoustic',
-    description: 'Harvested from cork oak bark without cutting the tree. Warm underfoot, naturally acoustic, and a fully renewable resource.',
+    description: 'Sleek and contemporary, this resilient flooring is enjoying renewed interest. Warm and soft underfoot, cork is a natural insulator that muffles sound and lowers energy bills. Available in tiles or planks in a variety of colors and sizes.',
     accentColor: '#C4A882',
     tags: [
       { label: 'Renewable', variant: 'green' },

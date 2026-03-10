@@ -78,7 +78,7 @@ export function FAQPage({ faqs, pageSettings }: { faqs: any[]; pageSettings?: an
     <PageLayout>
       <PageHero
         label="FAQ"
-        heading={pageSettings?.heroHeading || <>Frequently Asked <span className="font-semibold text-rfci-blue">Questions</span></>}
+        heading={pageSettings?.heroHeading || <>Frequently asked <span className="font-semibold text-rfci-blue">questions.</span></>}
         subheading={pageSettings?.heroSubheading || 'Find answers to common questions about resilient flooring, RFCI certifications, sustainability, and membership.'}
       />
 

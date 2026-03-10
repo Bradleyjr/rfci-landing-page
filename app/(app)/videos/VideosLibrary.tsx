@@ -99,7 +99,7 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
     <PageLayout>
       <PageHero
         label="Education"
-        heading={pageSettings?.heroHeading || <>Education & <span className="font-semibold text-rfci-blue">CEU Courses</span></>}
+        heading={pageSettings?.heroHeading || <>Education & <span className="font-semibold text-rfci-blue">CEU courses.</span></>}
         subheading={pageSettings?.heroSubheading || "Explore RFCI's continuing education program — earn CEU credits and deepen your understanding of resilient flooring certifications, sustainability practices, and material health."}
       />
 

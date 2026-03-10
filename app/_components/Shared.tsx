@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, Question, ShieldCheck, Seal, Certificate, Globe, Images, MapPin, Phone, EnvelopeSimple } from '@phosphor-icons/react'
+import { usePathname } from 'next/navigation'
+import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, Question, ShieldCheck, Seal, Certificate, Globe, Images, MapPin, Phone, EnvelopeSimple, LinkedinLogo, ArrowSquareOut } from '@phosphor-icons/react'
 
 const navItems = [
   {
@@ -18,6 +19,13 @@ const navItems = [
       { label: 'Resources', href: '/resources', desc: 'Technical documents, standards, and sustainability guides.', icon: FileText },
       { label: 'FAQ', href: '/faq', desc: 'Answers to common questions about resilient flooring.', icon: Question },
     ],
+    highlight: {
+      label: 'ecomedes',
+      href: 'https://rfci.ecomedes.com/',
+      logo: 'https://static.wixstatic.com/media/4d8d9d_10fe60eb91d1408cb8b3be4f23925209~mv2.png/v1/fill/w_288,h_288,al_c,q_85,enc_avif,quality_auto/Ecomedes_logo_oncecolor_black.png',
+      desc: 'Search certified resilient flooring products for green building projects.',
+      external: true,
+    },
   },
   {
     title: 'Certifications',
@@ -41,9 +49,17 @@ export const Navigation = ({
   isScrolled: boolean
   theme?: 'light' | 'dark'
 }) => {
+  const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openMenu, setOpenMenu] = useState<string | null>(null)
+  const [openMobileMega, setOpenMobileMega] = useState<string | null>(null)
   const [closeTimeout, setCloseTimeout] = useState<ReturnType<typeof setTimeout> | null>(null)
+
+  const isActive = (item: typeof navItems[0]) => {
+    if (item.href) return pathname === item.href
+    if (item.megaMenu) return item.megaMenu.some(child => pathname.startsWith(child.href))
+    return false
+  }
 
   const handleEnter = (title: string) => {
     if (closeTimeout) clearTimeout(closeTimeout)
@@ -81,14 +97,14 @@ export const Navigation = ({
                 <a
                   href={item.href || `#${item.title.toLowerCase()}`}
                   className={`relative flex items-center gap-1 text-sm font-medium tracking-wide py-4 transition-colors ${
-                    openMenu === item.title ? 'text-rfci-blue' : 'text-rfci-black/80 hover:text-rfci-blue'
+                    openMenu === item.title || isActive(item) ? 'text-rfci-blue' : 'text-rfci-black/80 hover:text-rfci-blue'
                   }`}
                 >
                   {item.title}
                   {item.megaMenu && (
                     <CaretDown className={`w-3 h-3 opacity-50 transition-transform duration-300 ${openMenu === item.title ? 'rotate-180' : ''}`} />
                   )}
-                  <span className={`absolute bottom-2 left-0 h-[2px] bg-rfci-blue transition-all duration-300 ${openMenu === item.title ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                  <span className={`absolute bottom-2 left-0 h-[2px] bg-rfci-blue transition-all duration-300 ${openMenu === item.title || isActive(item) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                 </a>
                 </div>
             ))}
@@ -120,24 +136,50 @@ export const Navigation = ({
             onMouseLeave={handleLeave}
           >
             <div className={`max-w-7xl mx-auto px-6 md:px-12 py-8`}>
-              <div className={`grid gap-4 ${item.megaMenu!.length > 4 ? 'grid-cols-3' : 'grid-cols-2'} max-w-[860px]`}>
-                {item.megaMenu!.map((megaItem) => (
-                  <a
-                    key={megaItem.label}
-                    href={megaItem.href}
-                    className="flex items-start gap-4 p-4 hover:bg-rfci-light-gray/30 transition-colors group/card border border-transparent hover:border-black/5"
-                  >
-                    <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center shrink-0 text-rfci-blue group-hover/card:bg-rfci-blue group-hover/card:text-white transition-colors">
-                      <megaItem.icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-display font-medium text-rfci-black mb-1 group-hover/card:text-rfci-blue transition-colors">
-                        {megaItem.label}
-                      </h4>
-                      <p className="text-xs text-rfci-black/60 leading-relaxed">{megaItem.desc}</p>
-                    </div>
-                  </a>
-                ))}
+              <div className={`flex gap-8 ${item.highlight ? '' : ''}`}>
+                <div className={`grid gap-4 ${item.megaMenu!.length > 4 ? 'grid-cols-3' : 'grid-cols-2'} ${item.highlight ? 'flex-1' : 'max-w-[860px]'}`}>
+                  {item.megaMenu!.map((megaItem) => (
+                    <a
+                      key={megaItem.label}
+                      href={megaItem.href}
+                      className="flex items-start gap-4 p-4 hover:bg-rfci-light-gray/30 transition-colors group/card border border-transparent hover:border-black/5"
+                    >
+                      <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center shrink-0 text-rfci-blue group-hover/card:bg-rfci-blue group-hover/card:text-white transition-colors">
+                        <megaItem.icon className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h4 className="font-display font-medium text-rfci-black mb-1 group-hover/card:text-rfci-blue transition-colors">
+                          {megaItem.label}
+                        </h4>
+                        <p className="text-xs text-rfci-black/60 leading-relaxed">{megaItem.desc}</p>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+
+                {/* Highlighted external link — right column spanning full height */}
+                {item.highlight && (
+                  <div className="w-64 shrink-0 border-l border-black/5 pl-8 flex">
+                    <a
+                      href={item.highlight.href}
+                      target={item.highlight.external ? '_blank' : undefined}
+                      rel={item.highlight.external ? 'noopener noreferrer' : undefined}
+                      className="flex flex-col items-center justify-center text-center p-6 bg-rfci-cream/50 hover:bg-rfci-cream transition-colors group/hl flex-1"
+                    >
+                      {item.highlight.logo ? (
+                        <img src={item.highlight.logo} alt={item.highlight.label} className="h-[84px] w-auto mb-4 opacity-70 group-hover/hl:opacity-100 transition-opacity" />
+                      ) : (
+                        <div className="w-12 h-12 bg-rfci-blue/10 flex items-center justify-center text-rfci-blue group-hover/hl:bg-rfci-blue group-hover/hl:text-white transition-colors mb-4">
+                          <ArrowSquareOut className="w-6 h-6" />
+                        </div>
+                      )}
+                      <p className="text-xs text-rfci-black/50 leading-relaxed mb-4">{item.highlight.desc}</p>
+                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-rfci-blue tracking-wide uppercase">
+                        Visit site <ArrowSquareOut className="w-3.5 h-3.5" />
+                      </span>
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -149,15 +191,24 @@ export const Navigation = ({
           <div className="flex flex-col gap-6">
             {navItems.map((item) => (
               <div key={item.title} className="border-b border-rfci-light-gray pb-4">
-                <a
-                  href={item.href || `#${item.title.toLowerCase()}`}
-                  className="text-2xl font-display font-medium text-rfci-black flex justify-between items-center"
-                  onClick={() => !item.megaMenu && setMobileMenuOpen(false)}
-                >
-                  {item.title}
-                  {item.megaMenu && <CaretDown className="w-5 h-5 opacity-50" />}
-                </a>
-                {item.megaMenu && (
+                {item.megaMenu ? (
+                  <button
+                    className={`w-full text-2xl font-display font-medium text-left flex justify-between items-center ${isActive(item) ? 'text-rfci-blue' : 'text-rfci-black'}`}
+                    onClick={() => setOpenMobileMega(openMobileMega === item.title ? null : item.title)}
+                  >
+                    {item.title}
+                    <CaretDown className={`w-5 h-5 opacity-50 transition-transform duration-300 ${openMobileMega === item.title ? 'rotate-180' : ''}`} />
+                  </button>
+                ) : (
+                  <a
+                    href={item.href || '#'}
+                    className={`text-2xl font-display font-medium ${isActive(item) ? 'text-rfci-blue' : 'text-rfci-black'}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.title}
+                  </a>
+                )}
+                {item.megaMenu && openMobileMega === item.title && (
                   <div className="flex flex-col gap-4 mt-4 pl-4 border-l-2 border-rfci-light-gray/50">
                     {item.megaMenu.map((megaItem) => (
                       <a
@@ -166,10 +217,25 @@ export const Navigation = ({
                         className="flex flex-col gap-1"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <span className="text-lg text-rfci-black/80 font-medium">{megaItem.label}</span>
+                        <span className={`text-lg font-medium ${pathname === megaItem.href ? 'text-rfci-blue' : 'text-rfci-black/80'}`}>{megaItem.label}</span>
                         <span className="text-xs text-rfci-black/50">{megaItem.desc}</span>
                       </a>
                     ))}
+                    {item.highlight && (
+                      <div className="mt-2 pt-3 border-t border-rfci-light-gray/30">
+                        <a
+                          href={item.highlight.href}
+                          target={item.highlight.external ? '_blank' : undefined}
+                          rel={item.highlight.external ? 'noopener noreferrer' : undefined}
+                          className="flex items-center gap-3"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          <span className="text-lg font-medium text-rfci-blue">{item.highlight.label}</span>
+                          {item.highlight.external && <ArrowSquareOut className="w-4 h-4 text-rfci-blue/60" />}
+                        </a>
+                        <span className="text-xs text-rfci-black/50">{item.highlight.desc}</span>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
@@ -203,7 +269,7 @@ export const Footer = () => (
           </p>
           <div className="flex gap-4">
             <a href="https://www.linkedin.com/company/resilient-floor-covering-institute/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-rfci-teal transition-colors">
-              <span className="text-xs font-bold">IN</span>
+              <LinkedinLogo className="w-4 h-4" weight="fill" />
             </a>
           </div>
         </div>

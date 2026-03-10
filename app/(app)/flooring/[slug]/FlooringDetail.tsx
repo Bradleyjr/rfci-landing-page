@@ -1,6 +1,7 @@
 'use client'
 
-import { ArrowRight, ArrowLeft } from '@phosphor-icons/react'
+import { useState, useEffect, useRef, useMemo } from 'react'
+import { ArrowRight, ArrowLeft, CheckCircle } from '@phosphor-icons/react'
 import { PageLayout } from '../../../_components/PageLayout'
 import { SectionReveal } from '../../../_components/SectionReveal'
 import { TAG_STYLES, mediaUrl } from '../../../_lib/transforms'
@@ -15,6 +16,83 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
   const features: Array<{ title: string; description: string }> = ft.features ?? []
   const applications: Array<{ environment: string; description: string }> = ft.applications ?? []
   const relatedCerts: Array<{ slug: string; title: string; iconName: string; description: string }> = ft.relatedCertifications ?? []
+  const advantages: string[] = ft.advantages ?? []
+  const composition: string = ft.composition ?? ''
+  const installation: string = ft.installation ?? ''
+
+  // Build dynamic section list based on available content
+  const sections = useMemo(() => {
+    const s: Array<{ id: string; label: string }> = []
+    if (composition) s.push({ id: 'composition', label: 'Composition' })
+    if (features.length > 0) s.push({ id: 'features', label: 'Features' })
+    if (advantages.length > 0) s.push({ id: 'advantages', label: 'Advantages' })
+    if (installation) s.push({ id: 'installation', label: 'Installation' })
+    if (applications.length > 0) s.push({ id: 'applications', label: 'Applications' })
+    if (relatedCerts.length > 0) s.push({ id: 'certifications', label: 'Certifications' })
+    return s
+  }, [composition, features.length, advantages.length, installation, applications.length, relatedCerts.length])
+
+  // Measure main nav bottom on scroll so sticky nav always sits flush below it
+  const [navBottom, setNavBottom] = useState(0)
+  const [sectionNavHeight, setSectionNavHeight] = useState(0)
+  const sectionNavRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const mainNav = document.querySelector('nav.fixed') as HTMLElement | null
+    if (!mainNav) return
+
+    const measure = () => {
+      setNavBottom(mainNav.getBoundingClientRect().bottom)
+      if (sectionNavRef.current) setSectionNavHeight(sectionNavRef.current.offsetHeight)
+    }
+    measure()
+
+    // Re-measure on scroll (nav height changes via CSS transition on scroll)
+    window.addEventListener('scroll', measure, { passive: true })
+    window.addEventListener('resize', measure)
+    return () => {
+      window.removeEventListener('scroll', measure)
+      window.removeEventListener('resize', measure)
+    }
+  }, [])
+
+  // Intersection Observer for active section tracking
+  const [activeSection, setActiveSection] = useState(sections[0]?.id ?? '')
+  const observerRef = useRef<IntersectionObserver | null>(null)
+
+  useEffect(() => {
+    if (sections.length === 0) return
+
+    const handleIntersect = (entries: IntersectionObserverEntry[]) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)
+      if (visible.length > 0) {
+        setActiveSection(visible[0].target.id)
+      }
+    }
+
+    observerRef.current = new IntersectionObserver(handleIntersect, {
+      rootMargin: `-${navBottom + 56}px 0px -50% 0px`,
+      threshold: 0.1,
+    })
+
+    sections.forEach(({ id }) => {
+      const el = document.getElementById(id)
+      if (el) observerRef.current?.observe(el)
+    })
+
+    return () => observerRef.current?.disconnect()
+  }, [sections, navBottom])
+
+  const scrollOffset = navBottom + sectionNavHeight
+
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
 
   return (
     <PageLayout>
@@ -63,11 +141,57 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
         </section>
       )}
 
+      {/* Sticky Section Nav */}
+      {sections.length > 1 && (
+        <nav className="sticky z-40 bg-white/95 backdrop-blur-sm border-b border-black/5" style={{ top: navBottom }} ref={sectionNavRef}>
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="flex gap-1 py-4 overflow-x-auto scrollbar-hide">
+              {sections.map(({ id, label }) => (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  className={`whitespace-nowrap px-4 py-2 rounded-full text-label font-bold tracking-widest uppercase transition-colors ${
+                    activeSection === id
+                      ? 'bg-rfci-blue text-white'
+                      : 'text-rfci-black/50 hover:text-rfci-black hover:bg-black/5'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </nav>
+      )}
+
+      {/* Composition */}
+      {composition && (
+        <section id="composition" className="py-20 md:py-28 bg-white" style={{ scrollMarginTop: scrollOffset }}>
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+              <SectionReveal className="lg:col-span-2">
+                <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
+                <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Composition</div>
+                <h2 className="text-3xl md:text-4xl font-display font-light">
+                  What it&rsquo;s <span className="font-semibold">made of</span>
+                </h2>
+              </SectionReveal>
+              <SectionReveal className="lg:col-span-3" delay={0.1}>
+                <p className="text-rfci-black/70 leading-relaxed text-base md:text-lg font-light">
+                  {composition}
+                </p>
+              </SectionReveal>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Features */}
       {features.length > 0 && (
-        <section className="py-20 md:py-28 bg-white">
+        <section id="features" className="py-20 md:py-28 bg-rfci-cream" style={{ scrollMarginTop: scrollOffset }}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-16">
+              <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Performance</div>
               <h2 className="text-3xl md:text-4xl font-display font-light">
                 Key <span className="font-semibold">features</span>
@@ -77,7 +201,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {features.map((feature, i) => (
                 <SectionReveal key={i} delay={i * 0.08}>
-                  <div className="border-t-2 pt-6" style={{ borderColor: ft.accentColor ?? '#9CA3AF' }}>
+                  <div className="bg-white p-8 border-t-2 border-black/5" style={{ borderTopColor: ft.accentColor ?? '#9CA3AF' }}>
                     <h3 className="text-lg font-display font-medium mb-3">{feature.title}</h3>
                     <p className="text-rfci-black/60 text-sm leading-relaxed font-light">{feature.description}</p>
                   </div>
@@ -88,11 +212,66 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
         </section>
       )}
 
+      {/* Advantages */}
+      {advantages.length > 0 && (
+        <section id="advantages" className="py-20 md:py-28 bg-white" style={{ scrollMarginTop: scrollOffset }}>
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+              <SectionReveal className="lg:col-span-2">
+                <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
+                <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Advantages</div>
+                <h2 className="text-3xl md:text-4xl font-display font-light mb-4">
+                  Why choose <span className="font-semibold">{ft.title}</span>
+                </h2>
+                <p className="text-rfci-black/50 font-light leading-relaxed">
+                  The key benefits that make {ft.title} a trusted choice across residential and commercial environments.
+                </p>
+              </SectionReveal>
+              <div className="lg:col-span-3">
+                <ul className="space-y-4">
+                  {advantages.map((adv, i) => (
+                    <SectionReveal key={i} delay={i * 0.05}>
+                      <li className="flex gap-4 items-start">
+                        <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: ft.accentColor ?? '#0164DB' }} weight="fill" />
+                        <span className="text-rfci-black/70 leading-relaxed font-light">{adv}</span>
+                      </li>
+                    </SectionReveal>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Installation */}
+      {installation && (
+        <section id="installation" className="py-20 md:py-28" style={{ backgroundColor: ft.accentColor ? `${ft.accentColor}10` : '#F5F5F0', scrollMarginTop: scrollOffset }}>
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
+              <SectionReveal className="lg:col-span-2">
+                <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
+                <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Installation</div>
+                <h2 className="text-3xl md:text-4xl font-display font-light">
+                  How it&rsquo;s <span className="font-semibold">installed</span>
+                </h2>
+              </SectionReveal>
+              <SectionReveal className="lg:col-span-3" delay={0.1}>
+                <p className="text-rfci-black/70 leading-relaxed text-base md:text-lg font-light">
+                  {installation}
+                </p>
+              </SectionReveal>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Applications */}
       {applications.length > 0 && (
-        <section className="py-20 md:py-28 bg-rfci-cream">
+        <section id="applications" className="py-20 md:py-28 bg-rfci-cream" style={{ scrollMarginTop: scrollOffset }}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-16">
+              <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Applications</div>
               <h2 className="text-3xl md:text-4xl font-display font-light">
                 Where <span className="font-semibold">{ft.title}</span> excels
@@ -115,9 +294,10 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
 
       {/* Related Certifications */}
       {relatedCerts.length > 0 && (
-        <section className="py-20 md:py-28 bg-white">
+        <section id="certifications" className="py-20 md:py-28 bg-white" style={{ scrollMarginTop: scrollOffset }}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
+              <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Certifications</div>
               <h2 className="text-3xl md:text-4xl font-display font-light">
                 Applicable <span className="font-semibold">certifications</span>
