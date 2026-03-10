@@ -14,7 +14,7 @@ import { mediaUrl } from '../../_lib/transforms'
 // Static data
 // ---------------------------------------------------------------------------
 
-const PROJECTS_STATIC = [
+export const PROJECTS_STATIC = [
   { title: 'AHF Fog Residential', imageUrl: 'https://rfci.com/wp-content/uploads/2022/03/1HG2M005_Fog-ROOM-1.jpg', memberName: 'AHF Products', flooringTypeName: 'Rubber', environmentName: 'Homes', description: 'A serene residential installation featuring AHF\'s Fog collection, demonstrating how rubber floor tiles create warm, quiet interiors.' },
   { title: 'American Biltrite ABPure Cafeteria', imageUrl: 'https://rfci.com/wp-content/uploads/2022/03/abpure_cafeteria_ABS-38-34.jpg', memberName: 'American Biltrite', flooringTypeName: 'Homogeneous Sheet Vinyl', environmentName: 'Education', description: 'ABPure resilient flooring in a high-traffic cafeteria, chosen for hygienic properties and ease of maintenance.' },
   { title: 'Beauflor Blacktex HD', imageUrl: 'https://rfci.com/wp-content/uploads/2019/06/Sheet-Vinyl-Blacktex-HD-Abstract_Mocha-Celina-Wood_607M.jpg', memberName: 'Beauflor', flooringTypeName: 'Heterogeneous Sheet Vinyl', environmentName: 'Homes', description: 'Premium wood-look sheet vinyl in Abstract Mocha and Celina Wood pattern for residential applications.' },
