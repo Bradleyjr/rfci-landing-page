@@ -394,7 +394,13 @@ const PLACEMENTS = [
 
 function InspirationParallax({ title, accentColor }: { title: string; accentColor?: string }) {
   const galleryImages = useMemo(
-    () => PROJECTS_STATIC.filter((p) => p.flooringTypeName === title).slice(0, PLACEMENTS.length),
+    () => {
+      const norm = title.toLowerCase()
+      return PROJECTS_STATIC.filter((p) => {
+        const pName = p.flooringTypeName.toLowerCase()
+        return pName === norm || norm.startsWith(pName) || pName.startsWith(norm)
+      }).slice(0, PLACEMENTS.length)
+    },
     [title],
   )
 
