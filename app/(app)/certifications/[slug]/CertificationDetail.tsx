@@ -96,10 +96,10 @@ export function CertificationDetail({ certification: cert, otherCertifications }
               </h2>
             </SectionReveal>
 
-            <div className="space-y-6">
+            <div className="divide-y divide-rfci-black/5">
               {benefits.map((benefit, i) => (
                 <SectionReveal key={i} delay={i * 0.06}>
-                  <div className="grid md:grid-cols-12 gap-4 md:gap-8 py-6 border-b border-rfci-black/5 last:border-0">
+                  <div className="grid md:grid-cols-12 gap-4 md:gap-8 py-6">
                     <div className="md:col-span-1">
                       <span className="text-2xl font-display font-light text-rfci-blue/40">
                         {String(i + 1).padStart(2, '0')}
