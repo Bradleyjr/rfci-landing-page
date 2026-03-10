@@ -110,22 +110,6 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 hidden md:flex"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
-      >
-        <span className="text-label font-bold tracking-widest uppercase text-rfci-black/50">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-5 h-8 border-2 border-rfci-black/20 rounded-full flex justify-center pt-1.5"
-        >
-          <div className="w-1 h-1.5 bg-rfci-black/50 rounded-full" />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }

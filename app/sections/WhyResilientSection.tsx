@@ -85,7 +85,7 @@ export function WhyResilientSection() {
               />
               {/* Stat badge — overlays bottom-left of photo */}
               <div className="absolute bottom-6 left-6 bg-white p-5 shadow-[0_8px_30px_rgba(0,0,0,0.15)]">
-                <div className="text-4xl md:text-5xl font-display font-bold text-rfci-blue leading-none mb-1">
+                <div className="text-4xl md:text-5xl font-display font-bold text-rfci-teal leading-none mb-1">
                   <AnimatedCounter target={statTarget} />
                 </div>
                 <p className="text-xs text-rfci-black/60 font-light leading-snug max-w-[130px]">
@@ -98,7 +98,7 @@ export function WhyResilientSection() {
           {/* Right — Heading + benefit list */}
           <SectionReveal direction="right" className="lg:col-span-6 lg:pt-4">
             <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">{SITE_SETTINGS.whyResilientHeading || 'Why Resilient?'}</div>
-            <h2 className="text-4xl md:text-5xl font-display font-light leading-tight mb-10">
+            <h2 className="text-4xl md:text-5xl font-display font-medium leading-tight mb-10">
               {SITE_SETTINGS.whyResilientSubheading}
             </h2>
 
@@ -108,12 +108,13 @@ export function WhyResilientSection() {
                 const Icon = benefit.icon
                 return (
                   <div key={idx} className="flex gap-5 py-5 first:pt-0 last:pb-0 items-start group">
-                    <div className="w-9 h-9 bg-rfci-blue/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-rfci-blue/20 transition-colors duration-300">
-                      <Icon className="w-4 h-4 text-rfci-blue" />
-                    </div>
+                    <div className="w-px self-stretch bg-rfci-blue/20 group-hover:bg-rfci-blue transition-colors duration-300 shrink-0" />
                     <div>
-                      <h3 className="font-display font-semibold text-rfci-black mb-1">{benefit.title}</h3>
-                      <p className="text-sm text-rfci-black/60 leading-relaxed font-light">{benefit.description}</p>
+                      <div className="flex items-center gap-2 mb-1">
+                        <Icon className="w-4 h-4 text-rfci-blue/50" />
+                        <h3 className="font-display font-semibold text-rfci-black">{benefit.title}</h3>
+                      </div>
+                      <p className="text-sm text-rfci-black/60 leading-relaxed">{benefit.description}</p>
                     </div>
                   </div>
                 )

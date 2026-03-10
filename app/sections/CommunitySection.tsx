@@ -51,9 +51,8 @@ export function CommunitySection() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-12 gap-16 items-center">
           <SectionReveal direction="left" className="lg:col-span-7">
-            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-3">The Community</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-8 leading-tight">
-              {firstPart ? <>{firstPart}<br /></> : null}<span className="font-semibold text-rfci-blue">{lastPart}</span>
+              {firstPart ? <>{firstPart}<br /></> : null}<span className="font-semibold text-rfci-teal">{lastPart}</span>
             </h2>
             <p className="text-xl text-rfci-black/70 font-light leading-relaxed max-w-2xl">
               {sectionSubheading}
@@ -73,7 +72,7 @@ export function CommunitySection() {
                   </p>
                 </div>
               </div>
-              <a href="mailto:info@rfci.com" className="w-full py-3 border border-rfci-light-gray text-sm font-medium hover:border-rfci-black hover:bg-rfci-black hover:text-white transition-all duration-200 flex items-center justify-center gap-2 group">
+              <a href="mailto:info@rfci.com" className="w-full py-3 bg-rfci-blue text-white text-sm font-medium hover:bg-rfci-black transition-colors duration-200 flex items-center justify-center gap-2 group">
                 Inquire About This Event <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>

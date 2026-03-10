@@ -21,14 +21,11 @@ export function EnvironmentsSection() {
   return (
     <section id="environments" className="py-28 md:py-32 bg-rfci-white relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <SectionReveal className="text-center mb-16 md:mb-24">
-          <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4 flex items-center justify-center gap-2">
-            Residential &amp; Commercial
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6 leading-tight">
+        <SectionReveal className="mb-16 md:mb-24 max-w-3xl">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium mb-6 leading-tight">
             {SITE_SETTINGS.environmentsHeading}
           </h2>
-          <p className="text-lg md:text-xl text-rfci-black/70 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-rfci-black/60 leading-relaxed">
             {SITE_SETTINGS.environmentsSubheading}
           </p>
         </SectionReveal>

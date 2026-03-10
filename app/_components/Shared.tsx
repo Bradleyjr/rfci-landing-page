@@ -144,9 +144,7 @@ export const Navigation = ({
                       href={megaItem.href}
                       className="flex items-start gap-4 p-4 hover:bg-rfci-light-gray/30 transition-colors group/card border border-transparent hover:border-black/5"
                     >
-                      <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center shrink-0 text-rfci-blue group-hover/card:bg-rfci-blue group-hover/card:text-white transition-colors">
-                        <megaItem.icon className="w-5 h-5" />
-                      </div>
+                      <megaItem.icon className="w-5 h-5 shrink-0 mt-0.5 text-rfci-black/30 group-hover/card:text-rfci-blue transition-colors" />
                       <div>
                         <h4 className="font-display font-medium text-rfci-black mb-1 group-hover/card:text-rfci-blue transition-colors">
                           {megaItem.label}
