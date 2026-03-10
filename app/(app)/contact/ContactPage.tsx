@@ -238,7 +238,7 @@ export function ContactPage() {
               <div className="aspect-[4/3] bg-rfci-black/5 overflow-hidden">
                 <iframe
                   title="RFCI Headquarters Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3355.5!2d-85.0394!3d33.0356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x888b4e5a8f5c1c1d%3A0x1234567890abcdef!2s115+Greystone+Power+Blvd%2C+LaGrange%2C+GA+30240!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                  src="https://www.google.com/maps?q=115+Greystone+Power+Blvd,+LaGrange,+GA+30240&output=embed"
                   className="w-full h-full border-0"
                   allowFullScreen
                   loading="lazy"

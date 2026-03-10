@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, Question, ShieldCheck, Seal, Certificate, Globe, Images, MapPin, Phone, EnvelopeSimple, LinkedinLogo, ArrowSquareOut } from '@phosphor-icons/react'
 
@@ -58,6 +58,23 @@ export const Navigation = ({
   const [openMenu, setOpenMenu] = useState<string | null>(null)
   const [openMobileMega, setOpenMobileMega] = useState<string | null>(null)
   const [closeTimeout, setCloseTimeout] = useState<ReturnType<typeof setTimeout> | null>(null)
+
+  // Close mobile menu on Escape + lock body scroll
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMobileMenuOpen(false)
+        setOpenMenu(null)
+      }
+    }
+    document.addEventListener('keydown', handleEscape)
+    return () => document.removeEventListener('keydown', handleEscape)
+  }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [mobileMenuOpen])
 
   const isActive = (item: typeof navItems[0]) => {
     if (item.href) return pathname === item.href
@@ -270,7 +287,7 @@ export const Footer = () => (
             The Resilient Floor Covering Institute represents the manufacturers and suppliers behind resilient flooring—working together on standards, certifications, and education.
           </p>
           <div className="flex gap-4">
-            <a href="https://www.linkedin.com/company/resilient-floor-covering-institute/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-rfci-teal transition-colors">
+            <a href="https://www.linkedin.com/company/resilient-floor-covering-institute/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-rfci-blue transition-colors">
               <LinkedinLogo className="w-4 h-4" weight="fill" />
             </a>
           </div>
@@ -279,33 +296,33 @@ export const Footer = () => (
         <div className="lg:col-span-2 lg:col-start-7">
           <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">About</h4>
           <ul className="space-y-4 text-sm text-white/70">
-            <li><a href="/about#who-we-are" className="hover:text-rfci-teal transition-colors">Who We Are</a></li>
-            <li><a href="/about#who-we-are" className="hover:text-rfci-teal transition-colors">History & Mission</a></li>
-            <li><a href="/about#strategic-imperatives" className="hover:text-rfci-teal transition-colors">Strategic Imperatives</a></li>
-            <li><a href="/about#board-of-directors" className="hover:text-rfci-teal transition-colors">Board of Directors</a></li>
-            <li><a href="/about" className="hover:text-rfci-teal transition-colors">Community & Philanthropy</a></li>
+            <li><a href="/about#who-we-are" className="hover:text-rfci-blue transition-colors">Who We Are</a></li>
+            <li><a href="/about#who-we-are" className="hover:text-rfci-blue transition-colors">History & Mission</a></li>
+            <li><a href="/about#strategic-imperatives" className="hover:text-rfci-blue transition-colors">Strategic Imperatives</a></li>
+            <li><a href="/about#board-of-directors" className="hover:text-rfci-blue transition-colors">Board of Directors</a></li>
+            <li><a href="/about" className="hover:text-rfci-blue transition-colors">Community & Philanthropy</a></li>
           </ul>
         </div>
 
         <div className="lg:col-span-2">
           <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">Resources</h4>
           <ul className="space-y-4 text-sm text-white/70">
-            <li><a href="/why-resilient" className="hover:text-rfci-teal transition-colors">Why Resilient</a></li>
-            <li><a href="/flooring" className="hover:text-rfci-teal transition-colors">Flooring Types</a></li>
-            <li><a href="/resources" className="hover:text-rfci-teal transition-colors">Resources</a></li>
-            <li><a href="/videos" className="hover:text-rfci-teal transition-colors">Educational Videos</a></li>
-            <li><a href="/faq" className="hover:text-rfci-teal transition-colors">FAQ</a></li>
+            <li><a href="/why-resilient" className="hover:text-rfci-blue transition-colors">Why Resilient</a></li>
+            <li><a href="/flooring" className="hover:text-rfci-blue transition-colors">Flooring Types</a></li>
+            <li><a href="/resources" className="hover:text-rfci-blue transition-colors">Resources</a></li>
+            <li><a href="/videos" className="hover:text-rfci-blue transition-colors">Educational Videos</a></li>
+            <li><a href="/faq" className="hover:text-rfci-blue transition-colors">FAQ</a></li>
           </ul>
         </div>
 
         <div className="lg:col-span-2">
           <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">Organization</h4>
           <ul className="space-y-4 text-sm text-white/70">
-            <li><a href="/certifications" className="hover:text-rfci-teal transition-colors">Certifications</a></li>
-            <li><a href="/certifications/floorscore" className="hover:text-rfci-teal transition-colors pl-3 text-white/50">FloorScore®</a></li>
-            <li><a href="/certifications/assure" className="hover:text-rfci-teal transition-colors pl-3 text-white/50">ASSURE® Certified</a></li>
-            <li><a href="/members" className="hover:text-rfci-teal transition-colors">Member Directory</a></li>
-            <li><a href="/inspiration" className="hover:text-rfci-teal transition-colors">Inspiration Gallery</a></li>
+            <li><a href="/certifications" className="hover:text-rfci-blue transition-colors">Certifications</a></li>
+            <li><a href="/certifications/floorscore" className="hover:text-rfci-blue transition-colors pl-3 text-white/50">FloorScore®</a></li>
+            <li><a href="/certifications/assure" className="hover:text-rfci-blue transition-colors pl-3 text-white/50">ASSURE® Certified</a></li>
+            <li><a href="/members" className="hover:text-rfci-blue transition-colors">Member Directory</a></li>
+            <li><a href="/inspiration" className="hover:text-rfci-blue transition-colors">Inspiration Gallery</a></li>
           </ul>
         </div>
       </div>
@@ -314,7 +331,7 @@ export const Footer = () => (
       <div className="border-t border-white/10 pt-10 mb-10">
         <div className="grid md:grid-cols-3 gap-8 text-sm text-white/60">
           <div className="flex items-start gap-3">
-            <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-rfci-teal" />
+            <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-rfci-blue" />
             <div>
               <div className="font-medium text-white/80 mb-1">RFCI Headquarters</div>
               115 Greystone Power Blvd<br />
@@ -322,17 +339,17 @@ export const Footer = () => (
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <Phone className="w-4 h-4 mt-0.5 shrink-0 text-rfci-teal" />
+            <Phone className="w-4 h-4 mt-0.5 shrink-0 text-rfci-blue" />
             <div>
               <div className="font-medium text-white/80 mb-1">Phone</div>
-              <a href="tel:+17068822710" className="hover:text-rfci-teal transition-colors">(706) 882-2710</a>
+              <a href="tel:+17068822710" className="hover:text-rfci-blue transition-colors">(706) 882-2710</a>
             </div>
           </div>
           <div className="flex items-start gap-3">
-            <EnvelopeSimple className="w-4 h-4 mt-0.5 shrink-0 text-rfci-teal" />
+            <EnvelopeSimple className="w-4 h-4 mt-0.5 shrink-0 text-rfci-blue" />
             <div>
               <div className="font-medium text-white/80 mb-1">Email</div>
-              <a href="mailto:info@rfci.com" className="hover:text-rfci-teal transition-colors">info@rfci.com</a>
+              <a href="mailto:info@rfci.com" className="hover:text-rfci-blue transition-colors">info@rfci.com</a>
             </div>
           </div>
         </div>
