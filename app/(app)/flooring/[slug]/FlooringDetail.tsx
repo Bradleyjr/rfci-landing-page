@@ -1,10 +1,11 @@
 'use client'
 
-import { useState, useEffect, useRef, useMemo } from 'react'
-import { ArrowRight, ArrowLeft, CheckCircle } from '@phosphor-icons/react'
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
+import { ArrowRight, ArrowLeft, CheckCircle, ArrowUpRight } from '@phosphor-icons/react'
 import { PageLayout } from '../../../_components/PageLayout'
 import { SectionReveal } from '../../../_components/SectionReveal'
 import { TAG_STYLES, mediaUrl } from '../../../_lib/transforms'
+import { PROJECTS_STATIC } from '../../inspiration/InspirationGallery'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType: any; otherTypes: any[] }) {
@@ -326,51 +327,40 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
         </section>
       )}
 
-      {/* CTA to Inspiration */}
-      <section className="py-16 bg-rfci-blue">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
-          <SectionReveal>
-            <h2 className="text-2xl md:text-3xl font-display font-light text-white mb-4">
-              See <span className="font-semibold">{ft.title}</span> in action
-            </h2>
-            <a
-              href="/inspiration"
-              className="inline-flex items-center gap-3 text-white text-lg font-display font-medium hover:gap-4 transition-all border-b border-white/30 pb-1 hover:border-white"
-            >
-              Browse the Inspiration Gallery <ArrowRight className="w-5 h-5" />
-            </a>
-          </SectionReveal>
-        </div>
-      </section>
+      {/* Inspiration Gallery — scroll-locked parallax */}
+      <InspirationParallax title={ft.title} accentColor={ft.accentColor} />
 
-      {/* Other Flooring Types */}
+      {/* Other Flooring Types — marquee */}
       {otherTypes.length > 0 && (
-        <section className="py-20 md:py-28 bg-rfci-cream">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <SectionReveal className="mb-12">
+        <section className="py-16 md:py-20 bg-rfci-cream overflow-hidden">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
+            <SectionReveal>
               <h2 className="text-2xl md:text-3xl font-display font-light">
                 Explore other <span className="font-semibold text-rfci-blue">flooring types</span>
               </h2>
             </SectionReveal>
+          </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-              {otherTypes.slice(0, 4).map((other: FlooringLike, i: number) => (
-                <SectionReveal key={other.slug || i} delay={i * 0.08}>
-                  <a
-                    href={`/flooring/${other.slug}`}
-                    className="group block bg-white border border-black/5 hover:border-rfci-blue/30 hover:shadow-lg transition-all overflow-hidden"
-                  >
-                    <div className="h-1" style={{ backgroundColor: other.accentColor ?? '#9CA3AF' }} />
-                    <div className="p-6">
-                      <h3 className="text-lg font-display font-light group-hover:text-rfci-blue transition-colors mb-1">
-                        {other.title}
-                      </h3>
-                      <span className="text-label font-bold tracking-widest uppercase text-rfci-black/50">
-                        {other.subtitle}
-                      </span>
-                    </div>
-                  </a>
-                </SectionReveal>
+          <div className="relative">
+            {/* Left/right fade edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-rfci-cream to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-rfci-cream to-transparent z-10 pointer-events-none" />
+
+            <div className="flex gap-5 animate-marquee hover:[animation-play-state:paused]">
+              {/* Double the items for seamless loop */}
+              {[...otherTypes, ...otherTypes].map((other: FlooringLike, i: number) => (
+                <a
+                  key={`${other.slug}-${i}`}
+                  href={`/flooring/${other.slug}`}
+                  className="group flex-shrink-0 w-64 bg-white border border-black/5 hover:border-rfci-blue/30 hover:shadow-lg transition-all p-6"
+                >
+                  <h3 className="text-lg font-display font-light group-hover:text-rfci-blue transition-colors mb-1">
+                    {other.title}
+                  </h3>
+                  <span className="text-label font-bold tracking-widest uppercase text-rfci-black/50">
+                    {other.subtitle}
+                  </span>
+                </a>
               ))}
             </div>
           </div>
@@ -385,4 +375,119 @@ type FlooringLike = {
   title: string
   subtitle: string
   accentColor?: string
+}
+
+// ---------------------------------------------------------------------------
+// Scroll-locked parallax inspiration gallery
+// ---------------------------------------------------------------------------
+
+// Editorial placements — each image has a starting position within the
+// viewport (startTop as vh%) so they're immediately visible on entry,
+// then each drifts upward at its own speed until it exits the top.
+const PLACEMENTS = [
+  { left: '5%',  startTop: 42, w: 'w-[38%] md:w-[28%]', aspect: 'aspect-[3/4]', speed: 0.45 },
+  { left: '55%', startTop: 52, w: 'w-[40%] md:w-[30%]', aspect: 'aspect-[4/3]', speed: 0.6 },
+  { left: '25%', startTop: 67, w: 'w-[32%] md:w-[22%]', aspect: 'aspect-square', speed: 0.35 },
+  { left: '62%', startTop: 77, w: 'w-[34%] md:w-[24%]', aspect: 'aspect-[3/4]', speed: 0.5 },
+  { left: '8%',  startTop: 87, w: 'w-[36%] md:w-[26%]', aspect: 'aspect-[4/3]', speed: 0.65 },
+]
+
+function InspirationParallax({ title, accentColor }: { title: string; accentColor?: string }) {
+  const galleryImages = useMemo(
+    () => PROJECTS_STATIC.filter((p) => p.flooringTypeName === title).slice(0, PLACEMENTS.length),
+    [title],
+  )
+
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const imageRefs = useRef<(HTMLDivElement | null)[]>([])
+  const rafRef = useRef<number>(0)
+
+  const onScroll = useCallback(() => {
+    const wrapper = wrapperRef.current
+    if (!wrapper) return
+
+    const rect = wrapper.getBoundingClientRect()
+    const viewH = window.innerHeight
+    const scrollable = wrapper.offsetHeight - viewH
+    if (scrollable <= 0) return
+    const progress = Math.min(1, Math.max(0, -rect.top / scrollable))
+
+    imageRefs.current.forEach((el, i) => {
+      if (!el) return
+      const { startTop, speed } = PLACEMENTS[i]
+      // Start at its natural position (startTop vh), fly upward as progress increases
+      const startY = (startTop / 100) * viewH
+      const travel = viewH * 0.7 * speed
+      const y = startY - progress * travel
+      el.style.transform = `translateY(${y}px)`
+    })
+  }, [])
+
+  useEffect(() => {
+    if (galleryImages.length === 0) return
+    const tick = () => {
+      onScroll()
+      rafRef.current = requestAnimationFrame(tick)
+    }
+    rafRef.current = requestAnimationFrame(tick)
+    return () => cancelAnimationFrame(rafRef.current)
+  }, [onScroll, galleryImages.length])
+
+  if (galleryImages.length === 0) return null
+
+  return (
+    <section
+      ref={wrapperRef}
+      className="relative"
+      style={{ height: '180vh' }}
+    >
+      <div className="sticky top-0 h-screen overflow-hidden bg-rfci-cream">
+        {/* Header */}
+        <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-rfci-cream via-rfci-cream/80 to-transparent pt-16 pb-28 px-6 md:px-12">
+          <div className="max-w-7xl mx-auto">
+            <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: accentColor ?? '#9CA3AF' }} />
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">In Action</div>
+            <h2 className="text-3xl md:text-4xl font-display font-light">
+              See <span className="font-semibold">{title}</span> in real spaces
+            </h2>
+          </div>
+        </div>
+
+        {/* Scattered editorial images */}
+        <div className="absolute inset-0 max-w-7xl mx-auto left-0 right-0 px-6 md:px-12">
+          {galleryImages.map((project, i) => {
+            const p = PLACEMENTS[i]
+            return (
+              <div
+                key={project.title}
+                ref={(el) => { imageRefs.current[i] = el }}
+                className={`absolute ${p.w} will-change-transform`}
+                style={{ left: p.left, top: 0 }}
+              >
+                <div className={`${p.aspect} overflow-hidden shadow-lg`}>
+                  <img
+                    src={project.imageUrl}
+                    alt={project.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Bottom gradient + CTA */}
+        <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-rfci-cream via-rfci-cream/80 to-transparent pb-10 pt-28 text-center">
+          <a
+            href="/inspiration"
+            className="inline-flex items-center gap-2 text-rfci-blue font-display font-medium text-lg hover:gap-3 transition-all group"
+          >
+            Browse the Inspiration Gallery
+            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+          </a>
+        </div>
+      </div>
+    </section>
+  )
 }

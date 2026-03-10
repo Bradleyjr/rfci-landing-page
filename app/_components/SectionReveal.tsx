@@ -17,12 +17,14 @@ export function SectionReveal({
   direction = 'up',
   delay = 0,
   className = '',
+  style,
 }: {
   key?: Key
   children: ReactNode
   direction?: Direction
   delay?: number
   className?: string
+  style?: React.CSSProperties
 }) {
   const offset = offsets[direction]
   return (
@@ -36,6 +38,7 @@ export function SectionReveal({
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>
