@@ -268,20 +268,6 @@ const FLOORING_FALLBACK: Record<string, any> = {
     ],
     relatedCertifications: [CERT_FLOORSCORE, CERT_EPD],
   },
-  'wall-base': {
-    title: 'Resilient Wall Base', subtitle: 'Cove Base · Accessories', slug: 'wall-base',
-    accentColor: '#546E7A',
-    description: 'Vinyl and rubber wall base products that provide a clean, durable transition between floor and wall. Available in cove, straight, or carpet profiles in heights from 2.5" to 6".',
-    tags: [{ label: 'Accessory', variant: 'gray' }, { label: 'Durable', variant: 'green' }],
-    features: [
-      { title: 'Clean Transitions', description: 'Provides a finished, professional transition between flooring and wall surfaces.' },
-      { title: 'Multiple Profiles', description: 'Available in cove base, straight base, and carpet base profiles for any installation.' },
-      { title: 'Color Matching', description: 'Extensive color selection to coordinate with virtually any flooring product.' },
-    ],
-    applications: [
-      { environment: 'Commercial', description: 'Standard specification for commercial projects requiring durable wall-to-floor transitions.' },
-    ],
-  },
 }
 
 function generateSlugFromTitle(title: string): string {
