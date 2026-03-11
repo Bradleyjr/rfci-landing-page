@@ -2,78 +2,56 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { FileText, Download, FunnelSimple, BookOpen, Leaf, Scales, Article, Notebook, ArrowSquareOut, Play, ArrowRight } from '@phosphor-icons/react'
+import { FileText, Download, FunnelSimple, BookOpen, ShieldCheck, TreeStructure, Article, Globe, ArrowSquareOut, Play, ArrowRight } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
 import { mediaUrl } from '../../_lib/transforms'
 
-const RESOURCES_STATIC = [
-  { title: 'RFCI Recommended Work Practices for Resilient Floor Coverings', description: 'Comprehensive guide covering best practices for installation and maintenance of resilient flooring products.', type: 'technical', externalUrl: 'https://rfci.com/technical-resources/' },
-  { title: 'FloorScore Program Guide', description: 'Complete guide to the FloorScore indoor air quality certification program, including testing requirements and compliance criteria.', type: 'standard', externalUrl: 'https://rfci.com/floorscore/' },
-  { title: 'ASSURE Certification Overview', description: 'Technical overview of the ASSURE sustainability certification program for resilient flooring products.', type: 'sustainability', externalUrl: 'https://rfci.com/assure/' },
-  { title: 'Understanding Environmental Product Declarations', description: 'White paper explaining how EPDs work, what they measure, and how to use them in sustainable building design.', type: 'whitepaper', externalUrl: 'https://rfci.com/epd/' },
-  { title: 'Resilient Flooring Sustainability Report', description: 'Annual report on the resilient flooring industry\'s environmental performance and sustainability initiatives.', type: 'sustainability' },
-  { title: 'AFFIRM Material Health Program', description: 'Information about RFCI\'s material health certification and ingredient transparency program.', type: 'standard', externalUrl: 'https://rfci.com/affirm/' },
-  { title: 'Resilient Flooring Product Guide', description: 'Overview brochure covering all categories of resilient flooring, their properties, applications, and benefits.', type: 'brochure' },
-  { title: 'Moisture Testing Guidelines for Resilient Flooring', description: 'Technical guidelines for moisture testing requirements before installing resilient floor coverings.', type: 'technical' },
-  { title: 'Recommended Work Practices for Resilient Flooring Removal', description: 'Official RFCI guidelines for safely removing resilient floor coverings. Available in English and Spanish.', type: 'technical', externalUrl: 'https://rfci.com/recommended-work-practices/' },
-  { title: '2024 Industry Wide EPD: Luxury Vinyl Tile (LVT) — Gluedown', description: 'Type III Environmental Product Declaration for glue-down LVT per ISO 14025, covering full lifecycle environmental impacts.', type: 'sustainability', externalUrl: 'https://rfci.com/environmental-product-declaration/' },
-  { title: '2024 Industry Wide EPD: Luxury Vinyl Tile (LVT) — Looselay', description: 'Type III Environmental Product Declaration for looselay LVT, compliant with ISO 14025 and LEED v4/v4.1/v5 Material & Resources credits.', type: 'sustainability', externalUrl: 'https://rfci.com/environmental-product-declaration/' },
-  { title: '2024 Industry Wide EPD: Rigid Core — SPC', description: 'Environmental Product Declaration for Stone Polymer Composite rigid core flooring, covering manufacturing environmental impacts per ISO 14025.', type: 'sustainability', externalUrl: 'https://rfci.com/environmental-product-declaration/' },
-  { title: '2024 Industry Wide EPD: Vinyl Composition Tile (VCT)', description: 'Type III EPD for VCT covering the full product lifecycle from raw material extraction through end-of-life, per ISO 14025.', type: 'sustainability', externalUrl: 'https://rfci.com/environmental-product-declaration/' },
-  { title: '2024 Industry Wide EPD: Rubber Sheet and Tile', description: 'Environmental Product Declaration for rubber resilient flooring, third-party verified and compliant with ISO 14025.', type: 'sustainability', externalUrl: 'https://rfci.com/environmental-product-declaration/' },
-  { title: 'Continuing Education: Demystifying EPDs and Resilient Flooring Sustainability', description: 'AIA, IDCEC, and GBCI approved continuing education course covering Environmental Product Declarations and sustainability standards for resilient flooring.', type: 'whitepaper', externalUrl: 'https://rfci.ecomedes.com/' },
-  { title: 'Continuing Education: Resilient Flooring and Materiality', description: 'AIA and IDCEC approved CEU covering material health, ingredient transparency, and the role of AFFIRM and ASSURE certifications.', type: 'whitepaper', externalUrl: 'https://rfci.ecomedes.com/' },
-  { title: 'NSF/ANSI 332 Sustainability Assessment Standard', description: 'The voluntary sustainability assessment standard for resilient flooring products, developed with NSF International and finalized under the ANSI process in 2010.', type: 'standard', externalUrl: 'https://rfci.com/resources/nsfansi332/' },
-]
+import { RESOURCES } from '../../_data/resources'
 
 const TYPES = [
   { key: 'all', label: 'All Resources', icon: FunnelSimple },
-  { key: 'technical', label: 'Technical', icon: BookOpen },
-  { key: 'sustainability', label: 'Sustainability', icon: Leaf },
-  { key: 'standard', label: 'Standards', icon: Scales },
-  { key: 'whitepaper', label: 'White Papers', icon: Article },
-  { key: 'brochure', label: 'Brochures', icon: Notebook },
+  { key: 'certification', label: 'Certifications', icon: ShieldCheck },
+  { key: 'declaration', label: 'Declarations', icon: TreeStructure },
+  { key: 'technical', label: 'Technical Papers', icon: BookOpen },
   { key: 'video', label: 'Videos', icon: Play },
   { key: 'article', label: 'Articles', icon: Article },
+  { key: 'website', label: 'Websites', icon: Globe },
 ]
 
 const TYPE_COLORS: Record<string, string> = {
+  certification: 'bg-emerald-50 text-emerald-700',
+  declaration: 'bg-amber-50 text-amber-700',
   technical: 'bg-slate-100 text-slate-600',
-  sustainability: 'bg-emerald-50 text-emerald-700',
-  standard: 'bg-amber-50 text-amber-700',
-  whitepaper: 'bg-slate-100 text-slate-600',
-  brochure: 'bg-rfci-blue/10 text-rfci-blue',
   video: 'bg-sky-50 text-sky-700',
   article: 'bg-rfci-blue/10 text-rfci-blue',
+  website: 'bg-violet-50 text-violet-700',
 }
 
 const TYPE_ICON_BG: Record<string, string> = {
+  certification: 'bg-emerald-50 text-emerald-600',
+  declaration: 'bg-amber-50 text-amber-600',
   technical: 'bg-slate-100 text-slate-600',
-  sustainability: 'bg-emerald-50 text-emerald-600',
-  standard: 'bg-amber-50 text-amber-600',
-  whitepaper: 'bg-slate-100 text-slate-500',
-  brochure: 'bg-rfci-blue/10 text-rfci-blue',
   video: 'bg-sky-50 text-sky-600',
   article: 'bg-rfci-blue/10 text-rfci-blue',
+  website: 'bg-violet-50 text-violet-600',
 }
 
 const TYPE_LABELS: Record<string, string> = {
-  technical: 'Technical Guide',
-  sustainability: 'Sustainability',
-  standard: 'Standard',
-  whitepaper: 'White Paper',
-  brochure: 'Brochure',
+  certification: 'Certification',
+  declaration: 'Declaration',
+  technical: 'Technical Paper',
   video: 'Video',
   article: 'Article',
+  website: 'Website',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function ResourcesPage({ resources, pageSettings }: { resources: any[]; pageSettings?: any }) {
   const [activeType, setActiveType] = useState('all')
 
-  const items = resources?.length ? resources : RESOURCES_STATIC
+  const items = resources?.length ? resources : RESOURCES
 
   const filteredResources = items.filter((r) => {
     return activeType === 'all' || r.type === activeType
