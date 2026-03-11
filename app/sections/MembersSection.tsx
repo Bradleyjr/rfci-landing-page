@@ -4,17 +4,8 @@ import Link from 'next/link'
 import { motion } from 'motion/react'
 import { Users, ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
-import { MEMBERS } from '../_data/members'
+import { MEMBERS, type Member } from '../_data/members'
 import { SITE_SETTINGS } from '../_data/site-settings'
-
-type MemberDoc = {
-  name: string
-  logoUrl?: string
-  logo?: { url: string }
-  website?: string
-  row?: string
-  order?: number
-}
 
 const TastefulShader = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none bg-rfci-black z-0">
@@ -36,8 +27,8 @@ const TastefulShader = () => (
   </div>
 )
 
-function MemberLogo({ member }: { member: MemberDoc }) {
-  const logoUrl = member.logoUrl || member.logo?.url
+function MemberLogo({ member }: { member: Member }) {
+  const logoUrl = member.logoUrl
   if (logoUrl) {
     return (
       <div className="group w-36 h-12 flex items-center justify-center shrink-0">
@@ -58,7 +49,7 @@ function MemberLogo({ member }: { member: MemberDoc }) {
 
 export function MembersSection() {
   // Show row1 members that have logos
-  const displayMembers = MEMBERS.filter(m => (!m.row || m.row === '1') && (m.logoUrl || m.logo?.url))
+  const displayMembers = MEMBERS.filter(m => (!m.row || m.row === '1') && m.logoUrl)
 
   return (
     <section id="members" className="py-40 bg-rfci-black text-white relative overflow-hidden">

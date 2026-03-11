@@ -4,85 +4,10 @@ import { ArrowUpRight } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
-import { mediaUrl } from '../../_lib/transforms'
+import { MEMBERS, type Member } from '../../_data/members'
 
-type MemberDoc = {
-  name: string
-  logoUrl?: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  logo?: any
-  website?: string
-  description?: string
-  tier?: string
-  row?: string
-  order?: number
-}
-
-const MEMBERS_STATIC: MemberDoc[] = [
-  { name: 'AHF Products', logo: { url: 'https://rfci.com/wp-content/uploads/2022/01/AHF-gray.jpg' }, tier: 'board' },
-  { name: 'American Biltrite', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/American-Biltrite-gray.jpg' }, tier: 'board' },
-  { name: 'Beauflor', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/beauflor-gray.jpg' }, tier: 'board' },
-  { name: 'Bentley', logo: { url: 'https://rfci.com/wp-content/uploads/2023/07/Bentley-gray.jpg' }, tier: 'board' },
-  { name: 'CFL', logo: { url: 'https://rfci.com/wp-content/uploads/2021/01/cfl-grey-1.jpg' }, tier: 'board' },
-  { name: 'Classen', logo: { url: 'https://rfci.com/wp-content/uploads/2025/02/classen-gray-img.jpg' }, tier: 'board' },
-  { name: 'Congoleum', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/congoleum-gray.jpg' }, tier: 'board' },
-  { name: 'Engineered Floors', logo: { url: 'https://rfci.com/wp-content/uploads/2020/02/Engineered-Floors-gray.jpg' }, tier: 'board' },
-  { name: 'Gerflor', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/gerflor-gray.jpg' }, tier: 'board' },
-  { name: 'HMTX Industries', logo: { url: 'https://rfci.com/wp-content/uploads/2020/10/hmtx-gray.jpg' }, tier: 'board' },
-  { name: 'Interface', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/interface-gray.jpg' }, tier: 'board' },
-  { name: 'Karndean', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/karndean-gray.jpg' }, tier: 'board' },
-  { name: 'Lonseal', tier: 'board' },
-  { name: 'Mannington', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/mannington-gray.jpg' }, tier: 'board' },
-  { name: 'Mohawk', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/mohawk-gray.jpg' }, tier: 'board' },
-  { name: 'MSI', logo: { url: 'https://rfci.com/wp-content/uploads/2022/04/MSI-gray.jpg' }, tier: 'board' },
-  { name: 'Novalis', logo: { url: 'https://rfci.com/wp-content/uploads/2020/10/Novalis-gray.jpg' }, tier: 'board' },
-  { name: 'NOX Corp', logo: { url: 'https://rfci.com/wp-content/uploads/2020/10/nox-corp-gray.jpg' }, tier: 'board' },
-  { name: 'Roppe', logo: { url: 'https://rfci.com/wp-content/uploads/2018/04/roppe-gray.jpg' }, tier: 'board' },
-  { name: 'Shaw', logo: { url: 'https://rfci.com/wp-content/uploads/2022/04/Shaw-gray.jpg' }, tier: 'board' },
-  { name: 'Tarkett', logo: { url: 'https://rfci.com/wp-content/uploads/2020/10/Tarkett-gray.jpg' }, tier: 'board' },
-  { name: 'Torlys', logo: { url: 'https://rfci.com/wp-content/uploads/2018/10/torlys-logo-gray.png' }, tier: 'board' },
-  { name: 'Wellmade', logo: { url: 'https://rfci.com/wp-content/uploads/2020/02/wellmade-gray.jpg' }, tier: 'board' },
-  { name: 'Windm\u00F6ller', logo: { url: 'https://rfci.com/wp-content/uploads/2020/02/windmoller-gray-1.jpg' }, tier: 'board' },
-  // Supply Chain Partners
-  { name: 'Amorim', tier: 'associate' },
-  { name: 'AM Stabilizers', tier: 'associate' },
-  { name: 'Baerlocher', tier: 'associate' },
-  { name: 'BASF', tier: 'associate' },
-  { name: 'Bostik', tier: 'associate' },
-  { name: 'DMX Membranes', tier: 'associate' },
-  { name: 'Dow', tier: 'associate' },
-  { name: 'Eastman Chemical', tier: 'associate' },
-  { name: 'Formosa Plastics', tier: 'associate' },
-  { name: 'Interprint', tier: 'associate' },
-  { name: 'i4F', tier: 'associate' },
-  { name: 'Klockner Pentaplast', tier: 'associate' },
-  { name: 'Lighthouse Adhesive', tier: 'associate' },
-  { name: 'Mapei', tier: 'associate' },
-  { name: 'Microban', tier: 'associate' },
-  { name: 'Mondo', tier: 'associate' },
-  { name: 'Revive', tier: 'associate' },
-  { name: 'Owens Corning', tier: 'associate' },
-  { name: 'OxyChem', tier: 'associate' },
-  { name: 'Patcham USA', tier: 'associate' },
-  { name: 'Penn Color', tier: 'associate' },
-  { name: 'Performance Additives', tier: 'associate' },
-  { name: 'PLI Pak-Lite', tier: 'associate' },
-  { name: 'POLYTEX', tier: 'associate' },
-  { name: 'Schattdecor', tier: 'associate' },
-  { name: 'SELIT', tier: 'associate' },
-  { name: 'Shintech', tier: 'associate' },
-  { name: 'Taylor Adhesives', tier: 'associate' },
-  { name: 'TEC', tier: 'associate' },
-  { name: 'TMT America', tier: 'associate' },
-  { name: 'V\u00E4linge', tier: 'associate' },
-  { name: 'Valtris', tier: 'associate' },
-  { name: 'Versatrim', tier: 'associate' },
-  { name: 'Vestolite', tier: 'associate' },
-  { name: 'WW Henry', tier: 'associate' },
-]
-
-function MemberCard({ member }: { member: MemberDoc }) {
-  const logoSrc = member.logoUrl || mediaUrl(member.logo)
+function MemberCard({ member }: { member: Member }) {
+  const logoSrc = member.logoUrl
 
   const card = (
     <div className="group bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-300 p-6 md:p-8 flex flex-col items-center text-center h-full">
@@ -92,7 +17,7 @@ function MemberCard({ member }: { member: MemberDoc }) {
           <img
             src={logoSrc}
             alt={member.name}
-            className="max-w-full max-h-full object-contain opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+            className="max-w-full max-h-full object-contain"
           />
         ) : (
           <span className="text-sm font-display font-medium text-rfci-black/50 group-hover:text-rfci-black transition-colors">
@@ -105,11 +30,6 @@ function MemberCard({ member }: { member: MemberDoc }) {
       <h3 className="text-sm font-medium text-rfci-black/70 group-hover:text-rfci-black transition-colors">
         {member.name}
       </h3>
-
-      {/* Description */}
-      {member.description && (
-        <p className="text-xs text-rfci-black/50 mt-2 line-clamp-2 font-light">{member.description}</p>
-      )}
 
       {/* External link indicator */}
       {member.website && (
@@ -131,11 +51,10 @@ function MemberCard({ member }: { member: MemberDoc }) {
   return card
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function MembersDirectory({ members, pageSettings }: { members: any[]; pageSettings?: any }) {
-  const displayMembers: MemberDoc[] = members?.length ? members : MEMBERS_STATIC
+export function MembersDirectory({ members, pageSettings }: { members?: Member[]; pageSettings?: { heroHeading?: string; heroSubheading?: string; boardSectionHeading?: string; boardSectionDescription?: string; associateSectionHeading?: string; associateSectionDescription?: string } }) {
+  const displayMembers = members?.length ? members : MEMBERS
 
-  const boardMembers = displayMembers.filter(m => !m.tier || m.tier === 'board')
+  const boardMembers = displayMembers.filter(m => m.tier === 'board')
   const associateMembers = displayMembers.filter(m => m.tier === 'associate')
 
   return (
@@ -153,7 +72,7 @@ export function MembersDirectory({ members, pageSettings }: { members: any[]; pa
           <SectionReveal className="mb-12">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-3">{pageSettings?.boardSectionHeading || 'Flooring Manufacturers'}</div>
             <p className="text-rfci-black/60 font-light max-w-2xl">
-              {pageSettings?.boardSectionDescription || 'RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America — represented on the RFCI Board of Directors.'}
+              {pageSettings?.boardSectionDescription || 'RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America \u2014 represented on the RFCI Board of Directors.'}
             </p>
           </SectionReveal>
 
