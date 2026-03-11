@@ -38,7 +38,7 @@ export function CommunitySection() {
     target: arcRef,
     offset: ['start end', 'end start'],
   })
-  const smoothArcScroll = useSpring(arcScroll, { stiffness: 50, damping: 20, mass: 0.5 })
+  const smoothArcScroll = useSpring(arcScroll, { stiffness: 80, damping: 30, mass: 0.3, restDelta: 0.0005 })
   const wheelRotation = useTransform(smoothArcScroll, [0, 1], [10, -10])
 
   // Split heading: apply bold+blue styling to last sentence
@@ -81,10 +81,10 @@ export function CommunitySection() {
       </div>
 
       {/* Scrapbook Image Arc */}
-      <div ref={arcRef} className="relative w-full h-[450px] md:h-[550px] pointer-events-none mt-24 md:mt-40">
+      <div ref={arcRef} className="relative w-full h-[450px] md:h-[550px] mt-24 md:mt-40 pointer-events-none">
         <motion.div
-          className="absolute top-[-5500px] left-1/2 w-[6000px] h-[6000px] -ml-[3000px] flex items-center justify-center pointer-events-none"
-          style={{ rotate: wheelRotation }}
+          className="absolute top-[-5500px] left-1/2 w-[6000px] h-[6000px] -ml-[3000px] flex items-center justify-center"
+          style={{ rotate: wheelRotation, willChange: 'transform' }}
         >
           {Array.from({ length: 24 }).map((_, i) => {
             const angle = (i - 12) * 8
@@ -96,18 +96,19 @@ export function CommunitySection() {
             return (
               <div
                 key={i}
-                className="absolute pointer-events-none"
+                className="absolute"
                 style={{ transform: `rotate(${angle}deg) translateY(2800px)`, transformOrigin: 'center' }}
               >
-                <div className={`group/photo w-56 h-80 md:w-80 md:h-[420px] -mt-40 md:-mt-[210px] -ml-28 md:-ml-40 overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.15)] border-4 border-white/90 hover:scale-110 hover:-translate-y-8 hover:z-50 transition-all duration-500 cursor-pointer relative z-10 pointer-events-auto ${rotClass}`}>
+                <div className={`group/photo w-56 h-80 md:w-80 md:h-[420px] -mt-40 md:-mt-[210px] -ml-28 md:-ml-40 overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.15)] border-4 border-white/90 relative z-10 ${rotClass}`}>
                   <img
                     src={photo.url}
                     alt={photo.caption ?? 'Community event'}
-                    className="w-full h-full object-cover scale-110 group-hover/photo:grayscale-0 transition-all duration-500"
+                    loading="lazy"
+                    className="w-full h-full object-cover scale-110"
                     style={{ filter: `grayscale(${grayscaleVariant})` }}
                   />
                   {photo.caption && (
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-rfci-black/80 to-transparent p-4 pt-10 opacity-0 group-hover/photo:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-rfci-black/80 to-transparent p-4 pt-10">
                       <span className="text-label font-bold tracking-widest uppercase text-white/90">{photo.caption}</span>
                     </div>
                   )}

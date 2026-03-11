@@ -296,11 +296,9 @@ export const Footer = () => (
         <div className="lg:col-span-2 lg:col-start-7">
           <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">About</h4>
           <ul className="space-y-4 text-sm text-white/70">
-            <li><a href="/about#who-we-are" className="hover:text-rfci-blue transition-colors">Who We Are</a></li>
-            <li><a href="/about#who-we-are" className="hover:text-rfci-blue transition-colors">History & Mission</a></li>
-            <li><a href="/about#strategic-imperatives" className="hover:text-rfci-blue transition-colors">Strategic Imperatives</a></li>
-            <li><a href="/about#board-of-directors" className="hover:text-rfci-blue transition-colors">Board of Directors</a></li>
-            <li><a href="/about" className="hover:text-rfci-blue transition-colors">Community & Philanthropy</a></li>
+            <li><a href="/about" className="hover:text-rfci-blue transition-colors">About RFCI</a></li>
+            <li><a href="/members" className="hover:text-rfci-blue transition-colors">Member Directory</a></li>
+            <li><a href="/contact" className="hover:text-rfci-blue transition-colors">Contact</a></li>
           </ul>
         </div>
 
@@ -309,6 +307,7 @@ export const Footer = () => (
           <ul className="space-y-4 text-sm text-white/70">
             <li><a href="/why-resilient" className="hover:text-rfci-blue transition-colors">Why Resilient</a></li>
             <li><a href="/flooring" className="hover:text-rfci-blue transition-colors">Flooring Types</a></li>
+            <li><a href="/inspiration" className="hover:text-rfci-blue transition-colors">Inspiration Gallery</a></li>
             <li><a href="/resources" className="hover:text-rfci-blue transition-colors">Resources</a></li>
             <li><a href="/videos" className="hover:text-rfci-blue transition-colors">Educational Videos</a></li>
             <li><a href="/faq" className="hover:text-rfci-blue transition-colors">FAQ</a></li>
@@ -316,13 +315,13 @@ export const Footer = () => (
         </div>
 
         <div className="lg:col-span-2">
-          <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">Organization</h4>
+          <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">Certifications</h4>
           <ul className="space-y-4 text-sm text-white/70">
-            <li><a href="/certifications" className="hover:text-rfci-blue transition-colors">Certifications</a></li>
-            <li><a href="/certifications/floorscore" className="hover:text-rfci-blue transition-colors pl-3 text-white/50">FloorScore®</a></li>
-            <li><a href="/certifications/assure" className="hover:text-rfci-blue transition-colors pl-3 text-white/50">ASSURE® Certified</a></li>
-            <li><a href="/members" className="hover:text-rfci-blue transition-colors">Member Directory</a></li>
-            <li><a href="/inspiration" className="hover:text-rfci-blue transition-colors">Inspiration Gallery</a></li>
+            <li><a href="/certifications/floorscore" className="hover:text-rfci-blue transition-colors">FloorScore®</a></li>
+            <li><a href="/certifications/assure" className="hover:text-rfci-blue transition-colors">ASSURE® Certified</a></li>
+            <li><a href="/certifications/affirm" className="hover:text-rfci-blue transition-colors">AFFIRM™ Certified</a></li>
+            <li><a href="/certifications/epd" className="hover:text-rfci-blue transition-colors">EPDs</a></li>
+            <li><a href="https://rfci.ecomedes.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rfci-blue transition-colors">Ecomedes</a></li>
           </ul>
         </div>
       </div>
