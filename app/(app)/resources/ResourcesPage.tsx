@@ -47,6 +47,15 @@ const TYPE_LABELS: Record<string, string> = {
   website: 'Website',
 }
 
+const TYPE_ICONS: Record<string, typeof ShieldCheck> = {
+  certification: ShieldCheck,
+  declaration: TreeStructure,
+  technical: BookOpen,
+  video: Play,
+  article: Article,
+  website: Globe,
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function ResourcesPage({ resources, pageSettings }: { resources: any[]; pageSettings?: any }) {
   const [activeType, setActiveType] = useState('all')
@@ -108,6 +117,7 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
                 const typeColor = TYPE_COLORS[resource.type] || TYPE_COLORS.technical
                 const iconBg = TYPE_ICON_BG[resource.type] || TYPE_ICON_BG.technical
                 const typeLabel = TYPE_LABELS[resource.type] || resource.type
+                const TypeIcon = TYPE_ICONS[resource.type] || FileText
 
                 return (
                   <SectionReveal key={resource.title} delay={index * 0.06}>
@@ -115,7 +125,7 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
                       {/* Icon + Badge Row */}
                       <div className="flex items-start justify-between mb-4">
                         <div className={`w-10 h-10 flex items-center justify-center ${iconBg}`}>
-                          <FileText size={22} weight="light" />
+                          <TypeIcon size={22} weight="light" />
                         </div>
                         <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 ${typeColor}`}>
                           {typeLabel}
