@@ -1,4 +1,5 @@
 # RFCI Landing Page
+<!-- Soupy connected -->
 
 Redesigned landing page for the **Resilient Floor Covering Institute (RFCI)** — built with Next.js 15, Payload CMS v3, and Tailwind CSS v4.
 
