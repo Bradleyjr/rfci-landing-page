@@ -357,6 +357,8 @@ export const Footer = () => (
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 mt-16 pt-8 border-t border-white/10">
         <p>&copy; {new Date().getFullYear()} Resilient Floor Covering Institute. All rights reserved.</p>
         <div className="flex gap-6">
+          <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="/terms-conditions" className="hover:text-white transition-colors">Terms &amp; Conditions</a>
           <a href="/contact" className="hover:text-white transition-colors">Contact</a>
         </div>
       </div>
