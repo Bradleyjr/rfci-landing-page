@@ -139,9 +139,9 @@ export function CertificationDetail({ certification: cert, otherCertifications }
         <section className="py-20 md:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-16">
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">The Process</div>
+              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">{cert.processLabel || 'The Process'}</div>
               <h2 className="text-3xl md:text-4xl font-display font-light">
-                How to get <span className="font-semibold">certified</span>
+                {cert.processHeading ? cert.processHeading : <>How to get <span className="font-semibold">certified</span></>}
               </h2>
             </SectionReveal>
 

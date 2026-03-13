@@ -35,7 +35,7 @@ function MemberLogo({ member }: { member: Member }) {
         <img
           src={logoUrl}
           alt={member.name}
-          className="w-full h-full object-contain [filter:invert(0.88)_brightness(1.2)_opacity(0.6)] group-hover:[filter:invert(0.88)_brightness(1.5)_opacity(1)] transition-[filter] duration-300"
+          className="w-full h-full object-contain brightness-0 invert opacity-50 group-hover:opacity-90 transition-opacity duration-300"
         />
       </div>
     )

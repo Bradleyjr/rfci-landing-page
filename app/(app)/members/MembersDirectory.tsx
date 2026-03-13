@@ -12,12 +12,12 @@ function MemberCard({ member }: { member: Member }) {
   const card = (
     <div className="group bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-300 p-6 md:p-8 flex flex-col items-center text-center h-full">
       {/* Logo */}
-      <div className="w-full h-16 md:h-20 flex items-center justify-center mb-4">
+      <div className="w-full h-20 md:h-24 flex items-center justify-center mb-4 bg-rfci-cream/50 p-3">
         {logoSrc ? (
           <img
             src={logoSrc}
             alt={member.name}
-            className="max-w-full max-h-full object-contain"
+            className="max-w-full max-h-full object-contain mix-blend-multiply"
           />
         ) : (
           <span className="text-sm font-display font-medium text-rfci-black/50 group-hover:text-rfci-black transition-colors">

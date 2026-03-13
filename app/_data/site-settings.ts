@@ -37,15 +37,15 @@ export const SITE_SETTINGS = {
   missionPillars: [
     { number: '01', title: 'Advocacy & Engagement', description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.' },
     { number: '02', title: 'Technical Standards', description: 'Developing and maintaining the performance standards that define product quality, safety, and installation best practices.' },
-    { number: '03', title: 'Sustainability & Certifications', description: 'Running FloorScore, ASSURE, and AFFIRM \u2014 the programs that validate environmental and health performance for specifiers worldwide.' },
+    { number: '03', title: 'Sustainability Programs', description: 'Running FloorScore, ASSURE, AFFIRM, and EPDs \u2014 the programs that validate environmental and health performance for specifiers worldwide.' },
     { number: '04', title: 'Promotion & Education', description: 'Advancing industry knowledge through continuing education, original research, and market promotion to the architecture and design community.' },
     { number: '05', title: 'Member Development', description: 'Growing and supporting a membership of leading manufacturers and supply chain partners who shape the future of resilient flooring.' },
   ],
 
   // Standards
-  standardsHeading: 'Certifications you can rely on',
-  standardsSubheading: 'RFCI manages three of the flooring industry\u2019s most trusted certification programs\u2014built on rigorous testing, transparency, and continuous improvement.',
-  standardsCtaText: 'More about our certifications',
+  standardsHeading: 'Sustainability programs you can rely on',
+  standardsSubheading: 'RFCI manages the flooring industry\u2019s most trusted sustainability programs\u2014built on rigorous testing, transparency, and continuous improvement.',
+  standardsCtaText: 'Explore our sustainability programs',
 
   // Education
   educationHeading: 'From our video library',

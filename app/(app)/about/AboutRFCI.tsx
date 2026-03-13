@@ -159,13 +159,13 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                 const logoSrc = member.logoUrl || mediaUrl(member.logo)
                 return (
                   <SectionReveal key={member.name} delay={idx * 0.02}>
-                    <div className="bg-rfci-white p-4 flex items-center justify-center h-20 border border-black/5">
+                    <a href={member.website || '#'} target="_blank" rel="noopener noreferrer" className="bg-rfci-cream/50 p-4 flex items-center justify-center h-28 group block">
                       {logoSrc ? (
-                        <img src={logoSrc} alt={member.name} className="max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-opacity" />
+                        <img src={logoSrc} alt={member.name} className="max-w-full max-h-full object-contain mix-blend-multiply grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" />
                       ) : (
-                        <span className="text-xs font-medium text-rfci-black/40 text-center">{member.name}</span>
+                        <span className="text-xs font-medium text-rfci-black/40 text-center group-hover:text-rfci-blue transition-colors">{member.name}</span>
                       )}
-                    </div>
+                    </a>
                   </SectionReveal>
                 )
               })}

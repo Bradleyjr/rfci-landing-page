@@ -57,9 +57,9 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
   return (
     <PageLayout>
       <PageHero
-        label="Certifications"
-        heading={pageSettings?.heroHeading || <>Certifications you can <span className="font-semibold">rely on.</span></>}
-        subheading={pageSettings?.heroSubheading || "RFCI's certification programs verify indoor air quality, sustainability, and material transparency—giving architects and designers confidence in every specification."}
+        label="Sustainability"
+        heading={pageSettings?.heroHeading || <>Sustainability programs you can <span className="font-semibold">rely on.</span></>}
+        subheading={pageSettings?.heroSubheading || "RFCI's sustainability programs verify indoor air quality, environmental performance, and material transparency\u2014giving architects and designers confidence in every specification."}
         theme="blue"
       />
 
@@ -131,16 +131,16 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
         </div>
       </section>
 
-      {/* Why Certifications Matter */}
+      {/* Why Sustainability Programs Matter */}
       <section className="py-20 md:py-28 bg-rfci-cream">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="max-w-3xl mx-auto text-center">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Why it matters</div>
             <h2 className="text-3xl md:text-4xl font-display font-light mb-6">
-              Certifications protect people <span className="font-semibold">and the planet.</span>
+              Sustainability programs that protect people <span className="font-semibold">and the planet.</span>
             </h2>
             <p className="text-lg text-rfci-black/60 leading-relaxed font-light mb-8">
-              For architects, designers, and specifiers, RFCI certifications provide independent, third-party verification
+              For architects, designers, and specifiers, RFCI&apos;s sustainability programs provide independent, third-party verification
               that resilient flooring products meet the highest standards for indoor air quality, sustainability, and material transparency.
               They simplify specification, support green building credits, and protect occupant health.
             </p>

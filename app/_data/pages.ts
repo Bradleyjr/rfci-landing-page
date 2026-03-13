@@ -77,6 +77,6 @@ export const INSPIRATION_PAGE = {
 }
 
 export const CERTIFICATIONS_PAGE = {
-  heroHeading: 'Certifications you can rely on.',
-  heroSubheading: 'RFCI\u2019s certification programs verify indoor air quality, sustainability, and material transparency\u2014giving architects and designers confidence in every specification.',
+  heroHeading: 'Sustainability programs you can rely on.',
+  heroSubheading: 'RFCI\u2019s sustainability programs verify indoor air quality, environmental performance, and material transparency\u2014giving architects and designers confidence in every specification.',
 }

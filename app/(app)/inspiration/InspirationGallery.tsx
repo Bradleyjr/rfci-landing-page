@@ -444,10 +444,10 @@ function CanvasFilterBar({
 }) {
   const hasFilters = filterEnvironment || filterManufacturer
   const pill = (active: boolean) =>
-    `text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 transition-all duration-200 ${
+    `text-label font-bold tracking-widest uppercase px-4 py-2 rounded-full transition-all duration-200 ${
       active
-        ? 'bg-rfci-blue text-white shadow-sm'
-        : 'bg-white/80 text-rfci-black/50 hover:text-rfci-black hover:bg-white'
+        ? 'bg-rfci-blue text-white'
+        : 'bg-white/80 text-rfci-black/60 hover:text-rfci-black hover:bg-white'
     }`
 
   return (
@@ -455,14 +455,14 @@ function CanvasFilterBar({
       <div className="px-5 py-3 flex flex-wrap items-center gap-x-5 gap-y-2">
         {/* Manufacturer */}
         <div className="flex items-center gap-1.5">
-          <span className="text-[10px] font-bold tracking-widest uppercase text-rfci-black/30 mr-0.5">Mfg</span>
+          <span className="text-label font-bold tracking-widest uppercase text-rfci-black/30 mr-0.5">Mfg</span>
           <select
             value={filterManufacturer}
             onChange={(e) => setFilterManufacturer(e.target.value)}
-            className={`text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 border-0 cursor-pointer transition-all duration-200 pr-5 ${
+            className={`text-label font-bold tracking-widest uppercase px-4 py-2 rounded-full border-0 cursor-pointer transition-all duration-200 pr-6 ${
               filterManufacturer
                 ? 'bg-rfci-blue text-white'
-                : 'bg-white/80 text-rfci-black/50'
+                : 'bg-white/80 text-rfci-black/60'
             }`}
             style={{
               appearance: 'none',
@@ -480,7 +480,7 @@ function CanvasFilterBar({
 
         {/* Environment / Space */}
         <div className="flex items-center gap-1.5 flex-wrap">
-          <span className="text-[10px] font-bold tracking-widest uppercase text-rfci-black/30 mr-0.5">Space</span>
+          <span className="text-label font-bold tracking-widest uppercase text-rfci-black/30 mr-0.5">Space</span>
           <button onClick={() => setFilterEnvironment('')} className={pill(!filterEnvironment)}>All</button>
           {environmentOptions.map((o) => (
             <button key={o} onClick={() => setFilterEnvironment(filterEnvironment === o ? '' : o)} className={pill(filterEnvironment === o)}>{o}</button>
@@ -489,17 +489,17 @@ function CanvasFilterBar({
 
         {/* Status */}
         <div className="ml-auto flex items-center gap-3">
-          <span className="text-[10px] font-bold tracking-widest uppercase text-rfci-black/30">
+          <span className="text-label font-bold tracking-widest uppercase text-rfci-black/30">
             {filteredCount}/{totalCount}
           </span>
           {hasFilters && (
-            <button onClick={resetFilters} className="text-[10px] font-bold tracking-widest uppercase text-rfci-blue hover:text-rfci-blue/70 transition-colors">
+            <button onClick={resetFilters} className="text-label font-bold tracking-widest uppercase text-rfci-blue hover:text-rfci-blue/70 transition-colors">
               Clear
             </button>
           )}
           <button
             onClick={resetPan}
-            className="text-[10px] font-bold tracking-widest uppercase text-rfci-black/30 hover:text-rfci-black transition-colors flex items-center gap-1"
+            className="text-label font-bold tracking-widest uppercase text-rfci-black/30 hover:text-rfci-black transition-colors flex items-center gap-1"
             title="Reset canvas position"
           >
             <Compass className="w-3.5 h-3.5" /> Center
@@ -684,23 +684,23 @@ export function InspirationGallery({
         <div className="px-4 pt-8 pb-4">
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-[10px] font-bold tracking-widest uppercase text-rfci-black/35 w-full mb-1">Manufacturer</span>
+              <span className="text-label font-bold tracking-widest uppercase text-rfci-black/35 w-full mb-1">Manufacturer</span>
               <select
                 value={filterManufacturer}
                 onChange={(e) => setFilterManufacturer(e.target.value)}
-                className="text-[10px] font-bold tracking-widest uppercase px-2.5 py-1.5 bg-white text-rfci-black/60 border-0"
+                className="text-label font-bold tracking-widest uppercase px-4 py-2 rounded-full bg-white text-rfci-black/60 border-0"
               >
                 <option value="">All Manufacturers</option>
                 {manufacturerOptions.map((o) => <option key={o} value={o}>{o}</option>)}
               </select>
             </div>
             <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-[10px] font-bold tracking-widest uppercase text-rfci-black/35 w-full mb-1">Space</span>
+              <span className="text-label font-bold tracking-widest uppercase text-rfci-black/35 w-full mb-1">Space</span>
               {[['', 'All'], ...environmentOptions.map((o: string) => [o, o])].map(([val, label]) => (
                 <button
                   key={val}
                   onClick={() => setFilterEnvironment(filterEnvironment === val ? '' : val)}
-                  className={`text-[10px] font-bold tracking-widest uppercase px-2.5 py-1.5 transition-colors ${
+                  className={`text-label font-bold tracking-widest uppercase px-4 py-2 rounded-full transition-colors ${
                     filterEnvironment === val ? 'bg-rfci-blue text-white' : 'bg-white text-rfci-black/50'
                   }`}
                 >
@@ -710,11 +710,11 @@ export function InspirationGallery({
             </div>
           </div>
           <div className="flex items-center gap-3 mt-3">
-            <span className="text-[10px] font-bold tracking-widest uppercase text-rfci-black/35">
+            <span className="text-label font-bold tracking-widest uppercase text-rfci-black/35">
               {filteredProjects.length} project{filteredProjects.length !== 1 ? 's' : ''}
             </span>
             {(filterEnvironment || filterManufacturer) && (
-              <button onClick={resetFilters} className="text-[10px] font-bold tracking-widest uppercase text-rfci-blue">Clear</button>
+              <button onClick={resetFilters} className="text-label font-bold tracking-widest uppercase text-rfci-blue">Clear</button>
             )}
           </div>
         </div>

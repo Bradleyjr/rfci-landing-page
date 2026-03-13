@@ -12,6 +12,8 @@ export type Certification = {
   recognizedPrograms?: string[]
   certifiedProductsUrl?: string
   contactInfo?: { name: string; phone: string; email: string; organization: string }
+  processLabel?: string
+  processHeading?: string
   getStartedText?: string
   getStartedUrl?: string
   ctaText?: string
@@ -179,6 +181,8 @@ export const CERTIFICATIONS: Certification[] = [
       { title: 'Comparative Analysis Tool', description: 'EPDs enable apples-to-apples environmental comparison between flooring products, giving specifiers objective data for decision-making.' },
       { title: '2024 EPDs Now Available', description: 'Updated 2024 Industry Wide EPDs reflect current manufacturing data and supersede the 2019 archived versions, which remain available for reference.' },
     ],
+    processLabel: 'The Process',
+    processHeading: 'How EPDs are developed',
     process: [
       { step: 'Life Cycle Assessment', description: 'Conduct an LCA per ISO 14040 and 14044 covering raw material extraction, manufacturing, distribution, use, and end-of-life.' },
       { step: 'Product Category Rules Alignment', description: 'Ensure the LCA follows ULE 10010-7 Product Category Rules (PCR) for building-related flooring products.' },
