@@ -3,18 +3,9 @@
 import { PlayCircle, ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
 import { mediaUrl } from '../_lib/transforms'
+import type { Video } from '../_data/videos'
 
-type VideoDoc = {
-  title: string
-  duration: string
-  description?: string
-  thumbnailUrl?: string
-  courseUrl?: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  thumbnail?: any
-  featured?: boolean
-  order?: number
-}
+type VideoDoc = Video
 
 const VIDEOS_STATIC: VideoDoc[] = [
   {
@@ -24,6 +15,7 @@ const VIDEOS_STATIC: VideoDoc[] = [
     thumbnailUrl: 'https://rfci.com/wp-content/uploads/2023/11/Photograph-1_CEU-Cover-Photo_no-Title_PNG-500x300.png',
     courseUrl: 'https://rfci.com/courses/resilient-flooring-verified-and-certified/',
     featured: true,
+    order: 1,
   },
   {
     title: 'Demystifying EPDs in Sustainable Design',
@@ -32,6 +24,7 @@ const VIDEOS_STATIC: VideoDoc[] = [
     thumbnailUrl: 'https://rfci.com/wp-content/uploads/2022/11/Optimized-3-500x300.jpg',
     courseUrl: 'https://rfci.com/courses/demystifying-epds-in-sustainable-design/',
     featured: false,
+    order: 2,
   },
   {
     title: 'Resilient Flooring and Sustainability',
@@ -40,6 +33,7 @@ const VIDEOS_STATIC: VideoDoc[] = [
     thumbnailUrl: 'https://rfci.com/wp-content/uploads/2022/10/Optimized-2-500x300.jpg',
     courseUrl: 'https://rfci.com/courses/resilient-flooring-and-sustainability/',
     featured: false,
+    order: 3,
   },
   {
     title: 'Resilient Flooring and Materiality',
@@ -48,6 +42,7 @@ const VIDEOS_STATIC: VideoDoc[] = [
     thumbnailUrl: 'https://rfci.com/wp-content/uploads/2021/11/Resilient-Flooring-Materiality-Course-Image-Cropped-1-500x300.png',
     courseUrl: 'https://rfci.com/courses/resilient-flooring-materiality/',
     featured: false,
+    order: 4,
   },
 ]
 
@@ -58,11 +53,16 @@ function getThumbSrc(video: VideoDoc): string {
   return mediaUrl(video.thumbnail, FALLBACK_THUMB)
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function EducationSection({ videos }: { videos: any[] }) {
-  const displayVideos: VideoDoc[] = videos?.length ? videos : VIDEOS_STATIC
+export function EducationSection({ videos }: { videos: Video[] }) {
+  const displayVideos: VideoDoc[] = (videos?.length ? videos : VIDEOS_STATIC)
+    .slice()
+    .sort((a, b) => {
+      if (a.featured && !b.featured) return -1
+      if (!a.featured && b.featured) return 1
+      return (a.order ?? Number.MAX_SAFE_INTEGER) - (b.order ?? Number.MAX_SAFE_INTEGER)
+    })
   const featured = displayVideos.find((v) => v.featured) ?? displayVideos[0]
-  const sideVideos = displayVideos.filter((v) => !v.featured).slice(0, 3)
+  const sideVideos = displayVideos.filter((v) => v !== featured).slice(0, 2)
 
   if (!featured) return null
 
@@ -72,7 +72,7 @@ export function EducationSection({ videos }: { videos: any[] }) {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
           <SectionReveal direction="left">
             <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Educational Videos</div>
-            <h2 className="text-4xl md:text-5xl font-display font-light">From our video library</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-light">Learn from RFCI&rsquo;s education library.</h2>
           </SectionReveal>
           <SectionReveal direction="right">
             <a
@@ -155,9 +155,14 @@ export function EducationSection({ videos }: { videos: any[] }) {
                       {video.duration}
                     </span>
                   </div>
-                  <h3 className="text-xl font-display font-light group-hover:text-rfci-blue transition-colors leading-tight">
+                  <h3 className="text-xl font-display font-light group-hover:text-rfci-blue transition-colors leading-tight mb-2">
                     {video.title}
                   </h3>
+                  {video.description && (
+                    <p className="text-sm text-rfci-black/50 leading-relaxed line-clamp-3">
+                      {video.description}
+                    </p>
+                  )}
                 </a>
               </SectionReveal>
             ))}

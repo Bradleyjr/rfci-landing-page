@@ -14,10 +14,11 @@ import { StandardsSection } from '../sections/StandardsSection'
 import { EcomedesSection } from '../sections/EcomedesSection'
 import { BeautifullyResponsibleSection } from '../sections/BeautifullyResponsibleSection'
 import { CommunitySection } from '../sections/CommunitySection'
-import { LinkedInFeedSection } from '../sections/LinkedInFeedSection'
+import { EducationSection } from '../sections/EducationSection'
 import { MembersSection } from '../sections/MembersSection'
+import type { Video } from '../_data/videos'
 
-export function LandingPage() {
+export function LandingPage({ videos }: { videos: Video[] }) {
   const [isScrolled, setIsScrolled] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -71,7 +72,7 @@ export function LandingPage() {
 
         <CommunitySection />
 
-        <LinkedInFeedSection />
+        <EducationSection videos={videos} />
 
         <MembersSection />
 
