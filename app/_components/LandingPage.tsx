@@ -14,7 +14,7 @@ import { StandardsSection } from '../sections/StandardsSection'
 import { EcomedesSection } from '../sections/EcomedesSection'
 import { BeautifullyResponsibleSection } from '../sections/BeautifullyResponsibleSection'
 import { CommunitySection } from '../sections/CommunitySection'
-import { LinkedInFeedSection } from '../sections/LinkedInFeedSection'
+import { EducationSection } from '../sections/EducationSection'
 import { MembersSection } from '../sections/MembersSection'
 
 export function LandingPage() {
@@ -71,7 +71,7 @@ export function LandingPage() {
 
         <CommunitySection />
 
-        <LinkedInFeedSection />
+        <EducationSection />
 
         <MembersSection />
 
