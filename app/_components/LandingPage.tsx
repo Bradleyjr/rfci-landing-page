@@ -14,8 +14,9 @@ import { StandardsSection } from '../sections/StandardsSection'
 import { EcomedesSection } from '../sections/EcomedesSection'
 import { BeautifullyResponsibleSection } from '../sections/BeautifullyResponsibleSection'
 import { CommunitySection } from '../sections/CommunitySection'
-import { LinkedInFeedSection } from '../sections/LinkedInFeedSection'
+import { EducationSection } from '../sections/EducationSection'
 import { MembersSection } from '../sections/MembersSection'
+import { VIDEOS } from '../_data/videos'
 
 export function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -71,7 +72,7 @@ export function LandingPage() {
 
         <CommunitySection />
 
-        <LinkedInFeedSection />
+        <EducationSection videos={VIDEOS} />
 
         <MembersSection />
 
