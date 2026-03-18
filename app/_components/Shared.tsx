@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, Question, ShieldCheck, Seal, Certificate, Globe, Images, MapPin, Phone, EnvelopeSimple, LinkedinLogo, ArrowSquareOut } from '@phosphor-icons/react'
+import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, ShieldCheck, Seal, Certificate, Globe, Images, MapPin, Phone, EnvelopeSimple, LinkedinLogo, ArrowSquareOut } from '@phosphor-icons/react'
 
 const navItems = [
   {
@@ -18,9 +18,6 @@ const navItems = [
       { label: 'Educational Videos', href: '/videos', desc: 'Short videos covering products, installation, and performance.', icon: PlayCircle },
       { label: 'Resources', href: '/resources', desc: 'Technical documents, standards, and sustainability guides.', icon: FileText },
       { label: 'Glossary', href: '/resources/glossary', desc: 'A searchable A–Z reference for resilient flooring terminology.', icon: FileText },
-      { label: 'FAQ', href: '/faq', desc: 'Answers to common questions about resilient flooring.', icon: Question },
-      { label: 'Press Room', href: '/press-room', desc: 'Archive for official RFCI announcements and press releases.', icon: FileText },
-      { label: 'Testimonial Videos', href: '/testimonial-videos', desc: 'Dedicated archive for member and stakeholder testimonials.', icon: PlayCircle },
     ],
     highlight: {
       label: 'ecomedes',
@@ -314,9 +311,7 @@ export const Footer = () => (
             <li><a href="/resources" className="hover:text-rfci-blue transition-colors">Resources</a></li>
             <li><a href="/resources/glossary" className="hover:text-rfci-blue transition-colors">Glossary</a></li>
             <li><a href="/videos" className="hover:text-rfci-blue transition-colors">Educational Videos</a></li>
-            <li><a href="/faq" className="hover:text-rfci-blue transition-colors">FAQ</a></li>
-            <li><a href="/press-room" className="hover:text-rfci-blue transition-colors">Press Room</a></li>
-            <li><a href="/testimonial-videos" className="hover:text-rfci-blue transition-colors">Testimonial Videos</a></li>
+
             <li><a href="https://rfci.ecomedes.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rfci-blue transition-colors">Ecomedes</a></li>
           </ul>
         </div>

@@ -19,7 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/inspiration`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/resources`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/videos`, changeFrequency: 'monthly', priority: 0.6 },
-    { url: `${baseUrl}/faq`, changeFrequency: 'monthly', priority: 0.6 },
   ]
 
   // Dynamic: certifications
