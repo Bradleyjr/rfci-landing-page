@@ -5,60 +5,8 @@ import { PlayCircle, FunnelSimple, GraduationCap, Leaf, Wrench, Package, ArrowRi
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
+import type { Video } from '../../_data/videos'
 import { mediaUrl } from '../../_lib/transforms'
-
-type VideoDoc = {
-  title: string
-  duration: string
-  description?: string
-  thumbnailUrl?: string
-  courseUrl?: string
-  embedUrl?: string
-  category?: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  thumbnail?: any
-  featured?: boolean
-  order?: number
-}
-
-const VIDEOS_STATIC: VideoDoc[] = [
-  {
-    title: 'Resilient Flooring: Verified and Certified!',
-    duration: '17 min watch',
-    description: 'Certifications, declarations, and ecolabels provide sustainability and health and wellness information that subsequently supports requirements in building rating systems.',
-    thumbnailUrl: 'https://rfci.com/wp-content/uploads/2023/11/Photograph-1_CEU-Cover-Photo_no-Title_PNG-500x300.png',
-    courseUrl: 'https://rfci.com/courses/resilient-flooring-verified-and-certified/',
-    category: 'ceu',
-    featured: true,
-  },
-  {
-    title: 'Demystifying EPDs in Sustainable Design',
-    duration: '19 min watch',
-    description: 'Environmental Product Declarations (EPDs) can be a powerful tool to use when choosing materials for commercial projects.',
-    thumbnailUrl: 'https://rfci.com/wp-content/uploads/2022/11/Optimized-3-500x300.jpg',
-    courseUrl: 'https://rfci.com/courses/demystifying-epds-in-sustainable-design/',
-    category: 'sustainability',
-    featured: false,
-  },
-  {
-    title: 'Resilient Flooring and Sustainability',
-    duration: '19 min watch',
-    description: 'It is important for a specifier to utilize a multi-attribute approach for the selection of resilient flooring products.',
-    thumbnailUrl: 'https://rfci.com/wp-content/uploads/2022/10/Optimized-2-500x300.jpg',
-    courseUrl: 'https://rfci.com/courses/resilient-flooring-and-sustainability/',
-    category: 'sustainability',
-    featured: false,
-  },
-  {
-    title: 'Resilient Flooring and Materiality',
-    duration: '19 min watch',
-    description: 'When specifying products for the built environment, it is important to transparently understand the origin of material ingredients.',
-    thumbnailUrl: 'https://rfci.com/wp-content/uploads/2021/11/Resilient-Flooring-Materiality-Course-Image-Cropped-1-500x300.png',
-    courseUrl: 'https://rfci.com/courses/resilient-flooring-materiality/',
-    category: 'ceu',
-    featured: false,
-  },
-]
 
 const FALLBACK_THUMB = 'https://rfci.com/wp-content/uploads/2023/11/Photograph-1_CEU-Cover-Photo_no-Title_PNG-500x300.png'
 
@@ -77,7 +25,7 @@ const CATEGORY_LABELS: Record<string, string> = {
   product: 'Product',
 }
 
-function getThumbSrc(video: VideoDoc): string {
+function getThumbSrc(video: Video): string {
   if (video.thumbnailUrl) return video.thumbnailUrl
   return mediaUrl(video.thumbnail, FALLBACK_THUMB)
 }
@@ -86,7 +34,7 @@ function getThumbSrc(video: VideoDoc): string {
 export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSettings?: any }) {
   const [activeCategory, setActiveCategory] = useState('all')
 
-  const displayVideos: VideoDoc[] = videos?.length ? videos : VIDEOS_STATIC
+  const displayVideos: Video[] = [...(videos || [])].sort((a, b) => a.order - b.order)
 
   const filteredVideos = activeCategory === 'all'
     ? displayVideos
@@ -148,7 +96,7 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
                   />
                   <div className="absolute inset-0 bg-rfci-black/20 group-hover:bg-rfci-black/40 transition-colors duration-500 flex items-center justify-center">
                     <div className="w-24 h-24 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500">
-                      <PlayCircle className="w-12 h-12 text-white group-hover:text-rfci-blue ml-1 transition-colors duration-500" />
+                      <PlayCircle className="w-12 h-12 text-white group-hover:text-rfci-blue transition-colors duration-500" />
                     </div>
                   </div>
                 </div>
@@ -198,7 +146,7 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
                       />
                       <div className="absolute inset-0 bg-rfci-black/20 group-hover:bg-rfci-black/40 transition-colors duration-500 flex items-center justify-center">
                         <div className="w-14 h-14 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500">
-                          <PlayCircle className="w-6 h-6 text-white group-hover:text-rfci-blue ml-0.5 transition-colors duration-500" />
+                          <PlayCircle className="w-6 h-6 text-white group-hover:text-rfci-blue transition-colors duration-500" />
                         </div>
                       </div>
                       {/* Duration badge */}

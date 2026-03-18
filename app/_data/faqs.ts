@@ -9,120 +9,127 @@ export const FAQS: FAQ[] = [
   {
     question: 'What is resilient flooring?',
     answer:
-      'Resilient flooring refers to a category of hard surface flooring materials that offer a degree of flexibility and "give" underfoot. This includes luxury vinyl tile (LVT), vinyl composition tile (VCT), sheet vinyl, linoleum, rubber, and cork flooring.',
+      'Resilient flooring refers to a category of hard surface flooring materials that offer a degree of flexibility and "give" underfoot. This includes luxury vinyl tile (LVT), vinyl composition tile (VCT), sheet vinyl, linoleum, rubber, cork, and rigid core constructions.',
     category: 'general',
     order: 1,
   },
   {
     question: 'What is the Resilient Floor Covering Institute (RFCI)?',
     answer:
-      'RFCI is the trade association for the resilient flooring industry in North America. Founded in 1976, we represent manufacturers and suppliers of vinyl, rubber, linoleum, and cork flooring products.',
+      'RFCI is the trade association for the resilient flooring industry in North America. Founded in 1976, the organization represents manufacturers and suppliers across resilient flooring product categories.',
     category: 'general',
     order: 2,
   },
   {
     question: 'What is FloorScore certification?',
     answer:
-      "FloorScore is the flooring industry's most recognized indoor air quality certification. It independently verifies that a flooring product meets California's strict VOC emissions standards (CA Section 01350), one of the toughest air quality benchmarks in the world.",
+      "FloorScore is the flooring industry's most recognized indoor air quality certification. It verifies that products comply with California Section 01350 VOC emissions requirements through independent testing and review.",
     category: 'certifications',
     order: 3,
   },
   {
     question: 'What does ASSURE certification cover?',
     answer:
-      "ASSURE is RFCI's third-party sustainability certification that evaluates resilient flooring products across the full lifecycle\u2014raw materials, manufacturing, product performance, and end-of-life recovery.",
+      "ASSURE is RFCI's quality assurance certification for rigid core products. It covers indoor air quality, product performance, vertical deflection, heavy metals, and ortho-phthalates for eligible SPC and WPC constructions.",
     category: 'certifications',
     order: 4,
   },
   {
     question: 'What is an Environmental Product Declaration (EPD)?',
     answer:
-      'An EPD is a standardized, third-party verified document that transparently reports the environmental impact of a product across its entire lifecycle, from raw material extraction through manufacturing, use, and end-of-life disposal.',
+      'An EPD is a standardized, third-party verified document that reports the environmental impacts of a product across its life cycle, from raw material extraction through manufacturing and end-of-life.',
     category: 'sustainability',
     order: 5,
   },
   {
     question: 'Is resilient flooring recyclable?',
     answer:
-      'Many resilient flooring products are recyclable. Several RFCI member companies operate take-back and recycling programs for post-installation and post-consumer flooring waste. The industry is continuously expanding recycling capabilities.',
+      'Many resilient flooring products are recyclable. Several RFCI member companies support take-back, recycling, and waste-diversion efforts for post-installation and post-consumer material streams.',
     category: 'sustainability',
     order: 6,
   },
   {
     question: 'Can resilient flooring be installed over existing floors?',
     answer:
-      "In many cases, yes. Resilient flooring can often be installed over existing hard, smooth surfaces, which can reduce demolition waste and installation time. However, subfloor conditions must meet the manufacturer's requirements.",
+      "In many cases, yes. Resilient flooring can often be installed over existing hard, smooth surfaces, which can reduce demolition waste and shorten renovation schedules. Subfloor conditions still need to meet the manufacturer's requirements.",
     category: 'installation',
     order: 7,
   },
   {
     question: 'What subfloor preparation is needed for resilient flooring?',
     answer:
-      "Subfloors must be clean, dry, smooth, and structurally sound. Specific moisture, flatness, and temperature requirements vary by product. Always follow the manufacturer's installation guidelines.",
+      "Subfloors should be clean, dry, smooth, and structurally sound. Specific moisture, flatness, and temperature requirements vary by product, so manufacturer instructions should always guide final preparation.",
     category: 'installation',
     order: 8,
   },
   {
     question: 'How does RFCI membership work?',
     answer:
-      'RFCI membership is by invitation and is open to manufacturers and suppliers within the resilient flooring industry. Members participate in industry advocacy, certification programs, and educational initiatives.',
+      'RFCI membership is by invitation and is open to manufacturers and suppliers within the resilient flooring industry. Members participate in advocacy, standards development, certification programs, and educational initiatives.',
     category: 'membership',
     order: 9,
   },
   {
     question: 'Does RFCI offer continuing education?',
     answer:
-      'Yes. RFCI provides AIA-approved continuing education units (CEUs) covering topics like indoor air quality, sustainability certifications, material health, and Environmental Product Declarations.',
+      'Yes. RFCI provides AIA-approved continuing education units covering topics such as indoor air quality, sustainability certifications, material health, and Environmental Product Declarations.',
     category: 'general',
     order: 10,
   },
   {
     question: 'How does resilient flooring impact indoor air quality?',
     answer:
-      'Resilient flooring can significantly contribute to healthy indoor environments. Products certified through FloorScore meet California Section 01350 standards for low VOC emissions\u2014one of the strictest indoor air quality benchmarks in the world.',
+      'Resilient flooring can support healthier indoor environments when products are selected with low-emitting certifications such as FloorScore and when installation and maintenance recommendations are followed.',
     category: 'sustainability',
     order: 11,
   },
   {
     question: 'What are VOCs and why do they matter in flooring?',
     answer:
-      'VOCs (Volatile Organic Compounds) are chemicals that can off-gas from building materials, including some flooring products. Prolonged exposure to high VOC levels may cause headaches, respiratory irritation, and other health effects. FloorScore-certified resilient flooring products are independently tested to ensure VOC emissions fall well below recognized health thresholds.',
+      'VOCs, or volatile organic compounds, are chemicals that can off-gas from building materials. Low-emitting flooring programs help specifiers identify products that support healthier indoor environments.',
     category: 'sustainability',
     order: 12,
   },
   {
     question: 'What is the difference between FloorScore, ASSURE, and AFFIRM?',
     answer:
-      "FloorScore certifies that a product meets strict indoor air quality (VOC emission) standards. ASSURE evaluates broader sustainability criteria across a product's full lifecycle. AFFIRM is an ANSI-accredited program that verifies product composition and regulatory compliance through independent lab testing.",
+      'FloorScore focuses on low VOC emissions and indoor air quality. ASSURE is a rigid core quality assurance program covering performance, vertical deflection, heavy metals, and ortho-phthalates. AFFIRM is a broader sustainability certification built on NSF/ANSI 332 that evaluates environmental, health and wellness, and social responsibility criteria.',
     category: 'certifications',
     order: 13,
   },
   {
-    question: 'How does resilient flooring compare to carpet for health and maintenance?',
+    question: 'What is the difference between waterproof and water resistant flooring?',
     answer:
-      'Resilient flooring offers several advantages over carpet in health-sensitive environments. Its smooth, non-porous surface does not harbor dust mites, mold, or allergens the way carpet fibers can. It is easier to clean and disinfect, which is why it is the preferred flooring in healthcare, education, and food-service settings.',
-    category: 'general',
+      'Water resistant products are designed to handle routine moisture exposure for a period of time, while waterproof products are marketed to resist water damage to the product itself under intended conditions. In both cases, specifiers should still confirm requirements for seams, subfloors, transitions, and installation details.',
+    category: 'installation',
     order: 14,
   },
   {
-    question: 'What types of resilient flooring are available?',
+    question: 'How does resilient flooring compare to carpet for health and maintenance?',
     answer:
-      'The resilient flooring category includes luxury vinyl tile and plank (LVT/LVP), vinyl composition tile (VCT), sheet vinyl, linoleum, rubber flooring, cork flooring, and rigid-core products like WPC and SPC.',
+      'Resilient flooring offers a cleanable, hard-surface option that does not trap dust, allergens, or moisture the way carpet can. That is one reason it is often specified in healthcare, education, and food-service settings.',
     category: 'general',
     order: 15,
   },
   {
-    question: 'How long does resilient flooring last?',
+    question: 'What types of resilient flooring are available?',
     answer:
-      'With proper installation and maintenance, commercial-grade resilient flooring can last 20 years or more. Luxury vinyl and rubber flooring in particular are known for exceptional durability.',
+      'The resilient flooring category includes LVT/LVP, rigid core, VCT, solid vinyl tile, sheet vinyl, linoleum, rubber, cork, and other specialized resilient constructions suited to different applications.',
     category: 'general',
     order: 16,
   },
   {
+    question: 'How long does resilient flooring last?',
+    answer:
+      'With proper installation and maintenance, many commercial-grade resilient flooring products can perform for decades. Actual service life depends on product type, traffic conditions, maintenance, and the specific use environment.',
+    category: 'general',
+    order: 17,
+  },
+  {
     question: 'What is NSF/ANSI 332?',
     answer:
-      'NSF/ANSI 332 is the Sustainability Assessment Standard for Resilient Floor Coverings. It provides a framework for evaluating the environmental and social responsibility of resilient flooring products across their full lifecycle. Products are rated at Silver, Gold, or Platinum levels.',
+      'NSF/ANSI 332 is the Sustainability Assessment Standard for Resilient Floor Coverings. It provides the framework behind AFFIRM and evaluates environmental, health and wellness, and social responsibility criteria.',
     category: 'sustainability',
-    order: 17,
+    order: 18,
   },
 ]

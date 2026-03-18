@@ -146,7 +146,15 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
 
                       {/* Action */}
                       <div className="mt-auto pt-4 border-t border-black/5">
-                        {resource.slug && (resource.type === 'video' || resource.type === 'article') ? (
+                        {resource.internalUrl ? (
+                          <Link
+                            href={resource.internalUrl}
+                            className="inline-flex items-center gap-2 text-rfci-blue hover:text-rfci-blue/80 text-sm font-bold tracking-wider uppercase transition-colors"
+                          >
+                            <ArrowRight size={18} weight="bold" />
+                            Open Page
+                          </Link>
+                        ) : resource.slug && (resource.type === 'video' || resource.type === 'article') ? (
                           <Link
                             href={`/resources/${resource.slug}`}
                             className="inline-flex items-center gap-2 text-rfci-blue hover:text-rfci-blue/80 text-sm font-bold tracking-wider uppercase transition-colors"

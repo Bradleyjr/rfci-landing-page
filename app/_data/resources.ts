@@ -4,6 +4,7 @@ export type Resource = {
   description?: string
   type: 'technical' | 'video' | 'certification' | 'declaration' | 'article' | 'website'
   category?: string
+  internalUrl?: string
   externalUrl?: string
   downloadUrl?: string
   videoUrl?: string
@@ -60,7 +61,7 @@ export const RESOURCES: Resource[] = [
     title: 'Environmental Product Declaration',
     slug: 'environmental-product-declaration',
     description:
-      'An Environmental Product Declaration (EPD) is a transparent, objective report that communicates what a product is made of and how it impacts the environment across its life cycle.',
+      'Transparent lifecycle reporting for resilient flooring products, including current 2024 industry-wide EPDs and archived 2019 declarations for reference.',
     type: 'declaration',
     category: 'Sustainability',
     externalUrl: 'https://rfci.com/environmental-product-declaration/',
@@ -376,6 +377,68 @@ export const RESOURCES: Resource[] = [
 <h3>Ingredient Transparency</h3>
 <p>Modern specification increasingly requires ingredient-level transparency. Health Product Declarations (HPDs), Declare labels, and programs like AFFIRM provide the framework for manufacturers to disclose product ingredients and demonstrate compliance with health-based thresholds for substances of concern.</p>`,
   },
+  {
+    title: 'Glossary',
+    slug: 'glossary',
+    description:
+      'An A–Z glossary of resilient flooring terms, certifications, product types, and technical language used throughout RFCI resources.',
+    type: 'article',
+    category: 'Reference',
+    thumbnailUrl:
+      'https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=1200&auto=format&fit=crop',
+    order: 32,
+  },
+  {
+    title: 'Safety, Slip Resistance & ADA',
+    slug: 'safety-slip-resistance',
+    description:
+      'Updated guidance on resilient flooring safety, slip resistance, and current ADA framing for stable, firm, slip-resistant surfaces.',
+    type: 'article',
+    category: 'Technical Information',
+    thumbnailUrl:
+      'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1200&auto=format&fit=crop',
+    order: 33,
+    body: `<h2>Safety starts with the surface</h2>
+<p>Resilient flooring is specified in settings where safety, cleanability, durability, and maintenance all matter at the same time. Slip resistance should be evaluated as part of the entire flooring system, including the product, finish, maintenance protocol, contaminants, expected footwear, and the way the space will actually be used.</p>
+<h3>Slip Resistance and Resilient Flooring</h3>
+<p>Slip resistance describes a surface’s ability to help counteract loss of traction. It is influenced by many variables, including surface texture, wear, soil load, wet or contaminated conditions, footwear, and maintenance practices. Coefficient of friction data can be informative, but it should not be treated as a universal pass-or-fail rule across all occupancies.</p>
+<p>For resilient flooring projects, the goal is not to chase a single lab number. The goal is to specify a surface and maintenance strategy appropriate to the actual environment, then coordinate that decision with the flooring manufacturer, adhesive system, transitions, and cleaning program.</p>
+<h3>Americans with Disabilities Act</h3>
+<p>Older ADA guidance is often quoted for static coefficient of friction values of 0.6 on level surfaces and 0.8 on ramps. Those figures came from the appendix to the 1991 ADA Accessibility Guidelines and were later withdrawn after significant criticism of the science behind using those numbers as requirements.</p>
+<p>Under the 2010 ADA Standards for Accessible Design, the active expectation is that floor and ground surfaces be stable, firm, and slip resistant. For today’s projects, that broader performance standard is the appropriate reference point.</p>
+<h3>Specifier checklist</h3>
+<ul>
+<li>Confirm the flooring product is intended for the occupancy, traffic pattern, and cleaning protocol.</li>
+<li>Review manufacturer guidance for wet areas, transitions, ramps, entrances, and maintenance products.</li>
+<li>Coordinate slip-resistance expectations with the full flooring assembly instead of relying on one coefficient value in isolation.</li>
+<li>Document maintenance procedures, because improper finish build-up, residue, or contamination can change in-use performance.</li>
+</ul>`,
+  },
+  {
+    title: 'Nine Steps to Superior Sustainability',
+    slug: 'nine-steps-to-superior-sustainability',
+    description:
+      'A refreshed sustainability framework for resilient flooring that now includes AFFIRM and the RFCI ecomedes product database.',
+    type: 'article',
+    category: 'Sustainability',
+    thumbnailUrl:
+      'https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=1200&auto=format&fit=crop',
+    order: 34,
+    body: `<h2>Nine steps to superior sustainability</h2>
+<p>Resilient flooring sustainability is no longer defined by a single claim. It is built through transparency, verified performance, responsible manufacturing, and better decision-making tools for specifiers. This updated framework reflects the programs and resources RFCI uses today.</p>
+<ol>
+<li><strong>Design for long service life.</strong> Durable floors that perform in-use reduce premature replacement and help lower lifecycle impacts.</li>
+<li><strong>Prioritize healthy indoor environments.</strong> Programs such as FloorScore verify low-emitting products for better indoor air quality.</li>
+<li><strong>Document environmental impacts.</strong> Industry-wide Environmental Product Declarations provide standardized lifecycle reporting for resilient flooring types.</li>
+<li><strong>Advance material health.</strong> AFFIRM Certified helps specifiers evaluate environmental, health and wellness, and social responsibility criteria through an ANSI-based framework.</li>
+<li><strong>Verify rigid core quality.</strong> ASSURE supports confidence in rigid core product performance, chemistry screening, and structural testing.</li>
+<li><strong>Use better specification tools.</strong> The RFCI ecomedes database gives designers and specifiers one place to review certifications, declarations, and green building attributes.</li>
+<li><strong>Support responsible manufacturing.</strong> Manufacturers continue improving raw material sourcing, process efficiency, and waste reduction.</li>
+<li><strong>Expand recycling and recovery.</strong> Take-back programs, post-installation recovery, and landfill diversion remain important parts of resilient flooring stewardship.</li>
+<li><strong>Keep educating the market.</strong> CEUs, technical papers, and shared standards help teams make better product decisions over time.</li>
+</ol>
+<p>Sustainability works best when the full picture is visible. Certifications, declarations, and searchable product data make it easier to specify resilient flooring with confidence.</p>`,
+  },
 
   // External Websites
   {
@@ -427,5 +490,29 @@ export const RESOURCES: Resource[] = [
     thumbnailUrl:
       'https://rfci.com/wp-content/uploads/2022/08/ecomedes-logo-300x300.jpg',
     order: 30,
+  },
+  {
+    title: 'Press Room',
+    slug: 'press-room',
+    description:
+      'A dedicated archive for RFCI announcements, membership news, leadership updates, and press releases.',
+    type: 'website',
+    category: 'News & Updates',
+    internalUrl: '/press-room',
+    thumbnailUrl:
+      'https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=1200&auto=format&fit=crop',
+    order: 35,
+  },
+  {
+    title: 'Testimonial Video Archive',
+    slug: 'testimonial-videos',
+    description:
+      'A dedicated home for RFCI testimonial videos from members, partners, and industry stakeholders.',
+    type: 'website',
+    category: 'Videos',
+    internalUrl: '/testimonial-videos',
+    thumbnailUrl:
+      'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?q=80&w=1200&auto=format&fit=crop',
+    order: 36,
   },
 ]

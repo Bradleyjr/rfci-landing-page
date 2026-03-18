@@ -14,13 +14,14 @@ export const SITE_SETTINGS = {
   environmentsSubheading: 'From single-family homes to hospitals and hotels, resilient flooring delivers in any environment.',
 
   // Why Resilient
-  whyResilientHeading: 'Why Resilient?',
-  whyResilientSubheading: 'The number one flooring category in North America.',
-  whyResilientStatValue: '65',
-  whyResilientStatLabel: 'of hard surface flooring in North America',
+  whyResilientHeading: 'Why Resilient',
+  whyResilientSubheading: 'Built for performance across every sector.',
+  whyResilientStatValue: '180',
+  whyResilientStatSuffix: '+',
+  whyResilientStatLabel: 'years of resilient flooring innovation',
   whyResilientBenefits: [
     { title: 'Easy Maintenance', description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.' },
-    { title: 'Water Resistance', description: 'Engineered to handle moisture-prone environments\u2014from kitchens and baths to healthcare and hospitality.' },
+    { title: 'Moisture Performance', description: 'Depending on the construction, resilient flooring can offer strong water-resistant or waterproof performance for demanding interiors.' },
     { title: 'Cost Effective', description: 'Competitive installed cost paired with a long service life delivers strong value across the full lifecycle.' },
     { title: 'Design Versatility', description: 'Realistic wood, stone, and custom visuals across tile, plank, and sheet formats for any design vision.' },
     { title: 'Sustainability', description: 'Recyclable materials, low-VOC manufacturing, and third-party certifications support green building goals.' },

@@ -1,33 +1,44 @@
 import { notFound } from 'next/navigation'
 import { FlooringDetail } from './FlooringDetail'
 import { FLOORING_TYPES } from '../../../_data/flooring-types'
+import { CERTIFICATIONS } from '../../../_data/certifications'
 
-const CERT_FLOORSCORE = { slug: 'floorscore', title: 'FloorScore®', iconName: 'shieldCheck', description: 'Indoor air quality certification verifying low VOC emissions.' }
-const CERT_ASSURE = { slug: 'assure', title: 'ASSURE® Certified', iconName: 'leaf', description: 'Third-party sustainability certification across the full product lifecycle.' }
-const CERT_AFFIRM = { slug: 'affirm', title: 'AFFIRM™ Certified', iconName: 'globe', description: 'Material health certification disclosing chemical ingredients.' }
-const CERT_EPD = { slug: 'epd', title: 'Environmental Product Declarations', iconName: 'globe', description: 'Standardized environmental impact reporting based on ISO 14025.' }
+function certificationSummary(slug: string, description: string) {
+  const certification = CERTIFICATIONS.find((item) => item.slug === slug)
+  return {
+    slug,
+    title: certification?.title ?? slug,
+    iconName: certification?.iconName ?? 'shieldCheck',
+    description,
+  }
+}
+
+const CERT_FLOORSCORE = certificationSummary('floorscore', 'Indoor air quality certification verifying low VOC emissions.')
+const CERT_ASSURE = certificationSummary('assure', 'Rigid core quality assurance covering indoor air quality, performance, vertical deflection, heavy metals, and ortho-phthalates.')
+const CERT_AFFIRM = certificationSummary('affirm', 'Multi-attribute sustainability certification focused on environmental, health and wellness, and social responsibility criteria.')
+const CERT_EPD = certificationSummary('epd', 'Standardized environmental impact reporting based on ISO 14025 and lifecycle assessment methodology.')
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const FLOORING_FALLBACK: Record<string, any> = {
   'flexible-lvt': {
     title: 'Flexible LVT', subtitle: 'Luxury Vinyl Tile · Planks', slug: 'flexible-lvt',
     accentColor: '#0164DB',
-    description: 'Luxury vinyl tile (LVT) is a type of flexible resilient flooring produced in either tiles or planks. Continued improvements in film printing technologies combined with in-register printing and texture embossing capture the authentic appeal of natural wood and stone. LVT is a sensible, smart and highly attractive alternative to more expensive flooring systems including ceramic tile, stone, and hardwood.',
-    tags: [{ label: 'Waterproof', variant: 'green' }, { label: 'High Traffic', variant: 'amber' }, { label: 'Easy Install', variant: 'gray' }],
+    description: 'Luxury vinyl tile (LVT) is a flexible resilient flooring category produced in tiles or planks. Continued improvements in film printing, in-register embossing, and finish technology give LVT authentic wood and stone visuals with strong water-resistant performance and easy maintenance.',
+    tags: [{ label: 'Water Resistant', variant: 'green' }, { label: 'High Traffic', variant: 'tan' }, { label: 'Easy Install', variant: 'gray' }],
     features: [
       { title: 'Design Realism', description: 'Longer and wider planks with larger-format tiles reduce pattern repeat, while in-register printing and texture embossing create authentic wood and stone visuals.' },
       { title: 'Versatile Installation', description: 'Three installation methods: dry-back/glue-down, floating click/lock system, and loose-lay with minimal or no adhesives for installing over existing floors.' },
       { title: 'Scratch & Scuff Resistant', description: 'Commercial grade wear layers provide high-performance attributes. Ideal for pet-loving owners and busy lifestyles with easy cleaning and durability.' },
-      { title: 'Water Resistant', description: 'Can withstand frequent mopping and heavy foot traffic. Damaged individual tiles or planks are easy to replace.' },
+      { title: 'Water Resistant', description: 'Designed to handle routine moisture exposure and cleaning. Product-specific seams, subfloor conditions, and installation details still matter when evaluating water performance.' },
     ],
     composition: 'Luxury Vinyl Tile is produced in either tiles or planks. Shapes of the tiles range in size from 12x12 to 24x24, and even 12x24 rectangular. For luxury wood looks, LVT comes in standard plank shapes such as 3x36, 4½x36, as well as extra-long and wide such as 9"x72".',
     advantages: [
       'Design realism combined with the ability to produce longer and wider planks and larger-format tiles significantly enhances product appearance.',
-      'Low installation costs, water resistance attributes, and low maintenance requirements offer excellent performance for busy lifestyles.',
+      'Low installation costs, water-resistant performance, and low maintenance requirements offer excellent performance for busy lifestyles.',
       'Highly durable — scratch and scuff resistant.',
       'Provides a wide range of exotic species visuals for design versatility.',
       'Ideal product for pet-loving owners — scratch resistance for energetic pets, easy to clean and durable.',
-      'Water resistant, can withstand frequent mopping and heavy foot traffic.',
+      'Water resistant and well suited to routine cleaning and everyday moisture exposure when installed per manufacturer instructions.',
       'Damaged individual tiles or planks are easy to replace.',
       'Commercial grade wear layers and associated finishes provide high-performance attributes.',
       'Grout can be added to some LVT products for a high-end design option at an affordable price.',
@@ -43,28 +54,28 @@ const FLOORING_FALLBACK: Record<string, any> = {
   'rigid-core': {
     title: 'Rigid Core', subtitle: 'SPC · WPC · Multilayer', slug: 'rigid-core',
     accentColor: '#455A64',
-    description: 'An entirely new class of stepped-up LVT products referred to as Rigid Core or Multilayer flooring, defined as modular flooring with a rigid polymeric core, a decorative top surface, and an optional soft underlayment pre-attached to the bottom. Available in WPC (Expanded Polymer Core) for lightweight comfort and SPC (Solid Polymer Core) for greater density and indentation resistance. Both constructions are waterproof.',
-    tags: [{ label: 'Waterproof', variant: 'green' }, { label: 'Dimensionally Stable', variant: 'amber' }, { label: 'ASSURE Eligible', variant: 'gray' }],
+    description: 'Rigid Core, sometimes called multilayer flooring, is a modular resilient flooring category with a rigid polymeric core, a decorative top surface, and often an attached underlayment. Available in WPC (Expanded Polymer Core) and SPC (Solid Polymer Core) constructions, it is widely specified for dimensional stability, floating installation, and waterproof product performance.',
+    tags: [{ label: 'Waterproof', variant: 'green' }, { label: 'Dimensionally Stable', variant: 'tan' }, { label: 'ASSURE Eligible', variant: 'gray' }],
     features: [
       { title: 'Floating Installation', description: 'Unique locking systems allow floating installation with no adhesives required. Can often be installed without acclimation and with minimal subfloor preparation.' },
-      { title: 'Waterproof Construction', description: 'Fully waterproof for bathrooms, kitchens, laundry rooms, and entryways. Can install over most existing hard surfaces including ceramic tile.' },
+      { title: 'Waterproof Construction', description: 'Many rigid core products are marketed as waterproof at the finished-product level, making them useful in moisture-prone interiors when the full installation system is detailed correctly.' },
       { title: 'Temperature & Humidity Stability', description: 'Greater resistance to humidity and temperature variations with no telegraphing of minor subfloor irregularities.' },
       { title: 'Cushioning & Acoustics', description: 'Pre-attached cork or acoustical underlayment provides added cushioning, sound absorption, and underfoot comfort.' },
     ],
-    composition: 'There are two Rigid Core product constructions: Expanded Polymer Core (WPC) and Solid Polymer Core (SPC). WPC features an expanded polymer core that is light in weight and provides underfoot comfort with excellent acoustical qualities. WPC\'s thicker construction provides the ability for creating realistic textures and is most often used in residential applications. SPC is made with a solid polymer core, which makes it denser, providing greater resistance to indentations, improved dimensional stability, and superior temperature stability. Both WPC and SPC constructions feature rigid cores that are waterproof. A pre-attached cork or other acoustical underlayment is often applied to provide added warmth and sound absorption.',
+    composition: 'There are two primary rigid core product constructions: Expanded Polymer Core (WPC) and Solid Polymer Core (SPC). WPC is lighter in weight and often emphasizes comfort and acoustical performance. SPC is denser, offering stronger indentation resistance and dimensional stability. Both constructions use rigid cores and are commonly paired with attached underlayments for sound absorption and underfoot comfort.',
     advantages: [
       'Unique locking systems enable installation as a floating installation — no adhesives required.',
       'Can often be installed without any need for acclimation.',
       'Require minimal, time-consuming subfloor preparation.',
       'No telegraphing of minor subfloor irregularities or imperfections.',
-      'Waterproof for installation in water-prone areas such as bathrooms, kitchens, laundry rooms, and entryways.',
+      'Commonly specified where waterproof finished-product performance is important, such as kitchens, baths, laundry rooms, and entryways.',
       'Greater resistance to humidity and temperature variations.',
       'Can install over most existing hard surfaces, including ceramic tile.',
       'Added cushioning and sound absorption with attached underlayment.',
     ],
-    installation: 'Rigid Core products install as a floating floor using click-lock or locking systems. No adhesives are required for residential and light-commercial applications. Because of the product\'s rigidity, installation can often proceed without acclimation, and minimal subfloor preparation is needed. Products can be installed over most existing hard surfaces, including ceramic tile.',
+    installation: 'Rigid Core products commonly install as floating floors using click-lock systems. Because of their rigidity, they can often tolerate minor substrate variation better than flexible products, but manufacturer requirements for flatness, expansion space, moisture, and underlayment should still govern the installation.',
     applications: [
-      { environment: 'Residential', description: 'Waterproof for bathrooms, kitchens, laundry rooms, and entryways with easy floating installation over existing floors.' },
+      { environment: 'Residential', description: 'A strong option for kitchens, baths, laundry rooms, and entryways where waterproof finished-product performance and simple floating installation are valued.' },
       { environment: 'Commercial', description: 'SPC construction offers greater indentation resistance and improved dimensional stability for demanding commercial environments.' },
     ],
     relatedCertifications: [CERT_FLOORSCORE, CERT_ASSURE, CERT_AFFIRM],

@@ -13,12 +13,12 @@ export const ABOUT_PAGE = {
 
 export const WHY_RESILIENT_PAGE = {
   heroHeading: 'Why resilient flooring?',
-  heroSubheading: 'Resilient flooring is the fastest-growing segment of the hard surface flooring market\u2014and for good reason. It delivers unmatched versatility across design, performance, and sustainability.',
-  heroStatValue: '65',
-  heroStatLabel: 'of hard surface flooring installed in North America',
+  heroSubheading: 'Resilient flooring continues to earn specifications across healthcare, education, retail, housing, hospitality, and workplace settings because it balances performance, maintenance, comfort, and design flexibility.',
+  heroStatValue: '180',
+  heroStatLabel: 'years of resilient flooring innovation',
   benefits: [
     { title: 'Easy Maintenance', description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.' },
-    { title: 'Water Resistance', description: 'Engineered to handle moisture-prone environments\u2014from kitchens and baths to healthcare and hospitality.' },
+    { title: 'Moisture Performance', description: 'Depending on the construction, resilient flooring can offer strong water-resistant or waterproof performance in demanding interiors.' },
     { title: 'Cost Effective', description: 'Competitive installed cost paired with a long service life delivers strong value across the full lifecycle.' },
     { title: 'Design Versatility', description: 'Realistic wood, stone, and custom visuals across tile, plank, and sheet formats for any design vision.' },
     { title: 'Sustainability', description: 'Recyclable materials, low-VOC manufacturing, and third-party certifications support green building goals.' },
@@ -29,10 +29,12 @@ export const WHY_RESILIENT_PAGE = {
   historyMilestones: [
     { year: '1845', title: 'Linoleum Invented', description: 'Frederick Walton patents linoleum in England, creating the first true resilient floor covering from linseed oil and natural materials.' },
     { year: '1872', title: 'US Manufacturing Begins', description: 'The American Linoleum Manufacturing Company opens in Staten Island, New York, launching domestic resilient flooring production.' },
-    { year: '1933', title: 'Vinyl Composition Tile', description: 'VCT is introduced as a durable, affordable alternative for commercial spaces, quickly becoming the standard in schools and hospitals.' },
-    { year: '1950s', title: 'The Vinyl Boom', description: 'Post-war construction drives massive adoption of sheet vinyl and VCT across residential and commercial markets nationwide.' },
-    { year: '1960s', title: 'Cushioned Vinyl', description: 'Cushion-backed sheet vinyl delivers improved comfort underfoot and sound absorption, expanding resilient flooring into new applications.' },
-    { year: 'Today', title: '#2 in North America', description: 'Resilient flooring accounts for 65% of all hard surface flooring installed in North America, driven by LVT innovation and sustainability leadership.' },
+    { year: '1933', title: 'Vinyl Composition Tile Arrives', description: 'VCT enters the market as a durable, affordable option for schools, hospitals, and other high-traffic commercial interiors.' },
+    { year: '1950s', title: 'Sheet Vinyl Expands', description: 'Post-war construction accelerates the use of sheet vinyl and other resilient formats across homes and commercial projects.' },
+    { year: '1980s', title: 'Resilient Design Broadens', description: 'Manufacturing advances improve visuals, finishes, and maintenance performance for a wider range of applications.' },
+    { year: '1990s', title: 'Luxury Vinyl Gains Momentum', description: 'LVT and LVP bring more realistic wood and stone visuals to the resilient category while keeping the maintenance advantages of hard-surface flooring.' },
+    { year: '2010s', title: 'Rigid Core Reshapes the Category', description: 'SPC and WPC rigid core products expand floating installation options and accelerate demand for waterproof resilient flooring systems.' },
+    { year: 'Today', title: 'A Full Portfolio of Solutions', description: 'Resilient flooring now spans sheet, tile, plank, rubber, linoleum, cork, and rigid core constructions for nearly every project type.' },
   ],
 }
 

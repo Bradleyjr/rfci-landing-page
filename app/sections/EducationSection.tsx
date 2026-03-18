@@ -106,7 +106,7 @@ export function EducationSection({ videos }: { videos: any[] }) {
                 />
                 <div className="absolute inset-0 bg-rfci-black/20 group-hover:bg-rfci-black/40 transition-colors duration-500 flex items-center justify-center">
                   <div className="w-20 h-20 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500">
-                    <PlayCircle className="w-10 h-10 text-white group-hover:text-rfci-blue ml-1 transition-colors duration-500" />
+                    <PlayCircle className="w-10 h-10 text-white group-hover:text-rfci-blue transition-colors duration-500" />
                   </div>
                 </div>
               </div>
@@ -145,7 +145,7 @@ export function EducationSection({ videos }: { videos: any[] }) {
                     />
                     <div className="absolute inset-0 bg-rfci-black/20 group-hover:bg-rfci-black/40 transition-colors duration-500 flex items-center justify-center">
                       <div className="w-14 h-14 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500">
-                        <PlayCircle className="w-6 h-6 text-white group-hover:text-rfci-blue ml-0.5 transition-colors duration-500" />
+                        <PlayCircle className="w-6 h-6 text-white group-hover:text-rfci-blue transition-colors duration-500" />
                       </div>
                     </div>
                   </div>

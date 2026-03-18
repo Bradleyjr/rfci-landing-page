@@ -62,12 +62,12 @@ export function EnvironmentsSection() {
                       <IconComp className="w-6 h-6 text-white/60 mb-4" />
                       <h3 className="text-lg md:text-xl font-display font-semibold mb-3 leading-tight">{env.name}</h3>
                       <p className="text-sm text-white/80 leading-relaxed mb-4">
-                        Resilient flooring delivers lasting performance, easy maintenance, and design flexibility for this environment.
+                        {env.description}
                       </p>
                       <div className="mt-auto">
                         <span className="text-label font-bold tracking-widest uppercase text-white/50">{env.flooringType}</span>
                         <div className="text-label tracking-widest uppercase text-white/40 mt-1">
-                          Photo courtesy of RFCI members
+                          {env.courtesy}
                         </div>
                       </div>
                     </div>

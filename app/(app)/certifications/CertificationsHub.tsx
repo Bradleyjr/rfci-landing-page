@@ -16,43 +16,9 @@ type CertDoc = {
   stats?: Array<{ value: string; label: string }>
 }
 
-const CERTS_STATIC: CertDoc[] = [
-  {
-    slug: 'floorscore',
-    title: 'FloorScore\u00AE',
-    iconName: 'shieldCheck',
-    description: 'The flooring industry\u2019s most recognized indoor air quality certification, independently administered by SCS Global Services.',
-    image: { url: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop' },
-    stats: [{ value: 'CA 01350', label: 'Emissions Standard' }, { value: 'SCS Global', label: 'Certification Body' }],
-  },
-  {
-    slug: 'assure',
-    title: 'ASSURE\u00AE Certified',
-    iconName: 'leaf',
-    description: 'RFCI\u2019s quality standard for rigid core luxury flooring (WPC and SPC), independently tested for IAQ, heavy metals, and phthalates.',
-    image: { url: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200&auto=format&fit=crop' },
-    stats: [{ value: 'WPC + SPC', label: 'Rigid Core Products' }, { value: '100 PPM', label: 'Max Heavy Metals' }],
-  },
-  {
-    slug: 'affirm',
-    title: 'AFFIRM\u2122 Certified',
-    iconName: 'globe',
-    description: 'Multi-attribute sustainability certification based on NSF/ANSI 332, evaluating environmental, health & wellness, and social impact.',
-    image: { url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop' },
-    stats: [{ value: 'NSF/ANSI 332', label: 'Standard' }, { value: 'Level 1 + 2', label: 'Certification Tiers' }],
-  },
-  {
-    slug: 'epd',
-    title: 'Environmental Product Declarations',
-    iconName: 'fileText',
-    description: 'Transparent reporting of a product\u2019s environmental impact across its full lifecycle, based on ISO 14025 standards.',
-    stats: [{ value: 'ISO 14025', label: 'Standard' }],
-  },
-]
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function CertificationsHub({ certifications, pageSettings }: { certifications: any[]; pageSettings?: any }) {
-  const displayCerts: CertDoc[] = certifications?.length ? certifications : CERTS_STATIC
+  const displayCerts: CertDoc[] = certifications?.length ? certifications : []
 
   return (
     <PageLayout>

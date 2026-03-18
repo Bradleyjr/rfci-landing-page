@@ -5,7 +5,7 @@ import { ENVIRONMENTS } from '../../_data/environments'
 
 export const metadata = {
   title: 'Why Resilient Flooring | RFCI',
-  description: 'Discover why resilient flooring is the fastest-growing segment of the hard surface market — unmatched versatility across design, performance, and sustainability.',
+  description: 'Discover why resilient flooring continues to earn specifications across healthcare, education, retail, housing, hospitality, and workplace interiors.',
 }
 
 export default function WhyResilientPage() {

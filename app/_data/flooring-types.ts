@@ -17,10 +17,10 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Flexible LVT',
     subtitle: 'Luxury Vinyl Tile \u00b7 Planks',
-    description: 'Luxury vinyl tile (LVT) is a type of flexible resilient flooring produced in either tiles or planks. Amazing visuals and design realism combined with low installation costs, water resistance, and low maintenance make LVT a smart alternative to ceramic tile, stone, and hardwood.',
+    description: 'Luxury vinyl tile (LVT) is a flexible resilient flooring category produced in tiles or planks. Design realism, easy maintenance, and strong water-resistant performance make it a practical alternative to ceramic tile, stone, and hardwood in many spaces.',
     accentColor: '#9CA3AF',
     tags: [
-      { label: 'Waterproof', variant: 'green' },
+      { label: 'Water Resistant', variant: 'green' },
       { label: 'High Traffic', variant: 'tan' },
       { label: 'Easy Install', variant: 'gray' },
     ],
@@ -29,7 +29,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Rigid Core',
     subtitle: 'SPC \u00b7 WPC \u00b7 Multilayer',
-    description: 'An entirely new class of stepped-up LVT products with a rigid polymeric core, a decorative top surface, and an optional soft underlayment. Available in WPC and SPC constructions, both waterproof with unique locking systems for floating installation.',
+    description: 'Rigid Core is a resilient flooring category with a rigid polymeric core, a decorative top surface, and often an attached underlayment. Available in WPC and SPC constructions, it is widely specified where dimensional stability, floating installation, and waterproof product performance are priorities.',
     accentColor: '#78909C',
     tags: [
       { label: 'Waterproof', variant: 'green' },

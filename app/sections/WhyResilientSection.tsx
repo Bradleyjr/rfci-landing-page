@@ -6,34 +6,6 @@ import { Broom, Drop, CurrencyDollar, Palette, Recycle, ArrowRight } from '@phos
 import { SectionReveal } from '../_components/SectionReveal'
 import { SITE_SETTINGS } from '../_data/site-settings'
 
-const BENEFITS = [
-  {
-    icon: Broom,
-    title: 'Easy Maintenance',
-    description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.',
-  },
-  {
-    icon: Drop,
-    title: 'Water Resistance',
-    description: 'Engineered to handle moisture-prone environments—from kitchens and baths to healthcare and hospitality.',
-  },
-  {
-    icon: CurrencyDollar,
-    title: 'Cost Effective',
-    description: 'Competitive installed cost paired with a long service life delivers strong value across the full lifecycle.',
-  },
-  {
-    icon: Palette,
-    title: 'Design Versatility',
-    description: 'Realistic wood, stone, and custom visuals across tile, plank, and sheet formats for any design vision.',
-  },
-  {
-    icon: Recycle,
-    title: 'Sustainability',
-    description: 'Recyclable materials, low-VOC manufacturing, and third-party certifications support green building goals.',
-  },
-]
-
 function AnimatedCounter({ target, suffix = '%' }: { target: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
@@ -68,8 +40,9 @@ function AnimatedCounter({ target, suffix = '%' }: { target: number; suffix?: st
 export function WhyResilientSection() {
   const cmsBenefits = SITE_SETTINGS.whyResilientBenefits
   const statTarget = parseInt(SITE_SETTINGS.whyResilientStatValue || '65', 10)
+  const statSuffix = SITE_SETTINGS.whyResilientStatSuffix || '%'
   const statLabel = SITE_SETTINGS.whyResilientStatLabel || 'of commercial interiors\nuse resilient flooring'
-  const imageUrl = 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop'
+  const benefitIcons = [Broom, Drop, CurrencyDollar, Palette, Recycle]
   return (
     <section id="why-resilient" className="py-28 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -86,10 +59,10 @@ export function WhyResilientSection() {
               {/* Stat badge — overlays bottom-left of photo */}
               <div className="absolute bottom-6 left-6 bg-white p-5 shadow-[0_8px_30px_rgba(0,0,0,0.15)]">
                 <div className="text-4xl md:text-5xl font-display font-bold text-rfci-blue leading-none mb-1">
-                  <AnimatedCounter target={statTarget} />
+                  <AnimatedCounter target={statTarget} suffix={statSuffix} />
                 </div>
                 <p className="text-xs text-rfci-black/60 font-light leading-snug max-w-[130px]">
-                  {SITE_SETTINGS.whyResilientStatLabel}
+                  {statLabel}
                 </p>
               </div>
             </div>
@@ -104,8 +77,8 @@ export function WhyResilientSection() {
 
             {/* Benefits — borderless divide-y list */}
             <div className="divide-y divide-rfci-black/10">
-              {BENEFITS.map((benefit, idx) => {
-                const Icon = benefit.icon
+              {cmsBenefits.map((benefit, idx) => {
+                const Icon = benefitIcons[idx] ?? Recycle
                 return (
                   <div key={idx} className="flex gap-5 py-5 first:pt-0 last:pb-0 items-start group">
                     <div>

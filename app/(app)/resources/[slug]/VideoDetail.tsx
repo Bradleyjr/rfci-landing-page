@@ -146,7 +146,7 @@ export function VideoDetail({ resource, relatedResources }: { resource: any; rel
               {relatedResources.slice(0, 3).map((r, i) => (
                 <SectionReveal key={r.slug || r.title} delay={i * 0.1}>
                   <Link
-                    href={r.slug ? `/resources/${r.slug}` : (r.externalUrl || '#')}
+                    href={r.internalUrl || (r.slug ? `/resources/${r.slug}` : (r.externalUrl || '#'))}
                     className="group block p-8 bg-white border border-black/5 hover:border-rfci-blue/30 hover:shadow-lg transition-all h-full"
                   >
                     <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block mb-4 ${TYPE_COLORS[r.type] || TYPE_COLORS.technical}`}>

@@ -1,31 +1,14 @@
 'use client'
 
+import Link from 'next/link'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { CaretDown, MagnifyingGlass, Envelope } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
-
-const FAQS_STATIC = [
-  { question: 'What is resilient flooring?', answer: 'Resilient flooring refers to a category of hard surface flooring materials that offer a degree of flexibility and "give" underfoot. This includes luxury vinyl tile (LVT), vinyl composition tile (VCT), sheet vinyl, linoleum, rubber, and cork flooring.', category: 'general' },
-  { question: 'What is the Resilient Floor Covering Institute (RFCI)?', answer: 'RFCI is the trade association for the resilient flooring industry in North America. Founded in 1976, we represent manufacturers and suppliers of vinyl, rubber, linoleum, and cork flooring products.', category: 'general' },
-  { question: 'What is FloorScore certification?', answer: 'FloorScore is the flooring industry\'s most recognized indoor air quality certification. It independently verifies that a flooring product meets California\'s strict VOC emissions standards (CA Section 01350), one of the toughest air quality benchmarks in the world.', category: 'certifications' },
-  { question: 'What does ASSURE certification cover?', answer: 'ASSURE is RFCI\'s third-party sustainability certification that evaluates resilient flooring products across the full lifecycle—raw materials, manufacturing, product performance, and end-of-life recovery.', category: 'certifications' },
-  { question: 'What is an Environmental Product Declaration (EPD)?', answer: 'An EPD is a standardized, third-party verified document that transparently reports the environmental impact of a product across its entire lifecycle, from raw material extraction through manufacturing, use, and end-of-life disposal.', category: 'sustainability' },
-  { question: 'Is resilient flooring recyclable?', answer: 'Many resilient flooring products are recyclable. Several RFCI member companies operate take-back and recycling programs for post-installation and post-consumer flooring waste. The industry is continuously expanding recycling capabilities.', category: 'sustainability' },
-  { question: 'Can resilient flooring be installed over existing floors?', answer: 'In many cases, yes. Resilient flooring can often be installed over existing hard, smooth surfaces, which can reduce demolition waste and installation time. However, subfloor conditions must meet the manufacturer\'s requirements.', category: 'installation' },
-  { question: 'What subfloor preparation is needed for resilient flooring?', answer: 'Subfloors must be clean, dry, smooth, and structurally sound. Specific moisture, flatness, and temperature requirements vary by product. Always follow the manufacturer\'s installation guidelines.', category: 'installation' },
-  { question: 'How does RFCI membership work?', answer: 'RFCI membership is by invitation and is open to manufacturers and suppliers within the resilient flooring industry. Members participate in industry advocacy, certification programs, and educational initiatives.', category: 'membership' },
-  { question: 'Does RFCI offer continuing education?', answer: 'Yes. RFCI provides AIA-approved continuing education units (CEUs) covering topics like indoor air quality, sustainability certifications, material health, and Environmental Product Declarations.', category: 'general' },
-  { question: 'How does resilient flooring impact indoor air quality?', answer: 'Resilient flooring can significantly contribute to healthy indoor environments. Products certified through FloorScore meet California Section 01350 standards for low VOC emissions—one of the strictest indoor air quality benchmarks in the world. Proper product selection and installation help maintain healthy IAQ in homes, schools, healthcare facilities, and commercial buildings.', category: 'sustainability' },
-  { question: 'What are VOCs and why do they matter in flooring?', answer: 'VOCs (Volatile Organic Compounds) are chemicals that can off-gas from building materials, including some flooring products. Prolonged exposure to high VOC levels may cause headaches, respiratory irritation, and other health effects. FloorScore-certified resilient flooring products are independently tested to ensure VOC emissions fall well below recognized health thresholds.', category: 'sustainability' },
-  { question: 'What is the difference between FloorScore, ASSURE, and AFFIRM?', answer: 'FloorScore certifies that a product meets strict indoor air quality (VOC emission) standards. ASSURE evaluates broader sustainability criteria across a product\'s full lifecycle—materials, manufacturing, performance, and end-of-life. AFFIRM is an ANSI-accredited program that verifies product composition and regulatory compliance through independent lab testing. Together, these three programs provide comprehensive, third-party assurance of quality, health, and environmental responsibility.', category: 'certifications' },
-  { question: 'How does resilient flooring compare to carpet for health and maintenance?', answer: 'Resilient flooring offers several advantages over carpet in health-sensitive environments. Its smooth, non-porous surface does not harbor dust mites, mold, or allergens the way carpet fibers can. It is easier to clean and disinfect, which is why it is the preferred flooring in healthcare, education, and food-service settings. It also does not absorb moisture, reducing the risk of microbial growth.', category: 'general' },
-  { question: 'What types of resilient flooring are available?', answer: 'The resilient flooring category includes luxury vinyl tile and plank (LVT/LVP), vinyl composition tile (VCT), sheet vinyl, linoleum, rubber flooring, cork flooring, and rigid-core products like WPC and SPC. Each type offers different performance characteristics suited to residential, commercial, and institutional applications.', category: 'general' },
-  { question: 'How long does resilient flooring last?', answer: 'With proper installation and maintenance, commercial-grade resilient flooring can last 20 years or more. Luxury vinyl and rubber flooring in particular are known for exceptional durability. Lifecycle cost analyses consistently show resilient flooring among the most cost-effective hard surface options when factoring in installation, maintenance, and replacement cycles.', category: 'general' },
-  { question: 'What is NSF/ANSI 332?', answer: 'NSF/ANSI 332 is the Sustainability Assessment Standard for Resilient Floor Coverings. It provides a framework for evaluating the environmental and social responsibility of resilient flooring products across their full lifecycle, including raw materials, manufacturing, long-term value, and end-of-life management. Products are rated at Silver, Gold, or Platinum levels.', category: 'sustainability' },
-]
+import { FAQS } from '../../_data/faqs'
+import { findGlossaryEntries, glossaryHref } from '../../_lib/glossary'
 
 const CATEGORIES = [
   { key: 'all', label: 'All Questions' },
@@ -42,36 +25,17 @@ export function FAQPage({ faqs, pageSettings }: { faqs: any[]; pageSettings?: an
   const [activeCategory, setActiveCategory] = useState('all')
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
-  const items = faqs?.length ? faqs : FAQS_STATIC
+  const items = faqs?.length ? faqs : FAQS
 
   const filteredFaqs = items.filter((faq) => {
     const matchesCategory = activeCategory === 'all' || faq.category === activeCategory
-    const matchesSearch = !searchTerm || faq.question.toLowerCase().includes(searchTerm.toLowerCase())
+    const haystack = `${faq.question} ${extractAnswerText(faq.answer)}`.toLowerCase()
+    const matchesSearch = !searchTerm || haystack.includes(searchTerm.toLowerCase())
     return matchesCategory && matchesSearch
   })
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index)
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const renderAnswer = (answer: any) => {
-    if (typeof answer === 'string') {
-      return <p className="text-rfci-black/60 leading-relaxed font-light">{answer}</p>
-    }
-    // richText from Payload (lexical) — extract text from root children
-    if (answer?.root?.children) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return answer.root.children.map((node: any, i: number) => {
-        const text = node.children?.map((child: { text?: string }) => child.text ?? '').join('') ?? ''
-        return (
-          <p key={i} className="text-rfci-black/60 leading-relaxed font-light mb-2 last:mb-0">
-            {text}
-          </p>
-        )
-      })
-    }
-    return null
   }
 
   return (
@@ -82,7 +46,6 @@ export function FAQPage({ faqs, pageSettings }: { faqs: any[]; pageSettings?: an
         subheading={pageSettings?.heroSubheading || 'Find answers to common questions about resilient flooring, RFCI certifications, sustainability, and membership.'}
       />
 
-      {/* Search Bar */}
       <section className="bg-rfci-cream py-10">
         <div className="max-w-3xl mx-auto px-6 md:px-12">
           <div className="relative">
@@ -95,8 +58,8 @@ export function FAQPage({ faqs, pageSettings }: { faqs: any[]; pageSettings?: an
               type="text"
               placeholder="Search questions..."
               value={searchTerm}
-              onChange={(e) => {
-                setSearchTerm(e.target.value)
+              onChange={(event) => {
+                setSearchTerm(event.target.value)
                 setOpenIndex(null)
               }}
               className="w-full pl-12 pr-4 py-3 rounded-lg border border-black/10 focus:border-rfci-blue focus:outline-none bg-white text-rfci-black placeholder:text-rfci-black/40 transition-colors"
@@ -105,7 +68,6 @@ export function FAQPage({ faqs, pageSettings }: { faqs: any[]; pageSettings?: an
         </div>
       </section>
 
-      {/* Category Tabs */}
       <section className="bg-rfci-cream pb-6">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex flex-wrap gap-2">
@@ -129,46 +91,62 @@ export function FAQPage({ faqs, pageSettings }: { faqs: any[]; pageSettings?: an
         </div>
       </section>
 
-      {/* FAQ Accordion */}
       <section className="bg-rfci-cream py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-6 md:px-12">
           <SectionReveal>
             {filteredFaqs.length > 0 ? (
               <div>
-                {filteredFaqs.map((faq, index) => (
-                  <div key={faq.question} className="border-b border-black/10">
-                    <button
-                      onClick={() => toggleFaq(index)}
-                      className="w-full flex items-center justify-between py-5 text-left gap-4"
-                    >
-                      <span className="text-lg font-display font-medium text-rfci-black">
-                        {faq.question}
-                      </span>
-                      <motion.span
-                        animate={{ rotate: openIndex === index ? 180 : 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="flex-shrink-0 text-rfci-black/40"
+                {filteredFaqs.map((faq, index) => {
+                  const glossaryEntries = findGlossaryEntries(`${faq.question} ${extractAnswerText(faq.answer)}`)
+
+                  return (
+                    <div key={faq.question} className="border-b border-black/10">
+                      <button
+                        onClick={() => toggleFaq(index)}
+                        className="w-full flex items-center justify-between py-5 text-left gap-4"
                       >
-                        <CaretDown size={20} weight="bold" />
-                      </motion.span>
-                    </button>
-                    <AnimatePresence initial={false}>
-                      {openIndex === index && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.25, ease: 'easeInOut' }}
-                          className="overflow-hidden"
+                        <span className="text-lg font-display font-medium text-rfci-black">
+                          {faq.question}
+                        </span>
+                        <motion.span
+                          animate={{ rotate: openIndex === index ? 180 : 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="flex-shrink-0 text-rfci-black/40"
                         >
-                          <div className="pb-5">
-                            {renderAnswer(faq.answer)}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-                ))}
+                          <CaretDown size={20} weight="bold" />
+                        </motion.span>
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {openIndex === index && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.25, ease: 'easeInOut' }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pb-5">
+                              {renderAnswer(faq.answer)}
+                              {glossaryEntries.length > 0 && (
+                                <div className="mt-4 flex flex-wrap gap-2">
+                                  {glossaryEntries.map((entry) => (
+                                    <Link
+                                      key={entry.term}
+                                      href={glossaryHref(entry.term)}
+                                      className="rounded-full border border-rfci-blue/20 px-3 py-1 text-label font-bold uppercase tracking-widest text-rfci-blue hover:bg-rfci-blue hover:text-white transition-colors"
+                                    >
+                                      {entry.term}
+                                    </Link>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )
+                })}
               </div>
             ) : (
               <p className="text-rfci-black/50 text-center py-12 font-light">
@@ -179,7 +157,6 @@ export function FAQPage({ faqs, pageSettings }: { faqs: any[]; pageSettings?: an
         </div>
       </section>
 
-      {/* Still Have Questions CTA */}
       <section className="bg-rfci-black text-white py-16 md:py-20">
         <div className="max-w-3xl mx-auto px-6 md:px-12 text-center">
           <SectionReveal>
@@ -201,4 +178,38 @@ export function FAQPage({ faqs, pageSettings }: { faqs: any[]; pageSettings?: an
       </section>
     </PageLayout>
   )
+}
+
+function extractAnswerText(answer: unknown) {
+  if (typeof answer === 'string') return answer
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if ((answer as any)?.root?.children) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return (answer as any).root.children
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .map((node: any) => node.children?.map((child: { text?: string }) => child.text ?? '').join('') ?? '')
+      .join(' ')
+  }
+  return ''
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function renderAnswer(answer: any) {
+  if (typeof answer === 'string') {
+    return <p className="text-rfci-black/60 leading-relaxed font-light">{answer}</p>
+  }
+
+  if (answer?.root?.children) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    return answer.root.children.map((node: any, i: number) => {
+      const text = node.children?.map((child: { text?: string }) => child.text ?? '').join('') ?? ''
+      return (
+        <p key={i} className="text-rfci-black/60 leading-relaxed font-light mb-2 last:mb-0">
+          {text}
+        </p>
+      )
+    })
+  }
+
+  return null
 }
