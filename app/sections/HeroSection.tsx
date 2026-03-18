@@ -31,7 +31,7 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
   const heroImageUrl = HERO_STATIC.heroImageUrl
 
   return (
-    <section id="hero" className="relative min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-rfci-cream pt-32 pb-16 md:pt-20 md:pb-0 px-6 md:px-12">
+    <section id="hero" className="relative min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-rfci-cream pt-32 pb-16 md:pt-20 md:pb-0">
       <div className="absolute right-0 top-0 w-full md:w-[45%] h-full hidden md:block overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
@@ -55,7 +55,7 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
         </motion.div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto w-full flex flex-col md:flex-row items-center">
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 flex flex-col md:flex-row items-center">
         <div className="w-full md:w-[55%] md:pr-16 lg:pr-24 flex flex-col">
           <div className="order-1 md:order-none">
             {/* H1: replaced three-unit arbitrary sizes with design-system scale */}
