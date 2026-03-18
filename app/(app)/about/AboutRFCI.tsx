@@ -1,12 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight, MapPin, Calendar } from '@phosphor-icons/react'
+import { ArrowRight, MapPin, Calendar, PlayCircle } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { SectionReveal } from '../../_components/SectionReveal'
 import { mediaUrl } from '../../_lib/transforms'
 import { FAQAccordion } from '../../_components/FAQAccordion'
 import { FAQS } from '../../_data/faqs'
+import { TESTIMONIAL_VIDEOS, type TestimonialVideo } from '../../_data/testimonial-videos'
 
 const PILLARS_STATIC = [
   { number: '01', title: 'Advocacy & Engagement', description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.' },
@@ -178,6 +179,51 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                 View Full Member Directory <ArrowRight className="w-4 h-4" />
               </a>
             </SectionReveal>
+          </div>
+        </section>
+      )}
+
+      {/* Testimonial Videos */}
+      {TESTIMONIAL_VIDEOS.length > 0 && (
+        <section className="py-20 md:py-28 bg-rfci-cream">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <SectionReveal className="mb-12">
+              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Testimonials</div>
+              <h2 className="text-3xl md:text-4xl font-display font-light text-balance">
+                Hear from the <span className="font-semibold">industry.</span>
+              </h2>
+            </SectionReveal>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {TESTIMONIAL_VIDEOS.sort((a, b) => a.order - b.order).map((video, index) => (
+                <SectionReveal key={`${video.company}-${video.title}`} delay={index * 0.05}>
+                  <a
+                    href={video.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block h-full overflow-hidden rounded-sm border border-black/5 bg-white transition-all hover:border-rfci-blue/20 hover:shadow-lg"
+                  >
+                    <div className="relative aspect-video overflow-hidden bg-rfci-black/10">
+                      {video.thumbnailUrl ? (
+                        <img src={video.thumbnailUrl} alt={video.title} className="h-full w-full object-cover" />
+                      ) : (
+                        <div className="flex h-full w-full items-center justify-center text-rfci-black/20">
+                          <PlayCircle className="h-12 w-12" />
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-6">
+                      <div className="mb-3 text-label font-bold uppercase tracking-widest text-rfci-blue">
+                        {video.company} · {video.segment}
+                      </div>
+                      <h2 className="mb-3 text-2xl font-display font-light leading-tight text-rfci-black">
+                        {video.title}
+                      </h2>
+                      <p className="text-rfci-black/60 font-light leading-relaxed">&ldquo;{video.quote}&rdquo;</p>
+                    </div>
+                  </a>
+                </SectionReveal>
+              ))}
+            </div>
           </div>
         </section>
       )}
