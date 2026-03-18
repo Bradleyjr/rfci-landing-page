@@ -189,7 +189,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Testimonials</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light text-balance">
+              <h2 className="text-3xl md:text-4xl font-display font-light">
                 Hear from the <span className="font-semibold">industry.</span>
               </h2>
             </SectionReveal>
@@ -233,7 +233,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="mb-12">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">FAQ</div>
-            <h2 className="text-3xl md:text-4xl font-display font-light text-balance">
+            <h2 className="text-3xl md:text-4xl font-display font-light">
               Common <span className="font-semibold">questions.</span>
             </h2>
           </SectionReveal>

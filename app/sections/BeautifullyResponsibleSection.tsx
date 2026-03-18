@@ -26,7 +26,7 @@ export function BeautifullyResponsibleSection() {
               />
             </div>
             <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed mb-4">
-              Don&rsquo;t compromise&mdash;on your personal style, budget, or well-being.
+              Don&rsquo;t compromise&mdash;on your personal style, budget, or&nbsp;well&#8209;being.
             </p>
             <p className="text-base md:text-lg text-white/70 font-light leading-relaxed mb-10 max-w-xl">
               Beautifully Responsible&reg; is RFCI&rsquo;s consumer initiative connecting homeowners

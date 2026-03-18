@@ -58,7 +58,7 @@ export function MissionSection() {
           <SectionReveal direction="left" className="lg:col-span-6">
             {/* text-label (11px) — design-system token, replaces off-scale text-[10px] */}
             <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">{SITE_SETTINGS.missionLabel}</div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight text-balance">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
               {SITE_SETTINGS.missionHeading}
               <br />
               <span className="font-light italic text-white/80">{SITE_SETTINGS.missionHeadingItalic}</span>

@@ -61,7 +61,7 @@ export function MembersSection() {
           <div className="w-16 h-16 bg-white/10 flex items-center justify-center mb-8 border border-white/20">
             <Users className="w-8 h-8 text-rfci-blue" />
           </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-6 leading-[1.1] tracking-tight text-balance">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-6 leading-[1.1] tracking-tight">
             {SITE_SETTINGS.membersHeading}
           </h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto mb-10 font-light leading-relaxed">

@@ -1,6 +1,8 @@
 'use client'
 
-import { ArrowRight } from '@phosphor-icons/react'
+import { useState } from 'react'
+import { AnimatePresence, motion } from 'motion/react'
+import { ArrowRight, CaretDown } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
@@ -29,6 +31,7 @@ const DEFAULT_BENEFITS = [
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]; environments: any[] }) {
+  const [openBenefit, setOpenBenefit] = useState(0)
   const milestones = pageData?.historyMilestones?.length ? pageData.historyMilestones : HISTORY_MILESTONES
   const benefits = pageData?.benefits?.length
     ? pageData.benefits.map((benefit: { title: string; description: string }, index: number) => ({
@@ -48,38 +51,107 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
 
       {/* Editorial Lede */}
       <section className="py-20 md:py-28 bg-white">
-        <div className="max-w-3xl mx-auto px-6 md:px-12">
-          <SectionReveal>
-            <p className="text-2xl md:text-3xl font-display font-light leading-relaxed text-rfci-black text-center">
-              Resilient flooring keeps showing up where projects need <span className="font-semibold">performance, cleanability, and design flexibility.</span>
-            </p>
-            <p className="text-center text-rfci-black/50 font-light leading-relaxed mt-8 max-w-2xl mx-auto">
-              The reasons are practical, not trendy. Across healthcare, education, housing, retail, hospitality, and workplace interiors, resilient flooring continues to earn specifications because it balances maintenance, comfort, durability, and sustainability.
-            </p>
-          </SectionReveal>
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+            <SectionReveal>
+              <p className="text-2xl md:text-3xl font-display font-light leading-relaxed text-rfci-black">
+                Resilient flooring keeps showing up where projects need <span className="font-semibold">performance, cleanability, and design flexibility.</span>
+              </p>
+              <p className="text-rfci-black/50 font-light leading-relaxed mt-8">
+                The reasons are practical, not trendy. Across healthcare, education, housing, retail, hospitality, and workplace interiors, resilient flooring continues to earn specifications because it balances maintenance, comfort, durability, and sustainability.
+              </p>
+            </SectionReveal>
+            <SectionReveal direction="right">
+              <div className="relative">
+                <img
+                  src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1200&auto=format&fit=crop"
+                  alt="Modern interior with resilient flooring"
+                  className="w-full aspect-[4/3] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-rfci-black/20 to-transparent" />
+              </div>
+            </SectionReveal>
+          </div>
         </div>
       </section>
 
-      {/* The Case for Resilient — Alternating Benefit Rows */}
-      <section className="py-16 md:py-24 bg-rfci-cream">
+      {/* The Case for Resilient — Accordion */}
+      <section className="py-20 md:py-28 bg-rfci-cream">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <SectionReveal className="mb-16 text-center">
-            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">The Advantages</div>
-            <h2 className="text-3xl md:text-4xl font-display font-light">
-              Eight reasons resilient <span className="font-semibold">keeps earning the spec.</span>
-            </h2>
-          </SectionReveal>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {benefits.map((benefit, idx) => (
-              <SectionReveal key={idx} delay={idx * 0.06}>
-                <div className="bg-white border border-black/5 p-8 md:p-10 hover:border-rfci-blue/20 hover:shadow-lg transition-all">
-                  <span className="text-label font-bold text-rfci-blue">{benefit.number}</span>
-                  <h3 className="text-xl md:text-2xl font-display font-semibold text-rfci-black mb-3">{benefit.title}</h3>
-                  <p className="text-rfci-black/70 leading-relaxed font-light">{benefit.description}</p>
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+            {/* Left: header + active number */}
+            <div className="lg:col-span-4">
+              <SectionReveal>
+                <div className="lg:sticky lg:top-32">
+                  <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">The Advantages</div>
+                  <h2 className="text-3xl md:text-4xl font-display font-light mb-8">
+                    Eight reasons resilient <span className="font-semibold">keeps earning the spec.</span>
+                  </h2>
+                  <div className="hidden lg:block">
+                    <motion.div
+                      key={openBenefit}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="text-8xl font-display font-bold text-rfci-blue/15 leading-none"
+                    >
+                      {benefits[openBenefit]?.number}
+                    </motion.div>
+                    <div className="text-sm text-rfci-black/40 mt-4">
+                      {String(openBenefit + 1).padStart(2, '0')} / {String(benefits.length).padStart(2, '0')}
+                    </div>
+                  </div>
                 </div>
               </SectionReveal>
-            ))}
+            </div>
+
+            {/* Right: accordion items */}
+            <div className="lg:col-span-8">
+              {benefits.map((benefit, idx) => {
+                const isOpen = openBenefit === idx
+                return (
+                  <SectionReveal key={idx} delay={idx * 0.04}>
+                    <div className="border-b border-black/10">
+                      <button
+                        onClick={() => setOpenBenefit(isOpen ? -1 : idx)}
+                        className="w-full flex items-center gap-5 py-5 md:py-6 text-left group"
+                      >
+                        <span className={`text-sm font-bold font-display shrink-0 transition-colors duration-300 ${isOpen ? 'text-rfci-blue' : 'text-rfci-black/25'}`}>
+                          {benefit.number}
+                        </span>
+                        <span className={`text-lg md:text-xl font-display font-medium flex-1 transition-colors duration-300 ${isOpen ? 'text-rfci-blue' : 'text-rfci-black group-hover:text-rfci-blue'}`}>
+                          {benefit.title}
+                        </span>
+                        <motion.span
+                          animate={{ rotate: isOpen ? 180 : 0 }}
+                          transition={{ duration: 0.2 }}
+                          className={`shrink-0 transition-colors duration-300 ${isOpen ? 'text-rfci-blue' : 'text-rfci-black/30'}`}
+                        >
+                          <CaretDown size={18} weight="bold" />
+                        </motion.span>
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: 'easeInOut' }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pb-6 pl-10 md:pl-12 pr-8">
+                              <p className="text-rfci-black/60 leading-relaxed font-light">
+                                {benefit.description}
+                              </p>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  </SectionReveal>
+                )
+              })}
+            </div>
           </div>
         </div>
       </section>

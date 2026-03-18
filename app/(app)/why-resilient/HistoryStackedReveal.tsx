@@ -26,14 +26,15 @@ export function HistoryStackedReveal({ milestones }: { milestones: Milestone[] }
               const isEven = index % 2 === 0
               return (
                 <SectionReveal key={`${milestone.year}-${milestone.title}`} delay={index * 0.05}>
-                  <div className={`relative grid gap-4 md:grid-cols-2 md:gap-10 ${isEven ? '' : 'md:[&>*:first-child]:order-2'}`}>
-                    <div className={isEven ? 'md:text-right' : ''}>
+                  <div className="relative grid gap-4 md:grid-cols-2 md:gap-10">
+                    {/* Timeline dot — centered on the line */}
+                    <div className="absolute left-6 top-3 h-3 w-3 -translate-x-1/2 rounded-full border-4 border-white bg-rfci-blue shadow-[0_0_0_1px_rgba(1,100,219,0.2)] z-10 md:left-1/2" />
+                    <div className={isEven ? 'md:text-right' : 'md:order-2'}>
                       <div className="inline-flex rounded-full bg-rfci-blue px-4 py-2 text-label font-bold uppercase tracking-widest text-white">
                         {milestone.year}
                       </div>
                     </div>
-                    <div className="relative pl-12 md:pl-0">
-                      <div className="absolute left-[1.35rem] top-3 h-3 w-3 rounded-full border-4 border-white bg-rfci-blue shadow-[0_0_0_1px_rgba(1,100,219,0.2)] md:left-[-1.7rem]" />
+                    <div className={`pl-12 md:pl-0 ${isEven ? '' : 'md:order-1'}`}>
                       <article className="rounded-sm border border-black/5 bg-rfci-cream p-6 md:p-8">
                         <h3 className="text-2xl md:text-3xl font-display font-light mb-3 text-rfci-black">
                           {milestone.title}

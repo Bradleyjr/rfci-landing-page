@@ -35,7 +35,7 @@ export function MaterialsCarousel() {
 
   return (
     <section id="flooring-types" className="py-28 md:py-32 bg-white overflow-x-clip">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionReveal className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
             <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">The Categories</div>

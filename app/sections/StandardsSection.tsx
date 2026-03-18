@@ -61,7 +61,7 @@ export function StandardsSection() {
   }, [activeTab])
 
   return (
-    <section id="standards" className="py-40 bg-stone-50 text-rfci-black relative overflow-hidden">
+    <section id="standards" className="py-40 bg-rfci-cream text-rfci-black relative overflow-hidden">
       {/* Atomic Icon Background */}
       <motion.div
         animate={{ rotate: 360 }}
@@ -74,7 +74,7 @@ export function StandardsSection() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <SectionReveal className="text-center mb-16">
           <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Sustainability</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium mb-6 text-balance">{SITE_SETTINGS.standardsHeading}</h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium mb-6">{SITE_SETTINGS.standardsHeading}</h2>
           <p className="text-xl text-rfci-black/60 max-w-2xl mx-auto font-light">
             {SITE_SETTINGS.standardsSubheading}
           </p>
