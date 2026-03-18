@@ -5,6 +5,8 @@ import { ArrowRight, MapPin, Calendar } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { SectionReveal } from '../../_components/SectionReveal'
 import { mediaUrl } from '../../_lib/transforms'
+import { FAQAccordion } from '../../_components/FAQAccordion'
+import { FAQS } from '../../_data/faqs'
 
 const PILLARS_STATIC = [
   { number: '01', title: 'Advocacy & Engagement', description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.' },
@@ -179,6 +181,21 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
           </div>
         </section>
       )}
+
+      {/* FAQ */}
+      <section className="py-20 md:py-28 bg-rfci-cream">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionReveal className="mb-12">
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">FAQ</div>
+            <h2 className="text-3xl md:text-4xl font-display font-light text-balance">
+              Common <span className="font-semibold">questions.</span>
+            </h2>
+          </SectionReveal>
+          <div className="max-w-3xl">
+            <FAQAccordion faqs={FAQS.filter(f => f.category !== 'certifications').sort((a, b) => a.order - b.order)} />
+          </div>
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="py-16 bg-rfci-blue">
