@@ -40,7 +40,7 @@ export function PageHero({ label, heading, subheading, theme = 'light' }: PageHe
           <div className={`text-label font-bold tracking-widest uppercase ${t.label} mb-4`}>
             {label}
           </div>
-          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight ${t.heading} mb-6`}>
+          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight text-balance ${t.heading} mb-6`}>
             {heading}
           </h1>
           {subheading && (

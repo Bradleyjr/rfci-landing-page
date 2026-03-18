@@ -154,8 +154,8 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
               </h2>
             </SectionReveal>
 
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 md:gap-6">
-              {boardMembers.map((member, idx) => {
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-4 md:gap-6">
+              {boardMembers.slice(0, Math.floor(boardMembers.length / 5) * 5).map((member, idx) => {
                 const logoSrc = member.logoUrl || mediaUrl(member.logo)
                 return (
                   <SectionReveal key={member.name} delay={idx * 0.02}>
