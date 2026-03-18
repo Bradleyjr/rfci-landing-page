@@ -72,7 +72,7 @@ export function CommunitySection() {
                   </p>
                 </div>
               </div>
-              <a href="mailto:info@rfci.com" className="w-full py-3 bg-rfci-blue text-white text-sm font-medium hover:bg-rfci-black transition-colors duration-200 flex items-center justify-center gap-2 group">
+              <a href="mailto:info@rfci.com" className="w-full py-3 bg-rfci-blue text-white text-sm font-medium hover:bg-rfci-black transition-colors duration-300 flex items-center justify-center gap-2 group">
                 Inquire About This Event <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
