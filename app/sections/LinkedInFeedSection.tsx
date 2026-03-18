@@ -1,6 +1,6 @@
 'use client'
 
-import { LinkedinLogo, ThumbsUp, ChatCircle, ArrowRight, Heart, Repeat } from '@phosphor-icons/react'
+import { LinkedinLogo, ThumbsUp, ChatCircle, ArrowRight, ArrowSquareOut, Heart, Repeat } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
 import { SITE_SETTINGS } from '../_data/site-settings'
 
@@ -63,7 +63,7 @@ export function LinkedInFeedSection() {
             <LinkedinLogo className="w-4 h-4" weight="fill" />
             <span className="relative">
               <span className="relative z-10 flex items-center gap-2">
-                Follow on LinkedIn <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Follow on LinkedIn <ArrowSquareOut className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-blue group-hover:w-full transition-all duration-300 ease-out" />
             </span>

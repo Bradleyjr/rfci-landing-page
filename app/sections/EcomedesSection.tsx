@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight } from '@phosphor-icons/react'
+import { ArrowSquareOut } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
 
 export function EcomedesSection() {
@@ -30,7 +30,7 @@ export function EcomedesSection() {
               rel="noopener noreferrer"
               className="shrink-0 inline-flex items-center gap-2 px-8 py-3.5 border border-rfci-blue/40 text-rfci-blue text-sm font-semibold hover:bg-rfci-blue hover:text-white transition-all duration-300 group"
             >
-              Explore Ecomedes <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Explore Ecomedes <ArrowSquareOut className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
         </SectionReveal>
