@@ -9,7 +9,7 @@ export function TermsConditions() {
     <PageLayout>
       <PageHero
         label="Legal"
-        heading={<>Terms &amp; <span className="font-semibold">Conditions</span></>}
+        heading={<>Terms &amp; <span className="font-semibold text-rfci-blue">Conditions</span></>}
         subheading="Please read these terms carefully before using our website."
         theme="light"
       />

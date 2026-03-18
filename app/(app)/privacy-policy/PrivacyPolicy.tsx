@@ -9,7 +9,7 @@ export function PrivacyPolicy() {
     <PageLayout>
       <PageHero
         label="Legal"
-        heading={<>Privacy <span className="font-semibold">Policy</span></>}
+        heading={<>Privacy <span className="font-semibold text-rfci-blue">Policy</span></>}
         subheading="How we collect, use, and protect your information."
         theme="light"
       />

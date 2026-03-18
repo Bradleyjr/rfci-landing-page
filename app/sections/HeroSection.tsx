@@ -32,7 +32,7 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
 
   return (
     <section id="hero" className="relative min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-rfci-cream pt-32 pb-16 md:pt-20 md:pb-0">
-      <div className="absolute right-0 top-0 w-full md:w-[45%] h-full hidden md:block overflow-hidden">
+      <div className="absolute inset-0 hidden md:block overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -40,7 +40,6 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
           style={{ y: heroY }}
           className="w-full h-[120%] -top-[10%] relative"
         >
-          {/* Video-ready: replace src with provided video file */}
           <video
             autoPlay
             loop
@@ -51,7 +50,9 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
           >
             <source src="/media/hero-video.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-rfci-cream/10" />
+          <div className="absolute inset-0 bg-rfci-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-rfci-cream via-rfci-cream/90 via-[35%] to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-rfci-cream/80 via-transparent to-rfci-cream/40" />
         </motion.div>
       </div>
 
@@ -71,10 +72,19 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="text-lg md:text-xl text-rfci-black/70 max-w-lg font-light mb-8 md:mb-12 leading-relaxed"
+              className="text-lg md:text-xl text-rfci-black/70 max-w-lg font-light mb-8 md:mb-10 leading-relaxed"
             >
               {SITE_SETTINGS.heroSubheading}
             </motion.p>
+            <motion.a
+              href="/about"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors"
+            >
+              {SITE_SETTINGS.heroCta} <ArrowRight className="w-4 h-4" />
+            </motion.a>
           </div>
 
           <motion.div
@@ -84,28 +94,6 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
             className="w-full h-[40vh] relative md:hidden order-2 mb-8"
           >
             <img src={heroImageUrl} className="w-full h-full object-cover shadow-sm" alt="Resilient Flooring" style={{ animation: 'hero-zoom 20s ease-in-out infinite alternate' }} />
-          </motion.div>
-        </div>
-
-        <div className="w-full md:w-[45%] flex justify-center md:justify-end order-3 md:order-none">
-          <motion.div
-            initial={{ opacity: 0, x: 40, rotate: 2 }}
-            animate={{ opacity: 1, x: 0, rotate: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: 'easeOut' }}
-            className="w-full max-w-sm bg-white p-8 md:p-12 border border-black/5 shadow-[0_20px_40px_rgba(0,0,0,0.08)] relative md:-mt-0 -mt-16 z-20"
-          >
-            <div className="absolute -top-4 -left-4 w-8 h-8 bg-rfci-blue flex items-center justify-center text-white z-20">
-              <Certificate className="w-4 h-4" weight="fill" />
-            </div>
-            <p className="text-rfci-black/80 font-medium mb-8 md:mb-10 text-base leading-loose relative z-20">{SITE_SETTINGS.heroBoxText}</p>
-            <a href="/about" className="text-label font-bold tracking-widest uppercase text-rfci-blue flex items-center gap-2 group relative z-20">
-              <span className="relative">
-                <span className="relative z-10 flex items-center gap-2">
-                  {SITE_SETTINGS.heroCta} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-blue group-hover:w-full group-hover:h-[2px] transition-all duration-300" />
-              </span>
-            </a>
           </motion.div>
         </div>
       </div>

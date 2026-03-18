@@ -5,9 +5,7 @@ import { ArrowRight, MapPin, Calendar, PlayCircle } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { SectionReveal } from '../../_components/SectionReveal'
 import { mediaUrl } from '../../_lib/transforms'
-import { FAQAccordion } from '../../_components/FAQAccordion'
-import { FAQS } from '../../_data/faqs'
-import { TESTIMONIAL_VIDEOS, type TestimonialVideo } from '../../_data/testimonial-videos'
+import { TESTIMONIAL_VIDEOS } from '../../_data/testimonial-videos'
 
 const PILLARS_STATIC = [
   { number: '01', title: 'Advocacy & Engagement', description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.' },
@@ -202,7 +200,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                     rel="noopener noreferrer"
                     className="block h-full overflow-hidden rounded-sm border border-black/5 bg-white transition-all hover:border-rfci-blue/20 hover:shadow-lg"
                   >
-                    <div className="relative aspect-video overflow-hidden bg-rfci-black/10">
+                    <div className="relative aspect-video overflow-hidden bg-rfci-black/10 group/thumb">
                       {video.thumbnailUrl ? (
                         <img src={video.thumbnailUrl} alt={video.title} className="h-full w-full object-cover" />
                       ) : (
@@ -210,6 +208,11 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                           <PlayCircle className="h-12 w-12" />
                         </div>
                       )}
+                      <div className="absolute inset-0 bg-rfci-black/20 group-hover/thumb:bg-rfci-black/40 transition-colors duration-500 flex items-center justify-center">
+                        <div className="w-14 h-14 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center group-hover/thumb:bg-white group-hover/thumb:scale-110 transition-all duration-500">
+                          <PlayCircle className="w-6 h-6 text-white group-hover/thumb:text-rfci-blue transition-colors duration-500" />
+                        </div>
+                      </div>
                     </div>
                     <div className="p-6">
                       <div className="mb-3 text-label font-bold uppercase tracking-widest text-rfci-blue">
@@ -227,21 +230,6 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
           </div>
         </section>
       )}
-
-      {/* FAQ */}
-      <section className="py-20 md:py-28 bg-rfci-cream">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <SectionReveal className="mb-12">
-            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">FAQ</div>
-            <h2 className="text-3xl md:text-4xl font-display font-light">
-              Common <span className="font-semibold">questions.</span>
-            </h2>
-          </SectionReveal>
-          <div className="max-w-3xl">
-            <FAQAccordion faqs={FAQS.filter(f => f.category !== 'certifications').sort((a, b) => a.order - b.order)} />
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="py-16 bg-rfci-blue">

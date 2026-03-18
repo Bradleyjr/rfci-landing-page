@@ -117,7 +117,7 @@ export const Navigation = ({
               >
                 <a
                   href={item.href || `#${item.title.toLowerCase()}`}
-                  className={`relative flex items-center gap-1 text-sm font-medium tracking-wide py-4 transition-colors ${
+                  className={`relative flex items-center gap-1 text-sm font-medium tracking-wide py-1 transition-colors ${
                     openMenu === item.title || isActive(item) ? 'text-rfci-blue' : 'text-rfci-black/80 hover:text-rfci-blue'
                   }`}
                 >
@@ -125,7 +125,7 @@ export const Navigation = ({
                   {item.megaMenu && (
                     <CaretDown className={`w-3 h-3 opacity-50 transition-transform duration-300 ${openMenu === item.title ? 'rotate-180' : ''}`} />
                   )}
-                  <span className={`absolute bottom-2 left-0 h-[2px] bg-rfci-blue transition-all duration-300 ${openMenu === item.title || isActive(item) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
+                  <span className={`absolute -bottom-1 left-0 h-[2px] bg-rfci-blue transition-all duration-300 ${openMenu === item.title || isActive(item) ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                 </a>
                 </div>
             ))}

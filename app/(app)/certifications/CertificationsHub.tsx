@@ -24,7 +24,7 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
     <PageLayout>
       <PageHero
         label="Sustainability"
-        heading={pageSettings?.heroHeading || <>Sustainability programs you can <span className="font-semibold">rely on.</span></>}
+        heading={pageSettings?.heroHeading || <>Sustainability programs you can <span className="font-semibold text-rfci-blue">rely on.</span></>}
         subheading={pageSettings?.heroSubheading || "RFCI's sustainability programs verify indoor air quality, environmental performance, and material transparency\u2014giving architects and designers confidence in every specification."}
         theme="blue"
       />

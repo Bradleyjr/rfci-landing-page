@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { ArrowRight, CaretDown } from '@phosphor-icons/react'
+import { FAQAccordion } from '../../_components/FAQAccordion'
+import { FAQS } from '../../_data/faqs'
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
@@ -75,84 +77,59 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
         </div>
       </section>
 
-      {/* The Case for Resilient — Accordion */}
+      {/* The Case for Resilient — Horizontal Stepper */}
       <section className="py-20 md:py-28 bg-rfci-cream">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-            {/* Left: header + active number */}
-            <div className="lg:col-span-4">
-              <SectionReveal>
-                <div className="lg:sticky lg:top-32">
-                  <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">The Advantages</div>
-                  <h2 className="text-3xl md:text-4xl font-display font-light mb-8">
-                    Eight reasons resilient <span className="font-semibold">keeps earning the spec.</span>
-                  </h2>
-                  <div className="hidden lg:block">
-                    <motion.div
-                      key={openBenefit}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4 }}
-                      className="text-8xl font-display font-bold text-rfci-blue/15 leading-none"
-                    >
-                      {benefits[openBenefit]?.number}
-                    </motion.div>
-                    <div className="text-sm text-rfci-black/40 mt-4">
-                      {String(openBenefit + 1).padStart(2, '0')} / {String(benefits.length).padStart(2, '0')}
-                    </div>
-                  </div>
-                </div>
-              </SectionReveal>
-            </div>
+          <SectionReveal className="mb-12 md:mb-16">
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">The Advantages</div>
+            <h2 className="text-3xl md:text-4xl font-display font-light">
+              Eight reasons resilient <span className="font-semibold">keeps earning the spec.</span>
+            </h2>
+          </SectionReveal>
 
-            {/* Right: accordion items */}
-            <div className="lg:col-span-8">
-              {benefits.map((benefit, idx) => {
-                const isOpen = openBenefit === idx
-                return (
-                  <SectionReveal key={idx} delay={idx * 0.04}>
-                    <div className="border-b border-black/10">
-                      <button
-                        onClick={() => setOpenBenefit(isOpen ? -1 : idx)}
-                        className="w-full flex items-center gap-5 py-5 md:py-6 text-left group"
-                      >
-                        <span className={`text-sm font-bold font-display shrink-0 transition-colors duration-300 ${isOpen ? 'text-rfci-blue' : 'text-rfci-black/25'}`}>
-                          {benefit.number}
-                        </span>
-                        <span className={`text-lg md:text-xl font-display font-medium flex-1 transition-colors duration-300 ${isOpen ? 'text-rfci-blue' : 'text-rfci-black group-hover:text-rfci-blue'}`}>
-                          {benefit.title}
-                        </span>
-                        <motion.span
-                          animate={{ rotate: isOpen ? 180 : 0 }}
-                          transition={{ duration: 0.2 }}
-                          className={`shrink-0 transition-colors duration-300 ${isOpen ? 'text-rfci-blue' : 'text-rfci-black/30'}`}
-                        >
-                          <CaretDown size={18} weight="bold" />
-                        </motion.span>
-                      </button>
-                      <AnimatePresence initial={false}>
-                        {isOpen && (
-                          <motion.div
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: 'easeInOut' }}
-                            className="overflow-hidden"
-                          >
-                            <div className="pb-6 pl-10 md:pl-12 pr-8">
-                              <p className="text-rfci-black/60 leading-relaxed font-light">
-                                {benefit.description}
-                              </p>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </SectionReveal>
-                )
-              })}
-            </div>
+          {/* Number pills — horizontal selector */}
+          <div className="flex flex-wrap gap-2 md:gap-3 mb-10 md:mb-14">
+            {benefits.map((benefit, idx) => (
+              <button
+                key={idx}
+                onClick={() => setOpenBenefit(idx)}
+                className={`flex items-center gap-2.5 px-4 py-2.5 transition-all duration-300 text-left ${
+                  openBenefit === idx
+                    ? 'bg-rfci-blue text-white'
+                    : 'bg-white border border-black/10 text-rfci-black/50 hover:border-rfci-blue/30 hover:text-rfci-black'
+                }`}
+              >
+                <span className="text-label font-bold tracking-widest">{benefit.number}</span>
+                <span className="text-sm font-medium hidden sm:inline">{benefit.title}</span>
+              </button>
+            ))}
           </div>
+
+          {/* Active content */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={openBenefit}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="grid md:grid-cols-12 gap-8 md:gap-12 items-start"
+            >
+              <div className="md:col-span-4">
+                <div className="text-7xl md:text-8xl font-display font-bold text-rfci-blue/10 leading-none mb-4">
+                  {benefits[openBenefit]?.number}
+                </div>
+                <h3 className="text-2xl md:text-3xl font-display font-light text-rfci-black">
+                  {benefits[openBenefit]?.title}
+                </h3>
+              </div>
+              <div className="md:col-span-8 md:pt-4">
+                <p className="text-lg text-rfci-black/60 leading-relaxed font-light max-w-2xl">
+                  {benefits[openBenefit]?.description}
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
         </div>
       </section>
 
@@ -197,6 +174,30 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
 
       {/* History */}
       <HistoryStackedReveal milestones={milestones} />
+
+      {/* FAQ */}
+      <section className="py-20 md:py-28 bg-rfci-cream">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionReveal className="mb-12">
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">FAQ</div>
+            <h2 className="text-3xl md:text-4xl font-display font-light">
+              Common <span className="font-semibold">questions.</span>
+            </h2>
+          </SectionReveal>
+          <div className="grid lg:grid-cols-2 gap-x-16">
+            {(() => {
+              const faqs = FAQS.filter(f => f.category !== 'certifications').sort((a, b) => a.order - b.order)
+              const mid = Math.ceil(faqs.length / 2)
+              return (
+                <>
+                  <FAQAccordion faqs={faqs.slice(0, mid)} />
+                  <FAQAccordion faqs={faqs.slice(mid)} />
+                </>
+              )
+            })()}
+          </div>
+        </div>
+      </section>
 
       {/* Flooring Types CTA */}
       <section className="py-20 md:py-28 bg-white">

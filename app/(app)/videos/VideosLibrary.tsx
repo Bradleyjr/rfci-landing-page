@@ -52,9 +52,9 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
       />
 
       {/* Category Filter Bar */}
-      <section className="bg-white border-b border-black/5 sticky top-24 z-30">
+      <section className="bg-white border-b border-black/5 sticky top-[calc(4.5rem+1px)] z-30">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex items-center gap-3 py-4 overflow-x-auto no-scrollbar">
+          <div className="flex items-center gap-3 py-5 overflow-x-auto no-scrollbar">
             {CATEGORIES.map((cat) => {
               const Icon = cat.icon
               const isActive = activeCategory === cat.key

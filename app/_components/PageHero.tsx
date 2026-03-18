@@ -34,7 +34,7 @@ export function PageHero({ label, heading, subheading, theme = 'light' }: PageHe
   const t = themeClasses[theme]
 
   return (
-    <section className={`${t.bg} py-20 md:py-28 lg:py-32`}>
+    <section className={`${t.bg} py-20 md:py-28 lg:py-32 ${theme === 'light' ? 'border-b border-black/5' : ''}`}>
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionReveal>
           <div className={`text-label font-bold tracking-widest uppercase ${t.label} mb-4`}>

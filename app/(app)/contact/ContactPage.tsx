@@ -42,7 +42,7 @@ export function ContactPage() {
     <PageLayout>
       <PageHero
         label="Contact"
-        heading={<>Get in <span className="font-semibold">touch.</span></>}
+        heading={<>Get in <span className="font-semibold text-rfci-blue">touch.</span></>}
         subheading="Have a question about certifications, membership, or resilient flooring? We're here to help."
         theme="light"
       />
@@ -210,43 +210,6 @@ export function ContactPage() {
             </SectionReveal>
 
           </div>
-        </div>
-      </section>
-
-      {/* Map / Location */}
-      <section className="bg-rfci-cream py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <SectionReveal>
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-display font-medium mb-4">
-                  Visit us in LaGrange, Georgia.
-                </h2>
-                <p className="text-rfci-black/60 leading-relaxed mb-6">
-                  RFCI is headquartered in LaGrange, Georgia — at the heart of the American flooring industry.
-                  Our team is available Monday through Friday, 8:00 AM to 5:00 PM Eastern.
-                </p>
-                <a
-                  href="https://maps.google.com/?q=115+Greystone+Power+Blvd+LaGrange+GA+30240"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all"
-                >
-                  Get directions <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-              <div className="aspect-[4/3] bg-rfci-black/5 overflow-hidden">
-                <iframe
-                  title="RFCI Headquarters Location"
-                  src="https://www.google.com/maps?q=115+Greystone+Power+Blvd,+LaGrange,+GA+30240&output=embed"
-                  className="w-full h-full border-0"
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-            </div>
-          </SectionReveal>
         </div>
       </section>
     </PageLayout>
