@@ -22,7 +22,7 @@ export function EnvironmentsSection() {
     <section id="environments" className="py-28 md:py-32 bg-rfci-white relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionReveal className="mb-16 md:mb-24 max-w-3xl">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6 leading-tight">
             {SITE_SETTINGS.environmentsHeading}
           </h2>
           <p className="text-lg md:text-xl text-rfci-black/60 leading-relaxed">
