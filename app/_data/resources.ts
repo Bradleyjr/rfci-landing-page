@@ -1,8 +1,10 @@
+import { PRESS_RELEASES } from './press-releases'
+
 export type Resource = {
   title: string
   slug: string
   description?: string
-  type: 'technical' | 'video' | 'certification' | 'declaration' | 'article' | 'website'
+  type: 'technical' | 'video' | 'certification' | 'declaration' | 'article' | 'website' | 'press'
   category?: string
   internalUrl?: string
   externalUrl?: string
@@ -10,6 +12,7 @@ export type Resource = {
   videoUrl?: string
   thumbnailUrl?: string
   body?: string
+  date?: string
   order: number
 }
 
@@ -492,18 +495,6 @@ export const RESOURCES: Resource[] = [
     order: 30,
   },
   {
-    title: 'Press Room',
-    slug: 'press-room',
-    description:
-      'A dedicated archive for RFCI announcements, membership news, leadership updates, and press releases.',
-    type: 'website',
-    category: 'News & Updates',
-    internalUrl: '/press-room',
-    thumbnailUrl:
-      'https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=1200&auto=format&fit=crop',
-    order: 35,
-  },
-  {
     title: 'Testimonial Video Archive',
     slug: 'testimonial-videos',
     description:
@@ -515,4 +506,16 @@ export const RESOURCES: Resource[] = [
       'https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?q=80&w=1200&auto=format&fit=crop',
     order: 36,
   },
+
+  // Press Releases
+  ...PRESS_RELEASES.map((pr, i) => ({
+    title: pr.title,
+    slug: pr.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''),
+    description: pr.excerpt,
+    type: 'press' as const,
+    category: pr.category,
+    externalUrl: pr.pdfUrl || pr.externalUrl,
+    date: pr.date,
+    order: 200 + i,
+  })),
 ]

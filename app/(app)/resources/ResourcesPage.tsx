@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { FileText, Download, FunnelSimple, BookOpen, ShieldCheck, TreeStructure, Article, Globe, ArrowSquareOut, Play, ArrowRight } from '@phosphor-icons/react'
+import { FileText, Download, FunnelSimple, BookOpen, ShieldCheck, TreeStructure, Article, Globe, ArrowSquareOut, Play, ArrowRight, NewspaperClipping } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
@@ -18,6 +18,7 @@ const TYPES = [
   { key: 'video', label: 'Videos', icon: Play },
   { key: 'article', label: 'Articles', icon: Article },
   { key: 'website', label: 'Websites', icon: Globe },
+  { key: 'press', label: 'Press Releases', icon: NewspaperClipping },
 ]
 
 const TYPE_COLORS: Record<string, string> = {
@@ -27,6 +28,7 @@ const TYPE_COLORS: Record<string, string> = {
   video: 'bg-sky-50 text-sky-700',
   article: 'bg-rfci-blue/10 text-rfci-blue',
   website: 'bg-violet-50 text-violet-700',
+  press: 'bg-orange-50 text-orange-700',
 }
 
 const TYPE_ICON_BG: Record<string, string> = {
@@ -36,6 +38,7 @@ const TYPE_ICON_BG: Record<string, string> = {
   video: 'bg-sky-50 text-sky-600',
   article: 'bg-rfci-blue/10 text-rfci-blue',
   website: 'bg-violet-50 text-violet-600',
+  press: 'bg-orange-50 text-orange-600',
 }
 
 const TYPE_LABELS: Record<string, string> = {
@@ -45,6 +48,7 @@ const TYPE_LABELS: Record<string, string> = {
   video: 'Video',
   article: 'Article',
   website: 'Website',
+  press: 'Press Release',
 }
 
 const TYPE_ICONS: Record<string, typeof ShieldCheck> = {
@@ -54,6 +58,7 @@ const TYPE_ICONS: Record<string, typeof ShieldCheck> = {
   video: Play,
   article: Article,
   website: Globe,
+  press: NewspaperClipping,
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -131,6 +136,11 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
                           {typeLabel}
                         </span>
                       </div>
+
+                      {/* Date (press releases) */}
+                      {resource.date && resource.type === 'press' && (
+                        <p className="text-label font-bold tracking-widest uppercase text-rfci-black/40 mb-2">{resource.date}</p>
+                      )}
 
                       {/* Title */}
                       <h3 className="text-lg font-display font-medium text-rfci-black mb-2 leading-snug">
