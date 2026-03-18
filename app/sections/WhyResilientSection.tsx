@@ -70,7 +70,7 @@ export function WhyResilientSection() {
 
           {/* Right — Heading + benefit list */}
           <SectionReveal direction="right" className="lg:col-span-6 lg:pt-4">
-            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">{SITE_SETTINGS.whyResilientHeading || 'Why Resilient?'}</div>
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">{SITE_SETTINGS.whyResilientHeading || 'Why Resilient?'}</div>
             <h2 className="text-4xl md:text-5xl font-display font-medium leading-tight mb-10">
               {SITE_SETTINGS.whyResilientSubheading}
             </h2>

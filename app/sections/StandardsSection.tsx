@@ -45,7 +45,7 @@ function AnimatedStat({ value, label }: { key?: Key; value: string; label: strin
   return (
     <div ref={ref} className="border-l-2 border-rfci-blue pl-6">
       <div className="text-4xl font-display font-light text-rfci-black mb-2">{display}</div>
-      <div className="text-xs font-bold tracking-widest uppercase text-rfci-black/40">{label}</div>
+      <div className="text-label font-bold tracking-widest uppercase text-rfci-black/40">{label}</div>
     </div>
   )
 }
@@ -73,7 +73,7 @@ export function StandardsSection() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <SectionReveal className="text-center mb-16">
-          <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Sustainability</div>
+          <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Sustainability</div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-medium mb-6">{SITE_SETTINGS.standardsHeading}</h2>
           <p className="text-xl text-rfci-black/60 max-w-2xl mx-auto font-light">
             {SITE_SETTINGS.standardsSubheading}

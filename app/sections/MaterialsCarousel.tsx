@@ -38,7 +38,7 @@ export function MaterialsCarousel() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionReveal className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
-            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">The Categories</div>
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">The Categories</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight">
               {SITE_SETTINGS.materialsHeading}
             </h2>

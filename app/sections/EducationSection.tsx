@@ -71,7 +71,7 @@ export function EducationSection({ videos }: { videos: any[] }) {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8">
           <SectionReveal direction="left">
-            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4">Educational Videos</div>
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Educational Videos</div>
             <h2 className="text-4xl md:text-5xl font-display font-light">From our video library</h2>
           </SectionReveal>
           <SectionReveal direction="right">

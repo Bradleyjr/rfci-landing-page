@@ -47,7 +47,7 @@ export function LinkedInFeedSection() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionReveal className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
           <div>
-            <div className="text-xs font-bold tracking-widest uppercase text-rfci-blue mb-4 flex items-center gap-2">
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4 flex items-center gap-2">
               <LinkedinLogo className="w-4 h-4" weight="fill" /> Stay Connected
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-light leading-tight">

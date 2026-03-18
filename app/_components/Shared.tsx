@@ -294,7 +294,7 @@ export const Footer = () => (
         </div>
 
         <div className="lg:col-span-2 lg:col-start-7">
-          <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">About</h4>
+          <h4 className="font-bold tracking-widest uppercase text-label text-white/40 mb-6">About</h4>
           <ul className="space-y-4 text-sm text-white/70">
             <li><a href="/about" className="hover:text-rfci-blue transition-colors">About RFCI</a></li>
             <li><a href="/members" className="hover:text-rfci-blue transition-colors">Member Directory</a></li>
@@ -303,7 +303,7 @@ export const Footer = () => (
         </div>
 
         <div className="lg:col-span-2">
-          <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">Resources</h4>
+          <h4 className="font-bold tracking-widest uppercase text-label text-white/40 mb-6">Resources</h4>
           <ul className="space-y-4 text-sm text-white/70">
             <li><a href="/why-resilient" className="hover:text-rfci-blue transition-colors">Why Resilient</a></li>
             <li><a href="/flooring" className="hover:text-rfci-blue transition-colors">Flooring Types</a></li>
@@ -317,7 +317,7 @@ export const Footer = () => (
         </div>
 
         <div className="lg:col-span-2">
-          <h4 className="font-bold tracking-widest uppercase text-xs text-white/40 mb-6">Sustainability</h4>
+          <h4 className="font-bold tracking-widest uppercase text-label text-white/40 mb-6">Sustainability</h4>
           <ul className="space-y-4 text-sm text-white/70">
             <li><a href="/certifications/floorscore" className="hover:text-rfci-blue transition-colors">FloorScore®</a></li>
             <li><a href="/certifications/assure" className="hover:text-rfci-blue transition-colors">ASSURE® Certified</a></li>
