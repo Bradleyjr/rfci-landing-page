@@ -5,7 +5,7 @@ import { SectionReveal } from '../_components/SectionReveal'
 
 export function EcomedesSection() {
   return (
-    <section id="ecomedes" className="py-16 md:py-20 bg-rfci-cream relative overflow-hidden">
+    <section id="ecomedes" className="py-16 md:py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <SectionReveal>
           <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">

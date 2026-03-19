@@ -24,6 +24,7 @@ const FAKE_POSTS = [
     handle: 'resilient-floor-covering-institute',
     time: '5d',
     text: 'RFCI is proud to support the development of rigorous industry standards that give architects and designers confidence in their material selections. #ResilientFlooring #Sustainability',
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=600&auto=format&fit=crop',
     likes: 83,
     comments: 24,
     reposts: 11,
@@ -72,7 +73,7 @@ export function LinkedInFeedSection() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {FAKE_POSTS.map((post, idx) => (
-            <SectionReveal key={idx} direction="up" delay={idx * 0.1}>
+            <SectionReveal key={idx} direction="up" delay={idx * 0.1} className="h-full">
               <div className="bg-white border border-black/5 flex flex-col h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                 {/* Post Header */}
                 <div className="p-5 pb-0 flex items-center gap-3">

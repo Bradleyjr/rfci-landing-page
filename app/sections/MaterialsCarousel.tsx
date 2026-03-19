@@ -67,9 +67,10 @@ export function MaterialsCarousel() {
           <ArrowsLeftRight className="w-4 h-4 animate-pulse" /> Swipe to explore
         </div>
 
+        <div className="relative">
         <div
           ref={carouselRef}
-          className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 pb-12 pt-4 -mt-4 -mx-6 px-6 md:-mx-12 md:px-12"
+          className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 pb-12 pt-4 -mt-4"
         >
           {FLOORING_TYPES.map((type, idx) => {
             const tags = (type.tags ?? []).map(tag => ({
@@ -120,6 +121,9 @@ export function MaterialsCarousel() {
               </SectionReveal>
             )
           })}
+        </div>
+          {/* Right fade */}
+          <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
         </div>
 
         {/* Scroll progress bar */}

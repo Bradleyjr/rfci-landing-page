@@ -48,7 +48,7 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
             poster={heroImageUrl}
             className="w-full h-full object-cover"
           >
-            <source src="/media/hero-video.mp4" type="video/mp4" />
+            <source src="/media/hero-video.mp4?v=2" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-rfci-black/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-rfci-cream via-rfci-cream/90 via-[35%] to-transparent" />

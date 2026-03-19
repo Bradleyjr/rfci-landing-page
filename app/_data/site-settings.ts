@@ -16,9 +16,9 @@ export const SITE_SETTINGS = {
   // Why Resilient
   whyResilientHeading: 'Why Resilient',
   whyResilientSubheading: 'Built for performance across every sector.',
-  whyResilientStatValue: '180',
-  whyResilientStatSuffix: '+',
-  whyResilientStatLabel: 'years of resilient flooring innovation',
+  whyResilientStatValue: '65',
+  whyResilientStatSuffix: '%',
+  whyResilientStatLabel: 'of hard surface flooring in North America',
   whyResilientBenefits: [
     { title: 'Easy Maintenance', description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.' },
     { title: 'Moisture Performance', description: 'Depending on the construction, resilient flooring can offer strong water-resistant or waterproof performance for demanding interiors.' },
