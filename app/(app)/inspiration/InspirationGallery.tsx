@@ -753,10 +753,10 @@ export function InspirationGallery({
             </p>
             <a
               href="mailto:info@rfci.com"
-              className="inline-flex items-center gap-2 bg-rfci-blue text-white px-6 py-3 rounded-full font-bold text-label tracking-widest uppercase hover:bg-rfci-blue/90 transition-colors"
+              className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
             >
               Get in Touch
-              <ArrowRight weight="bold" className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
           </SectionReveal>
         </div>
