@@ -6,7 +6,7 @@ import { FileText, Download, FunnelSimple, BookOpen, ShieldCheck, TreeStructure,
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
-import { mediaUrl } from '../../_lib/transforms'
+import { mediaUrl, CERT_ICONS } from '../../_lib/transforms'
 
 import { RESOURCES } from '../../_data/resources'
 
@@ -122,10 +122,10 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
                 const typeColor = TYPE_COLORS[resource.type] || TYPE_COLORS.technical
                 const iconBg = TYPE_ICON_BG[resource.type] || TYPE_ICON_BG.technical
                 const typeLabel = TYPE_LABELS[resource.type] || resource.type
-                const TypeIcon = TYPE_ICONS[resource.type] || FileText
+                const TypeIcon = (resource.iconName && CERT_ICONS[resource.iconName]) || TYPE_ICONS[resource.type] || FileText
 
                 return (
-                  <SectionReveal key={resource.title} delay={index * 0.06}>
+                  <SectionReveal key={resource.title} delay={(index % 3) * 0.06}>
                     <div className="bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all p-8 h-full flex flex-col">
                       {/* Icon + Badge Row */}
                       <div className="flex items-start justify-between mb-4">
@@ -159,42 +159,37 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
                         {resource.internalUrl ? (
                           <Link
                             href={resource.internalUrl}
-                            className="inline-flex items-center gap-2 text-rfci-blue hover:text-rfci-blue/80 text-sm font-bold tracking-wider uppercase transition-colors"
+                            className="inline-flex items-center gap-2 text-rfci-blue hover:text-rfci-blue/80 text-sm font-semibold transition-colors"
                           >
-                            <ArrowRight size={18} weight="bold" />
-                            Open Page
+                            Open Page <ArrowRight size={18} />
                           </Link>
                         ) : resource.slug && (resource.type === 'video' || resource.type === 'article') ? (
                           <Link
                             href={`/resources/${resource.slug}`}
-                            className="inline-flex items-center gap-2 text-rfci-blue hover:text-rfci-blue/80 text-sm font-bold tracking-wider uppercase transition-colors"
+                            className="inline-flex items-center gap-2 text-rfci-blue hover:text-rfci-blue/80 text-sm font-semibold transition-colors"
                           >
-                            <ArrowRight size={18} weight="bold" />
-                            {resource.type === 'video' ? 'Watch Video' : 'Read Article'}
+                            {resource.type === 'video' ? 'Watch Video' : 'Read Article'} <ArrowRight size={18} />
                           </Link>
                         ) : downloadUrl ? (
                           <a
                             href={downloadUrl}
                             download
-                            className="inline-flex items-center gap-2 text-rfci-blue hover:text-rfci-blue/80 text-sm font-bold tracking-wider uppercase transition-colors"
+                            className="inline-flex items-center gap-2 text-rfci-blue hover:text-rfci-blue/80 text-sm font-semibold transition-colors"
                           >
-                            <Download size={18} weight="bold" />
-                            Download
+                            Download <Download size={18} />
                           </a>
                         ) : resource.externalUrl ? (
                           <a
                             href={resource.externalUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-rfci-blue hover:text-rfci-blue/80 text-sm font-bold tracking-wider uppercase transition-colors"
+                            className="inline-flex items-center gap-2 text-rfci-blue hover:text-rfci-blue/80 text-sm font-semibold transition-colors"
                           >
-                            <ArrowSquareOut size={18} weight="bold" />
-                            View Resource
+                            View Resource <ArrowSquareOut size={18} />
                           </a>
                         ) : (
-                          <span className="inline-flex items-center gap-2 text-rfci-black/30 text-sm font-bold tracking-wider uppercase">
-                            <FileText size={18} weight="bold" />
-                            Coming Soon
+                          <span className="inline-flex items-center gap-2 text-rfci-black/30 text-sm font-semibold">
+                            Coming Soon <FileText size={18} />
                           </span>
                         )}
                       </div>

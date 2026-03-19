@@ -102,14 +102,22 @@ export function MaterialsCarousel() {
                     ))}
                   </div>
 
-                  {/* Abstract Material Graphic */}
-                  <div
-                    className="absolute -right-20 -bottom-32 w-80 h-[120%] z-0 transform rotate-[15deg] shadow-[0_0_40px_rgba(0,0,0,0.1)] border-l-[12px] border-t-[12px] border-white/80 group-hover:rotate-[10deg] group-hover:scale-105 transition-all duration-700 ease-out"
-                    style={{ backgroundColor: type.accentColor ?? '#9CA3AF' }}
-                  >
-                    <div className="absolute inset-0 opacity-[0.15] mix-blend-multiply" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-black/10" />
-                  </div>
+                  {/* Product image or abstract color graphic */}
+                  {type.productImage ? (
+                    <img
+                      src={type.productImage}
+                      alt={type.title}
+                      className="absolute top-0 -right-10 h-[75%] w-auto object-contain z-0 group-hover:scale-105 group-hover:translate-y-2 transition-all duration-700 ease-out drop-shadow-2xl"
+                    />
+                  ) : (
+                    <div
+                      className="absolute -right-20 -bottom-32 w-80 h-[120%] z-0 transform rotate-[15deg] shadow-[0_0_40px_rgba(0,0,0,0.1)] border-l-[12px] border-t-[12px] border-white/80 group-hover:rotate-[10deg] group-hover:scale-105 transition-all duration-700 ease-out"
+                      style={{ backgroundColor: type.accentColor ?? '#9CA3AF' }}
+                    >
+                      <div className="absolute inset-0 opacity-[0.15] mix-blend-multiply" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-black/10" />
+                    </div>
+                  )}
 
                   {/* Always visible on mobile, hover-reveal on desktop */}
                   <div className="mt-auto pt-6 relative z-10 md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300">

@@ -6,11 +6,11 @@ import { SectionReveal } from '../_components/SectionReveal'
 import { SITE_SETTINGS } from '../_data/site-settings'
 
 const PILLAR_IMAGES = [
-  'https://images.unsplash.com/photo-1501466044931-62695aada8e9?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1582719471384-894fbb16e074?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=800&auto=format&fit=crop',
+  '/media/mission/advocacy-engagement.jpg',    // 01 Advocacy & Engagement
+  '/media/mission/technical-standards.jpg',    // 02 Technical Standards
+  '/media/mission/sustainability-programs.jpg',// 03 Sustainability Programs
+  '/media/mission/promotion-education.jpg',    // 04 Promotion & Education
+  '/media/mission/member-development.jpg',     // 05 Member Development
 ]
 
 const PILLARS = [

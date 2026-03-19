@@ -1,7 +1,7 @@
 export const SITE_SETTINGS = {
   // Hero
   heroLine1: 'RESILIENT FLOOR',
-  heroLine2: 'COVERING INSTITUTE',
+  heroLine2: 'COVERING',
   heroSubheading: 'The trade association representing the resilient flooring industry. Setting standards, running certification programs, and advancing the number one flooring category in North America since 1976.',
   heroCta: 'Explore RFCI',
   heroBoxText: 'Discover our certification programs, meet our member manufacturers, and learn how RFCI protects and promotes the resilient flooring industry.',

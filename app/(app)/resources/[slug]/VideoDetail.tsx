@@ -119,10 +119,9 @@ export function VideoDetail({ resource, relatedResources }: { resource: any; rel
                       href={resource.externalUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-rfci-blue text-white px-5 py-2.5 text-sm font-bold tracking-wider uppercase hover:bg-rfci-blue/90 transition-colors w-full justify-center"
+                      className="inline-flex items-center gap-2 bg-rfci-blue text-white px-5 py-2.5 text-sm font-semibold hover:bg-rfci-blue/90 transition-colors w-full justify-center"
                     >
-                      <ArrowSquareOut className="w-4 h-4" weight="bold" />
-                      View on Course Site
+                      View on Course Site <ArrowSquareOut className="w-4 h-4" />
                     </a>
                   )}
                 </div>

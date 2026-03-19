@@ -1,4 +1,4 @@
-import { ShieldCheck, FileText, Leaf, Globe } from '@phosphor-icons/react/dist/ssr'
+import { ShieldCheck, Seal, Certificate, Globe } from '@phosphor-icons/react/dist/ssr'
 
 /** Tailwind classes for each tag variant from the FlooringTypes collection */
 export const TAG_STYLES: Record<string, { style: string; dot?: string }> = {
@@ -10,8 +10,8 @@ export const TAG_STYLES: Record<string, { style: string; dot?: string }> = {
 /** Phosphor icon components for each certification iconName */
 export const CERT_ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   shieldCheck: ShieldCheck,
-  fileText: FileText,
-  leaf: Leaf,
+  seal: Seal,
+  certificate: Certificate,
   globe: Globe,
 }
 

@@ -5,6 +5,12 @@ import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
 import { TAG_STYLES, mediaUrl } from '../../_lib/transforms'
+import { FLOORING_TYPES } from '../../_data/flooring-types'
+
+// Build a lookup of productImage by slug from the shared data
+const PRODUCT_IMAGES: Record<string, string> = Object.fromEntries(
+  FLOORING_TYPES.filter(t => t.productImage && t.slug).map(t => [t.slug!, t.productImage!])
+)
 
 type FlooringTypeDoc = {
   title: string
@@ -128,44 +134,54 @@ export function FlooringOverview({ flooringTypes, pageSettings }: { flooringType
               const tags = getTags(type)
               const href = getHref(type)
 
+              const productImage = PRODUCT_IMAGES[type.slug || slugify(type.title)]
+
               return (
                 <SectionReveal key={type.title} delay={idx * 0.05}>
-                  <a href={href} className="group block h-full">
-                    <div className="h-full flex flex-col border border-black/5 hover:border-rfci-blue/20 transition-all duration-500 overflow-hidden relative">
-                      {/* Accent color radial gradient */}
-                      <div
-                        className="absolute top-0 right-0 w-32 h-32 opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none"
-                        style={{ background: `radial-gradient(circle at top right, ${type.accentColor ?? '#9CA3AF'}, transparent 70%)` }}
-                      />
-
-                      {/* Blue line reveal on hover */}
+                  <a href={href} className="group block">
+                    <div className="bg-rfci-white p-8 md:p-10 h-[500px] md:h-[550px] flex flex-col relative overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(1,100,219,0.1)] hover:-translate-y-2 border border-black/5 hover:border-rfci-blue/30">
+                      {/* Blue line reveal at top */}
                       <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-rfci-blue transition-all duration-500 z-10" />
 
-                      <div className="flex-1 flex flex-col p-7 md:p-9">
-                        <h2 className="text-2xl font-display font-light tracking-tight text-rfci-black group-hover:text-rfci-blue transition-colors duration-300 mb-1">
-                          {type.title}
-                        </h2>
-                        <span className="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-4">
-                          {type.subtitle}
-                        </span>
+                      <div className="flex flex-col items-start mb-8 relative z-10 w-[80%]">
+                        <h2 className="text-3xl md:text-4xl font-display font-light tracking-tight text-rfci-black mb-3">{type.title}</h2>
+                        <span className="text-label font-bold tracking-widest uppercase text-rfci-black/60">{type.subtitle}</span>
+                      </div>
 
-                        <p className="text-rfci-black/60 leading-relaxed font-light mb-6 flex-1">
-                          {type.description}
-                        </p>
+                      <p className="text-rfci-black/60 relative z-10 w-[85%] leading-relaxed font-light line-clamp-3 mb-6">
+                        {type.description}
+                      </p>
 
-                        {/* Tags */}
-                        <div className="flex flex-wrap gap-2 mb-5">
-                          {tags.map((tag, tagIdx) => (
-                            <span key={tagIdx} className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label font-bold uppercase tracking-widest ${tag.style}`}>
-                              {tag.dot && <span className={`w-1.5 h-1.5 rounded-full ${tag.dot}`} />}
-                              {tag.label}
-                            </span>
-                          ))}
+                      <div className="flex flex-wrap gap-2 relative z-10 w-[85%]">
+                        {tags.map((tag, tagIdx) => (
+                          <span key={tagIdx} className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-label font-bold uppercase tracking-widest ${tag.style}`}>
+                            {tag.dot && <span className={`w-1.5 h-1.5 rounded-full ${tag.dot}`} />}
+                            {tag.label}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Product image or abstract color block */}
+                      {productImage ? (
+                        <img
+                          src={productImage}
+                          alt={type.title}
+                          className="absolute top-0 -right-10 h-[75%] w-auto object-contain z-0 group-hover:scale-105 group-hover:translate-y-2 transition-all duration-700 ease-out drop-shadow-2xl"
+                        />
+                      ) : (
+                        <div
+                          className="absolute -right-20 -bottom-32 w-80 h-[120%] z-0 transform rotate-[15deg] shadow-[0_0_40px_rgba(0,0,0,0.1)] border-l-[12px] border-t-[12px] border-white/80 group-hover:rotate-[10deg] group-hover:scale-105 transition-all duration-700 ease-out"
+                          style={{ backgroundColor: type.accentColor ?? '#9CA3AF' }}
+                        >
+                          <div className="absolute inset-0 opacity-[0.15] mix-blend-multiply" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-black/10" />
                         </div>
+                      )}
 
-                        {/* CTA */}
-                        <span className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue group-hover:gap-3 transition-all mt-auto">
-                          Explore {type.title} <ArrowRight className="w-4 h-4" />
+                      {/* CTA — hidden until hover on desktop */}
+                      <div className="mt-auto pt-6 relative z-10 md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300">
+                        <span className="bg-white text-rfci-black py-3.5 px-8 text-sm font-semibold shadow-sm group-hover:bg-rfci-black group-hover:text-white group-hover:shadow-lg transition-all duration-200 inline-flex items-center gap-2">
+                          Learn More <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>
                     </div>

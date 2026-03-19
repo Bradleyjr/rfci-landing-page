@@ -6,6 +6,7 @@ export type Resource = {
   description?: string
   type: 'technical' | 'video' | 'certification' | 'declaration' | 'article' | 'website' | 'press'
   category?: string
+  iconName?: string
   internalUrl?: string
   externalUrl?: string
   downloadUrl?: string
@@ -25,6 +26,7 @@ export const RESOURCES: Resource[] = [
       'Certified to AFFIRM\u2122 Certified Sustainability Assessment for Resilient Floor Coverings.',
     type: 'certification',
     category: 'Sustainability',
+    iconName: 'certificate',
     externalUrl: 'https://rfci.com/resources/affirm-certified/',
     thumbnailUrl:
       'https://rfci.com/wp-content/uploads/2021/12/NSF-ANSI-332-300x300.jpg',
@@ -37,6 +39,7 @@ export const RESOURCES: Resource[] = [
       'ASSURE verifies that rigid core luxury flooring meets uniform quality standards for indoor air quality, performance, heavy metals, and phthalates.',
     type: 'certification',
     category: 'Sustainability',
+    iconName: 'seal',
     externalUrl: 'https://rfci.com/resources/assurecertified/',
     downloadUrl:
       'https://rfci.com/wp-content/uploads/2023/06/Download-our-Information-flyer-English.pdf',
@@ -51,6 +54,7 @@ export const RESOURCES: Resource[] = [
       'FloorScore IAQ Certification means that a flooring product is independently certified by SCS to comply with the volatile organic compound emissions criteria of the California Section 01350 Program.',
     type: 'certification',
     category: 'Sustainability',
+    iconName: 'shieldCheck',
     externalUrl: 'https://rfci.com/floorscore/',
     downloadUrl:
       'https://www.scsglobalservices.com/files/applications/ECS_APP_IAQFloorscoreApp_V2-0_082812.pdf',

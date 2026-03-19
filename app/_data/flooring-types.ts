@@ -7,6 +7,7 @@ export type FlooringType = {
   tags: Array<{ label: string; variant: 'green' | 'tan' | 'gray' }>
   longDescription?: string
   heroImage?: { url: string }
+  productImage?: string
   features?: Array<{ title: string; description: string }>
   applications?: Array<{ environment: string; description: string }>
   relatedCertifications?: string[]
@@ -19,6 +20,7 @@ export const FLOORING_TYPES: FlooringType[] = [
     subtitle: 'Luxury Vinyl Tile \u00b7 Planks',
     description: 'Luxury vinyl tile (LVT) is a flexible resilient flooring category produced in tiles or planks. Design realism, easy maintenance, and strong water-resistant performance make it a practical alternative to ceramic tile, stone, and hardwood in many spaces.',
     accentColor: '#9CA3AF',
+    productImage: '/media/flooring/flexible-lvp.png',
     tags: [
       { label: 'Water Resistant', variant: 'green' },
       { label: 'High Traffic', variant: 'tan' },
@@ -31,6 +33,7 @@ export const FLOORING_TYPES: FlooringType[] = [
     subtitle: 'SPC \u00b7 WPC \u00b7 Multilayer',
     description: 'Rigid Core is a resilient flooring category with a rigid polymeric core, a decorative top surface, and often an attached underlayment. Available in WPC and SPC constructions, it is widely specified where dimensional stability, floating installation, and waterproof product performance are priorities.',
     accentColor: '#78909C',
+    productImage: '/media/flooring/rigid-core.png',
     tags: [
       { label: 'Waterproof', variant: 'green' },
       { label: 'Dimensionally Stable', variant: 'tan' },
@@ -75,6 +78,7 @@ export const FLOORING_TYPES: FlooringType[] = [
     subtitle: 'VCT \u00b7 Commercial Standard',
     description: 'Vinyl Composition Tile (VCT) is a finished flooring material used primarily in commercial and institutional applications. A popular choice due to its low cost and durability, with through-color construction that provides years of lasting beauty.',
     accentColor: '#CFD8DC',
+    productImage: '/media/flooring/vct.png',
     tags: [
       { label: 'Durable', variant: 'green' },
       { label: 'Cost-effective', variant: 'tan' },
@@ -86,6 +90,7 @@ export const FLOORING_TYPES: FlooringType[] = [
     subtitle: 'Vulcanized \u00b7 Recycled Content',
     description: 'Available in sheets or tiles, this resilient flooring option is sleek, contemporary, and comfortable underfoot. Colors are contained throughout the thickness and won\'t fade or wear. Waterproof and slip-resistant, ideal for high-traffic institutional and commercial facilities.',
     accentColor: '#D4A574',
+    productImage: '/media/flooring/rubber.png',
     tags: [
       { label: 'Acoustic', variant: 'green' },
       { label: 'Slip Resistant', variant: 'tan' },

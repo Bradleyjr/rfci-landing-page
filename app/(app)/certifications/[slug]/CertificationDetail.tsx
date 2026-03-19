@@ -54,10 +54,9 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                 href={cert.certifiedProductsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-6 text-rfci-blue hover:text-rfci-blue/80 text-sm font-bold tracking-wider uppercase transition-colors"
+                className="inline-flex items-center gap-2 mt-6 text-rfci-blue hover:text-rfci-blue/80 text-sm font-semibold transition-colors"
               >
-                <ArrowSquareOut size={18} weight="bold" />
-                View Certified Products
+                View Certified Products <ArrowSquareOut size={18} />
               </a>
             )}
           </SectionReveal>
@@ -226,11 +225,11 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                           {dl.description && (
                             <p className="text-xs text-rfci-black/50 leading-relaxed font-light mb-3">{dl.description}</p>
                           )}
-                          <div className="flex items-center gap-1.5 text-rfci-blue text-xs font-bold tracking-wider uppercase mt-auto">
+                          <div className="flex items-center gap-1.5 text-rfci-blue text-xs font-semibold mt-auto">
                             {dl.isLink ? (
-                              <><ArrowSquareOut className="w-4 h-4" weight="bold" /> Visit Website</>
+                              <>Visit Website <ArrowSquareOut className="w-4 h-4" /></>
                             ) : (
-                              <><DownloadSimple className="w-4 h-4" weight="bold" /> Download PDF</>
+                              <>Download PDF <DownloadSimple className="w-4 h-4" /></>
                             )}
                           </div>
                         </a>
@@ -306,10 +305,10 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                   <div className="text-sm text-rfci-black/60 mb-3">{contactInfo.organization}</div>
                   <div className="flex flex-col gap-2">
                     <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="inline-flex items-center gap-2 text-sm text-rfci-blue hover:text-rfci-blue/80 transition-colors">
-                      <Phone size={16} weight="bold" /> {contactInfo.phone}
+                      <Phone size={16} /> {contactInfo.phone}
                     </a>
                     <a href={`mailto:${contactInfo.email}`} className="inline-flex items-center gap-2 text-sm text-rfci-blue hover:text-rfci-blue/80 transition-colors">
-                      <Envelope size={16} weight="bold" /> {contactInfo.email}
+                      <Envelope size={16} /> {contactInfo.email}
                     </a>
                   </div>
                 </div>

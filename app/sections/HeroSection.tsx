@@ -64,8 +64,8 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
               <motion.span className="block overflow-hidden" custom={0} variants={lineVariants} initial="hidden" animate="visible">
                 {SITE_SETTINGS.heroLine1}
               </motion.span>
-              <motion.span className="block overflow-hidden italic font-light text-rfci-blue" custom={1} variants={lineVariants} initial="hidden" animate="visible">
-                {SITE_SETTINGS.heroLine2}
+              <motion.span className="block overflow-hidden" custom={1} variants={lineVariants} initial="hidden" animate="visible">
+                <span className="text-rfci-black font-bold not-italic">COVERING </span><span className="italic font-light text-rfci-blue">INSTITUTE</span>
               </motion.span>
             </h1>
             <motion.p

@@ -1,7 +1,7 @@
 export type Certification = {
   slug: string
   title: string
-  iconName: 'shieldCheck' | 'fileText' | 'leaf' | 'globe'
+  iconName: 'shieldCheck' | 'seal' | 'certificate' | 'globe'
   description: string
   image?: { url: string }
   stats?: Array<{ value: string; label: string }>
@@ -86,7 +86,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     slug: 'assure',
     title: 'ASSURE\u00ae Certified',
-    iconName: 'leaf',
+    iconName: 'seal',
     description: 'ASSURE\u00ae Certified was developed by RFCI to establish uniform quality standards for all rigid core luxury flooring (WPC and SPC) sold in North America, regardless of where it is manufactured. Products are independently tested and certified by SCS Global Services.',
     stats: [
       { value: 'WPC + SPC', label: 'Rigid Core Products' },
@@ -128,7 +128,7 @@ export const CERTIFICATIONS: Certification[] = [
   {
     slug: 'affirm',
     title: 'AFFIRM\u2122 Certified',
-    iconName: 'globe',
+    iconName: 'certificate',
     description: 'AFFIRM\u2122 Certified is a sustainability certification for resilient flooring based on an ANSI-accredited consensus standard. It evaluates products across environmental, health & wellness, and social impact categories \u2014 with two certification levels and independent third-party verification.',
     stats: [
       { value: 'ANSI', label: 'Accredited Standard' },
