@@ -33,7 +33,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="bg-rfci-cream py-20 md:py-28 lg:py-36">
+      <section className="bg-rfci-cream pt-28 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-36">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
             <SectionReveal direction="left" className="lg:col-span-7">

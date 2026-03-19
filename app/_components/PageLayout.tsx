@@ -34,8 +34,8 @@ export function PageLayout({ children }: { children: React.ReactNode }) {
 
         <Navigation isScrolled={isScrolled} theme="light" />
 
-        {/* Page content with top padding for fixed nav */}
-        <main className="pt-24">
+        {/* Page content — nav clearance handled per section */}
+        <main>
           {children}
         </main>
 

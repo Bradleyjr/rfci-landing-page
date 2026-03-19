@@ -1,0 +1,155 @@
+{
+  "version": "0.4",
+  "title": "RFCI - 06 Standards (Tabs)",
+  "type": "page",
+  "content": [
+    {
+      "id": "std0001",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "boxed_width": { "unit": "px", "size": 1280 },
+        "background_color": "#FAFAF5",
+        "padding": { "unit": "px", "top": "160", "right": "48", "bottom": "160", "left": "48", "isLinked": false },
+        "padding_mobile": { "unit": "px", "top": "80", "right": "24", "bottom": "80", "left": "24", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "std0002",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "align_items": "center",
+            "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "64", "left": "0", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "std0003",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div class=\"rfci-label\" style=\"color: #0164DB; margin-bottom: 16px; text-align: center;\">Sustainability</div>",
+                "_animation": "fadeInUp"
+              }
+            },
+            {
+              "id": "std0004",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "Sustainability programs you can rely on",
+                "header_size": "h2",
+                "align": "center",
+                "title_color": "#121212",
+                "typography_typography": "custom",
+                "typography_font_family": "Sora",
+                "typography_font_size": { "unit": "px", "size": 60 },
+                "typography_font_size_tablet": { "unit": "px", "size": 42 },
+                "typography_font_size_mobile": { "unit": "px", "size": 36 },
+                "typography_font_weight": "500",
+                "typography_line_height": { "unit": "em", "size": 1.1 },
+                "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "24", "left": "0", "isLinked": false },
+                "_animation": "fadeInUp",
+                "_animation_delay": "200"
+              }
+            },
+            {
+              "id": "std0005",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p style=\"text-align:center; max-width:640px; margin:0 auto;\">RFCI manages the flooring industry\u2019s most trusted sustainability programs\u2014built on rigorous testing, transparency, and continuous improvement.</p>",
+                "text_color": "#6E6E6E",
+                "typography_typography": "custom",
+                "typography_font_family": "DM Sans",
+                "typography_font_size": { "unit": "px", "size": 20 },
+                "typography_font_weight": "300",
+                "typography_line_height": { "unit": "em", "size": 1.5 },
+                "_animation": "fadeInUp",
+                "_animation_delay": "300"
+              }
+            }
+          ]
+        },
+        {
+          "id": "std0010",
+          "elType": "widget",
+          "widgetType": "tabs",
+          "settings": {
+            "tabs": [
+              {
+                "_id": "tab_fs",
+                "tab_title": "FloorScore",
+                "tab_content": "<div style=\"padding: 32px 0;\"><h3 style=\"font-family: Sora, sans-serif; font-size: 36px; font-weight: 300; margin-bottom: 16px; color: #121212;\">FloorScore\u00ae</h3><p style=\"font-family: DM Sans, sans-serif; font-size: 16px; font-weight: 300; line-height: 1.625; color: #6E6E6E; max-width: 640px; margin-bottom: 32px;\">The gold standard for indoor air quality certification in hard surface flooring. FloorScore tests finished flooring products against the strictest VOC emission limits.</p><div style=\"display: flex; gap: 48px; margin-bottom: 32px;\"><div style=\"border-left: 2px solid #0164DB; padding-left: 24px;\"><div style=\"font-family: Sora, sans-serif; font-size: 48px; font-weight: 300; color: #121212;\">1,800+</div><div class=\"rfci-label\" style=\"color: #9E9E9E; margin-top: 8px;\">Certified Products</div></div><div style=\"border-left: 2px solid #0164DB; padding-left: 24px;\"><div style=\"font-family: Sora, sans-serif; font-size: 48px; font-weight: 300; color: #121212;\">20+</div><div class=\"rfci-label\" style=\"color: #9E9E9E; margin-top: 8px;\">Years Trusted</div></div></div><a href=\"/sustainability/floorscore\" style=\"display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: #0164DB; color: white; text-decoration: none; font-family: DM Sans, sans-serif; font-size: 14px; font-weight: 600;\">Explore FloorScore <span>&rarr;</span></a></div>"
+              },
+              {
+                "_id": "tab_as",
+                "tab_title": "ASSURE",
+                "tab_content": "<div style=\"padding: 32px 0;\"><h3 style=\"font-family: Sora, sans-serif; font-size: 36px; font-weight: 300; margin-bottom: 16px; color: #121212;\">ASSURE Certification</h3><p style=\"font-family: DM Sans, sans-serif; font-size: 16px; font-weight: 300; line-height: 1.625; color: #6E6E6E; max-width: 640px; margin-bottom: 32px;\">A comprehensive product safety certification that verifies resilient flooring meets stringent physical performance and chemical content requirements through independent laboratory testing.</p><div style=\"display: flex; gap: 48px; margin-bottom: 32px;\"><div style=\"border-left: 2px solid #0164DB; padding-left: 24px;\"><div style=\"font-family: Sora, sans-serif; font-size: 48px; font-weight: 300; color: #121212;\">100%</div><div class=\"rfci-label\" style=\"color: #9E9E9E; margin-top: 8px;\">Third-Party Verified</div></div><div style=\"border-left: 2px solid #0164DB; padding-left: 24px;\"><div style=\"font-family: Sora, sans-serif; font-size: 48px; font-weight: 300; color: #121212;\">15+</div><div class=\"rfci-label\" style=\"color: #9E9E9E; margin-top: 8px;\">Test Parameters</div></div></div><a href=\"/sustainability/assure\" style=\"display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: #0164DB; color: white; text-decoration: none; font-family: DM Sans, sans-serif; font-size: 14px; font-weight: 600;\">Explore ASSURE <span>&rarr;</span></a></div>"
+              },
+              {
+                "_id": "tab_af",
+                "tab_title": "AFFIRM",
+                "tab_content": "<div style=\"padding: 32px 0;\"><h3 style=\"font-family: Sora, sans-serif; font-size: 36px; font-weight: 300; margin-bottom: 16px; color: #121212;\">AFFIRM Certification</h3><p style=\"font-family: DM Sans, sans-serif; font-size: 16px; font-weight: 300; line-height: 1.625; color: #6E6E6E; max-width: 640px; margin-bottom: 32px;\">Verifies that resilient flooring products are manufactured using responsible environmental practices and meet defined sustainability criteria throughout the production process.</p><div style=\"display: flex; gap: 48px; margin-bottom: 32px;\"><div style=\"border-left: 2px solid #0164DB; padding-left: 24px;\"><div style=\"font-family: Sora, sans-serif; font-size: 48px; font-weight: 300; color: #121212;\">360\u00b0</div><div class=\"rfci-label\" style=\"color: #9E9E9E; margin-top: 8px;\">Supply Chain Review</div></div></div><a href=\"/sustainability/affirm\" style=\"display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: #0164DB; color: white; text-decoration: none; font-family: DM Sans, sans-serif; font-size: 14px; font-weight: 600;\">Explore AFFIRM <span>&rarr;</span></a></div>"
+              },
+              {
+                "_id": "tab_ep",
+                "tab_title": "EPDs",
+                "tab_content": "<div style=\"padding: 32px 0;\"><h3 style=\"font-family: Sora, sans-serif; font-size: 36px; font-weight: 300; margin-bottom: 16px; color: #121212;\">Environmental Product Declarations</h3><p style=\"font-family: DM Sans, sans-serif; font-size: 16px; font-weight: 300; line-height: 1.625; color: #6E6E6E; max-width: 640px; margin-bottom: 32px;\">Industry-wide and product-specific EPDs provide transparent, third-party verified environmental impact data covering the full life cycle of resilient flooring products.</p><div style=\"display: flex; gap: 48px; margin-bottom: 32px;\"><div style=\"border-left: 2px solid #0164DB; padding-left: 24px;\"><div style=\"font-family: Sora, sans-serif; font-size: 48px; font-weight: 300; color: #121212;\">50+</div><div class=\"rfci-label\" style=\"color: #9E9E9E; margin-top: 8px;\">Published EPDs</div></div></div><a href=\"/sustainability/epds\" style=\"display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: #0164DB; color: white; text-decoration: none; font-family: DM Sans, sans-serif; font-size: 14px; font-weight: 600;\">Explore EPDs <span>&rarr;</span></a></div>"
+              }
+            ],
+            "type": "horizontal",
+            "border_color": "#CFD8DC",
+            "tab_active_color": "#0164DB",
+            "tab_color": "#585858",
+            "content_color": "#121212",
+            "typography_typography": "custom",
+            "typography_font_family": "Sora",
+            "typography_font_size": { "unit": "px", "size": 14 },
+            "typography_font_weight": "600",
+            "typography_text_transform": "uppercase",
+            "typography_letter_spacing": { "unit": "em", "size": 0.025 },
+            "_css_classes": "rfci-tabs",
+            "_animation": "fadeInUp",
+            "_animation_delay": "400"
+          }
+        },
+        {
+          "id": "std0020",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "column",
+            "align_items": "center",
+            "_margin": { "unit": "px", "top": "64", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "std0021",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Explore our sustainability programs",
+                "link": { "url": "/sustainability", "is_external": false },
+                "align": "center",
+                "background_color": "transparent",
+                "button_text_color": "#0164DB",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                "border_color": "rgba(1,100,219,0.4)",
+                "border_radius": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+                "typography_typography": "custom",
+                "typography_font_family": "DM Sans",
+                "typography_font_size": { "unit": "px", "size": 14 },
+                "typography_font_weight": "600",
+                "_css_classes": "rfci-btn-ghost",
+                "_animation": "fadeInUp"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

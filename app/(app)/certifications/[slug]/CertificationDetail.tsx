@@ -29,7 +29,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="bg-rfci-cream py-20 md:py-28 lg:py-32 relative overflow-hidden">
+      <section className="bg-rfci-cream pt-28 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal>
             <a href="/certifications" className="inline-flex items-center gap-2 text-sm text-rfci-black/50 hover:text-rfci-blue transition-colors mb-8">

@@ -1,0 +1,171 @@
+{
+  "version": "0.4",
+  "title": "RFCI - 01 Hero",
+  "type": "page",
+  "content": [
+    {
+      "id": "hero001",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "min_height": { "unit": "vh", "size": 90 },
+        "flex_direction": "row",
+        "flex_wrap": "nowrap",
+        "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false },
+        "padding_mobile": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false },
+        "background_color": "#F5F5F0",
+        "flex_direction_mobile": "column"
+      },
+      "elements": [
+        {
+          "id": "hero002",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "width": { "unit": "%", "size": 55 },
+            "width_mobile": { "unit": "%", "size": 100 },
+            "flex_direction": "column",
+            "justify_content": "center",
+            "padding": { "unit": "px", "top": "80", "right": "48", "bottom": "80", "left": "80", "isLinked": false },
+            "padding_tablet": { "unit": "px", "top": "60", "right": "24", "bottom": "60", "left": "24", "isLinked": false },
+            "padding_mobile": { "unit": "px", "top": "48", "right": "24", "bottom": "48", "left": "24", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "hero003",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "RESILIENT FLOOR",
+                "header_size": "h1",
+                "title_color": "#121212",
+                "typography_typography": "custom",
+                "typography_font_family": "Sora",
+                "typography_font_size": { "unit": "px", "size": 72 },
+                "typography_font_size_tablet": { "unit": "px", "size": 56 },
+                "typography_font_size_mobile": { "unit": "px", "size": 48 },
+                "typography_font_weight": "700",
+                "typography_line_height": { "unit": "em", "size": 0.95 },
+                "typography_letter_spacing": { "unit": "em", "size": -0.05 },
+                "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": false },
+                "_animation": "fadeInUp",
+                "_animation_delay": "0"
+              }
+            },
+            {
+              "id": "hero004",
+              "elType": "widget",
+              "widgetType": "heading",
+              "settings": {
+                "title": "COVERING INSTITUTE",
+                "header_size": "h1",
+                "title_color": "#121212",
+                "typography_typography": "custom",
+                "typography_font_family": "Sora",
+                "typography_font_size": { "unit": "px", "size": 72 },
+                "typography_font_size_tablet": { "unit": "px", "size": 56 },
+                "typography_font_size_mobile": { "unit": "px", "size": 48 },
+                "typography_font_weight": "700",
+                "typography_line_height": { "unit": "em", "size": 0.95 },
+                "typography_letter_spacing": { "unit": "em", "size": -0.05 },
+                "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "24", "left": "0", "isLinked": false },
+                "_animation": "fadeInUp",
+                "_animation_delay": "200"
+              }
+            },
+            {
+              "id": "hero005",
+              "elType": "widget",
+              "widgetType": "text-editor",
+              "settings": {
+                "editor": "<p>The trade association representing the resilient flooring industry. Setting standards, running certification programs, and advancing the number one flooring category in North America since 1976.</p>",
+                "text_color": "#585858",
+                "typography_typography": "custom",
+                "typography_font_family": "DM Sans",
+                "typography_font_size": { "unit": "px", "size": 16 },
+                "typography_font_weight": "300",
+                "typography_line_height": { "unit": "em", "size": 1.625 },
+                "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "32", "left": "0", "isLinked": false },
+                "_animation": "fadeInUp",
+                "_animation_delay": "400"
+              }
+            },
+            {
+              "id": "hero006",
+              "elType": "widget",
+              "widgetType": "button",
+              "settings": {
+                "text": "Explore RFCI",
+                "link": { "url": "#mission", "is_external": false },
+                "align": "left",
+                "background_color": "#0164DB",
+                "button_text_color": "#FFFFFF",
+                "border_radius": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true },
+                "typography_typography": "custom",
+                "typography_font_family": "DM Sans",
+                "typography_font_size": { "unit": "px", "size": 14 },
+                "typography_font_weight": "600",
+                "button_padding": { "unit": "px", "top": "16", "right": "32", "bottom": "16", "left": "32", "isLinked": false },
+                "hover_color": "#121212",
+                "_css_classes": "rfci-btn-primary",
+                "_animation": "fadeInUp",
+                "_animation_delay": "600"
+              }
+            },
+            {
+              "id": "hero007",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "background_color": "#FFFFFF",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                "border_color": "rgba(0,0,0,0.05)",
+                "padding": { "unit": "px", "top": "24", "right": "24", "bottom": "24", "left": "24", "isLinked": true },
+                "_margin": { "unit": "px", "top": "48", "right": "0", "bottom": "0", "left": "0", "isLinked": false },
+                "_animation": "fadeInUp",
+                "_animation_delay": "800"
+              },
+              "elements": [
+                {
+                  "id": "hero008",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>Discover our certification programs, meet our member manufacturers, and learn how RFCI protects and promotes the resilient flooring industry.</p>",
+                    "text_color": "#6E6E6E",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.6 }
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hero009",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "width": { "unit": "%", "size": 45 },
+            "width_mobile": { "unit": "%", "size": 100 },
+            "min_height": { "unit": "vh", "size": 90 },
+            "min_height_mobile": { "unit": "vh", "size": 50 },
+            "overflow": "hidden",
+            "background_background": "classic",
+            "background_image": {
+              "url": "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1200&auto=format&fit=crop"
+            },
+            "background_position": "center center",
+            "background_size": "cover"
+          },
+          "elements": [],
+          "__dynamic__": {}
+        }
+      ]
+    }
+  ]
+}

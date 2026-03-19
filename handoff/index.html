@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RFCI Design-to-Dev Handoff — WordPress + Elementor + Astra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sora:wght@100..800&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  color: #121212;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.625;
+  font-weight: 300;
+}
+
+/* ── Layout ───────────────────────────────────────────────────── */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  overflow-y: auto;
+  background: #121212;
+  padding: 32px 0;
+  z-index: 100;
+}
+.sidebar-logo { padding: 0 24px 24px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 16px; }
+.sidebar-logo span { font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px; color: #fff; display: block; }
+.sidebar-logo small { font-size: 11px; color: rgba(255,255,255,0.4); font-weight: 400; letter-spacing: 0.05em; }
+.sidebar a {
+  display: block;
+  padding: 8px 24px;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.2s, background 0.2s;
+  border-left: 2px solid transparent;
+}
+.sidebar a:hover { color: #fff; background: rgba(255,255,255,0.04); }
+.sidebar a.active { color: #0164DB; border-left-color: #0164DB; background: rgba(1,100,219,0.06); }
+.sidebar .nav-group { margin-top: 20px; }
+.sidebar .nav-group-label {
+  padding: 0 24px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  margin-bottom: 6px;
+}
+.sidebar a.sub { padding-left: 40px; font-size: 12px; }
+
+.main { margin-left: 260px; }
+.banner {
+  background: #F5F5F0;
+  padding: 48px 64px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.banner h1 { font-family: 'Sora', sans-serif; font-size: 36px; font-weight: 300; margin-bottom: 8px; }
+.banner h1 strong { font-weight: 700; color: #0164DB; }
+.banner p { color: rgba(18,18,18,0.6); max-width: 700px; font-size: 15px; }
+.banner .meta { margin-top: 16px; display: flex; gap: 24px; font-size: 12px; color: rgba(18,18,18,0.4); font-weight: 500; }
+.banner .meta a { color: #0164DB; text-decoration: none; font-weight: 600; }
+
+.content { max-width: 960px; padding: 48px 64px 96px; }
+
+/* ── Section Headers ──────────────────────────────────────────── */
+section { margin-bottom: 64px; }
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0164DB;
+  margin-bottom: 8px;
+}
+.section-heading {
+  font-family: 'Sora', sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.section-desc { color: rgba(18,18,18,0.6); margin-bottom: 32px; max-width: 700px; font-size: 15px; }
+
+/* ── Tables ───────────────────────────────────────────────────── */
+table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 24px; }
+th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(18,18,18,0.4); padding: 10px 12px; border-bottom: 2px solid rgba(18,18,18,0.1); }
+td { padding: 12px 12px; border-bottom: 1px solid rgba(18,18,18,0.06); vertical-align: top; }
+tr:hover td { background: rgba(245,245,240,0.5); }
+
+/* ── Color Swatches ───────────────────────────────────────────── */
+.swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; margin-bottom: 32px; }
+.swatch {
+  border: 1px solid rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+.swatch-color { height: 80px; }
+.swatch-info { padding: 12px; }
+.swatch-name { font-weight: 600; font-size: 13px; margin-bottom: 2px; }
+.swatch-hex { font-family: 'DM Mono', monospace; font-size: 12px; color: rgba(18,18,18,0.5); }
+.swatch-slot { font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(18,18,18,0.35); margin-top: 4px; }
+
+/* ── Type Specimens ───────────────────────────────────────────── */
+.specimen { border: 1px solid rgba(0,0,0,0.06); padding: 32px; margin-bottom: 16px; background: #FAFAFA; }
+.specimen-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(18,18,18,0.35); margin-bottom: 8px; }
+.specimen-meta { font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(18,18,18,0.4); margin-top: 8px; }
+
+/* ── Component Examples ───────────────────────────────────────── */
+.component-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 24px; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #0164DB; color: #fff; padding: 14px 32px;
+  font-size: 14px; font-weight: 600; text-decoration: none; border: none; cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #121212; }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: #0164DB; padding: 12px 32px;
+  font-size: 14px; font-weight: 600; text-decoration: none;
+  border: 1px solid rgba(1,100,219,0.4); cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-ghost:hover { background: #0164DB; color: #fff; border-color: #0164DB; }
+.tag { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 9999px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+.tag-green { background: #E6F4EA; color: #137333; }
+.tag-green .dot { width: 6px; height: 6px; border-radius: 50%; background: #137333; }
+.tag-amber { background: #FDF5D3; color: #856404; }
+.tag-gray { background: rgba(207,216,220,0.3); color: #121212; }
+.rfci-link { color: #0164DB; text-decoration: none; position: relative; font-weight: 600; font-size: 14px; }
+.rfci-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.3s ease; }
+.rfci-link:hover::after { width: 100%; }
+.stat-block { border-left: 2px solid #0164DB; padding-left: 20px; }
+.stat-number { font-family: 'Sora', sans-serif; font-size: 36px; font-weight: 300; color: #0164DB; }
+.stat-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(18,18,18,0.4); }
+
+/* ── Section Spec Cards ───────────────────────────────────────── */
+.spec-card {
+  border: 1px solid rgba(0,0,0,0.08);
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+.spec-card-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 24px;
+  background: #F5F5F0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  cursor: pointer;
+}
+.spec-card-header h3 { font-family: 'Sora', sans-serif; font-size: 18px; font-weight: 600; }
+.spec-card-header .num { font-family: 'DM Mono', monospace; font-size: 12px; color: rgba(18,18,18,0.3); margin-right: 12px; }
+.spec-card-header a { font-size: 12px; color: #0164DB; text-decoration: none; font-weight: 600; }
+.spec-card-body { padding: 24px; }
+.spec-card-body h4 { font-family: 'Sora', sans-serif; font-size: 14px; font-weight: 600; margin: 20px 0 8px; color: #121212; }
+.spec-card-body h4:first-child { margin-top: 0; }
+.spec-card-body p, .spec-card-body li { font-size: 13px; color: rgba(18,18,18,0.7); line-height: 1.6; }
+.spec-card-body ul { padding-left: 20px; margin-bottom: 12px; }
+.spec-card-body li { margin-bottom: 4px; }
+
+/* ── Info boxes ───────────────────────────────────────────────── */
+.info-box {
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.info-box.blue { background: rgba(1,100,219,0.06); border-left: 3px solid #0164DB; color: rgba(18,18,18,0.8); }
+.info-box.amber { background: rgba(253,245,211,0.6); border-left: 3px solid #856404; color: #856404; }
+.info-box.green { background: rgba(230,244,234,0.6); border-left: 3px solid #137333; color: #137333; }
+.info-box strong { font-weight: 700; }
+
+/* ── Code Blocks ──────────────────────────────────────────────── */
+code { font-family: 'DM Mono', monospace; font-size: 12px; background: rgba(0,0,0,0.04); padding: 2px 6px; border-radius: 3px; }
+pre {
+  background: #1a1a2e;
+  color: #e0e0e0;
+  padding: 20px 24px;
+  overflow-x: auto;
+  font-family: 'DM Mono', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 12px 0 20px;
+  border-radius: 4px;
+}
+pre code { background: none; padding: 0; color: inherit; }
+
+/* ── Dividers ─────────────────────────────────────────────────── */
+hr { border: none; height: 1px; background: linear-gradient(to right, transparent, #CFD8DC, transparent); margin: 48px 0; }
+
+/* ── "Can't Do" table ─────────────────────────────────────────── */
+.difficulty-easy { color: #137333; font-weight: 600; }
+.difficulty-medium { color: #856404; font-weight: 600; }
+.difficulty-hard { color: #c0392b; font-weight: 600; }
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+  .banner { padding: 32px 24px; }
+  .content { padding: 32px 24px 64px; }
+  .swatch-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media print {
+  .sidebar { display: none; }
+  .main { margin-left: 0; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SIDEBAR NAVIGATION
+     ═══════════════════════════════════════════════════════════════ -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <span>RFCI Handoff</span>
+    <small>WordPress + Elementor + Astra</small>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Design System</div>
+    <a href="#colors">Global Colors</a>
+    <a href="#typography">Typography Scale</a>
+    <a href="#spacing">Spacing &amp; Layout</a>
+    <a href="#components">Component Patterns</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Homepage Sections</div>
+    <a href="#hero" class="sub">Hero</a>
+    <a href="#mission" class="sub">Mission</a>
+    <a href="#materials" class="sub">Materials Carousel</a>
+    <a href="#environments" class="sub">Environments</a>
+    <a href="#why-resilient" class="sub">Why Resilient</a>
+    <a href="#standards" class="sub">Standards</a>
+    <a href="#ecomedes" class="sub">Ecomedes</a>
+    <a href="#beautifully" class="sub">Beautifully Responsible</a>
+    <a href="#community" class="sub">Community</a>
+    <a href="#linkedin" class="sub">LinkedIn Feed</a>
+    <a href="#members-section" class="sub">Members</a>
+    <a href="#education" class="sub">Education</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Subpages</div>
+    <a href="#subpage-patterns">Subpage Patterns</a>
+  </div>
+
+  <div class="nav-group">
+    <div class="nav-group-label">Implementation</div>
+    <a href="#navigation">Navigation &amp; Footer</a>
+    <a href="#animations">Animation Mapping</a>
+    <a href="#icons">Icon Mapping</a>
+    <a href="#assets">Asset Checklist</a>
+    <a href="#responsive">Responsive Behavior</a>
+    <a href="#cant-do">Can't Do Natively</a>
+    <a href="#custom-css">Custom CSS Bundle</a>
+  </div>
+</nav>
+
+<div class="main">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HEADER BANNER
+     ═══════════════════════════════════════════════════════════════ -->
+<header class="banner">
+  <h1>RFCI <strong>Design Handoff</strong></h1>
+  <p>This document maps the RFCI demo site design to <strong>WordPress + Elementor Pro + Astra</strong>. Every color, font size, spacing value, and component pattern is translated into terms your stack supports. Where the design exceeds Elementor's capabilities, specific plugins or simplified alternatives are provided.</p>
+  <div class="meta">
+    <span>Last updated: March 2026</span>
+    <a href="https://rfci-landing-page.vercel.app" target="_blank">View Live Demo &rarr;</a>
+  </div>
+</header>
+
+<div class="content">
+
+<!-- ═══════════════════════════════════════════════════════════════
+     1. GLOBAL COLORS
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="colors">
+  <div class="section-label">Design System</div>
+  <h2 class="section-heading">Global Colors</h2>
+  <p class="section-desc">Map these to Elementor's <strong>Site Settings &gt; Global Colors</strong>. The first 4 map to Elementor's built-in slots; the rest go into Custom colors.</p>
+
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background:#0164DB"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">RFCI Blue</div>
+        <div class="swatch-hex">#0164DB</div>
+        <div class="swatch-slot">Elementor: Primary</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#00C2D1"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">RFCI Teal</div>
+        <div class="swatch-hex">#00C2D1</div>
+        <div class="swatch-slot">Elementor: Secondary</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#121212"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">RFCI Black</div>
+        <div class="swatch-hex">#121212</div>
+        <div class="swatch-slot">Elementor: Text</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#F5F5F0"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Cream</div>
+        <div class="swatch-hex">#F5F5F0</div>
+        <div class="swatch-slot">Elementor: Accent</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#ECEFF1"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Off-White</div>
+        <div class="swatch-hex">#ECEFF1</div>
+        <div class="swatch-slot">Custom 1</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background:#CFD8DC"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Light Gray</div>
+        <div class="swatch-hex">#CFD8DC</div>
+        <div class="swatch-slot">Custom 2</div>
+      </div>
+    </div>
+  </div>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin-bottom:12px;">Opacity Equivalents</h4>
+  <p style="font-size:13px; color:rgba(18,18,18,0.6); margin-bottom:16px;">Elementor doesn't support Tailwind-style opacity notation. Use these solid hex approximations instead.</p>
+  <table>
+    <thead>
+      <tr><th>Token</th><th>RGBA</th><th>Solid Hex</th><th>Usage</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>rfci-black/80</code></td><td>rgba(18,18,18,0.8)</td><td>#3B3B3B</td><td>Nav links, primary body text</td></tr>
+      <tr><td><code>rfci-black/70</code></td><td>rgba(18,18,18,0.7)</td><td>#585858</td><td>Secondary text, descriptions</td></tr>
+      <tr><td><code>rfci-black/60</code></td><td>rgba(18,18,18,0.6)</td><td>#6E6E6E</td><td>Subheadings, captions</td></tr>
+      <tr><td><code>rfci-black/50</code></td><td>rgba(18,18,18,0.5)</td><td>#8A8A8A</td><td>Labels, subtitles</td></tr>
+      <tr><td><code>rfci-black/40</code></td><td>rgba(18,18,18,0.4)</td><td>#9A9A9A</td><td>Form labels, meta text</td></tr>
+      <tr><td><code>white/70</code></td><td>rgba(255,255,255,0.7)</td><td>&mdash;</td><td>Body text on dark/blue sections</td></tr>
+      <tr><td><code>white/40</code></td><td>rgba(255,255,255,0.4)</td><td>&mdash;</td><td>Footer column headings</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin-bottom:12px;">Tag / Badge Colors</h4>
+  <div class="component-row">
+    <span class="tag tag-green"><span class="dot"></span> Green Tag</span>
+    <span class="tag tag-amber">Amber Tag</span>
+    <span class="tag tag-gray">Gray Tag</span>
+  </div>
+  <table>
+    <thead><tr><th>Variant</th><th>Background</th><th>Text</th></tr></thead>
+    <tbody>
+      <tr><td>Green</td><td><code>#E6F4EA</code></td><td><code>#137333</code></td></tr>
+      <tr><td>Amber</td><td><code>#FDF5D3</code></td><td><code>#856404</code></td></tr>
+      <tr><td>Gray</td><td><code>#CFD8DC</code> at 30% opacity</td><td><code>#121212</code></td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin-bottom:12px;">Astra Theme Settings</h4>
+  <table>
+    <thead><tr><th>Astra Setting</th><th>Value</th></tr></thead>
+    <tbody>
+      <tr><td>Theme Color</td><td><code>#0164DB</code></td></tr>
+      <tr><td>Link Color</td><td><code>#0164DB</code></td></tr>
+      <tr><td>Link Hover Color</td><td><code>#121212</code></td></tr>
+      <tr><td>Heading Color</td><td><code>#121212</code></td></tr>
+      <tr><td>Body Text Color</td><td><code>#121212</code></td></tr>
+      <tr><td>Background Color</td><td><code>#FFFFFF</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     2. TYPOGRAPHY SCALE
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="typography">
+  <div class="section-label">Design System</div>
+  <h2 class="section-heading">Typography Scale</h2>
+  <p class="section-desc">Set these in <strong>Astra &gt; Customize &gt; Global &gt; Typography</strong>. Heading Font: <strong>Sora</strong> (Google Fonts). Body Font: <strong>DM Sans</strong> (Google Fonts). All headings use Sora; all body/paragraph text uses DM Sans.</p>
+
+  <div class="specimen">
+    <div class="specimen-label">H1 — Hero Headline Only</div>
+    <div style="font-family:'Sora',sans-serif; font-size:72px; font-weight:700; line-height:0.95; letter-spacing:-0.05em; color:#121212;">
+      Resilient Flooring
+    </div>
+    <div class="specimen-meta">Sora 72px (desktop) / 48px (mobile) &middot; Weight 700 &middot; Line-height 0.95 &middot; Letter-spacing -0.05em</div>
+  </div>
+
+  <div class="specimen">
+    <div class="specimen-label">H2 — Section Headings</div>
+    <div style="font-family:'Sora',sans-serif; font-size:60px; font-weight:300; line-height:1.1; letter-spacing:-0.025em;">
+      Industry-leading sustainability
+    </div>
+    <div class="specimen-meta">Sora 60px (desktop) / 36px (mobile) &middot; Weight 300 &middot; Line-height 1.1 &middot; Letter-spacing -0.025em</div>
+  </div>
+
+  <div class="specimen">
+    <div class="specimen-label">H3 — Card Titles, Subsections</div>
+    <div style="font-family:'Sora',sans-serif; font-size:36px; font-weight:300; line-height:1.1; letter-spacing:-0.025em;">
+      Flexible LVT
+    </div>
+    <div class="specimen-meta">Sora 36px (desktop) / 30px (mobile) &middot; Weight 300 &middot; Line-height 1.1 &middot; Letter-spacing -0.025em</div>
+  </div>
+
+  <div class="specimen">
+    <div class="specimen-label">H4 — List Item Titles, Pillar Names</div>
+    <div style="font-family:'Sora',sans-serif; font-size:18px; font-weight:600; line-height:1.4;">
+      Third-Party Certification
+    </div>
+    <div class="specimen-meta">Sora 18px &middot; Weight 600 &middot; Line-height 1.4 &middot; No letter-spacing</div>
+  </div>
+
+  <div class="specimen">
+    <div class="specimen-label">H5 — Benefit Titles, Small Headings</div>
+    <div style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; line-height:1.4;">
+      Easy to Clean &amp; Maintain
+    </div>
+    <div class="specimen-meta">Sora 16px &middot; Weight 600 &middot; Line-height 1.4</div>
+  </div>
+
+  <div class="specimen">
+    <div class="specimen-label">H6 — Footer Column Headings</div>
+    <div style="font-family:'Sora',sans-serif; font-size:14px; font-weight:700; line-height:1.4;">
+      SUSTAINABILITY
+    </div>
+    <div class="specimen-meta">Sora 14px &middot; Weight 700 &middot; Line-height 1.4 &middot; Uppercase implied by content</div>
+  </div>
+
+  <div class="specimen">
+    <div class="specimen-label">Body — Paragraphs, Descriptions</div>
+    <div style="font-family:'DM Sans',sans-serif; font-size:16px; font-weight:300; line-height:1.625; color:rgba(18,18,18,0.7);">
+      Resilient flooring refers to a category of hard surface flooring materials that offer a degree of flexibility and "give" underfoot. This includes luxury vinyl tile, vinyl composition tile, sheet vinyl, linoleum, rubber, and cork flooring.
+    </div>
+    <div class="specimen-meta">DM Sans 16px &middot; Weight 300 &middot; Line-height 1.625 &middot; Color: rfci-black/70</div>
+  </div>
+
+  <div class="specimen">
+    <div class="specimen-label">Label / Eyebrow — Uppercase Micro-Labels</div>
+    <div style="font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; line-height:1.4; letter-spacing:0.1em; text-transform:uppercase; color:#0164DB;">
+      Flooring Types
+    </div>
+    <div class="specimen-meta">DM Sans 11px &middot; Weight 700 &middot; Uppercase &middot; Letter-spacing 0.1em &middot; Requires custom CSS class</div>
+  </div>
+
+  <div class="info-box blue">
+    <strong>Important:</strong> The 11px label size doesn't exist in Elementor's native size picker. Apply the custom class <code>.rfci-label</code> to any Heading or Text Editor widget that needs this style. The CSS is provided in the <a href="#custom-css">Custom CSS Bundle</a> section.
+  </div>
+
+  <table>
+    <thead><tr><th>Level</th><th>Font</th><th>Desktop</th><th>Mobile</th><th>Weight</th><th>Line-Height</th><th>Letter-Spacing</th></tr></thead>
+    <tbody>
+      <tr><td>H1</td><td>Sora</td><td>72px</td><td>48px</td><td>700</td><td>0.95</td><td>-0.05em</td></tr>
+      <tr><td>H2</td><td>Sora</td><td>60px</td><td>36px</td><td>300</td><td>1.1</td><td>-0.025em</td></tr>
+      <tr><td>H3</td><td>Sora</td><td>36px</td><td>30px</td><td>300</td><td>1.1</td><td>-0.025em</td></tr>
+      <tr><td>H4</td><td>Sora</td><td>18px</td><td>18px</td><td>600</td><td>1.4</td><td>0</td></tr>
+      <tr><td>H5</td><td>Sora</td><td>16px</td><td>16px</td><td>600</td><td>1.4</td><td>0</td></tr>
+      <tr><td>H6</td><td>Sora</td><td>14px</td><td>14px</td><td>700</td><td>1.4</td><td>0</td></tr>
+      <tr><td>Body</td><td>DM Sans</td><td>16px</td><td>16px</td><td>300</td><td>1.625</td><td>0</td></tr>
+      <tr><td>Label</td><td>DM Sans</td><td>11px</td><td>11px</td><td>700</td><td>1.4</td><td>0.1em</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     3. SPACING & LAYOUT
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="spacing">
+  <div class="section-label">Design System</div>
+  <h2 class="section-heading">Spacing &amp; Layout</h2>
+  <p class="section-desc">Configure these in <strong>Elementor &gt; Site Settings &gt; Layout</strong>.</p>
+
+  <table>
+    <thead><tr><th>Property</th><th>Value</th><th>Where to Set</th></tr></thead>
+    <tbody>
+      <tr><td>Content Width (max-width)</td><td><strong>1280px</strong></td><td>Site Settings &gt; Layout &gt; Content Width</td></tr>
+      <tr><td>Section Vertical Padding</td><td><strong>112px</strong> (standard) to <strong>160px</strong> (large)</td><td>Per-section padding in Style tab</td></tr>
+      <tr><td>Horizontal Padding (mobile)</td><td><strong>24px</strong></td><td>Container padding at mobile breakpoint</td></tr>
+      <tr><td>Horizontal Padding (desktop)</td><td><strong>48px</strong></td><td>Container padding at desktop breakpoint</td></tr>
+      <tr><td>Card Gap</td><td><strong>24px</strong> (mobile) / <strong>32px</strong> (desktop)</td><td>Grid gap or column gap</td></tr>
+      <tr><td>Section Header → Content Gap</td><td><strong>48px</strong> to <strong>64px</strong></td><td>Margin below heading group</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin: 24px 0 12px;">Elementor Breakpoints</h4>
+  <table>
+    <thead><tr><th>Breakpoint</th><th>Width</th><th>Tailwind Equivalent</th></tr></thead>
+    <tbody>
+      <tr><td>Desktop</td><td>1025px+</td><td><code>lg:</code></td></tr>
+      <tr><td>Tablet</td><td>768px – 1024px</td><td><code>md:</code></td></tr>
+      <tr><td>Mobile</td><td>0 – 767px</td><td>Default (mobile-first)</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin: 24px 0 12px;">Section Dividers</h4>
+  <p style="font-size:13px; color:rgba(18,18,18,0.6);">Between certain sections, a subtle gradient divider is used: transparent → light gray → transparent. In Elementor, use a <strong>Divider widget</strong> with style "solid", width 1px, color <code>#CFD8DC</code>, and add gradient masks via custom CSS if desired. Alternatively, use a 1px <code>&lt;hr&gt;</code> with the gradient applied.</p>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     4. COMPONENT PATTERNS
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="components">
+  <div class="section-label">Design System</div>
+  <h2 class="section-heading">Component Patterns</h2>
+  <p class="section-desc">Reusable UI patterns used across the site. Each includes a live example and Elementor implementation notes.</p>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin-bottom:12px;">Buttons</h4>
+  <div class="component-row">
+    <button class="btn-primary">Primary Button &rarr;</button>
+    <button class="btn-ghost">Ghost Button &rarr;</button>
+  </div>
+  <table>
+    <thead><tr><th>Style</th><th>Background</th><th>Text</th><th>Hover BG</th><th>Border</th><th>Radius</th><th>Padding</th></tr></thead>
+    <tbody>
+      <tr><td>Primary</td><td><code>#0164DB</code></td><td>White</td><td><code>#121212</code></td><td>None</td><td><strong>0px</strong></td><td>14px 32px</td></tr>
+      <tr><td>Ghost</td><td>Transparent</td><td><code>#0164DB</code></td><td><code>#0164DB</code></td><td>1px <code>rgba(1,100,219,0.4)</code></td><td><strong>0px</strong></td><td>12px 32px</td></tr>
+    </tbody>
+  </table>
+  <div class="info-box blue">
+    <strong>Sharp corners everywhere.</strong> This design uses 0px border-radius on all buttons, cards, and containers. Set border-radius to 0 in Elementor's Style tab for all Button widgets.
+  </div>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin: 24px 0 12px;">Text Link with Underline Animation</h4>
+  <div class="component-row">
+    <a href="#" class="rfci-link" onclick="return false">Explore FloorScore &rarr;</a>
+  </div>
+  <p style="font-size:13px; color:rgba(18,18,18,0.6); margin-bottom:8px;">An underline that grows from left to right on hover. Requires custom CSS (see snippet below). Apply class <code>.rfci-link</code> to any link.</p>
+  <pre><code>.rfci-link {
+  position: relative;
+  color: #0164DB;
+  text-decoration: none;
+  font-weight: 600;
+}
+.rfci-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.rfci-link:hover::after {
+  width: 100%;
+}</code></pre>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin: 24px 0 12px;">Section Header Pattern</h4>
+  <p style="font-size:13px; color:rgba(18,18,18,0.6); margin-bottom:16px;">Most sections follow this 3-part header: Label (11px eyebrow) → H2 (section heading) → Paragraph (subheading). In Elementor, stack three widgets inside a container: Heading with class <code>.rfci-label</code>, Heading (H2), and Text Editor.</p>
+  <div style="border:1px solid rgba(0,0,0,0.06); padding:32px; background:#F5F5F0; margin-bottom:24px;">
+    <div style="font-family:'DM Sans',sans-serif; font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#0164DB; margin-bottom:8px;">Sustainability</div>
+    <div style="font-family:'Sora',sans-serif; font-size:36px; font-weight:300; line-height:1.1; margin-bottom:12px;">Industry-leading certifications.</div>
+    <div style="font-size:15px; color:rgba(18,18,18,0.6); max-width:500px;">Third-party verified programs ensuring indoor air quality, sustainability, and material health.</div>
+  </div>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin: 24px 0 12px;">Card</h4>
+  <p style="font-size:13px; color:rgba(18,18,18,0.6); margin-bottom:16px;">Off-white or white background, 1px border, 0 border-radius, hover lifts with shadow. In Elementor, use a Container widget with border and add hover box-shadow via custom CSS.</p>
+  <div style="border:1px solid rgba(0,0,0,0.05); padding:28px; max-width:360px; transition:all 0.3s; margin-bottom:16px;">
+    <div style="font-family:'Sora',sans-serif; font-size:20px; font-weight:300; margin-bottom:4px;">Flexible LVT</div>
+    <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:rgba(18,18,18,0.5); margin-bottom:12px;">Luxury Vinyl Tile</div>
+    <div style="font-size:14px; color:rgba(18,18,18,0.6); line-height:1.6; margin-bottom:16px;">The leading resilient flooring product in North America. Waterproof, dimensionally stable.</div>
+    <div style="display:flex; gap:8px; margin-bottom:16px;">
+      <span class="tag tag-green"><span class="dot"></span> Waterproof</span>
+      <span class="tag tag-amber">High Traffic</span>
+    </div>
+    <a href="#" class="rfci-link" onclick="return false" style="font-size:13px;">Explore Flexible LVT &rarr;</a>
+  </div>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin: 24px 0 12px;">Tags / Badges</h4>
+  <p style="font-size:13px; color:rgba(18,18,18,0.6); margin-bottom:12px;">Pill-shaped, rounded corners (9999px), 11px uppercase bold. In Elementor, use a Button widget styled as a tag or a text widget with custom class <code>.rfci-tag</code>.</p>
+  <div class="component-row">
+    <span class="tag tag-green"><span class="dot"></span> Waterproof</span>
+    <span class="tag tag-amber">High Traffic</span>
+    <span class="tag tag-gray">Easy Install</span>
+  </div>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin: 24px 0 12px;">Stat Block</h4>
+  <p style="font-size:13px; color:rgba(18,18,18,0.6); margin-bottom:12px;">2px blue left border, large number, small label. In Elementor, use a Container with left border (2px, <code>#0164DB</code>) and a Counter widget inside.</p>
+  <div class="component-row">
+    <div class="stat-block">
+      <div class="stat-number">65+</div>
+      <div class="stat-label">Years of leadership</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">4</div>
+      <div class="stat-label">Certification programs</div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     5. HOMEPAGE SECTION SPECS
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="sections">
+  <div class="section-label">Homepage</div>
+  <h2 class="section-heading">Section-by-Section Specs</h2>
+  <p class="section-desc">Each section maps to the live demo. Click "View on demo" to see the live version for visual reference.</p>
+
+  <!-- HERO -->
+  <div class="spec-card" id="hero">
+    <div class="spec-card-header">
+      <div><span class="num">01</span><h3 style="display:inline">Hero</h3></div>
+      <a href="https://rfci-landing-page.vercel.app/#hero" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p><code>#F5F5F0</code> (Cream)</p>
+
+      <h4>Layout</h4>
+      <p>Two-column Flexbox container: left column 55% (text content), right column 45% (video/image). Stacks vertically on mobile.</p>
+      <ul>
+        <li><strong>Left column:</strong> H1 heading (two lines — line 1 bold black, line 2 italic light blue), subheading paragraph, CTA note</li>
+        <li><strong>Right column:</strong> Background video (<code>hero-video.mp4</code>) with fallback poster image. Overlaid with a white "credential card" positioned bottom-right</li>
+      </ul>
+
+      <h4>Elementor Build</h4>
+      <ul>
+        <li>Two-column Container widget (55/45 split)</li>
+        <li>Left: H1 Heading widget. For two-tone styling (bold black + italic blue), use <code>&lt;span&gt;</code> inside the heading with custom CSS to color it <code>#0164DB</code> and make it italic + font-weight 300</li>
+        <li>Right: Video widget or Section with background video</li>
+        <li>Credential card: Inner Container with white bg, positioned with z-index. Use an Icon widget for the certificate badge</li>
+        <li>Mobile: Stack order — heading, image, credential card</li>
+      </ul>
+
+      <h4>Spacing</h4>
+      <p>Section min-height: 100vh. Padding: 80px top (desktop) / 128px top (mobile, accounting for fixed nav), 24-48px horizontal.</p>
+
+      <h4>Animations</h4>
+      <div class="info-box blue"><strong>Use Elementor:</strong> Fade In Up entrance animation on the heading, 700ms. Fade In Right on the credential card. <strong>Skip:</strong> clip-path text reveal, parallax scroll on the image, hero-zoom keyframe on mobile image.</div>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <div class="spec-card" id="mission">
+    <div class="spec-card-header">
+      <div><span class="num">02</span><h3 style="display:inline">Mission</h3></div>
+      <a href="https://rfci-landing-page.vercel.app" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p><code>#0164DB</code> (RFCI Blue). All text is white.</p>
+
+      <h4>Layout</h4>
+      <ul>
+        <li><strong>Top row:</strong> Two columns — H2 heading left, description paragraph right</li>
+        <li><strong>Divider:</strong> 1px white at 10% opacity</li>
+        <li><strong>Bottom row:</strong> Two columns — image panel left (4 cols), pillar list right (8 cols)</li>
+        <li>5 numbered pillar rows, each with: number, title, description</li>
+      </ul>
+
+      <h4>Elementor Build</h4>
+      <ul>
+        <li>Section with blue background</li>
+        <li>Top: Two-column Container with H2 + Text Editor</li>
+        <li>Divider widget (white, 1px)</li>
+        <li>Bottom: Two-column Container. Left: static image (single representative image). Right: repeating rows using containers — each row has a number, title, description</li>
+        <li>Row hover effect (background tint + left blue bar): <strong>custom CSS</strong> or skip</li>
+      </ul>
+
+      <div class="info-box amber"><strong>Simplification:</strong> The demo has hover-driven image switching (hovering a pillar row swaps the left image). <strong>Skip this</strong> — use a single static image for the left column.</div>
+
+      <h4>Mobile</h4>
+      <p>Single column, pillar rows stack with number + title on one line, description below. Image hidden on mobile.</p>
+    </div>
+  </div>
+
+  <!-- MATERIALS CAROUSEL -->
+  <div class="spec-card" id="materials">
+    <div class="spec-card-header">
+      <div><span class="num">03</span><h3 style="display:inline">Materials Carousel</h3></div>
+      <a href="https://rfci-landing-page.vercel.app" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p><code>#FFFFFF</code> (White)</p>
+
+      <h4>Layout</h4>
+      <p>9 flooring type cards in a horizontal scrolling carousel with snap points and a progress bar below.</p>
+
+      <h4>Elementor Build — Option A (Recommended)</h4>
+      <ul>
+        <li>Use <strong>Elementor Pro Loop Carousel</strong> widget</li>
+        <li>Configure 3 cards visible on desktop, 1 on mobile</li>
+        <li>Card width: ~440px desktop, ~360px mobile</li>
+      </ul>
+
+      <h4>Elementor Build — Option B (Fallback: Grid)</h4>
+      <ul>
+        <li>3-column grid on desktop, 1-column on mobile</li>
+        <li>Show all 9 cards in a <code>3×3</code> grid layout</li>
+      </ul>
+
+      <h4>Recommended Plugin</h4>
+      <div class="info-box green"><strong>Plugin:</strong> If Loop Carousel doesn't provide enough control, use <strong>Essential Addons for Elementor &gt; Post Carousel</strong> or <strong>ElementsKit Slider</strong>.</div>
+
+      <h4>Card Structure</h4>
+      <ul>
+        <li>Title (H3, Sora 36px light)</li>
+        <li>Subtitle (11px label)</li>
+        <li>Description (3-line clamp)</li>
+        <li>Tag badges (pill style, green/amber/gray)</li>
+        <li>CTA link ("Explore [name] →")</li>
+      </ul>
+
+      <div class="info-box amber"><strong>Skip:</strong> The decorative angled color swatch with noise texture in the bottom-right corner of each card, the scroll progress bar, and the snap-scroll behavior. Focus on clean card content.</div>
+    </div>
+  </div>
+
+  <!-- ENVIRONMENTS -->
+  <div class="spec-card" id="environments">
+    <div class="spec-card-header">
+      <div><span class="num">04</span><h3 style="display:inline">Environments</h3></div>
+      <a href="https://rfci-landing-page.vercel.app" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p><code>#ECEFF1</code> (Off-White)</p>
+
+      <h4>Layout</h4>
+      <p>8 environment cards in a grid: 4 columns desktop, 3 columns tablet, 2 columns mobile. Each card has a 3D flip effect on hover.</p>
+
+      <h4>Elementor Build</h4>
+      <div class="info-box green"><strong>Natively supported!</strong> Use <strong>Elementor Pro &gt; Flip Box widget</strong>. This handles the 3D card flip effect out of the box.</div>
+      <ul>
+        <li>Grid: Use a Container with CSS Grid (4 columns) or multiple Flip Box widgets arranged in columns</li>
+        <li><strong>Front:</strong> Background image (from Unsplash), label text at bottom-left with dark overlay</li>
+        <li><strong>Back:</strong> Blue background (<code>#0164DB</code>), icon, environment name, description, flooring type tag</li>
+        <li>Aspect ratio: approximately 4:5</li>
+      </ul>
+
+      <h4>8 Environments</h4>
+      <p style="font-size:12px; color:rgba(18,18,18,0.5);">Single-Family Homes, Apartments, Townhomes, Vacation Rentals, Senior Living, Offices, Healthcare, Education</p>
+    </div>
+  </div>
+
+  <!-- WHY RESILIENT -->
+  <div class="spec-card" id="why-resilient">
+    <div class="spec-card-header">
+      <div><span class="num">05</span><h3 style="display:inline">Why Resilient</h3></div>
+      <a href="https://rfci-landing-page.vercel.app" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p><code>#FFFFFF</code> (White)</p>
+
+      <h4>Layout</h4>
+      <p>Two-column (50/50 split). Left: large image with floating stat badge. Right: label + H2 + 5 benefit items with icons.</p>
+
+      <h4>Elementor Build</h4>
+      <ul>
+        <li>Two-column Container (50/50)</li>
+        <li><strong>Left:</strong> Image widget (aspect 4:5). Overlay a Container with white bg + shadow for the stat badge, positioned bottom-left using negative margin or absolute positioning</li>
+        <li>Stat badge: Use <strong>Elementor Counter widget</strong> for the animated number (65+), label text below</li>
+        <li><strong>Right:</strong> Label (.rfci-label), H2 Heading, then 5 rows. Each row: Icon (Elementor Icon widget) + H5 title + paragraph, separated by 1px dividers</li>
+        <li>CTA link at bottom with underline animation</li>
+      </ul>
+
+      <h4>Icons Used (5 benefits)</h4>
+      <p style="font-size:12px; color:rgba(18,18,18,0.5);">Broom, Drop, CurrencyDollar, Palette, Recycle → Font Awesome: fa-broom, fa-droplet, fa-dollar-sign, fa-palette, fa-recycle</p>
+
+      <h4>Mobile</h4>
+      <p>Single column — image + stat badge above, content below.</p>
+    </div>
+  </div>
+
+  <!-- STANDARDS -->
+  <div class="spec-card" id="standards">
+    <div class="spec-card-header">
+      <div><span class="num">06</span><h3 style="display:inline">Standards / Sustainability</h3></div>
+      <a href="https://rfci-landing-page.vercel.app" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p><code>#F5F5F0</code> (Cream — Elementor: Accent). This is the warm off-white used for the hero and select section backgrounds.</p>
+
+      <h4>Layout</h4>
+      <p>Desktop: vertical tab buttons (left column, 5 cols) + tab content panel (right column, 7 cols). Mobile: accordion.</p>
+
+      <h4>4 Tabs</h4>
+      <p style="font-size:12px; color:rgba(18,18,18,0.5);">FloorScore®, ASSURE® Certified, AFFIRM™ Certified, Environmental Product Declarations</p>
+
+      <h4>Elementor Build</h4>
+      <ul>
+        <li>Use <strong>Elementor Pro &gt; Tabs widget</strong>. Elementor's Tabs widget doesn't have a native vertical orientation — use a <strong>2-column Container</strong> instead: left column has stacked Button widgets (one per tab), right column shows the active content. Toggle visibility of content columns using Elementor's <strong>Display Conditions</strong> or handle with a small Custom CSS <code>:target</code> / JS approach. Alternatively, <strong>JetTabs</strong> (JetElements plugin) supports true vertical tabs natively.</li>
+        <li>Each tab button: icon in circle + title text, active state shows blue left border (2px)</li>
+        <li>Tab content: image, description paragraph, 2 stat blocks (use Counter widgets), CTA link</li>
+        <li>Mobile: Elementor's Tabs widget automatically collapses. Alternatively, use an <strong>Accordion widget</strong> for a cleaner mobile experience</li>
+      </ul>
+
+      <div class="info-box amber"><strong>Skip:</strong> Rotating atom icon background decoration, AnimatePresence cross-fade + blur between tabs (Elementor tabs have their own built-in transition), counter animation (or use Elementor's Counter widget for this).</div>
+    </div>
+  </div>
+
+  <!-- ECOMEDES -->
+  <div class="spec-card" id="ecomedes">
+    <div class="spec-card-header">
+      <div><span class="num">07</span><h3 style="display:inline">Ecomedes Banner</h3></div>
+      <a href="https://rfci-landing-page.vercel.app" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p><code>#F5F5F0</code> (Cream)</p>
+
+      <h4>Layout</h4>
+      <p>Horizontal flex: Ecomedes logo (left) | description text (center) | CTA button (right). Stacks on mobile.</p>
+
+      <h4>Elementor Build</h4>
+      <div class="info-box green"><strong>Fully native.</strong> Three-column Container. Image widget (logo, h-28), Text Editor, Button widget (ghost style). Simple and straightforward.</div>
+
+      <h4>Spacing</h4>
+      <p>Section padding: 64-80px vertical.</p>
+    </div>
+  </div>
+
+  <!-- BEAUTIFULLY RESPONSIBLE -->
+  <div class="spec-card" id="beautifully">
+    <div class="spec-card-header">
+      <div><span class="num">08</span><h3 style="display:inline">Beautifully Responsible</h3></div>
+      <a href="https://rfci-landing-page.vercel.app" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p>Full-bleed background image with dark gradient overlay</p>
+
+      <h4>Layout</h4>
+      <p>Full-width section, min-height 500px (mobile) / 600px (desktop). White text content left-aligned over the image.</p>
+
+      <h4>Elementor Build</h4>
+      <div class="info-box green"><strong>Fully native.</strong> Section with background image + Overlay (gradient: left <code>rgba(18,18,18,0.85)</code> to right <code>rgba(18,18,18,0.2)</code>). Add Content: logo image, H2 heading, paragraph, Button widget (white bg, black text, hover blue).</div>
+
+      <h4>Image</h4>
+      <p><code>beautifully-responsible-hero.jpg</code> — full-width, object-cover</p>
+
+      <h4>Gradient Overlay</h4>
+      <p>Two overlapping gradients: left-to-right (black 85% → transparent) + bottom-to-top (black 50% → transparent). In Elementor, set the Section Background Overlay to a linear gradient.</p>
+    </div>
+  </div>
+
+  <!-- COMMUNITY -->
+  <div class="spec-card" id="community">
+    <div class="spec-card-header">
+      <div><span class="num">09</span><h3 style="display:inline">Community</h3></div>
+      <a href="https://rfci-landing-page.vercel.app" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p><code>#ECEFF1</code> (Off-White)</p>
+
+      <h4>Layout</h4>
+      <ul>
+        <li><strong>Top:</strong> Two columns (7/5 split) — H2 heading left, event card right</li>
+        <li><strong>Bottom:</strong> Photo gallery (replaces circular photo arc from demo)</li>
+      </ul>
+
+      <h4>Event Card</h4>
+      <p>White bg, calendar icon in blue square badge, event title, date/location, CTA button. Straightforward Container + widgets.</p>
+
+      <h4>Photo Arc → Gallery</h4>
+      <div class="info-box amber"><strong>Simplification:</strong> The demo has a scroll-driven circular photo arc (24 photos rotating in a wheel). Replace with one of:
+        <br>&bull; <strong>Elementor Pro Gallery widget</strong> — masonry or grid layout with community photos
+        <br>&bull; <strong>Image Carousel widget</strong> — auto-playing slider of community photos
+        <br>&bull; Simple 4-column image grid
+      </div>
+
+      <h4>Mobile</h4>
+      <p>Single column — heading, event card below, then photo gallery.</p>
+    </div>
+  </div>
+
+  <!-- LINKEDIN FEED -->
+  <div class="spec-card" id="linkedin">
+    <div class="spec-card-header">
+      <div><span class="num">10</span><h3 style="display:inline">LinkedIn Feed</h3></div>
+      <a href="https://rfci-landing-page.vercel.app" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p><code>#ECEFF1</code> (Off-White)</p>
+
+      <h4>Layout</h4>
+      <p>3-column grid of mock LinkedIn post cards. 2 columns on tablet, 1 column on mobile.</p>
+
+      <h4>Card Structure</h4>
+      <ul>
+        <li>Header: avatar circle, author name, date, LinkedIn icon (<code>#0A66C2</code>)</li>
+        <li>Body: text content (4-line clamp)</li>
+        <li>Image: aspect 16:10</li>
+        <li>Engagement: like/heart badges, comment count, repost count</li>
+        <li>Action buttons: Like, Comment, Repost row</li>
+      </ul>
+
+      <h4>Elementor Build</h4>
+      <div class="info-box green"><strong>Fully native.</strong> Three-column Container. Each card: inner Container with stacked Image, Heading, Text Editor widgets. All static content. White bg, 1px border <code>rgba(0,0,0,0.05)</code>.</div>
+
+      <h4>Alternative</h4>
+      <p style="font-size:13px; color:rgba(18,18,18,0.6);">If live LinkedIn data is desired (unlikely due to API restrictions), explore <strong>Social Feed plugins</strong> like Jetelements or Smash Balloon Social Wall. Static cards are recommended.</p>
+    </div>
+  </div>
+
+  <!-- MEMBERS -->
+  <div class="spec-card" id="members-section">
+    <div class="spec-card-header">
+      <div><span class="num">11</span><h3 style="display:inline">Members</h3></div>
+      <a href="https://rfci-landing-page.vercel.app" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p><code>#121212</code> (RFCI Black). White text.</p>
+
+      <h4>Layout</h4>
+      <ul>
+        <li>Centered heading + description + CTA link</li>
+        <li>Infinite-scrolling logo marquee of 60+ member company logos</li>
+        <li>Gradient fade masks on left and right edges</li>
+      </ul>
+
+      <h4>Logo Marquee</h4>
+      <div class="info-box amber"><strong>Not natively available.</strong> Options:<br>
+        &bull; <strong>Custom CSS marquee</strong> — Use the <code>@keyframes marquee</code> animation from the Custom CSS Bundle section. Duplicate the logo strip so the loop appears seamless.<br>
+        &bull; <strong>Plugin: Unlimited Elements for Elementor &gt; Marquee widget</strong><br>
+        &bull; <strong>Plugin: Essential Addons &gt; Ticker widget</strong><br>
+        &bull; <strong>Fallback:</strong> Static 5-column logo grid
+      </div>
+
+      <h4>Logo Treatment</h4>
+      <p>All logos are white (inverted from colored originals). Height: 36px. Opacity: 50% idle, 90% on hover. Apply CSS filter: <code>brightness(0) invert(1)</code> and opacity transitions.</p>
+
+      <div class="info-box amber"><strong>Skip:</strong> Animated gradient blobs in the background. Use solid <code>#121212</code> background or a very subtle radial gradient.</div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="spec-card" id="education">
+    <div class="spec-card-header">
+      <div><span class="num">12</span><h3 style="display:inline">Education / Videos</h3></div>
+      <a href="https://rfci-landing-page.vercel.app" target="_blank">View on demo &rarr;</a>
+    </div>
+    <div class="spec-card-body">
+      <h4>Background</h4>
+      <p><code>#FFFFFF</code> (White)</p>
+
+      <h4>Layout</h4>
+      <p>Two columns (8/4 split). Left: featured video (large thumbnail with play button overlay). Right: 3 smaller video cards stacked vertically.</p>
+
+      <h4>Elementor Build</h4>
+      <ul>
+        <li>Two-column Container (67/33 split)</li>
+        <li><strong>Featured video:</strong> Image widget (aspect 16:9) with an absolutely-positioned Icon widget (play circle) centered on top. Link the entire container to the course URL.</li>
+        <li><strong>Sidebar:</strong> 3 stacked Containers, each with thumbnail image + title + duration label</li>
+        <li>Play button: white circle (48px) with blue play icon, hover scales slightly</li>
+      </ul>
+
+      <div class="info-box green"><strong>Fully native.</strong> Standard image + overlay pattern. No special plugins needed.</div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     6. SUBPAGE PATTERNS
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="subpage-patterns">
+  <div class="section-label">Subpages</div>
+  <h2 class="section-heading">Subpage Patterns</h2>
+  <p class="section-desc">16 subpages share a set of reusable patterns. Build these as Elementor templates and reuse across pages.</p>
+
+  <div class="spec-card">
+    <div class="spec-card-header">
+      <h3>PageHero — Reusable Section Header</h3>
+    </div>
+    <div class="spec-card-body">
+      <p>Every subpage starts with a PageHero. Three theme variants:</p>
+      <table>
+        <thead><tr><th>Theme</th><th>Background</th><th>Label Color</th><th>Heading Color</th><th>Subheading Color</th></tr></thead>
+        <tbody>
+          <tr><td>Light</td><td><code>#F5F5F0</code></td><td><code>#0164DB</code></td><td><code>#121212</code></td><td><code>rgba(18,18,18,0.6)</code></td></tr>
+          <tr><td>Dark</td><td><code>#121212</code></td><td><code>#0164DB</code></td><td><code>#FFFFFF</code></td><td><code>rgba(255,255,255,0.7)</code></td></tr>
+          <tr><td>Blue</td><td><code>#0164DB</code></td><td><code>rgba(255,255,255,0.7)</code></td><td><code>#FFFFFF</code></td><td><code>rgba(255,255,255,0.8)</code></td></tr>
+        </tbody>
+      </table>
+      <p><strong>Structure:</strong> Label (11px eyebrow) + H1 (text-4xl to text-6xl, font-light) + optional subheading paragraph. Padding: py-80px (mobile) to py-128px (desktop).</p>
+      <p><strong>Elementor:</strong> Section with background color. Container with max-width 1280px. Heading widget (.rfci-label class), H1 Heading widget, Text Editor widget. Save as a <strong>Global Widget</strong> or <strong>Section Template</strong>.</p>
+    </div>
+  </div>
+
+  <div class="spec-card">
+    <div class="spec-card-header">
+      <h3>Card Grid Pages — Flooring, Inspiration, Resources</h3>
+    </div>
+    <div class="spec-card-body">
+      <p>3-column grid of cards (2 columns tablet, 1 column mobile). Each card: title + subtitle label + description + tags + CTA link.</p>
+      <p><strong>Elementor:</strong> Use a Container with CSS Grid (3 columns) or <strong>Elementor Pro Loop Grid</strong> widget if pulling from WordPress posts. If using static content, manually create card containers in a 3-column layout.</p>
+      <p><strong>Card style:</strong> 1px border <code>rgba(0,0,0,0.05)</code>, hover: blue top border reveal (2px), shadow, title changes to blue. Padding: 28-36px.</p>
+      <p><strong>Pages using this:</strong> /flooring (9 cards), /inspiration (30+ cards), /resources (18+ cards)</p>
+    </div>
+  </div>
+
+  <div class="spec-card">
+    <div class="spec-card-header">
+      <h3>Detail Pages — Flooring Type, Certification, Resource</h3>
+    </div>
+    <div class="spec-card-body">
+      <p>PageHero → content section. Typically single-column prose content (max-width ~768px centered) or two-column layout with sidebar.</p>
+      <p><strong>Elementor:</strong> PageHero section (from template), then a content Section with a narrow Container (max-width 768px). Use Text Editor widgets for rich content. If sidebar exists, use 8/4 column split.</p>
+      <p><strong>Pages using this:</strong> /flooring/[slug], /certifications/[slug], /resources/[slug], /about, /why-resilient</p>
+    </div>
+  </div>
+
+  <div class="spec-card">
+    <div class="spec-card-header">
+      <h3>FAQ Page — Accordion with Category Filters</h3>
+    </div>
+    <div class="spec-card-body">
+      <p><strong>Structure:</strong> PageHero (light) → Search bar (cream bg) → Category filter pills → FAQ accordion (cream bg) → CTA banner (dark bg)</p>
+
+      <h4>Category Filters</h4>
+      <p>Horizontal row of pill buttons: All Questions, General, Certifications, Sustainability, Installation, Membership. Active pill: blue bg + white text. Inactive: white bg + gray text.</p>
+
+      <h4>Accordion</h4>
+      <p>Question rows separated by 1px borders. Click expands the answer with smooth height animation. Caret icon rotates 180° when open.</p>
+
+      <h4>Elementor Build</h4>
+      <ul>
+        <li>Search bar: Elementor Search Form widget or a styled container (cosmetic only — actual search needs custom JS or plugin)</li>
+        <li>Category filters: Button widgets styled as pills in a horizontal flex container. Filtering behavior needs <strong>custom JS</strong> or use <strong>JetEngine Dynamic Listing</strong> with filters</li>
+        <li>Accordion: <strong>Elementor Accordion widget</strong>. Max-width 768px centered.</li>
+      </ul>
+      <div class="info-box blue"><strong>Simple alternative:</strong> Skip search and category filters. Use a single Accordion widget with all FAQs listed. This covers 90% of the need without custom JS.</div>
+
+      <h4>CTA Section at Bottom</h4>
+      <p>Dark bg (<code>#121212</code>), centered H3 + paragraph + email CTA button (blue bg, rounded-full). Reusable pattern across multiple pages.</p>
+    </div>
+  </div>
+
+  <div class="spec-card">
+    <div class="spec-card-header">
+      <h3>Member Directory — Two-Tier Logo Grid</h3>
+    </div>
+    <div class="spec-card-body">
+      <p><strong>Structure:</strong> PageHero (dark) → Board Members grid (white bg) → Associate Members grid (cream bg) → Industry statement CTA (dark bg)</p>
+
+      <h4>Member Card</h4>
+      <p>White bg, 1px border, 0 radius. Logo image (center-aligned, max-height 80-96px) in cream container, company name below. Hover: blue border tint, shadow, external link arrow icon appears.</p>
+
+      <h4>Grid</h4>
+      <p>5 columns desktop, 4 tablet, 2 mobile. Gap: 16-24px.</p>
+
+      <h4>Elementor Build</h4>
+      <ul>
+        <li>Two sections (Board + Associates), each with Label heading + description + grid of member cards</li>
+        <li>Member cards: Container widgets with Image + Heading(H6). Link entire container to member website</li>
+        <li>Or use <strong>Elementor Pro Gallery widget</strong> with captions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="spec-card">
+    <div class="spec-card-header">
+      <h3>Contact Page — Form + Info Side-by-Side</h3>
+    </div>
+    <div class="spec-card-body">
+      <p><strong>Structure:</strong> PageHero (light) → Two-column: contact info left (2/5) + contact form right (3/5) → Map section (cream bg)</p>
+
+      <h4>Contact Info Column</h4>
+      <p>4 contact items (address, phone, email, LinkedIn), each with icon + label + value. Divider, then "Membership Inquiries" mini-section with email link.</p>
+
+      <h4>Contact Form</h4>
+      <p>Fields: First Name, Last Name (2-col), Email, Company, Subject (dropdown), Message (textarea), Submit button.</p>
+      <p>Input styling: 0 border-radius, 1px border <code>rgba(0,0,0,0.1)</code>, focus border <code>#0164DB</code>, padding 12px 16px.</p>
+
+      <h4>Elementor Build</h4>
+      <ul>
+        <li>Two-column Container (40/60 split)</li>
+        <li>Left: Icon List or manual containers with Icon + text widgets</li>
+        <li>Right: <strong>Elementor Pro Form widget</strong> or <strong>WPForms</strong> / <strong>Contact Form 7</strong></li>
+        <li>Map section: <strong>Google Maps widget</strong> (Elementor Pro) + text content in 2-column layout</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="spec-card">
+    <div class="spec-card-header">
+      <h3>Content Pages — About, Why Resilient, Privacy, Terms</h3>
+    </div>
+    <div class="spec-card-body">
+      <p>Simple prose layout. PageHero → single-column content area (max-width 768px centered) with rich text.</p>
+      <p><strong>Elementor:</strong> Section with Container (max-width 768px). Text Editor widget with prose content. Standard H2-H4 hierarchy within content.</p>
+    </div>
+  </div>
+
+  <div class="spec-card">
+    <div class="spec-card-header">
+      <h3>Videos Page</h3>
+    </div>
+    <div class="spec-card-body">
+      <p>Same pattern as the homepage Education section. PageHero → featured video (large) + grid of video cards.</p>
+      <p><strong>Elementor:</strong> Same build as Section #12 (Education). Two-column layout or full grid.</p>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     7. NAVIGATION & FOOTER
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="navigation">
+  <div class="section-label">Implementation</div>
+  <h2 class="section-heading">Navigation &amp; Footer</h2>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin-bottom:12px;">Navigation</h4>
+  <p style="font-size:13px; color:rgba(18,18,18,0.6); margin-bottom:16px;">Fixed top bar with scroll-shrink behavior. White bg + backdrop blur + 1px bottom border. Padding: 24px idle, 16px scrolled. Logo height: 40px.</p>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:14px; font-weight:600; margin: 16px 0 8px;">Menu Structure</h4>
+  <table>
+    <thead><tr><th>Item</th><th>Type</th><th>Links To</th></tr></thead>
+    <tbody>
+      <tr><td>About</td><td>Simple link</td><td>/about</td></tr>
+      <tr><td>Resources</td><td>Mega-menu (6 items + highlight)</td><td>&mdash;</td></tr>
+      <tr><td>&emsp;Why Resilient</td><td>Mega-menu item</td><td>/why-resilient</td></tr>
+      <tr><td>&emsp;Flooring Types</td><td>Mega-menu item</td><td>/flooring</td></tr>
+      <tr><td>&emsp;Inspiration Gallery</td><td>Mega-menu item</td><td>/inspiration</td></tr>
+      <tr><td>&emsp;Educational Videos</td><td>Mega-menu item</td><td>/videos</td></tr>
+      <tr><td>&emsp;Resources</td><td>Mega-menu item</td><td>/resources</td></tr>
+      <tr><td>&emsp;FAQ</td><td>Mega-menu item</td><td>/faq</td></tr>
+      <tr><td>&emsp;<em>Ecomedes (highlight)</em></td><td>External link + logo</td><td>rfci.ecomedes.com</td></tr>
+      <tr><td>Sustainability</td><td>Mega-menu (4 items)</td><td>&mdash;</td></tr>
+      <tr><td>&emsp;FloorScore®</td><td>Mega-menu item</td><td>/certifications/floorscore</td></tr>
+      <tr><td>&emsp;ASSURE® Certified</td><td>Mega-menu item</td><td>/certifications/assure</td></tr>
+      <tr><td>&emsp;AFFIRM™ Certified</td><td>Mega-menu item</td><td>/certifications/affirm</td></tr>
+      <tr><td>&emsp;Environmental Product Declaration</td><td>Mega-menu item</td><td>/certifications/epd</td></tr>
+      <tr><td>Member Directory</td><td>Simple link</td><td>/members</td></tr>
+      <tr><td>Contact</td><td>Simple link</td><td>/contact</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:14px; font-weight:600; margin: 16px 0 8px;">Mega-Menu Plugin</h4>
+  <div class="info-box blue"><strong>Recommended plugins:</strong>
+    <br>&bull; <strong>JetMenu</strong> (by Crocoblock) — best Elementor integration, supports full-width mega panels with custom content
+    <br>&bull; <strong>ElementsKit MegaMenu</strong> — free tier covers basic mega-menu needs
+    <br>&bull; <strong>Max Mega Menu</strong> — lightweight, works well with Astra
+  </div>
+
+  <p style="font-size:13px; color:rgba(18,18,18,0.6); margin-bottom:8px;">Each mega-menu item shows: icon + label + description. The Resources menu has a highlighted right panel for the Ecomedes external link (logo + description + "Visit site" CTA).</p>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin: 32px 0 12px;">Footer</h4>
+  <p style="font-size:13px; color:rgba(18,18,18,0.6); margin-bottom:16px;">Dark background (<code>#121212</code>) with optional noise texture. 4-column grid on desktop, 2-column tablet, 1-column mobile.</p>
+  <table>
+    <thead><tr><th>Column</th><th>Content</th><th>Span</th></tr></thead>
+    <tbody>
+      <tr><td>Brand</td><td>Logo (white, inverted), description paragraph (white/60), LinkedIn icon button</td><td>4 cols</td></tr>
+      <tr><td>About</td><td>Links: About RFCI, Member Directory, Contact</td><td>2 cols</td></tr>
+      <tr><td>Resources</td><td>Links: Why Resilient, Flooring Types, Inspiration, Resources, Videos, FAQ, Ecomedes</td><td>2 cols</td></tr>
+      <tr><td>Sustainability</td><td>Links: FloorScore, ASSURE, AFFIRM, EPDs</td><td>2 cols</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:13px; color:rgba(18,18,18,0.6); margin-top:16px;">Below the grid: contact block (3-column with address, phone, email — each with blue icon), copyright bar, and policy links.</p>
+  <p style="font-size:13px; color:rgba(18,18,18,0.6);"><strong>Elementor build:</strong> Use <strong>Astra Footer Builder</strong> or <strong>Elementor Theme Builder</strong> footer template. Standard multi-column layout with Heading (H6, uppercase), Icon List, and Text Editor widgets.</p>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     8. ANIMATION MAPPING
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="animations">
+  <div class="section-label">Implementation</div>
+  <h2 class="section-heading">Animation Mapping</h2>
+  <p class="section-desc">How each demo animation translates to Elementor's available entrance animations.</p>
+
+  <table>
+    <thead><tr><th>Demo Animation</th><th>Elementor Equivalent</th><th>Settings</th></tr></thead>
+    <tbody>
+      <tr><td>SectionReveal (fade + slide up)</td><td>Fade In Up</td><td>Duration: 700ms, Delay: 0-200ms</td></tr>
+      <tr><td>SectionReveal direction="left"</td><td>Fade In Left</td><td>Duration: 700ms</td></tr>
+      <tr><td>SectionReveal direction="right"</td><td>Fade In Right</td><td>Duration: 700ms</td></tr>
+      <tr><td>Hero text clip-path reveal</td><td>Fade In Up</td><td>Simplified</td></tr>
+      <tr><td>Stat counter animation (0 → N)</td><td><strong>Counter widget</strong></td><td>Built-in, 2000ms duration</td></tr>
+      <tr><td>3D card flip (Environments)</td><td><strong>Flip Box widget</strong></td><td>Built-in (Elementor Pro)</td></tr>
+      <tr><td>Hero parallax scroll</td><td>Motion Effects &gt; Scrolling</td><td>Elementor Pro, speed: -2</td></tr>
+      <tr><td>Stagger delays (items appearing in sequence)</td><td>Animation Delay</td><td>Set 100-200ms increments per element</td></tr>
+      <tr><td>Logo marquee scroll</td><td>Custom CSS <code>@keyframes</code></td><td>See Custom CSS Bundle</td></tr>
+      <tr><td>Gradient blob animation</td><td><strong>Skip</strong></td><td>Too performance-heavy</td></tr>
+      <tr><td>Scroll progress bar</td><td><strong>Skip</strong></td><td>Requires custom JS</td></tr>
+      <tr><td>Photo arc rotation on scroll</td><td><strong>Skip</strong></td><td>Replace with gallery</td></tr>
+      <tr><td>Hover-driven image swap</td><td><strong>Skip</strong></td><td>Use static image</td></tr>
+      <tr><td>Link underline expansion</td><td>Custom CSS</td><td>See Custom CSS Bundle</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     9. ICON MAPPING
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="icons">
+  <div class="section-label">Implementation</div>
+  <h2 class="section-heading">Icon Mapping</h2>
+  <p class="section-desc">The demo uses <strong>Phosphor Icons</strong> (light weight). In WordPress, use <strong>Font Awesome</strong> equivalents (included with Elementor).</p>
+
+  <table>
+    <thead><tr><th>Phosphor Icon</th><th>Font Awesome</th><th>Used In</th></tr></thead>
+    <tbody>
+      <tr><td>ArrowRight</td><td><code>fa-arrow-right</code></td><td>CTAs, buttons</td></tr>
+      <tr><td>ArrowUpRight</td><td><code>fa-arrow-up-right-from-square</code></td><td>External links</td></tr>
+      <tr><td>Certificate</td><td><code>fa-certificate</code></td><td>Hero badge</td></tr>
+      <tr><td>CaretDown</td><td><code>fa-chevron-down</code></td><td>Nav dropdowns, accordion</td></tr>
+      <tr><td>ShieldCheck</td><td><code>fa-shield-halved</code></td><td>FloorScore</td></tr>
+      <tr><td>Seal</td><td><code>fa-award</code></td><td>ASSURE</td></tr>
+      <tr><td>FileText</td><td><code>fa-file-lines</code></td><td>Resources, AFFIRM</td></tr>
+      <tr><td>Globe</td><td><code>fa-globe</code></td><td>EPD</td></tr>
+      <tr><td>Leaf</td><td><code>fa-leaf</code></td><td>Why Resilient</td></tr>
+      <tr><td>PlayCircle</td><td><code>fa-circle-play</code></td><td>Videos</td></tr>
+      <tr><td>Question</td><td><code>fa-circle-question</code></td><td>FAQ</td></tr>
+      <tr><td>Images</td><td><code>fa-images</code></td><td>Inspiration</td></tr>
+      <tr><td>MapPin</td><td><code>fa-location-dot</code></td><td>Footer, contact</td></tr>
+      <tr><td>Phone</td><td><code>fa-phone</code></td><td>Footer, contact</td></tr>
+      <tr><td>EnvelopeSimple</td><td><code>fa-envelope</code></td><td>Footer, contact</td></tr>
+      <tr><td>LinkedinLogo</td><td><code>fa-linkedin</code> (brands)</td><td>Footer, contact</td></tr>
+      <tr><td>Broom</td><td><code>fa-broom</code></td><td>Why Resilient benefits</td></tr>
+      <tr><td>Drop</td><td><code>fa-droplet</code></td><td>Why Resilient benefits</td></tr>
+      <tr><td>CurrencyDollar</td><td><code>fa-dollar-sign</code></td><td>Why Resilient benefits</td></tr>
+      <tr><td>Palette</td><td><code>fa-palette</code></td><td>Why Resilient benefits</td></tr>
+      <tr><td>Recycle</td><td><code>fa-recycle</code></td><td>Why Resilient benefits</td></tr>
+      <tr><td>MagnifyingGlass</td><td><code>fa-magnifying-glass</code></td><td>FAQ search</td></tr>
+      <tr><td>Calendar</td><td><code>fa-calendar</code></td><td>Community event</td></tr>
+      <tr><td>CheckCircle</td><td><code>fa-circle-check</code></td><td>Form success</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     10. ASSET CHECKLIST
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="assets">
+  <div class="section-label">Implementation</div>
+  <h2 class="section-heading">Asset Checklist</h2>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin-bottom:12px;">Fonts</h4>
+  <table>
+    <thead><tr><th>Font</th><th>Weights Needed</th><th>Setup</th></tr></thead>
+    <tbody>
+      <tr><td>Sora</td><td>300, 500, 600, 700</td><td>Astra &gt; Customize &gt; Global &gt; Typography &gt; Heading Font</td></tr>
+      <tr><td>DM Sans</td><td>300, 500, 600, 700</td><td>Astra &gt; Customize &gt; Global &gt; Typography &gt; Body Font</td></tr>
+    </tbody>
+  </table>
+
+  <h4 style="font-family:'Sora',sans-serif; font-size:16px; font-weight:600; margin: 24px 0 12px;">Images &amp; Media</h4>
+  <table>
+    <thead><tr><th>Asset</th><th>File</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Site logo</td><td><code>rfci-logo.svg</code></td><td>Header (dark version) + Footer (white/inverted)</td></tr>
+      <tr><td>Hero video</td><td><code>hero-video.mp4</code></td><td>~13MB, looping background video</td></tr>
+      <tr><td>BR hero image</td><td><code>beautifully-responsible-hero.jpg</code></td><td>Full-bleed section background</td></tr>
+      <tr><td>BR logo</td><td><code>beautifully-responsible-logo.png</code></td><td>Beautifully Responsible brand mark</td></tr>
+      <tr><td>Member logos</td><td><code>member-logos/*.png</code></td><td>62 company logos (board + associate)</td></tr>
+      <tr><td>Community photos</td><td><code>community/*.jpeg</code></td><td>12 event photos</td></tr>
+      <tr><td>Section images</td><td>Unsplash placeholders</td><td>Replace with actual RFCI photography for production</td></tr>
+    </tbody>
+  </table>
+
+  <div class="info-box blue"><strong>Note on images:</strong> The demo uses Unsplash placeholder images for hero, mission pillars, environments, why-resilient, and education thumbnails. These must be replaced with actual RFCI-owned photography for the production WordPress site.</div>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     11. RESPONSIVE BEHAVIOR
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="responsive">
+  <div class="section-label">Implementation</div>
+  <h2 class="section-heading">Responsive Behavior</h2>
+
+  <table>
+    <thead><tr><th>Section</th><th>Desktop (1025+)</th><th>Tablet (768–1024)</th><th>Mobile (0–767)</th></tr></thead>
+    <tbody>
+      <tr><td>Hero</td><td>55/45 split, video right</td><td>Stack vertically</td><td>Stack, smaller type, card below image</td></tr>
+      <tr><td>Mission</td><td>Two-row grid, image + pillars</td><td>Single column</td><td>Single column, hide image</td></tr>
+      <tr><td>Materials</td><td>Carousel (3 visible) or 3-col grid</td><td>Carousel (2 visible) or 2-col grid</td><td>Single column stack</td></tr>
+      <tr><td>Environments</td><td>4-column grid</td><td>3-column grid</td><td>2-column grid</td></tr>
+      <tr><td>Why Resilient</td><td>50/50 split</td><td>Single column</td><td>Single column</td></tr>
+      <tr><td>Standards</td><td>Vertical tabs + content</td><td>Accordion</td><td>Accordion</td></tr>
+      <tr><td>Community</td><td>7/5 grid + gallery</td><td>Single column + gallery</td><td>Single column + gallery</td></tr>
+      <tr><td>LinkedIn</td><td>3-column grid</td><td>2-column grid</td><td>Single column</td></tr>
+      <tr><td>Members</td><td>Full-width marquee</td><td>Narrower marquee</td><td>Marquee or 2-col logo grid</td></tr>
+      <tr><td>Education</td><td>8/4 featured + sidebar</td><td>Single column</td><td>Single column</td></tr>
+      <tr><td>Nav</td><td>Horizontal menu + mega-menu</td><td>Hamburger + overlay</td><td>Hamburger + overlay</td></tr>
+      <tr><td>Footer</td><td>4-column grid</td><td>2-column grid</td><td>Single column</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     12. CAN'T DO NATIVELY
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="cant-do">
+  <div class="section-label">Implementation</div>
+  <h2 class="section-heading">"Can't Do Natively" Summary</h2>
+  <p class="section-desc">Features that exceed native Elementor + Astra capabilities. Each includes a recommended solution.</p>
+
+  <table>
+    <thead><tr><th>Feature</th><th>Section</th><th>Difficulty</th><th>Solution</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Mega-menu dropdowns</td><td>Navigation</td>
+        <td class="difficulty-medium">Medium</td>
+        <td><strong>JetMenu</strong> or <strong>ElementsKit MegaMenu</strong> plugin</td>
+      </tr>
+      <tr>
+        <td>Snap-scroll carousel</td><td>Materials</td>
+        <td class="difficulty-medium">Medium</td>
+        <td><strong>Loop Carousel</strong> (Elementor Pro) or <strong>Essential Addons Post Carousel</strong>; or 3-col grid fallback</td>
+      </tr>
+      <tr>
+        <td>3D card flip</td><td>Environments</td>
+        <td class="difficulty-easy">Easy</td>
+        <td><strong>Flip Box widget</strong> (Elementor Pro) — natively supported</td>
+      </tr>
+      <tr>
+        <td>Animated counter</td><td>Why Resilient, Standards</td>
+        <td class="difficulty-easy">Easy</td>
+        <td><strong>Counter widget</strong> (Elementor) — natively supported</td>
+      </tr>
+      <tr>
+        <td>Hover-driven image swap</td><td>Mission</td>
+        <td class="difficulty-hard">Hard</td>
+        <td><strong>Skip</strong> — use single static image</td>
+      </tr>
+      <tr>
+        <td>Scroll-driven photo arc</td><td>Community</td>
+        <td class="difficulty-hard">Hard</td>
+        <td><strong>Replace</strong> with Elementor Gallery widget or Image Carousel</td>
+      </tr>
+      <tr>
+        <td>Logo marquee</td><td>Members</td>
+        <td class="difficulty-medium">Medium</td>
+        <td>Custom CSS <code>@keyframes</code> or <strong>Unlimited Elements Marquee</strong> plugin</td>
+      </tr>
+      <tr>
+        <td>Animated gradient blobs</td><td>Members</td>
+        <td class="difficulty-hard">Hard</td>
+        <td><strong>Skip</strong> — use solid dark background or subtle radial gradient</td>
+      </tr>
+      <tr>
+        <td>Scroll progress bar</td><td>Global</td>
+        <td class="difficulty-medium">Medium</td>
+        <td><strong>Skip</strong> — not essential, requires custom JS</td>
+      </tr>
+      <tr>
+        <td>Clip-path text reveal</td><td>Hero</td>
+        <td class="difficulty-hard">Hard</td>
+        <td><strong>Replace</strong> with Elementor Fade In Up animation</td>
+      </tr>
+      <tr>
+        <td>Expanding underline links</td><td>Global</td>
+        <td class="difficulty-easy">Easy</td>
+        <td>Custom CSS snippet (see <a href="#custom-css">Custom CSS Bundle</a>)</td>
+      </tr>
+      <tr>
+        <td>Noise texture background</td><td>Footer, cards</td>
+        <td class="difficulty-easy">Easy</td>
+        <td>CSS <code>background-image</code> with SVG data URI (see CSS Bundle)</td>
+      </tr>
+      <tr>
+        <td>Backdrop blur</td><td>Nav, labels</td>
+        <td class="difficulty-easy">Easy</td>
+        <td>Custom CSS: <code>backdrop-filter: blur(12px)</code></td>
+      </tr>
+      <tr>
+        <td>FAQ category filtering</td><td>FAQ subpage</td>
+        <td class="difficulty-medium">Medium</td>
+        <td><strong>JetEngine</strong> dynamic listing with filters, or skip and use plain Accordion</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<hr>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     13. CUSTOM CSS BUNDLE
+     ═══════════════════════════════════════════════════════════════ -->
+<section id="custom-css">
+  <div class="section-label">Implementation</div>
+  <h2 class="section-heading">Custom CSS Bundle</h2>
+  <p class="section-desc">Copy this entire block into <strong>Astra &gt; Customize &gt; Additional CSS</strong> or a custom CSS plugin. All custom classes referenced throughout this handoff are included here.</p>
+
+  <pre><code>/* ═══════════════════════════════════════════════
+   RFCI Custom CSS — Paste into Astra Additional CSS
+   ═══════════════════════════════════════════════ */
+
+/* ── Label / Eyebrow (11px uppercase) ─────────── */
+.rfci-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px !important;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* ── Link with expanding underline ────────────── */
+.rfci-link {
+  position: relative;
+  color: #0164DB;
+  text-decoration: none;
+  font-weight: 600;
+}
+.rfci-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.3s ease;
+}
+.rfci-link:hover::after {
+  width: 100%;
+}
+
+/* ── Tag / Badge ──────────────────────────────── */
+.rfci-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.rfci-tag--green { background: #E6F4EA; color: #137333; }
+.rfci-tag--amber { background: #FDF5D3; color: #856404; }
+.rfci-tag--gray  { background: rgba(207,216,220,0.3); color: #121212; }
+
+/* ── Logo marquee animation ───────────────────── */
+@keyframes rfci-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.rfci-marquee-track {
+  display: flex;
+  animation: rfci-marquee 30s linear infinite;
+  width: max-content;
+}
+.rfci-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Noise texture background ─────────────────── */
+.rfci-bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* ── Backdrop blur (nav, overlays) ────────────── */
+.rfci-blur {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* ── Card hover effects ───────────────────────── */
+.rfci-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+.rfci-card:hover {
+  border-color: rgba(1,100,219,0.2);
+  box-shadow: 0 20px 60px rgba(1,100,219,0.08);
+  transform: translateY(-4px);
+}
+
+/* ── Blue line reveal on card hover ───────────── */
+.rfci-card-line {
+  position: relative;
+}
+.rfci-card-line::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #0164DB;
+  transition: width 0.5s ease;
+  z-index: 1;
+}
+.rfci-card-line:hover::before {
+  width: 100%;
+}
+
+/* ── Logo inversion (white logos on dark bg) ──── */
+.rfci-logo-white {
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+.rfci-logo-white:hover {
+  opacity: 0.9;
+}
+
+/* ── Focus visible (accessibility) ────────────── */
+*:focus-visible {
+  outline: 2px solid #0164DB;
+  outline-offset: 2px;
+}</code></pre>
+</section>
+
+</div><!-- /.content -->
+</div><!-- /.main -->
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SCROLL SPY
+     ═══════════════════════════════════════════════════════════════ -->
+<script>
+(function() {
+  const links = document.querySelectorAll('.sidebar a[href^="#"]');
+  const sections = [];
+
+  links.forEach(link => {
+    const id = link.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) sections.push({ el, link });
+  });
+
+  function update() {
+    let current = sections[0];
+    const scrollTop = window.scrollY + 120;
+
+    for (const s of sections) {
+      if (s.el.offsetTop <= scrollTop) current = s;
+    }
+
+    links.forEach(l => l.classList.remove('active'));
+    if (current) current.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+</script>
+</body>
+</html>

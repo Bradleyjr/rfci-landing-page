@@ -98,7 +98,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="py-20 md:py-28 lg:py-32 relative overflow-hidden" style={{ backgroundColor: ft.accentColor ? `${ft.accentColor}15` : '#F5F5F0' }}>
+      <section className="pt-28 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32 relative overflow-hidden" style={{ backgroundColor: ft.accentColor ? `${ft.accentColor}15` : '#F5F5F0' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal>
             <a href="/flooring" className="inline-flex items-center gap-2 text-sm text-rfci-black/50 hover:text-rfci-blue transition-colors mb-8">

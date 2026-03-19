@@ -1,0 +1,212 @@
+{
+  "version": "0.4",
+  "title": "RFCI - Footer",
+  "type": "footer",
+  "content": [
+    {
+      "id": "ftr0001",
+      "elType": "container",
+      "settings": {
+        "content_width": "full",
+        "background_color": "#121212",
+        "padding": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "0", "isLinked": true }
+      },
+      "elements": [
+        {
+          "id": "ftr0002",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "boxed_width": { "unit": "px", "size": 1280 },
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
+            "gap": { "unit": "px", "size": 48 },
+            "gap_mobile": { "unit": "px", "size": 32 },
+            "padding": { "unit": "px", "top": "80", "right": "48", "bottom": "64", "left": "48", "isLinked": false },
+            "padding_mobile": { "unit": "px", "top": "48", "right": "24", "bottom": "48", "left": "24", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "ftr0003",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 30 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column"
+              },
+              "elements": [
+                {
+                  "id": "ftr0004",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "image": { "url": "/wp-content/themes/rfci-child-theme/assets/rfci-logo.svg" },
+                    "image_size": "custom",
+                    "image_custom_dimension": { "width": 120, "height": 40 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "ftr0005",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>The Resilient Floor Covering Institute represents the manufacturers and suppliers behind resilient flooring, working together on standards, certifications, and education.</p>",
+                    "text_color": "rgba(255,255,255,0.5)",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.6 }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "ftr0010",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 15 },
+                "width_mobile": { "unit": "%", "size": 48 },
+                "flex_direction": "column"
+              },
+              "elements": [
+                {
+                  "id": "ftr0011",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "About",
+                    "header_size": "h6",
+                    "title_color": "#FFFFFF",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "700",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "ftr0012",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<nav style=\"display:flex; flex-direction:column; gap:10px; font-family: DM Sans, sans-serif; font-size:14px; font-weight:300;\"><a href=\"/about\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">About RFCI</a><a href=\"/members\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">Member Directory</a><a href=\"/contact\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">Contact</a></nav>"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "ftr0020",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 15 },
+                "width_mobile": { "unit": "%", "size": 48 },
+                "flex_direction": "column"
+              },
+              "elements": [
+                {
+                  "id": "ftr0021",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Resources",
+                    "header_size": "h6",
+                    "title_color": "#FFFFFF",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "700",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "ftr0022",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<nav style=\"display:flex; flex-direction:column; gap:10px; font-family: DM Sans, sans-serif; font-size:14px; font-weight:300;\"><a href=\"/why-resilient\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">Why Resilient</a><a href=\"/flooring\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">Flooring Types</a><a href=\"/inspiration\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">Inspiration</a><a href=\"/resources\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">Resources</a><a href=\"/videos\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">Educational Videos</a><a href=\"/faq\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">FAQ</a><a href=\"https://rfci.ecomedes.com/\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">Ecomedes</a></nav>"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "ftr0030",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 15 },
+                "width_mobile": { "unit": "%", "size": 48 },
+                "flex_direction": "column"
+              },
+              "elements": [
+                {
+                  "id": "ftr0031",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Sustainability",
+                    "header_size": "h6",
+                    "title_color": "#FFFFFF",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "700",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "ftr0032",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<nav style=\"display:flex; flex-direction:column; gap:10px; font-family: DM Sans, sans-serif; font-size:14px; font-weight:300;\"><a href=\"/certifications/floorscore\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">FloorScore&reg;</a><a href=\"/certifications/assure\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">ASSURE&reg; Certified</a><a href=\"/certifications/affirm\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">AFFIRM&trade; Certified</a><a href=\"/certifications/epd\" style=\"color:rgba(255,255,255,0.5); text-decoration:none;\">EPDs</a></nav>"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ftr0040",
+          "elType": "container",
+          "settings": {
+            "content_width": "boxed",
+            "boxed_width": { "unit": "px", "size": 1280 },
+            "flex_direction": "row",
+            "flex_direction_mobile": "column",
+            "justify_content": "space-between",
+            "align_items": "center",
+            "gap": { "unit": "px", "size": 16 },
+            "padding": { "unit": "px", "top": "24", "right": "48", "bottom": "24", "left": "48", "isLinked": false },
+            "padding_mobile": { "unit": "px", "top": "24", "right": "24", "bottom": "24", "left": "24", "isLinked": false },
+            "border_border": "solid",
+            "border_width": { "unit": "px", "top": "1", "right": "0", "bottom": "0", "left": "0", "isLinked": false },
+            "border_color": "rgba(255,255,255,0.1)"
+          },
+          "elements": [
+            {
+              "id": "ftr0041",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"display:flex; flex-wrap:wrap; align-items:center; gap:24px; font-family: DM Sans, sans-serif; font-size:13px; color:rgba(255,255,255,0.4);\"><span><i class=\"fas fa-map-marker-alt\" style=\"margin-right:6px;\"></i>115 Greystone Power Blvd, LaGrange, GA 30240</span><span><i class=\"fas fa-phone\" style=\"margin-right:6px;\"></i>(706) 882-2710</span><span><i class=\"fas fa-envelope\" style=\"margin-right:6px;\"></i>info@rfci.com</span></div>"
+              }
+            },
+            {
+              "id": "ftr0042",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "<div style=\"display:flex; align-items:center; gap:16px; font-family: DM Sans, sans-serif; font-size:12px; color:rgba(255,255,255,0.3);\"><span>&copy; 2026 RFCI. All rights reserved.</span><a href=\"/privacy-policy\" style=\"color:rgba(255,255,255,0.3); text-decoration:none;\">Privacy Policy</a><a href=\"/terms-conditions\" style=\"color:rgba(255,255,255,0.3); text-decoration:none;\">Terms &amp; Conditions</a><a href=\"/contact\" style=\"color:rgba(255,255,255,0.3); text-decoration:none;\">Contact</a></div>"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

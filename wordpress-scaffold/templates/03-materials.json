@@ -1,0 +1,771 @@
+{
+  "version": "0.4",
+  "title": "RFCI - 03 Materials (Card Grid)",
+  "type": "page",
+  "content": [
+    {
+      "id": "mat0001",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "boxed_width": { "unit": "px", "size": 1280 },
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "112", "right": "48", "bottom": "112", "left": "48", "isLinked": false },
+        "padding_mobile": { "unit": "px", "top": "64", "right": "24", "bottom": "64", "left": "24", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "mat0002",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_direction_mobile": "column",
+            "justify_content": "space-between",
+            "align_items": "flex-end",
+            "gap": { "unit": "px", "size": 32 },
+            "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "64", "left": "0", "isLinked": false }
+          },
+          "elements": [
+            {
+              "id": "mat0003",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "flex_direction": "column",
+                "width": { "unit": "%", "size": 60 },
+                "width_mobile": { "unit": "%", "size": 100 }
+              },
+              "elements": [
+                {
+                  "id": "mat0004",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<div class=\"rfci-label\" style=\"color: #0164DB; margin-bottom: 16px;\">The Categories</div>",
+                    "_animation": "fadeInUp"
+                  }
+                },
+                {
+                  "id": "mat0005",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "The full range of resilient flooring.",
+                    "header_size": "h2",
+                    "title_color": "#121212",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Sora",
+                    "typography_font_size": { "unit": "px", "size": 60 },
+                    "typography_font_size_tablet": { "unit": "px", "size": 42 },
+                    "typography_font_size_mobile": { "unit": "px", "size": 36 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.1 },
+                    "typography_letter_spacing": { "unit": "em", "size": -0.025 },
+                    "_animation": "fadeInUp",
+                    "_animation_delay": "200"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mat0010",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_wrap": "wrap",
+            "gap": { "unit": "px", "size": 24 },
+            "gap_mobile": { "unit": "px", "size": 16 }
+          },
+          "elements": [
+            {
+              "id": "mat0011",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 32 },
+                "width_tablet": { "unit": "%", "size": 48 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column",
+                "padding": { "unit": "px", "top": "32", "right": "32", "bottom": "32", "left": "32", "isLinked": true },
+                "background_color": "#ECEFF1",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                "border_color": "rgba(0,0,0,0.05)",
+                "_css_classes": "rfci-card",
+                "_animation": "fadeInUp"
+              },
+              "elements": [
+                {
+                  "id": "mat0012",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Flexible LVT",
+                    "header_size": "h3",
+                    "title_color": "#121212",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Sora",
+                    "typography_font_size": { "unit": "px", "size": 24 },
+                    "typography_font_weight": "600",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "4", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0013",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"font-size:13px; color:#9E9E9E; margin-bottom:16px;\">Luxury Vinyl Tile · Planks</p><p>Luxury vinyl tile (LVT) is a type of flexible resilient flooring produced in either tiles or planks. Amazing visuals and design realism combined with low installation costs, water resistance, and low maintenance make LVT a smart alternative to ceramic tile, stone, and hardwood.</p>",
+                    "text_color": "#6E6E6E",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.6 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0014",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<div style=\"display:flex; flex-wrap:wrap; gap:6px;\"><span class=\"rfci-tag rfci-tag-green\">Waterproof</span><span class=\"rfci-tag rfci-tag-amber\">High Traffic</span><span class=\"rfci-tag rfci-tag-gray\">Easy Install</span></div>"
+                  }
+                },
+                {
+                  "id": "mat0015",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Learn more",
+                    "link": { "url": "/flooring/flexible-lvt", "is_external": false },
+                    "align": "left",
+                    "button_type": "link",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 13 },
+                    "typography_font_weight": "600",
+                    "button_text_color": "#0164DB",
+                    "_margin": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "mat0021",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 32 },
+                "width_tablet": { "unit": "%", "size": 48 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column",
+                "padding": { "unit": "px", "top": "32", "right": "32", "bottom": "32", "left": "32", "isLinked": true },
+                "background_color": "#ECEFF1",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                "border_color": "rgba(0,0,0,0.05)",
+                "_css_classes": "rfci-card",
+                "_animation": "fadeInUp",
+                "_animation_delay": "100"
+              },
+              "elements": [
+                {
+                  "id": "mat0022",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Rigid Core",
+                    "header_size": "h3",
+                    "title_color": "#121212",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Sora",
+                    "typography_font_size": { "unit": "px", "size": 24 },
+                    "typography_font_weight": "600",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "4", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0023",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"font-size:13px; color:#9E9E9E; margin-bottom:16px;\">SPC · WPC · Multilayer</p><p>An entirely new class of stepped-up LVT products with a rigid polymeric core, a decorative top surface, and an optional soft underlayment. Available in WPC and SPC constructions, both waterproof with unique locking systems for floating installation.</p>",
+                    "text_color": "#6E6E6E",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.6 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0024",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<div style=\"display:flex; flex-wrap:wrap; gap:6px;\"><span class=\"rfci-tag rfci-tag-green\">Waterproof</span><span class=\"rfci-tag rfci-tag-amber\">Dimensionally Stable</span></div>"
+                  }
+                },
+                {
+                  "id": "mat0025",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Learn more",
+                    "link": { "url": "/flooring/rigid-core", "is_external": false },
+                    "align": "left",
+                    "button_type": "link",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 13 },
+                    "typography_font_weight": "600",
+                    "button_text_color": "#0164DB",
+                    "_margin": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "mat0031",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 32 },
+                "width_tablet": { "unit": "%", "size": 48 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column",
+                "padding": { "unit": "px", "top": "32", "right": "32", "bottom": "32", "left": "32", "isLinked": true },
+                "background_color": "#ECEFF1",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                "border_color": "rgba(0,0,0,0.05)",
+                "_css_classes": "rfci-card",
+                "_animation": "fadeInUp",
+                "_animation_delay": "200"
+              },
+              "elements": [
+                {
+                  "id": "mat0032",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Heterogeneous Sheet Vinyl",
+                    "header_size": "h3",
+                    "title_color": "#121212",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Sora",
+                    "typography_font_size": { "unit": "px", "size": 24 },
+                    "typography_font_weight": "600",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "4", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0033",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"font-size:13px; color:#9E9E9E; margin-bottom:16px;\">Multi-layer · Printed Design</p><p>The vinyl sheet flooring offered today is the product of years of advancements in manufacturing technology providing more depth and texture than ever before. Typically offered in 6' and 12' widths for commercial and residential spaces.</p>",
+                    "text_color": "#6E6E6E",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.6 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0034",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<div style=\"display:flex; flex-wrap:wrap; gap:6px;\"><span class=\"rfci-tag rfci-tag-green\">Hygienic</span><span class=\"rfci-tag rfci-tag-amber\">Seamless</span></div>"
+                  }
+                },
+                {
+                  "id": "mat0035",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Learn more",
+                    "link": { "url": "/flooring/heterogeneous-sheet-vinyl", "is_external": false },
+                    "align": "left",
+                    "button_type": "link",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 13 },
+                    "typography_font_weight": "600",
+                    "button_text_color": "#0164DB",
+                    "_margin": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "mat0041",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 32 },
+                "width_tablet": { "unit": "%", "size": 48 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column",
+                "padding": { "unit": "px", "top": "32", "right": "32", "bottom": "32", "left": "32", "isLinked": true },
+                "background_color": "#ECEFF1",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                "border_color": "rgba(0,0,0,0.05)",
+                "_css_classes": "rfci-card",
+                "_animation": "fadeInUp",
+                "_animation_delay": "0"
+              },
+              "elements": [
+                {
+                  "id": "mat0042",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Homogeneous Sheet Vinyl",
+                    "header_size": "h3",
+                    "title_color": "#121212",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Sora",
+                    "typography_font_size": { "unit": "px", "size": 24 },
+                    "typography_font_weight": "600",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "4", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0043",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"font-size:13px; color:#9E9E9E; margin-bottom:16px;\">Through-body · Single Layer</p><p>Made of a single layer with through-color construction, meaning the color and visual on the surface goes all the way through the floor. This gives the flooring rigidity, toughness, and vibrancy. Incredibly durable and stain resistant.</p>",
+                    "text_color": "#6E6E6E",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.6 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0044",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<div style=\"display:flex; flex-wrap:wrap; gap:6px;\"><span class=\"rfci-tag rfci-tag-green\">Hygienic</span><span class=\"rfci-tag rfci-tag-amber\">Through-body Color</span></div>"
+                  }
+                },
+                {
+                  "id": "mat0045",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Learn more",
+                    "link": { "url": "/flooring/homogeneous-sheet-vinyl", "is_external": false },
+                    "align": "left",
+                    "button_type": "link",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 13 },
+                    "typography_font_weight": "600",
+                    "button_text_color": "#0164DB",
+                    "_margin": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "mat0051",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 32 },
+                "width_tablet": { "unit": "%", "size": 48 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column",
+                "padding": { "unit": "px", "top": "32", "right": "32", "bottom": "32", "left": "32", "isLinked": true },
+                "background_color": "#ECEFF1",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                "border_color": "rgba(0,0,0,0.05)",
+                "_css_classes": "rfci-card",
+                "_animation": "fadeInUp",
+                "_animation_delay": "100"
+              },
+              "elements": [
+                {
+                  "id": "mat0052",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Solid Vinyl Tile",
+                    "header_size": "h3",
+                    "title_color": "#121212",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Sora",
+                    "typography_font_size": { "unit": "px", "size": 24 },
+                    "typography_font_weight": "600",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "4", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0053",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"font-size:13px; color:#9E9E9E; margin-bottom:16px;\">SVT · Flexible Tiles</p><p>Solid vinyl tile (SVT) is a type of flexible resilient flooring often used in healthcare, institutional, and educational settings. Versatile and easy to handle, SVT can be used to create patterns and shapes within an overall creative floor design.</p>",
+                    "text_color": "#6E6E6E",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.6 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0054",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<div style=\"display:flex; flex-wrap:wrap; gap:6px;\"><span class=\"rfci-tag rfci-tag-green\">Cost-effective</span><span class=\"rfci-tag rfci-tag-amber\">Replaceable Tiles</span></div>"
+                  }
+                },
+                {
+                  "id": "mat0055",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Learn more",
+                    "link": { "url": "/flooring/solid-vinyl-tile", "is_external": false },
+                    "align": "left",
+                    "button_type": "link",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 13 },
+                    "typography_font_weight": "600",
+                    "button_text_color": "#0164DB",
+                    "_margin": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "mat0061",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 32 },
+                "width_tablet": { "unit": "%", "size": 48 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column",
+                "padding": { "unit": "px", "top": "32", "right": "32", "bottom": "32", "left": "32", "isLinked": true },
+                "background_color": "#ECEFF1",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                "border_color": "rgba(0,0,0,0.05)",
+                "_css_classes": "rfci-card",
+                "_animation": "fadeInUp",
+                "_animation_delay": "200"
+              },
+              "elements": [
+                {
+                  "id": "mat0062",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Vinyl Composition Tile",
+                    "header_size": "h3",
+                    "title_color": "#121212",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Sora",
+                    "typography_font_size": { "unit": "px", "size": 24 },
+                    "typography_font_weight": "600",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "4", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0063",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"font-size:13px; color:#9E9E9E; margin-bottom:16px;\">VCT · Commercial Standard</p><p>Vinyl Composition Tile (VCT) is a finished flooring material used primarily in commercial and institutional applications. A popular choice due to its low cost and durability, with through-color construction that provides years of lasting beauty.</p>",
+                    "text_color": "#6E6E6E",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.6 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0064",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<div style=\"display:flex; flex-wrap:wrap; gap:6px;\"><span class=\"rfci-tag rfci-tag-green\">Durable</span><span class=\"rfci-tag rfci-tag-amber\">Cost-effective</span></div>"
+                  }
+                },
+                {
+                  "id": "mat0065",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Learn more",
+                    "link": { "url": "/flooring/vinyl-composition-tile", "is_external": false },
+                    "align": "left",
+                    "button_type": "link",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 13 },
+                    "typography_font_weight": "600",
+                    "button_text_color": "#0164DB",
+                    "_margin": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "mat0071",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 32 },
+                "width_tablet": { "unit": "%", "size": 48 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column",
+                "padding": { "unit": "px", "top": "32", "right": "32", "bottom": "32", "left": "32", "isLinked": true },
+                "background_color": "#ECEFF1",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                "border_color": "rgba(0,0,0,0.05)",
+                "_css_classes": "rfci-card",
+                "_animation": "fadeInUp"
+              },
+              "elements": [
+                {
+                  "id": "mat0072",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Rubber",
+                    "header_size": "h3",
+                    "title_color": "#121212",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Sora",
+                    "typography_font_size": { "unit": "px", "size": 24 },
+                    "typography_font_weight": "600",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "4", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0073",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"font-size:13px; color:#9E9E9E; margin-bottom:16px;\">Vulcanized · Recycled Content</p><p>Available in sheets or tiles, this resilient flooring option is sleek, contemporary, and comfortable underfoot. Colors are contained throughout the thickness and won't fade or wear. Waterproof and slip-resistant.</p>",
+                    "text_color": "#6E6E6E",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.6 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0074",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<div style=\"display:flex; flex-wrap:wrap; gap:6px;\"><span class=\"rfci-tag rfci-tag-green\">Acoustic</span><span class=\"rfci-tag rfci-tag-amber\">Slip Resistant</span><span class=\"rfci-tag rfci-tag-gray\">Recycled Content</span></div>"
+                  }
+                },
+                {
+                  "id": "mat0075",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Learn more",
+                    "link": { "url": "/flooring/rubber", "is_external": false },
+                    "align": "left",
+                    "button_type": "link",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 13 },
+                    "typography_font_weight": "600",
+                    "button_text_color": "#0164DB",
+                    "_margin": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "mat0081",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 32 },
+                "width_tablet": { "unit": "%", "size": 48 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column",
+                "padding": { "unit": "px", "top": "32", "right": "32", "bottom": "32", "left": "32", "isLinked": true },
+                "background_color": "#ECEFF1",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                "border_color": "rgba(0,0,0,0.05)",
+                "_css_classes": "rfci-card",
+                "_animation": "fadeInUp",
+                "_animation_delay": "100"
+              },
+              "elements": [
+                {
+                  "id": "mat0082",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Linoleum",
+                    "header_size": "h3",
+                    "title_color": "#121212",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Sora",
+                    "typography_font_size": { "unit": "px", "size": 24 },
+                    "typography_font_weight": "600",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "4", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0083",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"font-size:13px; color:#9E9E9E; margin-bottom:16px;\">Natural · Bio-based</p><p>Invented in the 1860s, linoleum is experiencing a revival in popularity due to its natural ingredients and environmental properties. Made from linseed oil, wood flour, limestone, cork, tree resins, and jute backing.</p>",
+                    "text_color": "#6E6E6E",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.6 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0084",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<div style=\"display:flex; flex-wrap:wrap; gap:6px;\"><span class=\"rfci-tag rfci-tag-green\">Bio-based</span><span class=\"rfci-tag rfci-tag-green\">Carbon Neutral</span></div>"
+                  }
+                },
+                {
+                  "id": "mat0085",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Learn more",
+                    "link": { "url": "/flooring/linoleum", "is_external": false },
+                    "align": "left",
+                    "button_type": "link",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 13 },
+                    "typography_font_weight": "600",
+                    "button_text_color": "#0164DB",
+                    "_margin": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "mat0091",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 32 },
+                "width_tablet": { "unit": "%", "size": 48 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column",
+                "padding": { "unit": "px", "top": "32", "right": "32", "bottom": "32", "left": "32", "isLinked": true },
+                "background_color": "#ECEFF1",
+                "border_border": "solid",
+                "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+                "border_color": "rgba(0,0,0,0.05)",
+                "_css_classes": "rfci-card",
+                "_animation": "fadeInUp",
+                "_animation_delay": "200"
+              },
+              "elements": [
+                {
+                  "id": "mat0092",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Cork",
+                    "header_size": "h3",
+                    "title_color": "#121212",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Sora",
+                    "typography_font_size": { "unit": "px", "size": 24 },
+                    "typography_font_weight": "600",
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "4", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0093",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p style=\"font-size:13px; color:#9E9E9E; margin-bottom:16px;\">Natural · Acoustic</p><p>Sleek and contemporary, this resilient flooring is enjoying renewed interest. Warm and soft underfoot, cork is a natural insulator that muffles sound and lowers energy bills. Available in tiles or planks in a variety of colors and sizes.</p>",
+                    "text_color": "#6E6E6E",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 14 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.6 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "16", "left": "0", "isLinked": false }
+                  }
+                },
+                {
+                  "id": "mat0094",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<div style=\"display:flex; flex-wrap:wrap; gap:6px;\"><span class=\"rfci-tag rfci-tag-green\">Renewable</span><span class=\"rfci-tag rfci-tag-amber\">Acoustic</span></div>"
+                  }
+                },
+                {
+                  "id": "mat0095",
+                  "elType": "widget",
+                  "widgetType": "button",
+                  "settings": {
+                    "text": "Learn more",
+                    "link": { "url": "/flooring/cork", "is_external": false },
+                    "align": "left",
+                    "button_type": "link",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 13 },
+                    "typography_font_weight": "600",
+                    "button_text_color": "#0164DB",
+                    "_margin": { "unit": "px", "top": "16", "right": "0", "bottom": "0", "left": "0", "isLinked": false }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

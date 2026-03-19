@@ -1,0 +1,467 @@
+{
+  "version": "0.4",
+  "title": "RFCI - 05 Why Resilient",
+  "type": "page",
+  "content": [
+    {
+      "id": "why0001",
+      "elType": "container",
+      "settings": {
+        "content_width": "boxed",
+        "boxed_width": { "unit": "px", "size": 1280 },
+        "background_color": "#FFFFFF",
+        "padding": { "unit": "px", "top": "112", "right": "48", "bottom": "112", "left": "48", "isLinked": false },
+        "padding_mobile": { "unit": "px", "top": "64", "right": "24", "bottom": "64", "left": "24", "isLinked": false }
+      },
+      "elements": [
+        {
+          "id": "why0002",
+          "elType": "container",
+          "settings": {
+            "content_width": "full",
+            "flex_direction": "row",
+            "flex_direction_mobile": "column",
+            "gap": { "unit": "px", "size": 64 },
+            "gap_mobile": { "unit": "px", "size": 48 },
+            "align_items": "flex-start"
+          },
+          "elements": [
+            {
+              "id": "why0003",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 50 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column",
+                "position": "sticky",
+                "position_offset_top": { "unit": "px", "size": 100 }
+              },
+              "elements": [
+                {
+                  "id": "why0004",
+                  "elType": "widget",
+                  "widgetType": "image",
+                  "settings": {
+                    "image": { "url": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=80&w=1200&auto=format&fit=crop" },
+                    "image_size": "full",
+                    "_animation": "fadeInLeft"
+                  }
+                },
+                {
+                  "id": "why0005",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "full",
+                    "position": "absolute",
+                    "position_offset_bottom": { "unit": "px", "size": 32 },
+                    "position_offset_left": { "unit": "px", "size": 32 },
+                    "background_color": "#FFFFFF",
+                    "padding": { "unit": "px", "top": "24", "right": "24", "bottom": "24", "left": "24", "isLinked": true },
+                    "border_border": "solid",
+                    "border_width": { "unit": "px", "top": "0", "right": "0", "bottom": "0", "left": "2", "isLinked": false },
+                    "border_color": "#0164DB",
+                    "_css_classes": "rfci-stat"
+                  },
+                  "elements": [
+                    {
+                      "id": "why0006",
+                      "elType": "widget",
+                      "widgetType": "counter",
+                      "settings": {
+                        "ending_number": 65,
+                        "suffix": "%",
+                        "title": "of hard surface flooring in North America",
+                        "number_color": "#121212",
+                        "title_color": "#9E9E9E",
+                        "typography_typography": "custom",
+                        "typography_font_family": "Sora",
+                        "typography_font_size": { "unit": "px", "size": 48 },
+                        "typography_font_weight": "300",
+                        "title_typography_typography": "custom",
+                        "title_typography_font_family": "DM Sans",
+                        "title_typography_font_size": { "unit": "px", "size": 11 },
+                        "title_typography_font_weight": "700",
+                        "title_typography_text_transform": "uppercase",
+                        "title_typography_letter_spacing": { "unit": "em", "size": 0.1 },
+                        "_css_classes": "rfci-counter"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "why0010",
+              "elType": "container",
+              "settings": {
+                "content_width": "full",
+                "width": { "unit": "%", "size": 50 },
+                "width_mobile": { "unit": "%", "size": 100 },
+                "flex_direction": "column"
+              },
+              "elements": [
+                {
+                  "id": "why0011",
+                  "elType": "widget",
+                  "widgetType": "html",
+                  "settings": {
+                    "html": "<div class=\"rfci-label\" style=\"color: #0164DB; margin-bottom: 16px;\">The Category Leader</div>",
+                    "_animation": "fadeInRight"
+                  }
+                },
+                {
+                  "id": "why0012",
+                  "elType": "widget",
+                  "widgetType": "heading",
+                  "settings": {
+                    "title": "Why Resilient?",
+                    "header_size": "h2",
+                    "title_color": "#121212",
+                    "typography_typography": "custom",
+                    "typography_font_family": "Sora",
+                    "typography_font_size": { "unit": "px", "size": 60 },
+                    "typography_font_size_tablet": { "unit": "px", "size": 42 },
+                    "typography_font_size_mobile": { "unit": "px", "size": 36 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.1 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "8", "left": "0", "isLinked": false },
+                    "_animation": "fadeInRight",
+                    "_animation_delay": "200"
+                  }
+                },
+                {
+                  "id": "why0013",
+                  "elType": "widget",
+                  "widgetType": "text-editor",
+                  "settings": {
+                    "editor": "<p>The number one flooring category in North America.</p>",
+                    "text_color": "#6E6E6E",
+                    "typography_typography": "custom",
+                    "typography_font_family": "DM Sans",
+                    "typography_font_size": { "unit": "px", "size": 18 },
+                    "typography_font_weight": "300",
+                    "typography_line_height": { "unit": "em", "size": 1.5 },
+                    "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "48", "left": "0", "isLinked": false },
+                    "_animation": "fadeInRight",
+                    "_animation_delay": "300"
+                  }
+                },
+                {
+                  "id": "why0020",
+                  "elType": "container",
+                  "settings": {
+                    "content_width": "full",
+                    "flex_direction": "column",
+                    "gap": { "unit": "px", "size": 32 }
+                  },
+                  "elements": [
+                    {
+                      "id": "why0021",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "full",
+                        "flex_direction": "row",
+                        "gap": { "unit": "px", "size": 16 },
+                        "align_items": "flex-start",
+                        "_animation": "fadeInUp"
+                      },
+                      "elements": [
+                        {
+                          "id": "why0022",
+                          "elType": "widget",
+                          "widgetType": "icon",
+                          "settings": {
+                            "selected_icon": { "value": "fas fa-broom", "library": "fa-solid" },
+                            "primary_color": "#0164DB",
+                            "size": { "unit": "px", "size": 24 }
+                          }
+                        },
+                        {
+                          "id": "why0023",
+                          "elType": "container",
+                          "settings": { "content_width": "full", "flex_direction": "column" },
+                          "elements": [
+                            {
+                              "id": "why0024",
+                              "elType": "widget",
+                              "widgetType": "heading",
+                              "settings": {
+                                "title": "Easy Maintenance",
+                                "header_size": "h4",
+                                "title_color": "#121212",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Sora",
+                                "typography_font_size": { "unit": "px", "size": 18 },
+                                "typography_font_weight": "600",
+                                "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "8", "left": "0", "isLinked": false }
+                              }
+                            },
+                            {
+                              "id": "why0025",
+                              "elType": "widget",
+                              "widgetType": "text-editor",
+                              "settings": {
+                                "editor": "<p>Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.</p>",
+                                "text_color": "#6E6E6E",
+                                "typography_typography": "custom",
+                                "typography_font_family": "DM Sans",
+                                "typography_font_size": { "unit": "px", "size": 14 },
+                                "typography_font_weight": "300",
+                                "typography_line_height": { "unit": "em", "size": 1.6 }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "why0031",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "full",
+                        "flex_direction": "row",
+                        "gap": { "unit": "px", "size": 16 },
+                        "align_items": "flex-start",
+                        "_animation": "fadeInUp",
+                        "_animation_delay": "100"
+                      },
+                      "elements": [
+                        {
+                          "id": "why0032",
+                          "elType": "widget",
+                          "widgetType": "icon",
+                          "settings": {
+                            "selected_icon": { "value": "fas fa-tint", "library": "fa-solid" },
+                            "primary_color": "#0164DB",
+                            "size": { "unit": "px", "size": 24 }
+                          }
+                        },
+                        {
+                          "id": "why0033",
+                          "elType": "container",
+                          "settings": { "content_width": "full", "flex_direction": "column" },
+                          "elements": [
+                            {
+                              "id": "why0034",
+                              "elType": "widget",
+                              "widgetType": "heading",
+                              "settings": {
+                                "title": "Water Resistance",
+                                "header_size": "h4",
+                                "title_color": "#121212",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Sora",
+                                "typography_font_size": { "unit": "px", "size": 18 },
+                                "typography_font_weight": "600",
+                                "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "8", "left": "0", "isLinked": false }
+                              }
+                            },
+                            {
+                              "id": "why0035",
+                              "elType": "widget",
+                              "widgetType": "text-editor",
+                              "settings": {
+                                "editor": "<p>Engineered to handle moisture-prone environments\u2014from kitchens and baths to healthcare and hospitality.</p>",
+                                "text_color": "#6E6E6E",
+                                "typography_typography": "custom",
+                                "typography_font_family": "DM Sans",
+                                "typography_font_size": { "unit": "px", "size": 14 },
+                                "typography_font_weight": "300",
+                                "typography_line_height": { "unit": "em", "size": 1.6 }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "why0041",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "full",
+                        "flex_direction": "row",
+                        "gap": { "unit": "px", "size": 16 },
+                        "align_items": "flex-start",
+                        "_animation": "fadeInUp",
+                        "_animation_delay": "200"
+                      },
+                      "elements": [
+                        {
+                          "id": "why0042",
+                          "elType": "widget",
+                          "widgetType": "icon",
+                          "settings": {
+                            "selected_icon": { "value": "fas fa-dollar-sign", "library": "fa-solid" },
+                            "primary_color": "#0164DB",
+                            "size": { "unit": "px", "size": 24 }
+                          }
+                        },
+                        {
+                          "id": "why0043",
+                          "elType": "container",
+                          "settings": { "content_width": "full", "flex_direction": "column" },
+                          "elements": [
+                            {
+                              "id": "why0044",
+                              "elType": "widget",
+                              "widgetType": "heading",
+                              "settings": {
+                                "title": "Cost Effective",
+                                "header_size": "h4",
+                                "title_color": "#121212",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Sora",
+                                "typography_font_size": { "unit": "px", "size": 18 },
+                                "typography_font_weight": "600",
+                                "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "8", "left": "0", "isLinked": false }
+                              }
+                            },
+                            {
+                              "id": "why0045",
+                              "elType": "widget",
+                              "widgetType": "text-editor",
+                              "settings": {
+                                "editor": "<p>Competitive installed cost paired with a long service life delivers strong value across the full lifecycle.</p>",
+                                "text_color": "#6E6E6E",
+                                "typography_typography": "custom",
+                                "typography_font_family": "DM Sans",
+                                "typography_font_size": { "unit": "px", "size": 14 },
+                                "typography_font_weight": "300",
+                                "typography_line_height": { "unit": "em", "size": 1.6 }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "why0051",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "full",
+                        "flex_direction": "row",
+                        "gap": { "unit": "px", "size": 16 },
+                        "align_items": "flex-start",
+                        "_animation": "fadeInUp",
+                        "_animation_delay": "300"
+                      },
+                      "elements": [
+                        {
+                          "id": "why0052",
+                          "elType": "widget",
+                          "widgetType": "icon",
+                          "settings": {
+                            "selected_icon": { "value": "fas fa-palette", "library": "fa-solid" },
+                            "primary_color": "#0164DB",
+                            "size": { "unit": "px", "size": 24 }
+                          }
+                        },
+                        {
+                          "id": "why0053",
+                          "elType": "container",
+                          "settings": { "content_width": "full", "flex_direction": "column" },
+                          "elements": [
+                            {
+                              "id": "why0054",
+                              "elType": "widget",
+                              "widgetType": "heading",
+                              "settings": {
+                                "title": "Design Versatility",
+                                "header_size": "h4",
+                                "title_color": "#121212",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Sora",
+                                "typography_font_size": { "unit": "px", "size": 18 },
+                                "typography_font_weight": "600",
+                                "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "8", "left": "0", "isLinked": false }
+                              }
+                            },
+                            {
+                              "id": "why0055",
+                              "elType": "widget",
+                              "widgetType": "text-editor",
+                              "settings": {
+                                "editor": "<p>Realistic wood, stone, and custom visuals across tile, plank, and sheet formats for any design vision.</p>",
+                                "text_color": "#6E6E6E",
+                                "typography_typography": "custom",
+                                "typography_font_family": "DM Sans",
+                                "typography_font_size": { "unit": "px", "size": 14 },
+                                "typography_font_weight": "300",
+                                "typography_line_height": { "unit": "em", "size": 1.6 }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "why0061",
+                      "elType": "container",
+                      "settings": {
+                        "content_width": "full",
+                        "flex_direction": "row",
+                        "gap": { "unit": "px", "size": 16 },
+                        "align_items": "flex-start",
+                        "_animation": "fadeInUp",
+                        "_animation_delay": "400"
+                      },
+                      "elements": [
+                        {
+                          "id": "why0062",
+                          "elType": "widget",
+                          "widgetType": "icon",
+                          "settings": {
+                            "selected_icon": { "value": "fas fa-recycle", "library": "fa-solid" },
+                            "primary_color": "#0164DB",
+                            "size": { "unit": "px", "size": 24 }
+                          }
+                        },
+                        {
+                          "id": "why0063",
+                          "elType": "container",
+                          "settings": { "content_width": "full", "flex_direction": "column" },
+                          "elements": [
+                            {
+                              "id": "why0064",
+                              "elType": "widget",
+                              "widgetType": "heading",
+                              "settings": {
+                                "title": "Sustainability",
+                                "header_size": "h4",
+                                "title_color": "#121212",
+                                "typography_typography": "custom",
+                                "typography_font_family": "Sora",
+                                "typography_font_size": { "unit": "px", "size": 18 },
+                                "typography_font_weight": "600",
+                                "_margin": { "unit": "px", "top": "0", "right": "0", "bottom": "8", "left": "0", "isLinked": false }
+                              }
+                            },
+                            {
+                              "id": "why0065",
+                              "elType": "widget",
+                              "widgetType": "text-editor",
+                              "settings": {
+                                "editor": "<p>Recyclable materials, low-VOC manufacturing, and third-party certifications support green building goals.</p>",
+                                "text_color": "#6E6E6E",
+                                "typography_typography": "custom",
+                                "typography_font_family": "DM Sans",
+                                "typography_font_size": { "unit": "px", "size": 14 },
+                                "typography_font_weight": "300",
+                                "typography_line_height": { "unit": "em", "size": 1.6 }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
