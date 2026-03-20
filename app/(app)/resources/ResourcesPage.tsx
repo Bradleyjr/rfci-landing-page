@@ -134,7 +134,7 @@ function ThumbnailCard({ resource, index, emphasizeExternal = false }: { resourc
           </div>
         )}
         <div className="absolute top-3 right-3">
-          <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 ${typeColor}`}>
+          <span className={`text-label font-bold tracking-widest uppercase px-2.5 py-1 ${typeColor}`}>
             {typeLabel}
           </span>
         </div>
@@ -516,10 +516,10 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
                               <div className="text-2xl font-display font-light text-rfci-black leading-none">
                                 {new Date(resource.date).toLocaleDateString('en-US', { day: '2-digit' })}
                               </div>
-                              <div className="text-label font-bold tracking-widest uppercase text-rfci-black/40 mt-1 text-[10px]">
+                              <div className="text-label font-bold tracking-widest uppercase text-rfci-black/40 mt-1">
                                 {new Date(resource.date).toLocaleDateString('en-US', { month: 'short' })}
                               </div>
-                              <div className="text-label font-bold tracking-widest uppercase text-rfci-black/30 text-[10px]">
+                              <div className="text-label font-bold tracking-widest uppercase text-rfci-black/40">
                                 {new Date(resource.date).toLocaleDateString('en-US', { year: 'numeric' })}
                               </div>
                             </>

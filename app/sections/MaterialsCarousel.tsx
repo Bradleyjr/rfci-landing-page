@@ -62,7 +62,7 @@ export function MaterialsCarousel() {
           </div>
         </SectionReveal>
 
-        <div className="flex items-center gap-2 md:hidden text-rfci-black/50 text-xs font-bold uppercase tracking-widest mb-6">
+        <div className="flex items-center gap-2 md:hidden text-rfci-black/50 text-label font-bold uppercase tracking-widest mb-6">
           <ArrowsLeftRight className="w-4 h-4 animate-pulse" /> Swipe to explore
         </div>
 
@@ -114,7 +114,7 @@ export function MaterialsCarousel() {
                       {type.tags && type.tags.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 mt-3">
                           {type.tags.map((tag: { label: string; variant: string }, tagIdx: number) => (
-                            <span key={tagIdx} className="inline-flex items-center px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-rfci-cream text-rfci-black/70">
+                            <span key={tagIdx} className="inline-flex items-center px-2.5 py-1 text-label font-bold uppercase tracking-widest bg-rfci-cream text-rfci-black/70">
                               {tag.label}
                             </span>
                           ))}
@@ -126,7 +126,7 @@ export function MaterialsCarousel() {
                         <p className="text-white/80 text-sm leading-relaxed font-light line-clamp-2 mt-4">
                           {type.description}
                         </p>
-                        <span className="inline-flex items-center gap-2 bg-white text-rfci-black px-6 py-3 text-sm font-semibold hover:bg-rfci-blue hover:text-white transition-colors duration-200 mt-4">
+                        <span className="inline-flex items-center gap-2 bg-white text-rfci-black px-8 py-3.5 text-sm font-semibold hover:bg-rfci-blue hover:text-white transition-colors duration-200 mt-4">
                           Learn More <ArrowRight className="w-4 h-4" />
                         </span>
                       </div>

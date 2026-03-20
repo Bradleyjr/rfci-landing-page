@@ -667,7 +667,7 @@ export function InspirationGallery({
                 <p className="text-rfci-black/40 text-lg mb-4">No projects match your filters.</p>
                 <button
                   onClick={resetFilters}
-                  className="text-rfci-blue hover:text-rfci-blue/80 font-bold text-sm tracking-wider uppercase transition-colors duration-200"
+                  className="text-rfci-blue hover:text-rfci-blue/80 font-bold text-sm tracking-widest uppercase transition-colors duration-200"
                 >
                   Clear Filters
                 </button>
@@ -735,7 +735,7 @@ export function InspirationGallery({
           ) : (
             <div className="text-center py-16">
               <p className="text-rfci-black/40 text-lg">No projects match your filters.</p>
-              <button onClick={resetFilters} className="mt-4 text-rfci-blue font-bold text-sm tracking-wider uppercase">Clear Filters</button>
+              <button onClick={resetFilters} className="mt-4 text-rfci-blue font-bold text-sm tracking-widest uppercase">Clear Filters</button>
             </div>
           )}
         </div>
@@ -795,14 +795,14 @@ export function InspirationGallery({
               <div className="p-6 md:p-10">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {getMemberName(activeProject) && (
-                    <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-black/8 text-rfci-black/70 px-2.5 py-1">{getMemberName(activeProject)}</span>
+                    <span className="text-label font-bold tracking-widest uppercase bg-rfci-black/8 text-rfci-black/60 px-2.5 py-1">{getMemberName(activeProject)}</span>
                   )}
                   {getEnvironmentName(activeProject) && (
-                    <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-black/5 text-rfci-black/60 px-2.5 py-1">{getEnvironmentName(activeProject)}</span>
+                    <span className="text-label font-bold tracking-widest uppercase bg-rfci-black/5 text-rfci-black/60 px-2.5 py-1">{getEnvironmentName(activeProject)}</span>
                   )}
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-display font-medium text-rfci-black mb-4">{activeProject.title}</h3>
+                <h3 className="text-xl md:text-2xl font-display font-light text-rfci-black mb-4">{activeProject.title}</h3>
 
                 {activeProject.description && (
                   <p className="text-base text-rfci-black/60 leading-relaxed mb-6">{activeProject.description}</p>
@@ -812,20 +812,20 @@ export function InspirationGallery({
                   {getMemberName(activeProject) && (
                     <div className="flex items-center gap-2 text-sm text-rfci-black/60">
                       <Buildings weight="fill" className="w-4 h-4 text-rfci-blue" />
-                      <span className="font-medium text-rfci-black/80">Manufacturer:</span>
+                      <span className="font-medium text-rfci-black/60">Manufacturer:</span>
                       {getMemberName(activeProject)}
                     </div>
                   )}
                   {activeProject.location && (
                     <div className="flex items-center gap-2 text-sm text-rfci-black/60">
                       <MapPin weight="fill" className="w-4 h-4 text-rfci-blue" />
-                      <span className="font-medium text-rfci-black/80">Location:</span>
+                      <span className="font-medium text-rfci-black/60">Location:</span>
                       {activeProject.location}
                     </div>
                   )}
                   {getEnvironmentName(activeProject) && (
                     <div className="flex items-center gap-2 text-sm text-rfci-black/60">
-                      <span className="font-medium text-rfci-black/80">Environment:</span>
+                      <span className="font-medium text-rfci-black/60">Environment:</span>
                       {getEnvironmentName(activeProject)}
                     </div>
                   )}

@@ -96,12 +96,12 @@ export function StandardsSection() {
                   }`}
                 >
                   <div className={`w-12 h-12 flex items-center justify-center shrink-0 transition-colors rounded-full ${
-                    activeTab === tab.slug ? 'bg-rfci-blue/10 text-rfci-blue' : 'bg-rfci-black/5 text-rfci-black/40 group-hover:bg-rfci-black/10 group-hover:text-rfci-black/80'
+                    activeTab === tab.slug ? 'bg-rfci-blue/10 text-rfci-blue' : 'bg-rfci-black/5 text-rfci-black/40 group-hover:bg-rfci-black/10 group-hover:text-rfci-black/60'
                   }`}>
                     <IconComp className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className={`text-xl md:text-2xl font-display font-light tracking-tight transition-colors ${activeTab === tab.slug ? 'text-rfci-black' : 'text-rfci-black/40 group-hover:text-rfci-black/80'}`}>
+                    <h3 className={`text-xl md:text-2xl font-display font-light tracking-tight transition-colors ${activeTab === tab.slug ? 'text-rfci-black' : 'text-rfci-black/40 group-hover:text-rfci-black/60'}`}>
                       {tab.title}
                     </h3>
                   </div>

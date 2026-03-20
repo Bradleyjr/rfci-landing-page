@@ -4,7 +4,7 @@ import { ArrowRight } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { SplitPageHero } from '../../_components/SplitPageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
-import { FLOORING_TYPES } from '../../_data/flooring-types'
+import { FLOORING_TYPES, type FlooringType } from '../../_data/flooring-types'
 
 type FlooringTypeDoc = {
   title: string
@@ -84,6 +84,11 @@ const CARD_IMAGES: Record<string, string> = Object.fromEntries(
   ])
 )
 
+// Build tags lookup from canonical FLOORING_TYPES data
+const CARD_TAGS: Record<string, Array<{ label: string; variant: string }>> = Object.fromEntries(
+  FLOORING_TYPES.filter(t => t.slug && t.tags?.length).map(t => [t.slug!, t.tags])
+)
+
 function slugify(title: string): string {
   return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
 }
@@ -108,6 +113,7 @@ export function FlooringOverview({ flooringTypes, pageSettings }: { flooringType
               const slug = type.slug || slugify(type.title)
               const href = `/flooring/${slug}`
               const cardImage = CARD_IMAGES[slug]
+              const tags = CARD_TAGS[slug] ?? []
 
               return (
                 <SectionReveal key={type.title} delay={(idx % 3) * 0.06}>
@@ -132,21 +138,27 @@ export function FlooringOverview({ flooringTypes, pageSettings }: { flooringType
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                       {/* Content — title at bottom, description slides in below on hover */}
-                      <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
-                        {/* Title + subtitle — always visible */}
-                        <h3 className="text-xl md:text-2xl font-display font-light text-white leading-tight">
+                      <div className="absolute inset-x-0 bottom-0 z-10 p-6 md:p-8">
+                        {/* Title + chips — always visible */}
+                        <h3 className="text-2xl md:text-3xl font-display font-light text-white leading-tight">
                           {type.title}
                         </h3>
-                        <p className="text-white/50 text-xs font-light tracking-wide mt-1">
-                          {type.subtitle}
-                        </p>
+                        {tags.length > 0 && (
+                          <div className="flex flex-wrap gap-1.5 mt-3">
+                            {tags.map((tag: { label: string }, tagIdx: number) => (
+                              <span key={tagIdx} className="inline-flex items-center px-2.5 py-1 text-label font-bold uppercase tracking-widest bg-rfci-cream text-rfci-black/70">
+                                {tag.label}
+                              </span>
+                            ))}
+                          </div>
+                        )}
 
                         {/* Description + CTA — slides in BELOW the title on hover */}
                         <div className="hidden md:block md:max-h-0 md:opacity-0 md:group-hover:max-h-40 md:group-hover:opacity-100 overflow-hidden transition-all duration-500 ease-out">
-                          <p className="text-sm text-white/80 leading-relaxed font-light line-clamp-3 mt-4">
+                          <p className="text-white/80 text-sm leading-relaxed font-light line-clamp-3 mt-4">
                             {type.description}
                           </p>
-                          <span className="inline-flex items-center gap-2 bg-white text-rfci-black px-5 py-2.5 text-sm font-semibold hover:bg-rfci-blue hover:text-white transition-colors duration-200 mt-4">
+                          <span className="inline-flex items-center gap-2 bg-white text-rfci-black px-8 py-3.5 text-sm font-semibold hover:bg-rfci-blue hover:text-white transition-colors duration-200 mt-4">
                             Learn More <ArrowRight className="w-4 h-4" />
                           </span>
                         </div>

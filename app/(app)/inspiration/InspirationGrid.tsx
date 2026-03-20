@@ -323,12 +323,12 @@ function DetailModal({
         <div className="p-6 md:p-10">
           <div className="flex flex-wrap gap-2 mb-4">
             {member && (
-              <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-black/8 text-rfci-black/70 px-2.5 py-1">
+              <span className="text-label font-bold tracking-widest uppercase bg-rfci-black/8 text-rfci-black/70 px-2.5 py-1">
                 {member}
               </span>
             )}
             {environment && (
-              <span className="text-[10px] font-bold tracking-widest uppercase bg-rfci-black/5 text-rfci-black/60 px-2.5 py-1">
+              <span className="text-label font-bold tracking-widest uppercase bg-rfci-black/5 text-rfci-black/60 px-2.5 py-1">
                 {environment}
               </span>
             )}
@@ -346,26 +346,26 @@ function DetailModal({
             {member && (
               <div className="flex items-center gap-2 text-sm text-rfci-black/60">
                 <Buildings weight="fill" className="w-4 h-4 text-rfci-blue shrink-0" />
-                <span className="font-medium text-rfci-black/80">Manufacturer:</span>
+                <span className="font-medium text-rfci-black/60">Manufacturer:</span>
                 {member}
               </div>
             )}
             {project.location && (
               <div className="flex items-center gap-2 text-sm text-rfci-black/60">
                 <MapPin weight="fill" className="w-4 h-4 text-rfci-blue shrink-0" />
-                <span className="font-medium text-rfci-black/80">Location:</span>
+                <span className="font-medium text-rfci-black/60">Location:</span>
                 {project.location}
               </div>
             )}
             {environment && (
               <div className="flex items-center gap-2 text-sm text-rfci-black/60">
-                <span className="font-medium text-rfci-black/80">Environment:</span>
+                <span className="font-medium text-rfci-black/60">Environment:</span>
                 {environment}
               </div>
             )}
             {project.flooringTypeName && (
               <div className="flex items-center gap-2 text-sm text-rfci-black/60">
-                <span className="font-medium text-rfci-black/80">Flooring Type:</span>
+                <span className="font-medium text-rfci-black/60">Flooring Type:</span>
                 {project.flooringTypeName}
               </div>
             )}

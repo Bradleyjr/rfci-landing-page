@@ -7,12 +7,12 @@ import { SectionReveal } from '../../../_components/SectionReveal'
 import { mediaUrl } from '../../../_lib/transforms'
 
 const TYPE_COLORS: Record<string, string> = {
-  video: 'bg-sky-50 text-sky-700',
-  technical: 'bg-slate-100 text-slate-600',
-  sustainability: 'bg-emerald-50 text-emerald-700',
-  standard: 'bg-amber-50 text-amber-700',
-  whitepaper: 'bg-slate-100 text-slate-600',
-  article: 'bg-rfci-blue/10 text-rfci-blue',
+  video: 'bg-rfci-cream text-rfci-black/70',
+  technical: 'bg-rfci-cream text-rfci-black/70',
+  sustainability: 'bg-rfci-cream text-rfci-black/70',
+  standard: 'bg-rfci-cream text-rfci-black/70',
+  whitepaper: 'bg-rfci-cream text-rfci-black/70',
+  article: 'bg-rfci-cream text-rfci-black/70',
 }
 
 function getEmbedUrl(url: string): string | null {
@@ -49,7 +49,7 @@ export function VideoDetail({ resource, relatedResources }: { resource: any; rel
                 <Play className="w-6 h-6" weight="fill" />
               </div>
               <div>
-                <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block mb-3 ${typeColor}`}>
+                <span className={`text-label font-bold tracking-widest uppercase px-2.5 py-1 inline-block mb-3 ${typeColor}`}>
                   Video
                 </span>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-[1.1]">
@@ -109,8 +109,8 @@ export function VideoDetail({ resource, relatedResources }: { resource: any; rel
 
                   {resource.category && (
                     <div className="mb-6">
-                      <div className="text-xs font-bold tracking-wider uppercase text-rfci-black/40 mb-1">Category</div>
-                      <div className="text-sm text-rfci-black/80">{resource.category}</div>
+                      <div className="text-label font-bold tracking-widest uppercase text-rfci-black/40 mb-1">Category</div>
+                      <div className="text-sm text-rfci-black/60">{resource.category}</div>
                     </div>
                   )}
 
@@ -148,7 +148,7 @@ export function VideoDetail({ resource, relatedResources }: { resource: any; rel
                     href={r.internalUrl || (r.slug ? `/resources/${r.slug}` : (r.externalUrl || '#'))}
                     className="group block p-8 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 h-full"
                   >
-                    <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block mb-4 ${TYPE_COLORS[r.type] || TYPE_COLORS.technical}`}>
+                    <span className={`text-label font-bold tracking-widest uppercase px-2.5 py-1 inline-block mb-4 ${TYPE_COLORS[r.type] || TYPE_COLORS.technical}`}>
                       {r.type}
                     </span>
                     <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors mb-2 line-clamp-2">

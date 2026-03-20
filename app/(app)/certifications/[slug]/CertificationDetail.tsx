@@ -133,7 +133,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                               <FileText className="w-5 h-5" />
                             </div>
                             {dl.year && (
-                              <span className="text-xs font-bold tracking-wider uppercase px-2.5 py-1 bg-rfci-blue/10 text-rfci-blue">
+                              <span className="text-label font-bold tracking-widest uppercase px-2.5 py-1 bg-rfci-blue/10 text-rfci-blue">
                                 {dl.year}
                               </span>
                             )}

@@ -5,12 +5,12 @@ import { SectionReveal } from '../../../_components/SectionReveal'
 import { mediaUrl } from '../../../_lib/transforms'
 
 const TYPE_COLORS: Record<string, string> = {
-  article: 'bg-rfci-blue/10 text-rfci-blue',
-  video: 'bg-sky-50 text-sky-700',
-  technical: 'bg-slate-100 text-slate-600',
-  sustainability: 'bg-emerald-50 text-emerald-700',
-  standard: 'bg-amber-50 text-amber-700',
-  whitepaper: 'bg-slate-100 text-slate-600',
+  article: 'bg-rfci-cream text-rfci-black/70',
+  video: 'bg-rfci-cream text-rfci-black/70',
+  technical: 'bg-rfci-cream text-rfci-black/70',
+  sustainability: 'bg-rfci-cream text-rfci-black/70',
+  standard: 'bg-rfci-cream text-rfci-black/70',
+  whitepaper: 'bg-rfci-cream text-rfci-black/70',
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -28,7 +28,7 @@ export function ArticleDetail({ resource, relatedResources }: { resource: any; r
             </Link>
 
             <div className="mb-5">
-              <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block ${TYPE_COLORS[resource.type] || TYPE_COLORS.article}`}>
+              <span className={`text-label font-bold tracking-widest uppercase px-2.5 py-1 inline-block ${TYPE_COLORS[resource.type] || TYPE_COLORS.article}`}>
                 {resource.type === 'article' ? 'Article' : resource.type}
               </span>
             </div>
@@ -95,7 +95,7 @@ export function ArticleDetail({ resource, relatedResources }: { resource: any; r
                     href={r.internalUrl || (r.slug ? `/resources/${r.slug}` : (r.externalUrl || '#'))}
                     className="group block p-8 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 h-full"
                   >
-                    <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block mb-4 ${TYPE_COLORS[r.type] || TYPE_COLORS.technical}`}>
+                    <span className={`text-label font-bold tracking-widest uppercase px-2.5 py-1 inline-block mb-4 ${TYPE_COLORS[r.type] || TYPE_COLORS.technical}`}>
                       {r.type}
                     </span>
                     <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors mb-2 line-clamp-2">

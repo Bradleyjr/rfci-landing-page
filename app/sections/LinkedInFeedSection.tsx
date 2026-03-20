@@ -111,13 +111,13 @@ export function LinkedInFeedSection() {
 
                 {/* Action Buttons */}
                 <div className="px-5 py-2 flex items-center justify-between text-rfci-black/50">
-                  <button className="flex items-center gap-1.5 text-xs font-semibold hover:text-rfci-black/80 transition-colors py-2 px-2">
+                  <button className="flex items-center gap-1.5 text-xs font-semibold hover:text-rfci-black/60 transition-colors py-2 px-2">
                     <ThumbsUp className="w-4 h-4" /> Like
                   </button>
-                  <button className="flex items-center gap-1.5 text-xs font-semibold hover:text-rfci-black/80 transition-colors py-2 px-2">
+                  <button className="flex items-center gap-1.5 text-xs font-semibold hover:text-rfci-black/60 transition-colors py-2 px-2">
                     <ChatCircle className="w-4 h-4" /> Comment
                   </button>
-                  <button className="flex items-center gap-1.5 text-xs font-semibold hover:text-rfci-black/80 transition-colors py-2 px-2">
+                  <button className="flex items-center gap-1.5 text-xs font-semibold hover:text-rfci-black/60 transition-colors py-2 px-2">
                     <Repeat className="w-4 h-4" /> Repost
                   </button>
                 </div>

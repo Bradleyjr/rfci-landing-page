@@ -117,7 +117,7 @@ export const Navigation = ({
                 <a
                   href={item.href || `#${item.title.toLowerCase()}`}
                   className={`relative flex items-center gap-1 text-sm font-medium tracking-wide py-1 transition-colors ${
-                    openMenu === item.title || isActive(item) ? 'text-rfci-blue' : 'text-rfci-black/80 hover:text-rfci-blue'
+                    openMenu === item.title || isActive(item) ? 'text-rfci-blue' : 'text-rfci-black/60 hover:text-rfci-blue'
                   }`}
                 >
                   {item.title}
@@ -251,7 +251,7 @@ export const Navigation = ({
                         className="flex flex-col gap-1"
                         onClick={() => setMobileMenuOpen(false)}
                       >
-                        <span className={`text-lg font-medium ${pathname === megaItem.href ? 'text-rfci-blue' : 'text-rfci-black/80'}`}>{megaItem.label}</span>
+                        <span className={`text-lg font-medium ${pathname === megaItem.href ? 'text-rfci-blue' : 'text-rfci-black/60'}`}>{megaItem.label}</span>
                         <span className="text-xs text-rfci-black/50">{megaItem.desc}</span>
                       </a>
                     ))}

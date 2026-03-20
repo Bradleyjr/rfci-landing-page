@@ -150,7 +150,7 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
                         </div>
                       </div>
                       {/* Duration badge */}
-                      <div className="absolute bottom-3 right-3 bg-rfci-black/70 backdrop-blur-sm text-white text-label font-bold tracking-wider uppercase px-3 py-1">
+                      <div className="absolute bottom-3 right-3 bg-rfci-black/70 backdrop-blur-sm text-white text-label font-bold tracking-widest uppercase px-3 py-1">
                         {video.duration}
                       </div>
                     </div>
