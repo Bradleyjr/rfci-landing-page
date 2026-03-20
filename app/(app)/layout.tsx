@@ -11,7 +11,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
+      </body>
     </html>
   )
 }

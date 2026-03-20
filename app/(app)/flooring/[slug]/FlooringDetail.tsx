@@ -308,7 +308,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
                 <SectionReveal key={cert.slug || i} delay={i * 0.1}>
                   <a
                     href={`/certifications/${cert.slug}`}
-                    className="group block p-8 bg-rfci-white border border-black/5 hover:border-rfci-blue/30 hover:shadow-lg transition-all"
+                    className="group block p-8 bg-rfci-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200"
                   >
                     <h3 className="text-xl font-display font-light group-hover:text-rfci-blue transition-colors mb-2">
                       {cert.title}
@@ -350,7 +350,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
                 <a
                   key={`${other.slug}-${i}`}
                   href={`/flooring/${other.slug}`}
-                  className="group flex-shrink-0 w-64 bg-white border border-black/5 hover:border-rfci-blue/30 hover:shadow-lg transition-all p-6"
+                  className="group flex-shrink-0 w-64 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 p-6"
                 >
                   <h3 className="text-lg font-display font-light group-hover:text-rfci-blue transition-colors mb-1">
                     {other.title}

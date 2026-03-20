@@ -74,7 +74,7 @@ export function LinkedInFeedSection() {
         <div className="grid md:grid-cols-3 gap-6">
           {FAKE_POSTS.map((post, idx) => (
             <SectionReveal key={idx} direction="up" delay={idx * 0.1} className="h-full">
-              <div className="bg-white border border-black/5 flex flex-col h-full hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              <div className="bg-white border border-black/5 flex flex-col h-full hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200">
                 {/* Post Header */}
                 <div className="p-5 pb-0 flex items-center gap-3">
                   <div className="w-10 h-10 bg-rfci-blue/10 rounded-full flex items-center justify-center shrink-0 overflow-hidden">

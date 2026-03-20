@@ -60,7 +60,7 @@ export function CommunitySection() {
           </SectionReveal>
 
           <SectionReveal direction="right" className="lg:col-span-5">
-            <div className="bg-white p-8 border border-black/5 shadow-sm hover:shadow-md transition-shadow duration-300">
+            <div className="bg-white p-8 border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-rfci-blue/10 flex items-center justify-center">
                   <Calendar className="w-5 h-5 text-rfci-blue" />

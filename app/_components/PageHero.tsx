@@ -1,12 +1,14 @@
 'use client'
 
 import { SectionReveal } from './SectionReveal'
+import { HeroPattern } from './HeroPattern'
 
 type PageHeroProps = {
   label: string
   heading: React.ReactNode
   subheading?: string
   theme?: 'light' | 'dark' | 'blue'
+  pattern?: 'rings' | 'grid' | 'wave' | 'dots'
 }
 
 const themeClasses = {
@@ -30,12 +32,13 @@ const themeClasses = {
   },
 }
 
-export function PageHero({ label, heading, subheading, theme = 'light' }: PageHeroProps) {
+export function PageHero({ label, heading, subheading, theme = 'light', pattern }: PageHeroProps) {
   const t = themeClasses[theme]
 
   return (
-    <section className={`${t.bg} pt-28 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32 ${theme === 'light' ? 'border-b border-black/5' : ''}`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section className={`${t.bg} pt-32 pb-12 md:pt-36 md:pb-16 lg:pt-40 lg:pb-20 ${theme === 'light' ? 'border-b border-black/5' : ''} ${pattern ? 'relative overflow-hidden' : ''}`}>
+      {pattern && <HeroPattern type={pattern} onDark={theme !== 'light'} />}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         <SectionReveal>
           <div className={`text-label font-bold tracking-widest uppercase ${t.label} mb-4`}>
             {label}

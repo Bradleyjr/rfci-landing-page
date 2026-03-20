@@ -1,12 +1,10 @@
 'use client'
 
-import { useState } from 'react'
-import { AnimatePresence, motion } from 'motion/react'
-import { ArrowRight, CaretDown } from '@phosphor-icons/react'
+import { ArrowRight } from '@phosphor-icons/react'
 import { FAQAccordion } from '../../_components/FAQAccordion'
 import { FAQS } from '../../_data/faqs'
 import { PageLayout } from '../../_components/PageLayout'
-import { PageHero } from '../../_components/PageHero'
+import { SplitPageHero } from '../../_components/SplitPageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
 import { HistoryStackedReveal } from './HistoryStackedReveal'
 
@@ -33,7 +31,6 @@ const DEFAULT_BENEFITS = [
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]; environments: any[] }) {
-  const [openBenefit, setOpenBenefit] = useState(0)
   const milestones = pageData?.historyMilestones?.length ? pageData.historyMilestones : HISTORY_MILESTONES
   const benefits = pageData?.benefits?.length
     ? pageData.benefits.map((benefit: { title: string; description: string }, index: number) => ({
@@ -45,10 +42,12 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
 
   return (
     <PageLayout>
-      <PageHero
+      <SplitPageHero
         label="Why Resilient"
         heading={<>Why <span className="font-semibold text-rfci-blue">resilient flooring?</span></>}
         subheading={pageData?.heroSubheading || 'Resilient flooring continues to earn specifications across healthcare, education, retail, housing, hospitality, and workplace settings because it balances performance, maintenance, comfort, and design flexibility.'}
+        photo={{ src: '/media/mission/advocacy-engagement.jpg', alt: 'RFCI advocacy and industry engagement' }}
+        reverse
       />
 
       {/* Editorial Lede */}
@@ -77,7 +76,7 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
         </div>
       </section>
 
-      {/* The Case for Resilient — Horizontal Stepper */}
+      {/* The Case for Resilient — Grid */}
       <section className="py-20 md:py-28 bg-rfci-cream">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="mb-12 md:mb-16">
@@ -87,49 +86,21 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
             </h2>
           </SectionReveal>
 
-          {/* Number pills — horizontal selector */}
-          <div className="flex flex-wrap gap-2 md:gap-3 mb-10 md:mb-14">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-rfci-black/5">
             {benefits.map((benefit, idx) => (
-              <button
-                key={idx}
-                onClick={() => setOpenBenefit(idx)}
-                className={`flex items-center gap-2.5 px-4 py-2.5 transition-all duration-300 text-left ${
-                  openBenefit === idx
-                    ? 'bg-rfci-blue text-white'
-                    : 'bg-white border border-black/10 text-rfci-black/50 hover:border-rfci-blue/30 hover:text-rfci-black'
-                }`}
-              >
-                <span className="text-label font-bold tracking-widest">{benefit.number}</span>
-                <span className="text-sm font-medium hidden sm:inline">{benefit.title}</span>
-              </button>
+              <SectionReveal key={idx} delay={(idx % 4) * 0.06}>
+                <div className="bg-rfci-cream p-8 md:p-10 h-full group hover:bg-white transition-colors duration-200">
+                  <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">{benefit.keyword}</div>
+                  <h3 className="text-xl font-display font-light text-rfci-black mb-3 group-hover:text-rfci-blue transition-colors duration-200">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-sm text-rfci-black/60 leading-relaxed font-light">
+                    {benefit.description}
+                  </p>
+                </div>
+              </SectionReveal>
             ))}
           </div>
-
-          {/* Active content */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={openBenefit}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="grid md:grid-cols-12 gap-8 md:gap-12 items-start"
-            >
-              <div className="md:col-span-4">
-                <div className="text-7xl md:text-8xl font-display font-bold text-rfci-blue/10 leading-none mb-4">
-                  {benefits[openBenefit]?.number}
-                </div>
-                <h3 className="text-2xl md:text-3xl font-display font-light text-rfci-black">
-                  {benefits[openBenefit]?.title}
-                </h3>
-              </div>
-              <div className="md:col-span-8 md:pt-4">
-                <p className="text-lg text-rfci-black/60 leading-relaxed font-light max-w-2xl">
-                  {benefits[openBenefit]?.description}
-                </p>
-              </div>
-            </motion.div>
-          </AnimatePresence>
         </div>
       </section>
 

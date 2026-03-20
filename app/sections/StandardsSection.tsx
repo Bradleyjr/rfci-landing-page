@@ -135,13 +135,8 @@ export function StandardsSection() {
                             <AnimatedStat key={`${tab.slug}-${i}`} value={stat.value} label={stat.label} />
                           ))}
                         </div>
-                        <a href={`/certifications/${tab.slug}`} className="inline-flex items-center gap-2 text-rfci-blue font-medium hover:text-rfci-black transition-colors group">
-                          <span className="relative">
-                            <span className="relative z-10 flex items-center gap-2">
-                              Explore {tab.title} <ArrowRight className="w-4 h-4" />
-                            </span>
-                            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-blue group-hover:w-full transition-all duration-300 ease-out" />
-                          </span>
+                        <a href={`/certifications/${tab.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200">
+                          Explore {tab.title} <ArrowRight className="w-4 h-4" />
                         </a>
                       </div>
                     </div>
@@ -201,7 +196,7 @@ export function StandardsSection() {
                               </div>
                             ))}
                           </div>
-                          <a href={`/certifications/${tab.slug}`} className="inline-flex items-center gap-2 text-rfci-blue font-medium hover:text-rfci-black transition-colors text-sm">
+                          <a href={`/certifications/${tab.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200">
                             Explore {tab.title} <ArrowRight className="w-4 h-4" />
                           </a>
                         </div>

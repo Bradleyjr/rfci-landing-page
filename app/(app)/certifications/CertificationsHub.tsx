@@ -2,8 +2,9 @@
 
 import { ArrowRight, Atom } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
-import { PageHero } from '../../_components/PageHero'
+import { SplitPageHero } from '../../_components/SplitPageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
+import { HeroPattern } from '../../_components/HeroPattern'
 import { CERT_ICONS, mediaUrl } from '../../_lib/transforms'
 
 type CertDoc = {
@@ -16,17 +17,69 @@ type CertDoc = {
   stats?: Array<{ value: string; label: string }>
 }
 
+/**
+ * Per-certification visual identity for the card header panel.
+ * Each cert gets a distinct gradient + decorative treatment that conveys
+ * its domain (IAQ, precision quality, sustainability, environmental data).
+ * When real photography arrives via CMS, the imgSrc block takes over
+ * and these panels are hidden — zero migration cost.
+ */
+const CERT_HEADER_STYLES: Record<string, {
+  gradient: string
+  iconBg: string
+  accent: string
+  pattern: 'rings' | 'grid' | 'wave' | 'dots'
+}> = {
+  floorscore: {
+    // Clear air — bright blue, atmospheric, authoritative
+    gradient: 'from-rfci-blue via-rfci-blue/90 to-[#0147A3]',
+    iconBg: 'bg-white/15',
+    accent: 'text-white',
+    pattern: 'rings',
+  },
+  assure: {
+    // Precision quality / industrial testing — dark, confident
+    gradient: 'from-[#0D1B2E] via-[#162540] to-[#0164DB]/60',
+    iconBg: 'bg-rfci-blue/20',
+    accent: 'text-rfci-blue',
+    pattern: 'grid',
+  },
+  affirm: {
+    // Sustainability — teal gradient, growth, nature
+    gradient: 'from-[#006B74] via-rfci-teal/80 to-[#00C2D1]/60',
+    iconBg: 'bg-white/15',
+    accent: 'text-white',
+    pattern: 'wave',
+  },
+  epd: {
+    // Environmental data / documentation — warm dark earth
+    gradient: 'from-[#1A1A14] via-[#2D2D20] to-[#3A3A28]',
+    iconBg: 'bg-white/10',
+    accent: 'text-rfci-cream',
+    pattern: 'dots',
+  },
+}
+
+const FALLBACK_HEADER = {
+  gradient: 'from-rfci-blue to-[#0147A3]',
+  iconBg: 'bg-white/15',
+  accent: 'text-white',
+  pattern: 'rings' as const,
+}
+
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function CertificationsHub({ certifications, pageSettings }: { certifications: any[]; pageSettings?: any }) {
   const displayCerts: CertDoc[] = certifications?.length ? certifications : []
 
   return (
     <PageLayout>
-      <PageHero
+      <SplitPageHero
         label="Sustainability"
-        heading={pageSettings?.heroHeading || <>Sustainability programs you can <span className="font-semibold text-rfci-blue">rely on.</span></>}
-        subheading={pageSettings?.heroSubheading || "RFCI's sustainability programs verify indoor air quality, environmental performance, and material transparency\u2014giving architects and designers confidence in every specification."}
+        heading={pageSettings?.heroHeading || <>Sustainability programs you can <span className="font-semibold">rely on.</span></>}
+        subheading={pageSettings?.heroSubheading || "RFCI's sustainability programs verify indoor air quality, environmental performance, and material transparency—giving architects and designers confidence in every specification."}
         theme="blue"
+        photo={{ src: '/media/mission/sustainability-programs.jpg', alt: 'RFCI sustainability programs' }}
       />
 
       {/* Certification Cards */}
@@ -36,15 +89,16 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
             {displayCerts.map((cert, idx) => {
               const Icon = CERT_ICONS[cert.iconName] ?? Atom
               const imgSrc = mediaUrl(cert.image)
+              const headerStyle = CERT_HEADER_STYLES[cert.slug] ?? FALLBACK_HEADER
 
               return (
                 <SectionReveal key={cert.slug} delay={idx * 0.1}>
                   <a
                     href={`/certifications/${cert.slug}`}
-                    className="group block h-full bg-rfci-white border border-black/5 hover:border-rfci-blue/30 hover:shadow-[0_20px_60px_rgba(1,100,219,0.08)] transition-all duration-500 overflow-hidden"
+                    className="group block h-full bg-rfci-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-[0_20px_60px_rgba(1,100,219,0.08)] transition-all duration-500 overflow-hidden"
                   >
-                    {/* Image */}
-                    {imgSrc && (
+                    {/* Card Header — photo when available, gradient panel otherwise */}
+                    {imgSrc ? (
                       <div className="relative h-48 overflow-hidden">
                         <img
                           src={imgSrc}
@@ -53,20 +107,22 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-rfci-black/30 to-transparent" />
                       </div>
+                    ) : (
+                      <div className={`relative h-44 bg-gradient-to-br ${headerStyle.gradient} overflow-hidden flex items-center justify-center`}>
+                        {/* Decorative pattern — unique per cert */}
+                        <HeroPattern type={headerStyle.pattern} />
+                        {/* Large centered icon */}
+                        <div className={`relative z-10 w-20 h-20 ${headerStyle.iconBg} flex items-center justify-center`}>
+                          <Icon className={`w-10 h-10 ${headerStyle.accent}`} />
+                        </div>
+                      </div>
                     )}
 
                     <div className="p-8 md:p-10">
-                      {/* Icon + Title */}
-                      <div className="flex items-start gap-4 mb-4">
-                        <div className="w-12 h-12 border border-rfci-blue/20 flex items-center justify-center shrink-0 text-rfci-blue group-hover:border-rfci-blue group-hover:bg-rfci-blue group-hover:text-white transition-all">
-                          <Icon className="w-6 h-6" />
-                        </div>
-                        <div>
-                          <h2 className="text-2xl md:text-3xl font-display font-light group-hover:text-rfci-blue transition-colors">
-                            {cert.title}
-                          </h2>
-                        </div>
-                      </div>
+                      {/* Title — no longer competing with icon since icon is in the header */}
+                      <h2 className="text-2xl md:text-3xl font-display font-light mb-4 group-hover:text-rfci-blue transition-colors">
+                        {cert.title}
+                      </h2>
 
                       <p className="text-rfci-black/60 leading-relaxed mb-6">
                         {cert.description}

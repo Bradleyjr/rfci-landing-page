@@ -136,7 +136,7 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
                     href={video.courseUrl || 'https://rfci.com/videos/'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block group bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-300 rounded-sm overflow-hidden"
+                    className="block group bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 rounded-sm overflow-hidden"
                   >
                     <div className="relative aspect-video overflow-hidden">
                       <img

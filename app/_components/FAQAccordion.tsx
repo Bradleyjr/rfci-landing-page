@@ -22,9 +22,9 @@ export function FAQAccordion({ faqs, className }: { faqs: FAQItem[]; className?:
         <div key={faq.question} className="border-b border-black/10">
           <button
             onClick={() => toggleFaq(index)}
-            className="w-full flex items-center justify-between py-5 text-left gap-4"
+            className="w-full flex items-center justify-between py-5 text-left gap-4 group"
           >
-            <span className="text-lg font-display font-medium text-rfci-black">
+            <span className="text-lg font-display font-medium text-rfci-black group-hover:text-rfci-blue transition-colors duration-200">
               {faq.question}
             </span>
             <motion.span

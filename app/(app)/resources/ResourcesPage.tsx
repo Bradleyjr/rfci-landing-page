@@ -126,7 +126,7 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
 
                 return (
                   <SectionReveal key={resource.title} delay={(index % 3) * 0.06}>
-                    <div className="bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all p-8 h-full flex flex-col">
+                    <div className="bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 p-8 h-full flex flex-col">
                       {/* Icon + Badge Row */}
                       <div className="flex items-start justify-between mb-4">
                         <div className={`w-10 h-10 flex items-center justify-center ${iconBg}`}>
@@ -218,9 +218,9 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
             </p>
             <a
               href={`mailto:${pageSettings?.ctaEmail || 'info@rfci.com'}`}
-              className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-white hover:text-rfci-black transition-colors duration-200"
             >
-              Contact Us
+              Contact Us <ArrowRight className="w-4 h-4" />
             </a>
           </SectionReveal>
         </div>

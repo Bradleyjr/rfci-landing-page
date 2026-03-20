@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { ArrowRight, MapPin, Calendar, PlayCircle } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
+import { PhotoPageHero } from '../../_components/PhotoPageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
 import { mediaUrl } from '../../_lib/transforms'
 import { TESTIMONIAL_VIDEOS } from '../../_data/testimonial-videos'
@@ -33,36 +34,17 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="bg-rfci-cream pt-28 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-36">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
-            <SectionReveal direction="left" className="lg:col-span-7">
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">About RFCI</div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight mb-6">
-                The voice of <span className="font-semibold text-rfci-blue">resilient flooring.</span>
-              </h1>
-              <div className="flex items-center gap-6 text-sm text-rfci-black/50 mb-6">
-                <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> Est. 1976</span>
-                <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4" /> LaGrange, Georgia</span>
-              </div>
-              <p className="text-rfci-black/70 leading-relaxed font-light max-w-xl">
-                {aboutPage?.heroSubheading || "Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America\u2019s resilient flooring industry \u2014 representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring."}
-              </p>
-            </SectionReveal>
-
-            <SectionReveal direction="right" className="lg:col-span-5">
-              <div className="overflow-hidden border-4 border-white/80 shadow-lg">
-                <img
-                  src="/media/community/board-of-directors-2024.jpeg"
-                  alt="RFCI Board of Directors 2024"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <p className="text-label font-bold tracking-widest uppercase text-rfci-black/40 mt-3 text-center">Board of Directors, 2024</p>
-            </SectionReveal>
-          </div>
+      <PhotoPageHero
+        label="About RFCI"
+        heading={<>The voice of <span className="font-semibold">resilient flooring.</span></>}
+        subheading={aboutPage?.heroSubheading || "Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America's resilient flooring industry — representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring."}
+        photo={{ src: '/media/community/board-of-directors-2025.jpeg', alt: 'RFCI Board of Directors 2025' }}
+      >
+        <div className="flex items-center gap-6 text-sm text-white/60 mt-6">
+          <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> Est. 1976</span>
+          <span className="flex items-center gap-1.5"><MapPin className="w-4 h-4" /> LaGrange, Georgia</span>
         </div>
-      </section>
+      </PhotoPageHero>
 
       {/* Mission */}
       <section id="who-we-are" className="py-20 md:py-28 bg-white">
@@ -198,19 +180,19 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                     href={video.videoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block h-full overflow-hidden rounded-sm border border-black/5 bg-white transition-all hover:border-rfci-blue/20 hover:shadow-lg"
+                    className="group block h-full overflow-hidden rounded-sm border border-black/5 bg-white transition-all duration-200 hover:border-rfci-blue/20 hover:shadow-lg"
                   >
-                    <div className="relative aspect-video overflow-hidden bg-rfci-black/10 group/thumb">
+                    <div className="relative aspect-video overflow-hidden bg-rfci-black/10">
                       {video.thumbnailUrl ? (
-                        <img src={video.thumbnailUrl} alt={video.title} className="h-full w-full object-cover" />
+                        <img src={video.thumbnailUrl} alt={video.title} className="h-full w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                       ) : (
                         <div className="flex h-full w-full items-center justify-center text-rfci-black/20">
                           <PlayCircle className="h-12 w-12" />
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-rfci-black/20 group-hover/thumb:bg-rfci-black/40 transition-colors duration-500 flex items-center justify-center">
-                        <div className="w-14 h-14 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center group-hover/thumb:bg-white group-hover/thumb:scale-110 transition-all duration-500">
-                          <PlayCircle className="w-6 h-6 text-white group-hover/thumb:text-rfci-blue transition-colors duration-500" />
+                      <div className="absolute inset-0 bg-rfci-black/20 group-hover:bg-rfci-black/40 transition-colors duration-500 flex items-center justify-center">
+                        <div className="w-14 h-14 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500">
+                          <PlayCircle className="w-6 h-6 text-white group-hover:text-rfci-blue transition-colors duration-500" />
                         </div>
                       </div>
                     </div>

@@ -159,21 +159,31 @@ export const Navigation = ({
             <div className={`max-w-7xl mx-auto px-6 md:px-12 py-8`}>
               <div className={`flex gap-8 ${item.highlight ? '' : ''}`}>
                 <div className={`grid gap-4 ${item.megaMenu!.length > 4 ? 'grid-cols-3' : 'grid-cols-2'} ${item.highlight ? 'flex-1' : 'max-w-[860px]'}`}>
-                  {item.megaMenu!.map((megaItem) => (
-                    <a
-                      key={megaItem.label}
-                      href={megaItem.href}
-                      className="flex items-start gap-4 p-4 hover:bg-rfci-light-gray/30 transition-colors group/card border border-transparent hover:border-black/5"
-                    >
-                      <megaItem.icon className="w-5 h-5 shrink-0 mt-0.5 text-rfci-black/30 group-hover/card:text-rfci-blue transition-colors" />
-                      <div>
-                        <h4 className="font-display font-medium text-rfci-black mb-1 group-hover/card:text-rfci-blue transition-colors">
-                          {megaItem.label}
-                        </h4>
-                        <p className="text-xs text-rfci-black/60 leading-relaxed">{megaItem.desc}</p>
-                      </div>
-                    </a>
-                  ))}
+                  {item.megaMenu!.map((megaItem) => {
+                    const isMegaActive = pathname === megaItem.href || pathname.startsWith(megaItem.href + '/')
+                    return (
+                      <a
+                        key={megaItem.label}
+                        href={megaItem.href}
+                        className={`flex items-start gap-4 p-4 transition-colors group/card border ${
+                          isMegaActive
+                            ? 'bg-rfci-blue/5 border-rfci-blue/20'
+                            : 'border-transparent hover:bg-rfci-light-gray/30 hover:border-black/5'
+                        }`}
+                      >
+                        <megaItem.icon className={`w-5 h-5 shrink-0 mt-0.5 transition-colors ${isMegaActive ? 'text-rfci-blue' : 'text-rfci-black/30 group-hover/card:text-rfci-blue'}`} />
+                        <div>
+                          <h4 className={`font-display font-medium mb-1 transition-colors ${isMegaActive ? 'text-rfci-blue' : 'text-rfci-black group-hover/card:text-rfci-blue'}`}>
+                            {megaItem.label}
+                          </h4>
+                          <p className="text-xs text-rfci-black/60 leading-relaxed">{megaItem.desc}</p>
+                        </div>
+                        {isMegaActive && (
+                          <div className="ml-auto shrink-0 w-1.5 h-1.5 rounded-full bg-rfci-blue mt-1.5" />
+                        )}
+                      </a>
+                    )
+                  })}
                 </div>
 
                 {/* Highlighted external link — right column spanning full height */}

@@ -1,15 +1,14 @@
 'use client'
 
-import { ArrowRight, ArrowLeft, Atom, DownloadSimple, FileText, CaretDown, Envelope, Phone, ArrowSquareOut, CheckCircle } from '@phosphor-icons/react'
+import { ArrowRight, Atom, DownloadSimple, FileText, CaretDown, Envelope, Phone, ArrowSquareOut, CheckCircle } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { PageLayout } from '../../../_components/PageLayout'
 import { SectionReveal } from '../../../_components/SectionReveal'
 import { CERT_ICONS, mediaUrl } from '../../../_lib/transforms'
+import { CertificationHero } from './CertificationHero'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function CertificationDetail({ certification: cert, otherCertifications }: { certification: any; otherCertifications: any[] }) {
-  const Icon = CERT_ICONS[cert.iconName] ?? Atom
-  const heroImg = mediaUrl(cert.heroImage) || mediaUrl(cert.image)
   const benefits: Array<{ title: string; description: string }> = cert.benefits ?? []
   const process: Array<{ step: string; description: string }> = cert.process ?? []
   const stats: Array<{ value: string; label: string }> = cert.stats ?? []
@@ -28,64 +27,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
 
   return (
     <PageLayout>
-      {/* Hero */}
-      <section className="bg-rfci-cream pt-28 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <SectionReveal>
-            <a href="/certifications" className="inline-flex items-center gap-2 text-sm text-rfci-black/50 hover:text-rfci-blue transition-colors mb-8">
-              <ArrowLeft className="w-4 h-4" /> All Certifications
-            </a>
-            <div className="flex items-start gap-6 mb-6">
-              <div className="w-16 h-16 bg-rfci-blue/10 flex items-center justify-center shrink-0 text-rfci-blue">
-                <Icon className="w-8 h-8" />
-              </div>
-              <div>
-                <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-2">Certification</div>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight">
-                  {cert.title}
-                </h1>
-              </div>
-            </div>
-            <p className="text-lg md:text-xl text-rfci-black/60 max-w-3xl leading-relaxed font-light">
-              {cert.description}
-            </p>
-            {cert.certifiedProductsUrl && (
-              <a
-                href={cert.certifiedProductsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 mt-6 text-rfci-blue hover:text-rfci-blue/80 text-sm font-semibold transition-colors"
-              >
-                View Certified Products <ArrowSquareOut size={18} />
-              </a>
-            )}
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* Hero Image */}
-      {heroImg && (
-        <section className="relative h-64 md:h-96 overflow-hidden">
-          <img src={heroImg} alt={cert.title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
-        </section>
-      )}
-
-      {/* Stats */}
-      {stats.length > 0 && (
-        <section className="py-16 bg-white border-b border-rfci-light-gray/30">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <div className="flex flex-wrap gap-12 md:gap-20">
-              {stats.map((stat, i) => (
-                <SectionReveal key={i} delay={i * 0.1}>
-                  <div className="text-3xl md:text-4xl font-display font-semibold text-rfci-blue">{stat.value}</div>
-                  <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50 mt-1">{stat.label}</div>
-                </SectionReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      <CertificationHero cert={cert} stats={stats} />
 
       {/* Long Description (rich text) */}
       {cert.longDescription && (
@@ -169,7 +111,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                     href={cert.getStartedUrl}
                     target={cert.getStartedUrl.startsWith('mailto:') ? undefined : '_blank'}
                     rel={cert.getStartedUrl.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                    className="inline-flex items-center gap-3 mt-4 px-8 py-4 bg-rfci-blue text-white text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
+                    className="inline-flex items-center gap-3 mt-4 px-8 py-3.5 bg-rfci-blue text-white text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
                   >
                     {cert.getStartedText || 'Get Started'} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
@@ -207,7 +149,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                           href={href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group block p-6 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all h-full"
+                          className="group block p-6 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 h-full"
                         >
                           <div className="flex items-start justify-between mb-3">
                             <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center text-rfci-blue group-hover:bg-rfci-blue group-hover:text-white transition-colors shrink-0">
@@ -351,7 +293,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                   <SectionReveal key={other.slug} delay={i * 0.1}>
                     <a
                       href={`/certifications/${other.slug}`}
-                      className="group block p-8 bg-white border border-black/5 hover:border-rfci-blue/30 hover:shadow-lg transition-all"
+                      className="group block p-8 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200"
                     >
                       <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center mb-4 text-rfci-blue group-hover:bg-rfci-blue group-hover:text-white transition-colors">
                         <OtherIcon className="w-5 h-5" />

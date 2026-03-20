@@ -93,7 +93,7 @@ export function ArticleDetail({ resource, relatedResources }: { resource: any; r
                 <SectionReveal key={r.slug || r.title} delay={i * 0.1}>
                   <Link
                     href={r.internalUrl || (r.slug ? `/resources/${r.slug}` : (r.externalUrl || '#'))}
-                    className="group block p-8 bg-white border border-black/5 hover:border-rfci-blue/30 hover:shadow-lg transition-all h-full"
+                    className="group block p-8 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 h-full"
                   >
                     <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block mb-4 ${TYPE_COLORS[r.type] || TYPE_COLORS.technical}`}>
                       {r.type}

@@ -94,13 +94,8 @@ export function WhyResilientSection() {
             </div>
 
             <div className="mt-8 pt-6 border-t border-rfci-black/10">
-              <a href="/why-resilient" className="text-rfci-blue font-medium flex items-center gap-2 group text-sm">
-                <span className="relative">
-                  <span className="relative z-10 flex items-center gap-2">
-                    Explore why resilient <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </span>
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-blue group-hover:w-full transition-all duration-300 ease-out" />
-                </span>
+              <a href="/why-resilient" className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200">
+                Explore why resilient <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </SectionReveal>

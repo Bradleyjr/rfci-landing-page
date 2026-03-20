@@ -6,7 +6,7 @@ import { useState, useRef, useEffect, useCallback, useMemo, memo } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import { MapPin, Buildings, X, ArrowRight, Compass } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
-import { PageHero } from '../../_components/PageHero'
+import { PhotoPageHero } from '../../_components/PhotoPageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
 import { mediaUrl } from '../../_lib/transforms'
 
@@ -579,11 +579,11 @@ export function InspirationGallery({
 
   return (
     <PageLayout>
-      <PageHero
+      <PhotoPageHero
         label="Inspiration"
-        heading={pageSettings?.heroHeading || <>Real-world <span className="font-semibold text-rfci-blue">installations.</span></>}
+        heading={pageSettings?.heroHeading || <>Real-world <span className="font-semibold">installations.</span></>}
         subheading={pageSettings?.heroSubheading || 'Explore resilient flooring projects from RFCI member companies across healthcare, education, hospitality, corporate, and more.'}
-        theme="dark"
+        photo={{ src: 'https://rfci.com/wp-content/uploads/2022/04/RCP6544-GhostElm-UniversityLibrary_CM.jpg', alt: 'Karndean Ghost Elm resilient flooring in university library' }}
       />
 
       {/* ============================================================ */}
