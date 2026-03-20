@@ -2,6 +2,7 @@
 
 import { ArrowUpRight } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
+import { PhotoPageHero } from '../../_components/PhotoPageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
 import { MEMBERS, type Member } from '../../_data/members'
 
@@ -19,20 +20,20 @@ function MemberCard({ member }: { member: Member }) {
             className="max-w-full max-h-full object-contain mix-blend-multiply"
           />
         ) : (
-          <span className="text-sm font-display font-medium text-rfci-black/50 group-hover:text-rfci-black transition-colors">
+          <span className="text-sm font-display font-medium text-rfci-black/50 group-hover:text-rfci-black transition-colors duration-200">
             {member.name}
           </span>
         )}
       </div>
 
       {/* Name */}
-      <h3 className="text-sm font-medium text-rfci-black/70 group-hover:text-rfci-black transition-colors">
+      <h4 className="text-lg font-display font-medium text-rfci-black/70 group-hover:text-rfci-black transition-colors duration-200">
         {member.name}
-      </h3>
+      </h4>
 
       {/* External link indicator */}
       {member.website && (
-        <div className="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
           <ArrowUpRight className="w-4 h-4 text-rfci-blue" />
         </div>
       )}
@@ -50,101 +51,30 @@ function MemberCard({ member }: { member: Member }) {
   return card
 }
 
-/** Single logo tile for the marquee */
-function MarqueeLogo({ member }: { member: Member }) {
-  return (
-    <div className="bg-white/10 flex items-center justify-center h-16 w-full px-4 my-1.5">
-      {member.logoUrl ? (
-        <img
-          src={member.logoUrl}
-          alt={member.name}
-          className="max-h-8 max-w-[120px] w-auto object-contain brightness-0 invert opacity-60"
-        />
-      ) : (
-        <span className="text-xs text-white/50 font-medium text-center leading-tight px-1">{member.name}</span>
-      )}
-    </div>
-  )
-}
-
 export function MembersDirectory({ members, pageSettings }: { members?: Member[]; pageSettings?: { heroHeading?: string; heroSubheading?: string; boardSectionHeading?: string; boardSectionDescription?: string; associateSectionHeading?: string; associateSectionDescription?: string } }) {
   const displayMembers = members?.length ? members : MEMBERS
 
   const boardMembers = displayMembers.filter(m => m.tier === 'board')
   const associateMembers = displayMembers.filter(m => m.tier === 'associate')
-  const allLogos = [...boardMembers, ...associateMembers]
-
-  // Split into two columns for the marquee
-  const mid = Math.ceil(allLogos.length / 2)
-  const col1 = allLogos.slice(0, mid)
-  const col2 = allLogos.slice(mid)
 
   return (
     <PageLayout>
-      {/* Custom Hero with vertical marquee */}
-      <style>{`
-        @keyframes marquee-up {
-          from { transform: translateY(0); }
-          to { transform: translateY(-50%); }
-        }
-        @keyframes marquee-down {
-          from { transform: translateY(-50%); }
-          to { transform: translateY(0); }
-        }
-      `}</style>
-
-      <section className="bg-rfci-black pt-32 pb-12 md:pt-36 md:pb-16 lg:pt-40 lg:pb-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
-
-            {/* Text column */}
-            <SectionReveal direction="left" className="lg:col-span-7">
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">
-                Member Directory
-              </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight text-white mb-6">
-                {pageSettings?.heroHeading || <>Meet our <span className="font-semibold">member companies.</span></>}
-              </h1>
-              <p className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed font-light">
-                {pageSettings?.heroSubheading || 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.'}
-              </p>
-            </SectionReveal>
-
-            {/* Marquee column */}
-            <div className="hidden lg:flex lg:col-span-5 mt-10 lg:mt-0 gap-3 h-[400px] overflow-hidden">
-              {/* Column 1 — scrolling up */}
-              <div className="flex-1 overflow-hidden">
-                <div
-                  style={{ animation: 'marquee-up 28s linear infinite' }}
-                >
-                  {[...col1, ...col1].map((member, i) => (
-                    <MarqueeLogo key={`c1-${i}`} member={member} />
-                  ))}
-                </div>
-              </div>
-
-              {/* Column 2 — scrolling down */}
-              <div className="flex-1 overflow-hidden">
-                <div
-                  style={{ animation: 'marquee-down 24s linear infinite' }}
-                >
-                  {[...col2, ...col2].map((member, i) => (
-                    <MarqueeLogo key={`c2-${i}`} member={member} />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <PhotoPageHero
+        label="Member Directory"
+        heading={pageSettings?.heroHeading || <>Meet our <span className="font-semibold">member companies.</span></>}
+        subheading={pageSettings?.heroSubheading || 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.'}
+        photo={{ src: '/media/community/all-member-spring-meeting-2025.jpeg', alt: 'RFCI members networking at spring meeting' }}
+      />
 
       {/* Board Companies */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="mb-12">
-            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-3">{pageSettings?.boardSectionHeading || 'Flooring Manufacturers'}</div>
-            <p className="text-rfci-black/60 font-light max-w-2xl">
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Members</div>
+            <h2 className="text-4xl md:text-5xl font-display font-light mb-4">
+              {pageSettings?.boardSectionHeading || <>Flooring <span className="font-semibold">Manufacturers</span></>}
+            </h2>
+            <p className="text-lg text-rfci-black/60 font-light max-w-2xl leading-relaxed">
               {pageSettings?.boardSectionDescription || 'RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America — represented on the RFCI Board of Directors.'}
             </p>
           </SectionReveal>
@@ -164,9 +94,12 @@ export function MembersDirectory({ members, pageSettings }: { members?: Member[]
         <section className="py-20 md:py-28 bg-rfci-cream">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-3">{pageSettings?.associateSectionHeading || 'Supply Chain Partners'}</div>
-              <p className="text-rfci-black/60 font-light max-w-2xl">
-                {pageSettings?.associateSectionDescription || 'RFCI Supply Chain Partner members provide the raw materials, additives, adhesives, and components that make resilient flooring possible.'}
+              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Associate Members</div>
+              <h2 className="text-4xl md:text-5xl font-display font-light mb-4">
+                {pageSettings?.associateSectionHeading || <>Associate Supply Chain <span className="font-semibold">Partners</span></>}
+              </h2>
+              <p className="text-lg text-rfci-black/60 font-light max-w-2xl leading-relaxed">
+                {pageSettings?.associateSectionDescription || 'RFCI Associate Supply Chain Partner members provide the raw materials, additives, adhesives, and components that make resilient flooring possible.'}
               </p>
             </SectionReveal>
 
@@ -185,7 +118,7 @@ export function MembersDirectory({ members, pageSettings }: { members?: Member[]
       <section className="py-20 md:py-28 bg-rfci-black text-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-display font-light mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl font-display font-light mb-6 leading-tight">
               Together, we represent <span className="font-semibold text-rfci-blue">the full spectrum</span> of resilient flooring.
             </h2>
             <p className="text-white/70 text-lg leading-relaxed font-light">

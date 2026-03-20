@@ -120,11 +120,11 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
 
                     <div className="p-8 md:p-10">
                       {/* Title — no longer competing with icon since icon is in the header */}
-                      <h2 className="text-2xl md:text-3xl font-display font-light mb-4 group-hover:text-rfci-blue transition-colors">
+                      <h3 className="text-xl md:text-2xl font-display font-light mb-4 group-hover:text-rfci-blue transition-colors duration-200">
                         {cert.title}
-                      </h2>
+                      </h3>
 
-                      <p className="text-rfci-black/60 leading-relaxed mb-6">
+                      <p className="text-base text-rfci-black/60 leading-relaxed mb-6">
                         {cert.description}
                       </p>
 
@@ -141,7 +141,7 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
                       )}
 
                       {/* CTA */}
-                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue group-hover:gap-3 transition-all">
+                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue group-hover:gap-3 transition-all duration-200">
                         Learn more <ArrowRight className="w-4 h-4" />
                       </span>
                     </div>
@@ -158,7 +158,7 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="max-w-3xl mx-auto text-center">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Why it matters</div>
-            <h2 className="text-3xl md:text-4xl font-display font-light mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
               Sustainability programs that protect people <span className="font-semibold">and the planet.</span>
             </h2>
             <p className="text-lg text-rfci-black/60 leading-relaxed font-light mb-8">
@@ -168,7 +168,7 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
             </p>
             <a
               href="/why-resilient"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200"
             >
               Why Resilient Flooring <ArrowRight className="w-4 h-4" />
             </a>

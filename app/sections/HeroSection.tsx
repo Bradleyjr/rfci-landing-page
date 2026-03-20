@@ -5,7 +5,7 @@ import { ArrowRight, Certificate } from '@phosphor-icons/react'
 import { SITE_SETTINGS } from '../_data/site-settings'
 
 const HERO_STATIC = {
-  heroImageUrl: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop',
+  heroImageUrl: '/images/inspiration/applications/homes/72200-RS.jpg',
 }
 
 const lineVariants: Variants = {
@@ -31,7 +31,7 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
   const heroImageUrl = HERO_STATIC.heroImageUrl
 
   return (
-    <section id="hero" className="relative min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-rfci-cream pt-32 pb-16 md:pt-20 md:pb-0">
+    <section id="hero" className="relative min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center overflow-hidden bg-rfci-cream pt-16 pb-16 md:pt-0 md:pb-0">
       <div className="absolute inset-0 hidden md:block overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
@@ -81,7 +81,7 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors"
+              className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200"
             >
               {SITE_SETTINGS.heroCta} <ArrowRight className="w-4 h-4" />
             </motion.a>

@@ -51,7 +51,8 @@ export function CommunitySection() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="grid lg:grid-cols-12 gap-16 items-center">
           <SectionReveal direction="left" className="lg:col-span-7">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-8 leading-tight">
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Community</div>
+            <h2 className="text-4xl md:text-5xl font-display font-light mb-8 leading-tight">
               {firstPart ? <>{firstPart}<br /></> : null}<span className="font-semibold text-rfci-blue">{lastPart}</span>
             </h2>
             <p className="text-xl text-rfci-black/70 font-light leading-relaxed max-w-2xl">
@@ -66,14 +67,14 @@ export function CommunitySection() {
                   <Calendar className="w-5 h-5 text-rfci-blue" />
                 </div>
                 <div>
-                  <h4 className="font-display font-bold text-lg">{eventTitle}</h4>
+                  <h4 className="font-display font-medium text-lg">{eventTitle}</h4>
                   <p className="text-sm text-rfci-black/60 flex items-center gap-1">
                     <MapPin className="w-3 h-3" /> {eventLocation} &bull; {eventDate}
                   </p>
                 </div>
               </div>
-              <a href="mailto:info@rfci.com" className="w-full py-3 bg-rfci-blue text-white text-sm font-medium hover:bg-rfci-black transition-colors duration-300 flex items-center justify-center gap-2 group">
-                Inquire About This Event <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <a href={`/contact?subject=events&message=${encodeURIComponent("I'd like to learn more about the upcoming " + eventTitle + ".")}`} className="w-full py-3 bg-rfci-blue text-white text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 flex items-center justify-center gap-2 group">
+                Inquire About This Event <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
             </div>
           </SectionReveal>

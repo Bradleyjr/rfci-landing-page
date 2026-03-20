@@ -35,8 +35,7 @@ export const MEMBERS: Member[] = [
   { name: 'Shaw',              logoUrl: '/media/member-logos/shaw.png',               website: 'https://shawinc.com/resilientflooring', tier: 'board', row: '2', order: 8 },
   { name: 'Tarkett',           logoUrl: '/media/member-logos/tarkett.png',            website: 'https://tarkett.com',           tier: 'board', row: '2', order: 9 },
   { name: 'Torlys',            logoUrl: '/media/member-logos/torlys.png',             website: 'https://torlys.com',            tier: 'board', row: '2', order: 10 },
-  { name: 'Wellmade',          logoUrl: '/media/member-logos/wellmade.png',           website: 'https://wellmadefloors.com',    tier: 'board', row: '2', order: 11 },
-  { name: 'Windm\u00f6ller',   logoUrl: '/media/member-logos/windmoller.png',         website: 'https://windmoellerinc.com',    tier: 'board', row: '2', order: 12 },
+  { name: 'Windm\u00f6ller',   logoUrl: '/media/member-logos/windmoller.png',         website: 'https://windmoellerinc.com',    tier: 'board', row: '2', order: 11 },
   // Supply Chain Partners (Associate members)
   { name: 'Amorim',              logoUrl: '/media/member-logos/amorim.png',              website: 'https://amorimcorkcomposites.com', tier: 'associate', order: 1 },
   { name: 'AM Stabilizers',      logoUrl: '/media/member-logos/am-stabilizers.png',      website: 'https://amstabilizers.com',        tier: 'associate', order: 2 },

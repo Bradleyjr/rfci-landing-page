@@ -23,6 +23,10 @@ const FLOORING_FALLBACK: Record<string, any> = {
   'flexible-lvt': {
     title: 'Flexible LVT', subtitle: 'Luxury Vinyl Tile · Planks', slug: 'flexible-lvt',
     accentColor: '#0164DB',
+    diagrams: [
+      { url: '/media/flooring/diagrams/flexible-lvt-gluedown-diagram.png', label: 'Glue-Down (Dry-Back)' },
+      { url: '/media/flooring/diagrams/flexible-lvt-looselay-diagram.png', label: 'Floating / Loose-Lay' },
+    ],
     description: 'Luxury vinyl tile (LVT) is a flexible resilient flooring category produced in tiles or planks. Continued improvements in film printing, in-register embossing, and finish technology give LVT authentic wood and stone visuals with strong water-resistant performance and easy maintenance.',
     tags: [{ label: 'Water Resistant', variant: 'green' }, { label: 'High Traffic', variant: 'tan' }, { label: 'Easy Install', variant: 'gray' }],
     features: [
@@ -54,11 +58,15 @@ const FLOORING_FALLBACK: Record<string, any> = {
   'rigid-core': {
     title: 'Rigid Core', subtitle: 'SPC · WPC · Multilayer', slug: 'rigid-core',
     accentColor: '#455A64',
-    description: 'Rigid Core, sometimes called multilayer flooring, is a modular resilient flooring category with a rigid polymeric core, a decorative top surface, and often an attached underlayment. Available in WPC (Expanded Polymer Core) and SPC (Solid Polymer Core) constructions, it is widely specified for dimensional stability, floating installation, and waterproof product performance.',
+    diagrams: [
+      { url: '/media/flooring/diagrams/rigid-core-spc-diagram.png', label: 'SPC (Solid Polymer Core)' },
+      { url: '/media/flooring/diagrams/rigid-core-wpc-diagram.png', label: 'WPC (Expanded Polymer Core)' },
+    ],
+    description: 'Rigid Core, sometimes called multilayer flooring, is a modular resilient flooring category with a rigid polymeric core, a decorative top surface, and often an attached underlayment. Available in WPC (Expanded Polymer Core) and SPC (Solid Polymer Core) constructions, it is widely specified for dimensional stability, floating installation, and strong moisture performance.',
     tags: [{ label: 'Waterproof', variant: 'green' }, { label: 'Dimensionally Stable', variant: 'tan' }, { label: 'ASSURE Eligible', variant: 'gray' }],
     features: [
       { title: 'Floating Installation', description: 'Unique locking systems allow floating installation with no adhesives required. Can often be installed without acclimation and with minimal subfloor preparation.' },
-      { title: 'Waterproof Construction', description: 'Many rigid core products are marketed as waterproof at the finished-product level, making them useful in moisture-prone interiors when the full installation system is detailed correctly.' },
+      { title: 'Waterproof Construction', description: 'Many rigid core products offer waterproof performance at the finished-product level, making them an ideal choice for moisture-prone interiors when the full installation system is detailed correctly.' },
       { title: 'Temperature & Humidity Stability', description: 'Greater resistance to humidity and temperature variations with no telegraphing of minor subfloor irregularities.' },
       { title: 'Cushioning & Acoustics', description: 'Pre-attached cork or acoustical underlayment provides added cushioning, sound absorption, and underfoot comfort.' },
     ],
@@ -75,68 +83,54 @@ const FLOORING_FALLBACK: Record<string, any> = {
     ],
     installation: 'Rigid Core products commonly install as floating floors using click-lock systems. Because of their rigidity, they can often tolerate minor substrate variation better than flexible products, but manufacturer requirements for flatness, expansion space, moisture, and underlayment should still govern the installation.',
     applications: [
-      { environment: 'Residential', description: 'A strong option for kitchens, baths, laundry rooms, and entryways where waterproof finished-product performance and simple floating installation are valued.' },
+      { environment: 'Residential', description: 'A strong option for kitchens, baths, laundry rooms, and entryways where waterproof product performance and simple floating installation are valued.' },
       { environment: 'Commercial', description: 'SPC construction offers greater indentation resistance and improved dimensional stability for demanding commercial environments.' },
     ],
     relatedCertifications: [CERT_FLOORSCORE, CERT_ASSURE, CERT_AFFIRM],
   },
-  'heterogeneous-sheet-vinyl': {
-    title: 'Heterogeneous Sheet Vinyl', subtitle: 'Multi-Layer · Printed Design', slug: 'heterogeneous-sheet-vinyl',
+  'sheet-vinyl': {
+    title: 'Sheet Vinyl', subtitle: 'Heterogeneous \u00b7 Homogeneous', slug: 'sheet-vinyl',
     accentColor: '#00897B',
-    description: 'The vinyl sheet flooring offered today is the product of years of advancements in manufacturing technology and refined design capabilities providing more depth and texture than ever before. In-register embossed products are now available, and new highly advanced finishes make sheet vinyl easier to maintain than ever. Typically offered in 6\' and 12\' widths for commercial and residential spaces.',
-    tags: [{ label: 'Seamless', variant: 'green' }, { label: 'Healthcare', variant: 'amber' }],
+    diagrams: [
+      { url: '/media/flooring/diagrams/heterogeneous-sheet-vinyl-diagram.jpg', label: 'Heterogeneous Construction' },
+      { url: '/media/flooring/diagrams/homogeneous-sheet-vinyl-diagram.png', label: 'Homogeneous Construction' },
+    ],
+    description: 'Sheet vinyl is offered in two primary constructions \u2014 heterogeneous and homogeneous \u2014 each optimized for different performance priorities. Both deliver seamless, heat-weldable surfaces available in wide widths, making them a standard specification in healthcare, education, commercial, and residential environments.',
+    tags: [{ label: 'Waterproof', variant: 'green' }, { label: 'Hygienic', variant: 'tan' }, { label: 'Seamless', variant: 'gray' }],
     features: [
-      { title: 'Authentic Visuals', description: 'Authentic wood and stone visuals and patterns reflecting popular design trends with in-register embossing for realistic texture.' },
-      { title: 'Seamless Wide Widths', description: 'Available in wide widths for seamless installation with excellent top-down moisture protection.' },
-      { title: 'Multi-Layer Construction', description: 'Wear layer with printed image or solid vinyl chips provides endless design possibilities, lasting performance, and low maintenance cost. A foam layer may be included for underfoot comfort.' },
-      { title: 'Loose-Lay Option', description: 'Some manufacturers offer loose-lay installation. Warm, quiet, and beautiful with superior durability in commercial grades.' },
+      { title: 'Heterogeneous Construction', description: 'Multi-layer construction with a rotogravure-printed design layer and optional foam comfort layer. In-register embossing delivers authentic wood and stone visuals. Available in 6\u2019 and 12\u2019 widths.' },
+      { title: 'Homogeneous Construction', description: 'Single-layer, through-body construction where color and pattern run the full thickness. Scratches and wear do not reveal a different layer underneath \u2014 the standard for hospitals and cleanroom environments.' },
+      { title: 'Heat-Welded Seams', description: 'Seams can be heat welded to create a strong, monolithic surface that aids infection prevention. Product can be flash coved for more efficient cleaning.' },
+      { title: 'Seamless Wide Widths', description: 'Available in wide widths for seamless installations with excellent top-down moisture protection. Reduces grout joints and crevices that can harbor contaminants.' },
+      { title: 'Design Versatility', description: 'Heterogeneous products offer authentic wood and stone visuals with in-register embossing. Homogeneous products offer solid and multi-color chip configurations.' },
+      { title: 'Easy Maintenance', description: 'Superior stain resistance and easy cleaning. Homogeneous surfaces can be restored over decades of use. Highly advanced finishes on heterogeneous products reduce ongoing maintenance requirements.' },
     ],
-    composition: 'Heterogeneous sheet vinyl features a multi-layer construction with a wear layer which may provide a printed image or consists of solid chips made from vinyl resin providing endless design possibilities, lasting performance, and low maintenance cost. A layer of foam may be included for underfoot comfort which reduces impact noise and sound transmission and provides added flexibility for ease of handling and installation. These products are typically used in commercial, light commercial, residential, and multi-family applications.',
+    composition: 'Sheet vinyl comes in two primary constructions. Heterogeneous sheet vinyl features a multi-layer build with a wear layer \u2014 either a printed image or vinyl chip design \u2014 over optional foam for underfoot comfort. Homogeneous sheet vinyl is a single-layer, through-color product where the pattern runs all the way through the floor, giving it rigidity, toughness, and vibrant depth of color. Both types are typically offered in 6\u2019 and 12\u2019 widths for residential and commercial use.',
     advantages: [
-      'Technological advancements provide authentic wood and stone visuals and patterns that reflect popular design trends.',
-      'Available in wide widths for a seamless installation that provides excellent top-down moisture protection.',
-      'A great choice for budget-conscious consumers looking for an attractive, durable, seamless residential flooring option.',
-      'Commercial grades offer not only superior durability but also attractive design alternatives.',
-      'Some manufacturers offer loose-lay installation specifications to make these products simple and cost-effective to install.',
-      'Warm, quiet, and beautiful.',
+      'Seamless wide-width installation provides excellent top-down moisture protection and a monolithic surface.',
+      'Heat-weldable seams support infection control and hygienic maintenance in clinical environments.',
+      'Flash cove capability allows the floor to be turned up the wall for a continuous, easy-to-clean surface.',
+      'Heterogeneous products offer authentic wood and stone visuals with in-register embossing.',
+      'Homogeneous products provide through-color construction that resists wear and can be restored over decades.',
+      'Homogeneous construction is a proven product for healthcare, education, and institutional applications.',
+      'Both constructions can typically be installed over a wide variety of existing surfaces.',
+      'Warm, quiet, and comfortable underfoot.',
     ],
-    installation: 'Products come with either a fiberglass, felt, or foam backing. Fiberglass-backed sheet vinyl can be installed without glue, or as a modified loose-lay product using minimal adhesive. Felt and foam-backed products are applied to the subfloor with the use of an adhesive. Sheet vinyl can typically be installed over a wide variety of surfaces. Professional installation by a reputable flooring dealer is highly recommended.',
+    installation: 'Sheet vinyl is installed as a continuous surface in wide widths. Heterogeneous products come with fiberglass, felt, or foam backings \u2014 fiberglass-backed versions can be installed loose-lay or with minimal adhesive; felt and foam-backed products require adhesive. Homogeneous sheet vinyl is glued down to withstand heavy foot and rolling load traffic. Both require professional installation with precise cutting and seaming technique. Seams can be heat welded for hygienic, monolithic performance.',
     applications: [
-      { environment: 'Commercial', description: 'Commercial grades offer superior durability and attractive design alternatives for high-traffic environments.' },
-      { environment: 'Residential', description: 'A great choice for budget-conscious consumers seeking authentic wood and stone visuals.' },
-    ],
-    relatedCertifications: [CERT_FLOORSCORE, CERT_ASSURE, CERT_EPD],
-  },
-  'homogeneous-sheet-vinyl': {
-    title: 'Homogeneous Sheet Vinyl', subtitle: 'Through-Body · Single Layer', slug: 'homogeneous-sheet-vinyl',
-    accentColor: '#5E35B1',
-    description: 'Made of a single layer, sometimes referred to as through-color, meaning the color and visual on the surface goes all the way through the floor. This gives the flooring rigidity and toughness along with vibrancy and depth of color. Typically available in solid colors and multi-color chip configurations, it is incredibly durable and stain resistant.',
-    tags: [{ label: 'Through-Body Color', variant: 'green' }, { label: 'Refinishable', variant: 'amber' }],
-    features: [
-      { title: 'Through-Color Construction', description: 'True through-color construction provides even wear and a consistent appearance over time. Scratches and wear do not reveal a different layer.' },
-      { title: 'Heat-Welded Seams', description: 'Seams can be heat welded creating strong, clean seams which aids in infection prevention. Product can be flash coved for more efficient cleaning.' },
-      { title: 'Heavy Rolling Load Performance', description: 'Durable performance even under heavy rolling loads with superior damage and abrasion resistance.' },
-      { title: 'Easy Maintenance', description: 'Ease of cleaning with superior stain resistance. A proven product for demanding environments.' },
-    ],
-    composition: 'Homogeneous sheet vinyl is made of a single layer and is sometimes referred to as through-color, meaning the color and visual on the surface goes all the way through the floor. This gives the flooring rigidity and toughness along with vibrancy and depth of color. It can be used in places that experience heavy foot traffic. This type of flooring is typically available in solid colors and multi-color chip configurations. It is incredibly durable and stain resistant.',
-    advantages: [
-      'A proven product for health care and education applications.',
-      'True through-color construction provides even wear and a consistent appearance over time.',
-      'Durable performance even under heavy rolling loads.',
-      'Ease of cleaning, superior damage and abrasion resistance.',
-      'Seams can be heat welded, creating strong, clean seams which aids in infection prevention.',
-      'Product can be flash coved for more efficient cleaning to help with infection control.',
-    ],
-    installation: 'These flooring products are glued down to provide high performance in areas with heavy foot and rolling load traffic. Installing a vinyl sheet floor is a very exacting process that requires excellent cutting and seaming skills, and subfloor knowledge. Professional installation by a reputable flooring dealer is highly recommended.',
-    applications: [
-      { environment: 'Healthcare', description: 'A proven product for healthcare applications with heat-welded seams and flash coving to aid in infection prevention and control.' },
-      { environment: 'Education', description: 'Through-color construction and superior durability make it ideal for high-traffic educational facilities.' },
+      { environment: 'Healthcare', description: 'The standard specification for hospitals, clinics, and cleanrooms. Heat-welded seams, flash coving, and through-body color support infection prevention and long-term performance.' },
+      { environment: 'Education', description: 'Through-color construction and superior durability make it a durable, cost-effective choice for high-traffic school corridors, classrooms, and cafeterias.' },
+      { environment: 'Commercial & Institutional', description: 'Wide-width seamless installation and low maintenance requirements make both constructions popular in commercial and institutional environments.' },
+      { environment: 'Residential', description: 'Heterogeneous sheet vinyl provides an attractive, budget-conscious option for kitchens, bathrooms, and living spaces with authentic visual options and comfort underfoot.' },
     ],
     relatedCertifications: [CERT_FLOORSCORE, CERT_ASSURE, CERT_EPD],
   },
   'vct': {
     title: 'Vinyl Composition Tile', subtitle: 'VCT · Commercial Standard', slug: 'vct',
     accentColor: '#E65100',
+    diagrams: [
+      { url: '/media/flooring/diagrams/vct-diagram.png', label: 'VCT Construction' },
+    ],
     description: 'Vinyl Composition Tile (VCT) is a finished flooring material used primarily in commercial and institutional applications. The tiles can be used in a wide range of color and design combinations to create unique, custom effects. Composed primarily of North American limestone with vinyl and color pigments, VCT is an economic, commercial grade product built to last.',
     tags: [{ label: 'Low Cost', variant: 'green' }, { label: 'Refinishable', variant: 'amber' }, { label: 'Commercial', variant: 'gray' }],
     features: [
@@ -164,6 +158,9 @@ const FLOORING_FALLBACK: Record<string, any> = {
   'solid-vinyl-tile': {
     title: 'Solid Vinyl Tile', subtitle: 'SVT · Flexible Tiles', slug: 'solid-vinyl-tile',
     accentColor: '#A5B4BC',
+    diagrams: [
+      { url: '/media/flooring/diagrams/solid-vinyl-tile-diagram.png', label: 'SVT Construction' },
+    ],
     description: 'Solid vinyl tile (SVT) is a type of flexible resilient flooring produced in tiles and is often used in healthcare, institutional, and educational settings. SVT is produced by cutting homogeneous sheet vinyl into tiles or using molds to make the tiles. It is versatile and easy to handle and can be used to create patterns and shapes within an overall creative floor design.',
     tags: [{ label: 'Through-Color', variant: 'green' }, { label: 'Healthcare', variant: 'amber' }, { label: 'Replaceable', variant: 'gray' }],
     features: [
@@ -192,8 +189,11 @@ const FLOORING_FALLBACK: Record<string, any> = {
   'linoleum': {
     title: 'Linoleum', subtitle: 'Bio-Based · Natural', slug: 'linoleum',
     accentColor: '#2E7D32',
+    diagrams: [
+      { url: '/media/flooring/diagrams/linoleum-diagram.png', label: 'Linoleum Construction' },
+    ],
     description: 'Invented in the 1860s, linoleum as a floor covering is experiencing a revival in popularity due to its natural ingredients and environmental properties. Made from all natural ingredients including linseed oil, wood flour, limestone, cork, tree resins, and jute backing. Available in various formats including tiles and wide sheets, linoleum is very durable and withstands heavy traffic for decades.',
-    tags: [{ label: 'Bio-Based', variant: 'green' }, { label: 'Bacteriostatic', variant: 'amber' }, { label: 'Colorful', variant: 'gray' }],
+    tags: [{ label: 'Bio-Based', variant: 'green' }, { label: 'Antibacterial', variant: 'amber' }, { label: 'Colorful', variant: 'gray' }],
     features: [
       { title: 'All-Natural & Renewable', description: 'Bio-based construction from renewable natural ingredients. Biodegradable without releasing harmful gasses. Natural antibacterial properties.' },
       { title: 'Vibrant Through-Pattern Colors', description: 'Wide variety of colors from quiet neutrals to vibrant hues. Colors and patterns run all the way through. Colorfast hue does not fade even as it naturally wears.' },
@@ -225,13 +225,17 @@ const FLOORING_FALLBACK: Record<string, any> = {
   'rubber': {
     title: 'Rubber Flooring', subtitle: 'Synthetic & Natural Rubber', slug: 'rubber',
     accentColor: '#37474F',
+    diagrams: [
+      { url: '/media/flooring/diagrams/rubber-sheet-diagram.png', label: 'Sheet Construction' },
+      { url: '/media/flooring/diagrams/rubber-tile-diagram.png', label: 'Tile Construction' },
+    ],
     description: 'Available in sheets or tiles, this resilient flooring option is sleek, contemporary, and comfortable underfoot. Colors are contained throughout the thickness and won\'t fade or wear. Rubber has long been a solution for high-traffic settings that demand durability, water and burn resistance, and easy cleaning. Available in natural rubber, synthetic rubber, and recycled rubber variations.',
     tags: [{ label: 'Acoustic', variant: 'green' }, { label: 'Premium', variant: 'amber' }, { label: 'Slip Resistant', variant: 'gray' }],
     features: [
       { title: 'Exceptional Durability', description: 'Properly cared for, rubber flooring can last 20 years or more. Resistant to motor and cooking oils with superior wear characteristics.' },
       { title: 'Easy Maintenance', description: 'Cleaning requires no more than damp mopping. Water-resistant on both top and bottom surfaces.' },
       { title: 'Comfort & Acoustics', description: 'Soft underfoot, important for fitness centers and areas where people stand for long periods. Elasticity makes it very quiet to walk on.' },
-      { title: 'Slip Resistance', description: 'Excellent slip resistance with waterproof and slip-resistant properties ideal for harsh environments requiring frequent cleaning.' },
+      { title: 'Slip Resistance', description: 'Excellent slip resistance and moisture-resistant properties ideal for harsh environments requiring frequent cleaning.' },
     ],
     composition: 'There are several variations of rubber flooring including natural rubber, synthetic rubber, and recycled rubber. Different versions exist for a number of situations including fatigue resistance in areas where people stand or walk for long periods, and heavy traffic floor stress in industrial environments. Rubber products are available in sheet form and tiles, which are typically 20-inch and 40-inch squares.',
     advantages: [
@@ -245,7 +249,7 @@ const FLOORING_FALLBACK: Record<string, any> = {
     ],
     installation: 'Rubber flooring can be installed in sheet or tile format. With advancements in colors, designs, and textures, rubber flooring is increasingly popular in office and residential settings as well as traditional commercial and industrial applications.',
     applications: [
-      { environment: 'Institutional & Commercial', description: 'Waterproof and slip-resistant properties ideal for institutional and commercial facilities demanding durability and easy cleaning.' },
+      { environment: 'Institutional & Commercial', description: 'Waterproof and slip-resistant performance ideal for institutional and commercial facilities demanding durability and easy cleaning.' },
       { environment: 'Fitness', description: 'Soft underfoot with impact absorption, making it ideal for fitness centers and athletic facilities.' },
     ],
     relatedCertifications: [CERT_FLOORSCORE, CERT_EPD],
@@ -253,12 +257,16 @@ const FLOORING_FALLBACK: Record<string, any> = {
   'cork': {
     title: 'Cork Flooring', subtitle: 'Natural · Renewable', slug: 'cork',
     accentColor: '#8D6E63',
+    diagrams: [
+      { url: '/media/flooring/diagrams/cork-gluedown-diagram.png', label: 'Direct Glue-Down' },
+      { url: '/media/flooring/diagrams/cork-floating-diagram.jpg', label: 'Floating / Click System' },
+    ],
     description: 'Sleek and contemporary, this resilient flooring is enjoying renewed interest. Cork is made by removing the bark of the Cork Oak, predominantly found in Spain and Portugal, usually harvested every nine years without harming the tree. Cork is renewable, recyclable, and biodegradable. For flooring, cork is ground up, compressed, and formed into blocks or sheets bonded with polyurethane.',
-    tags: [{ label: 'Renewable', variant: 'green' }, { label: 'Thermal Insulation', variant: 'amber' }, { label: 'Hypoallergenic', variant: 'gray' }],
+    tags: [{ label: 'Renewable', variant: 'green' }, { label: 'Hypoallergenic', variant: 'amber' }, { label: 'Acoustic', variant: 'gray' }],
     features: [
       { title: 'Completely Renewable', description: 'A completely natural and renewable resource harvested without harming the tree. Biodegradable, recyclable, and environmentally responsible.' },
       { title: 'Natural Insulation', description: 'Natural thermal and acoustic insulator that muffles sound and lowers energy bills. Soft underfoot with ergonomic relief.' },
-      { title: 'Hypoallergenic', description: 'Hypoallergenic and resistant to mold and mildew. Can be refinished similar to hardwood flooring.' },
+      { title: 'Hypoallergenic & Mold Resistant', description: 'Hypoallergenic and naturally resistant to mold and mildew. Can be refinished similar to hardwood flooring.' },
       { title: 'Versatile Installation', description: 'Can be installed as glue down or floating product. Available in natural color, stained, or painted in a variety of colors and sizes.' },
     ],
     composition: 'Cork flooring is made by removing the bark of the Cork Oak (Quercus Suber), predominantly found in Spain and Portugal. Cork bark is usually harvested every nine years, often from the same tree, which is a much faster rate of renewal than waiting for a seedling to grow large enough to harvest. Cork is a renewable, recyclable, and biodegradable raw material that minimally impacts the environment and produces very little waste. For flooring products, cork is ground up, compressed, and formed into blocks or sheets bonded with polyurethane. Cork is available in homogeneous direct gluedown, heterogeneous direct gluedown, and floating floor with click system constructions.',
@@ -267,7 +275,7 @@ const FLOORING_FALLBACK: Record<string, any> = {
       'Biodegradable.',
       'Natural thermal and acoustic insulator — thicker cork offers better insulation.',
       'Soft underfoot and can provide ergonomic relief.',
-      'Hypoallergenic and resistant to mold and mildew.',
+      'Naturally resistant to mold and mildew.',
       'Can be installed as a glue down or floating product.',
       'Can be refinished, similar to hardwood flooring.',
       'Note: Cork can fade in direct sunlight and can be dented, punctured, or scratched. Requires sealing with wax, polyurethane, or vinyl sealant. Not recommended for rooms that get wet.',

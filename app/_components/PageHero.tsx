@@ -36,14 +36,14 @@ export function PageHero({ label, heading, subheading, theme = 'light', pattern 
   const t = themeClasses[theme]
 
   return (
-    <section className={`${t.bg} pt-32 pb-12 md:pt-36 md:pb-16 lg:pt-40 lg:pb-20 ${theme === 'light' ? 'border-b border-black/5' : ''} ${pattern ? 'relative overflow-hidden' : ''}`}>
+    <section className={`${t.bg} py-16 md:py-20 lg:py-24 ${theme === 'light' ? 'border-b border-black/5' : ''} ${pattern ? 'relative overflow-hidden' : ''}`}>
       {pattern && <HeroPattern type={pattern} onDark={theme !== 'light'} />}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
         <SectionReveal>
           <div className={`text-label font-bold tracking-widest uppercase ${t.label} mb-4`}>
             {label}
           </div>
-          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight ${t.heading} mb-6`}>
+          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-display font-light leading-[1.1] ${t.heading} mb-6`}>
             {heading}
           </h1>
           {subheading && (

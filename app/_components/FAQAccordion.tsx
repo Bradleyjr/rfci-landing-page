@@ -45,7 +45,7 @@ export function FAQAccordion({ faqs, className }: { faqs: FAQItem[]; className?:
                 className="overflow-hidden"
               >
                 <div className="pb-5">
-                  <p className="text-rfci-black/60 leading-relaxed font-light">{faq.answer}</p>
+                  <p className="text-base text-rfci-black/60 leading-relaxed font-light">{faq.answer}</p>
                 </div>
               </motion.div>
             )}

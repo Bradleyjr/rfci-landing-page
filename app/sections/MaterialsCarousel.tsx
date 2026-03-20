@@ -3,7 +3,6 @@
 import { useRef, useEffect, useState } from 'react'
 import { ArrowRight, ArrowLeft, ArrowsLeftRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
-import { TAG_STYLES } from '../_lib/transforms'
 import { FLOORING_TYPES } from '../_data/flooring-types'
 import { SITE_SETTINGS } from '../_data/site-settings'
 
@@ -39,7 +38,7 @@ export function MaterialsCarousel() {
         <SectionReveal className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">The Categories</div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight">
+            <h2 className="text-4xl md:text-5xl font-display font-light leading-tight">
               {SITE_SETTINGS.materialsHeading}
             </h2>
           </div>
@@ -48,80 +47,96 @@ export function MaterialsCarousel() {
               aria-label="Scroll left"
               onClick={() => scrollCarousel('left')}
               disabled={carouselProgress <= 0.01}
-              className="w-14 h-14 border border-rfci-light-gray flex items-center justify-center hover:bg-rfci-white hover:border-rfci-black transition-all group disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-rfci-light-gray"
+              className="w-14 h-14 border border-rfci-light-gray flex items-center justify-center hover:bg-rfci-white hover:border-rfci-black transition-all duration-200 group disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-rfci-light-gray"
             >
-              <ArrowLeft className="w-5 h-5 group-hover:group-enabled:-translate-x-1 transition-transform" />
+              <ArrowLeft className="w-5 h-5 group-hover:group-enabled:-translate-x-1 transition-transform duration-200" />
             </button>
             <button
               aria-label="Scroll right"
               onClick={() => scrollCarousel('right')}
               disabled={carouselProgress >= 0.99}
-              className="w-14 h-14 border border-rfci-light-gray flex items-center justify-center hover:bg-rfci-white hover:border-rfci-black transition-all group disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-rfci-light-gray"
+              className="w-14 h-14 border border-rfci-light-gray flex items-center justify-center hover:bg-rfci-white hover:border-rfci-black transition-all duration-200 group disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-transparent disabled:hover:border-rfci-light-gray"
             >
-              <ArrowRight className="w-5 h-5 group-hover:group-enabled:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 group-hover:group-enabled:translate-x-1 transition-transform duration-200" />
             </button>
           </div>
         </SectionReveal>
 
-        <div className="flex items-center gap-2 md:hidden text-rfci-black/50 text-xs font-bold uppercase tracking-widest mb-6 px-6">
+        <div className="flex items-center gap-2 md:hidden text-rfci-black/50 text-xs font-bold uppercase tracking-widest mb-6">
           <ArrowsLeftRight className="w-4 h-4 animate-pulse" /> Swipe to explore
         </div>
 
         <div className="relative">
-        <div
-          ref={carouselRef}
-          className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 md:gap-8 pb-12 pt-4 -mt-4"
-        >
-          {FLOORING_TYPES.map((type, idx) => {
-            const tags = (type.tags ?? []).map(tag => ({
-              label: tag.label,
-              ...(TAG_STYLES[tag.variant] ?? TAG_STYLES.gray),
-            }))
+          <div
+            ref={carouselRef}
+            className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-5 md:gap-6 pb-12 pt-4 -mt-4"
+          >
+            {FLOORING_TYPES.map((type, idx) => {
+              const slug = getSlug(type.title, type.slug)
+              const image = type.carouselImage ?? type.productImage
 
-            return (
-              <SectionReveal key={idx} direction="right" delay={idx * 0.08} className="snap-start shrink-0 w-[85vw] sm:w-[360px] md:w-[440px] group">
-                <a href={`/flooring/${getSlug(type.title, type.slug)}`} className="block bg-rfci-white p-8 md:p-10 h-[500px] md:h-[550px] flex flex-col relative overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(1,100,219,0.1)] hover:-translate-y-2 border border-black/5 hover:border-rfci-blue/30">
-                  {/* Blue line reveal at top */}
-                  <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-rfci-blue transition-all duration-500 z-10" />
-
-                  <div className="flex flex-col items-start mb-8 relative z-10 w-[80%]">
-                    <h3 className="text-3xl md:text-4xl font-display font-light tracking-tight text-rfci-black mb-3">{type.title}</h3>
-                    <span className="text-label font-bold tracking-widest uppercase text-rfci-black/60">{type.subtitle}</span>
-                  </div>
-
-                  <p className="text-rfci-black/60 relative z-10 w-[85%] leading-relaxed font-light line-clamp-3 mb-6">
-                    {type.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 relative z-10 w-[85%]">
-                    {tags.map((tag, tagIdx) => (
-                      <span key={tagIdx} className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-label font-bold uppercase tracking-widest ${tag.style}`}>
-                        {tag.dot && <span className={`w-1.5 h-1.5 rounded-full ${tag.dot}`} />}
-                        {tag.label}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Abstract color graphic */}
-                  <div
-                    className="absolute -right-20 -bottom-32 w-80 h-[120%] z-0 transform rotate-[15deg] shadow-[0_0_40px_rgba(0,0,0,0.1)] border-l-[12px] border-t-[12px] border-white/80 group-hover:rotate-[10deg] group-hover:scale-105 transition-all duration-700 ease-out"
-                    style={{ backgroundColor: type.accentColor ?? '#9CA3AF' }}
+              return (
+                <SectionReveal
+                  key={idx}
+                  direction="right"
+                  delay={idx * 0.06}
+                  className="snap-start shrink-0 w-[80vw] sm:w-[340px] md:w-[400px] group"
+                >
+                  <a
+                    href={`/flooring/${slug}`}
+                    className="block relative overflow-hidden aspect-[4/5] border border-black/5 hover:border-rfci-blue/20 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(1,100,219,0.08)]"
                   >
-                    <div className="absolute inset-0 opacity-[0.15] mix-blend-multiply" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }} />
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-black/10" />
-                  </div>
+                    {/* Product texture/swatch as background */}
+                    {image ? (
+                      <img
+                        src={image}
+                        alt={`${type.title} flooring`}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                    ) : (
+                      /* Fallback: solid accent color when no image is available */
+                      <div
+                        className="absolute inset-0"
+                        style={{ backgroundColor: type.accentColor ?? '#9CA3AF' }}
+                      />
+                    )}
 
-                  {/* Always visible on mobile, hover-reveal on desktop */}
-                  <div className="mt-auto pt-6 relative z-10 md:translate-y-4 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300">
-                    <span className="bg-white text-rfci-black py-3.5 px-8 text-sm font-semibold shadow-sm group-hover:bg-rfci-black group-hover:text-white group-hover:shadow-lg transition-all duration-200 inline-flex items-center gap-2">
-                      Learn More <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </div>
-                </a>
-              </SectionReveal>
-            )
-          })}
-        </div>
+                    {/* Gradient overlay — base + hover layer for smooth transition */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+                    {/* Bottom content — title at bottom, description slides in below on hover */}
+                    <div className="absolute bottom-0 left-0 right-0 z-10 p-6 md:p-8">
+                      {/* Title + chips — always visible */}
+                      <h3 className="text-2xl md:text-3xl font-display font-light text-white leading-tight">
+                        {type.title}
+                      </h3>
+                      {type.tags && type.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-1.5 mt-3">
+                          {type.tags.map((tag: { label: string; variant: string }, tagIdx: number) => (
+                            <span key={tagIdx} className="inline-flex items-center px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest bg-rfci-cream text-rfci-black/70">
+                              {tag.label}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Description + CTA — slides in BELOW the title on hover */}
+                      <div className="md:max-h-0 md:opacity-0 md:group-hover:max-h-40 md:group-hover:opacity-100 overflow-hidden transition-all duration-500 ease-out">
+                        <p className="text-white/80 text-sm leading-relaxed font-light line-clamp-2 mt-4">
+                          {type.description}
+                        </p>
+                        <span className="inline-flex items-center gap-2 bg-white text-rfci-black px-6 py-3 text-sm font-semibold hover:bg-rfci-blue hover:text-white transition-colors duration-200 mt-4">
+                          Learn More <ArrowRight className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </SectionReveal>
+              )
+            })}
+          </div>
+
           {/* Right fade */}
           <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
         </div>

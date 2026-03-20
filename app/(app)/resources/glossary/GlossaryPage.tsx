@@ -59,7 +59,7 @@ export function GlossaryPage({ entries }: { entries: GlossaryEntry[] }) {
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
               placeholder="Search terms, acronyms, and definitions..."
-              className="w-full rounded-lg border border-black/10 bg-white py-3 pl-12 pr-4 text-rfci-black placeholder:text-rfci-black/40 focus:border-rfci-blue focus:outline-none transition-colors"
+              className="w-full rounded-lg border border-black/10 bg-white py-3 pl-12 pr-4 text-rfci-black placeholder:text-rfci-black/40 focus:border-rfci-blue focus:outline-none transition-colors duration-200"
             />
           </div>
 
@@ -114,16 +114,16 @@ export function GlossaryPage({ entries }: { entries: GlossaryEntry[] }) {
                         <SectionReveal key={entry.term} delay={index * 0.04}>
                           <article
                             id={glossarySlug(entry.term)}
-                            className="rounded-sm border border-black/5 bg-white p-6 md:p-8 scroll-mt-40"
+                            className="border border-black/5 bg-white p-6 md:p-8 scroll-mt-40"
                           >
                             <div className="mb-4 flex flex-wrap items-start justify-between gap-4">
                               <div>
                                 <div className="mb-2 text-label font-bold tracking-widest uppercase text-rfci-blue">
                                   {entry.category}
                                 </div>
-                                <h2 className="text-2xl md:text-3xl font-display font-light text-rfci-black">
+                                <h3 className="text-xl md:text-2xl font-display font-light text-rfci-black">
                                   {entry.term}
-                                </h2>
+                                </h3>
                               </div>
 
                               {entry.aliases.length > 0 && (
@@ -154,7 +154,7 @@ export function GlossaryPage({ entries }: { entries: GlossaryEntry[] }) {
                                     <Link
                                       key={term}
                                       href={glossaryHref(term)}
-                                      className="rounded-full border border-rfci-blue/20 px-3 py-1 text-label font-bold uppercase tracking-widest text-rfci-blue hover:bg-rfci-blue hover:text-white transition-colors"
+                                      className="rounded-full border border-rfci-blue/20 px-3 py-1 text-label font-bold uppercase tracking-widest text-rfci-blue hover:bg-rfci-blue hover:text-white transition-colors duration-200"
                                     >
                                       {term}
                                     </Link>
@@ -171,9 +171,9 @@ export function GlossaryPage({ entries }: { entries: GlossaryEntry[] }) {
             </div>
           ) : (
             <SectionReveal>
-              <div className="rounded-sm border border-black/5 bg-white p-10 text-center">
-                <h2 className="mb-3 text-2xl font-display font-light text-rfci-black">No glossary matches</h2>
-                <p className="mx-auto max-w-xl text-rfci-black/60 font-light leading-relaxed">
+              <div className="border border-black/5 bg-white p-10 text-center">
+                <h2 className="mb-3 text-4xl md:text-5xl font-display font-light text-rfci-black">No glossary matches</h2>
+                <p className="text-base mx-auto max-w-xl text-rfci-black/60 font-light leading-relaxed">
                   Try a broader keyword or choose a different letter to explore RFCI terminology.
                 </p>
               </div>

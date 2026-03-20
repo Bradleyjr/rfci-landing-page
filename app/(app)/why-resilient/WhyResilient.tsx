@@ -14,7 +14,7 @@ const HISTORY_MILESTONES = [
   { year: '1933', title: 'Vinyl Composition Tile Arrives', description: 'VCT enters the market as a durable, affordable option for schools, hospitals, and other high-traffic commercial interiors.' },
   { year: '1950s', title: 'Sheet Vinyl Expands', description: 'Post-war construction accelerates the use of sheet vinyl and other resilient formats across homes and commercial projects.' },
   { year: '1990s', title: 'Luxury Vinyl Gains Momentum', description: 'LVT and LVP bring more realistic wood and stone visuals to the resilient category while keeping the maintenance advantages of hard-surface flooring.' },
-  { year: '2010s', title: 'Rigid Core Reshapes the Category', description: 'SPC and WPC rigid core products expand floating installation options and accelerate demand for waterproof resilient flooring systems.' },
+  { year: '2010s', title: 'Rigid Core Reshapes the Category', description: 'SPC and WPC rigid core products expand floating installation options and accelerate demand for dimensionally stable, moisture-resistant resilient flooring.' },
   { year: 'Today', title: 'A Full Portfolio of Solutions', description: 'Resilient flooring now spans sheet, tile, plank, rubber, linoleum, cork, and rigid core constructions for nearly every project type.' },
 ]
 
@@ -46,31 +46,30 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
         label="Why Resilient"
         heading={<>Why <span className="font-semibold text-rfci-blue">resilient flooring?</span></>}
         subheading={pageData?.heroSubheading || 'Resilient flooring continues to earn specifications across healthcare, education, retail, housing, hospitality, and workplace settings because it balances performance, maintenance, comfort, and design flexibility.'}
-        photo={{ src: '/media/mission/advocacy-engagement.jpg', alt: 'RFCI advocacy and industry engagement' }}
-        reverse
+        photo={{ src: '/images/inspiration/applications/workplace/FF_14582_Herringbone_Charcoal_RS_150DPI.jpg', alt: 'Herringbone pattern resilient flooring in modern interior' }}
       />
 
       {/* Editorial Lede */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
-            <SectionReveal>
-              <p className="text-2xl md:text-3xl font-display font-light leading-relaxed text-rfci-black">
-                Resilient flooring keeps showing up where projects need <span className="font-semibold">performance, cleanability, and design flexibility.</span>
-              </p>
-              <p className="text-rfci-black/50 font-light leading-relaxed mt-8">
-                The reasons are practical, not trendy. Across healthcare, education, housing, retail, hospitality, and workplace interiors, resilient flooring continues to earn specifications because it balances maintenance, comfort, durability, and sustainability.
-              </p>
-            </SectionReveal>
-            <SectionReveal direction="right">
+            <SectionReveal direction="left">
               <div className="relative">
                 <img
-                  src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=1200&auto=format&fit=crop"
+                  src="/images/inspiration/applications/homes/APX134-RS-Mokuzai-Sapling.jpg"
                   alt="Modern interior with resilient flooring"
                   className="w-full aspect-[4/3] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-rfci-black/20 to-transparent" />
               </div>
+            </SectionReveal>
+            <SectionReveal direction="right">
+              <p className="text-2xl md:text-3xl font-display font-light leading-relaxed text-rfci-black">
+                Resilient flooring keeps showing up where projects need <span className="font-semibold">performance, cleanability, and design flexibility.</span>
+              </p>
+              <p className="text-lg text-rfci-black/60 font-light leading-relaxed mt-8">
+                The reasons are practical, not trendy. Across healthcare, education, housing, retail, hospitality, and workplace interiors, resilient flooring continues to earn specifications because it balances maintenance, comfort, durability, and sustainability.
+              </p>
             </SectionReveal>
           </div>
         </div>
@@ -81,7 +80,7 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="mb-12 md:mb-16">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">The Advantages</div>
-            <h2 className="text-3xl md:text-4xl font-display font-light">
+            <h2 className="text-4xl md:text-5xl font-display font-light">
               Eight reasons resilient <span className="font-semibold">keeps earning the spec.</span>
             </h2>
           </SectionReveal>
@@ -91,10 +90,10 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
               <SectionReveal key={idx} delay={(idx % 4) * 0.06}>
                 <div className="bg-rfci-cream p-8 md:p-10 h-full group hover:bg-white transition-colors duration-200">
                   <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">{benefit.keyword}</div>
-                  <h3 className="text-xl font-display font-light text-rfci-black mb-3 group-hover:text-rfci-blue transition-colors duration-200">
+                  <h3 className="text-xl md:text-2xl font-display font-light text-rfci-black mb-3 group-hover:text-rfci-blue transition-colors duration-200">
                     {benefit.title}
                   </h3>
-                  <p className="text-sm text-rfci-black/60 leading-relaxed font-light">
+                  <p className="text-base text-rfci-black/60 leading-relaxed font-light">
                     {benefit.description}
                   </p>
                 </div>
@@ -110,28 +109,28 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <SectionReveal>
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Sustainability</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light mb-6">
+              <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
                 Built for the planet, <span className="font-semibold">built to last.</span>
               </h2>
-              <p className="text-rfci-black/60 leading-relaxed font-light mb-6">
+              <p className="text-lg text-rfci-black/60 leading-relaxed font-light mb-6">
                 Resilient flooring manufacturers continue to reduce environmental impact through responsible sourcing,
                 low-emitting product programs, lifecycle reporting, material health transparency, and end-of-life recovery efforts.
                 RFCI certification and declaration programs provide independent, third-party tools that help specifiers evaluate those commitments.
               </p>
-              <a href="/certifications" className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all">
-                Explore Certifications <ArrowRight className="w-4 h-4" />
+              <a href="/certifications/floorscore" className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200">
+                Explore FloorScore <ArrowRight className="w-4 h-4" />
               </a>
             </SectionReveal>
 
             <SectionReveal direction="right">
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-rfci-cream p-6 border border-black/5">
-                  <div className="text-3xl font-display font-bold text-rfci-blue mb-2">10k+</div>
-                  <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50">FloorScore Certified Products</div>
-                </div>
-                <div className="bg-rfci-cream p-6 border border-black/5">
                   <div className="text-3xl font-display font-bold text-rfci-blue mb-2">4</div>
                   <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50">Core RFCI certification and declaration programs</div>
+                </div>
+                <div className="bg-rfci-cream p-6 border border-black/5">
+                  <div className="text-3xl font-display font-bold text-rfci-blue mb-2">9</div>
+                  <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50">Resilient flooring types covered by RFCI EPDs</div>
                 </div>
                 <div className="bg-rfci-cream p-6 border border-black/5 col-span-2">
                   <div className="text-3xl font-display font-bold text-rfci-blue mb-2">SPC + WPC</div>
@@ -151,7 +150,7 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="mb-12">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">FAQ</div>
-            <h2 className="text-3xl md:text-4xl font-display font-light">
+            <h2 className="text-4xl md:text-5xl font-display font-light">
               Common <span className="font-semibold">questions.</span>
             </h2>
           </SectionReveal>
@@ -174,13 +173,13 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <SectionReveal>
-            <h2 className="text-3xl md:text-4xl font-display font-light mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
               Explore the <span className="font-semibold text-rfci-blue">full range.</span>
             </h2>
             <p className="text-lg text-rfci-black/60 font-light max-w-2xl mx-auto mb-10">
               From luxury vinyl tile to linoleum, rubber to cork&mdash;discover the specific properties and applications of each resilient flooring type.
             </p>
-            <a href="/flooring" className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors">
+            <a href="/flooring" className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200">
               View All Flooring Types <ArrowRight className="w-4 h-4" />
             </a>
           </SectionReveal>

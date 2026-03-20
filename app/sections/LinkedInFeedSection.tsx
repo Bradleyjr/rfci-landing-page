@@ -13,7 +13,7 @@ const FAKE_POSTS = [
     handle: 'resilient-floor-covering-institute',
     time: '2d',
     text: 'Exciting news from RFCI! Our members continue to lead the way in resilient flooring innovation, sustainability, and product transparency. Learn how certified resilient flooring supports healthier indoor environments.',
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=600&auto=format&fit=crop',
+    image: '/images/inspiration/applications/workplace/Gen_2235DL_Alta_RS.jpg',
     likes: 47,
     comments: 12,
     reposts: 5,
@@ -24,7 +24,7 @@ const FAKE_POSTS = [
     handle: 'resilient-floor-covering-institute',
     time: '5d',
     text: 'RFCI is proud to support the development of rigorous industry standards that give architects and designers confidence in their material selections. #ResilientFlooring #Sustainability',
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=600&auto=format&fit=crop',
+    image: '/images/inspiration/applications/homes/LLP330-Worn-Fabric-Oak-Kitchen-Hallway-P2_CM.jpg',
     likes: 83,
     comments: 24,
     reposts: 11,
@@ -35,7 +35,7 @@ const FAKE_POSTS = [
     handle: 'resilient-floor-covering-institute',
     time: '1w',
     text: 'From EPDs to FloorScore certification, RFCI members are committed to product transparency and environmental stewardship. Discover how resilient flooring is advancing green building goals.',
-    image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=600&auto=format&fit=crop',
+    image: '/images/inspiration/applications/retail/KP138-Grey-Limed-Oak-Retail-LS_CM.jpg',
     likes: 62,
     comments: 8,
     reposts: 3,
@@ -64,7 +64,7 @@ export function LinkedInFeedSection() {
             <LinkedinLogo className="w-4 h-4" weight="fill" />
             <span className="relative">
               <span className="relative z-10 flex items-center gap-2">
-                Follow on LinkedIn <ArrowSquareOut className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                Follow on LinkedIn <ArrowSquareOut className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
               </span>
               <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-blue group-hover:w-full transition-all duration-300 ease-out" />
             </span>

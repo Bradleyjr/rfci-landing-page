@@ -7,11 +7,11 @@ export const metadata: Metadata = {
     template: '%s | RFCI',
   },
   description:
-    'The voice of the resilient flooring industry, advancing the category through standards, sustainability, and education.',
+    'A voice for the resilient flooring industry, advancing the category through standards, sustainability, and education.',
   openGraph: {
     type: 'website',
     siteName: 'RFCI – Resilient Floor Covering Institute',
-    description: 'The voice of the resilient flooring industry, advancing the category through standards, sustainability, and education.',
+    description: 'A voice for the resilient flooring industry, advancing the category through standards, sustainability, and education.',
   },
 }
 

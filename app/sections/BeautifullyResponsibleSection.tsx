@@ -40,7 +40,7 @@ export function BeautifullyResponsibleSection() {
               className="inline-flex items-center gap-3 px-8 py-3.5 bg-white text-rfci-black text-sm font-semibold hover:bg-rfci-blue hover:text-white transition-all duration-300 group"
             >
               Visit BeautifullyResponsible.com
-              <ArrowSquareOut className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowSquareOut className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
           </SectionReveal>
         </div>

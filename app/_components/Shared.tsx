@@ -15,7 +15,6 @@ const navItems = [
       { label: 'Why Resilient', href: '/why-resilient', desc: 'What makes resilient flooring a smart choice for your space.', icon: Leaf },
       { label: 'Flooring Types', href: '/flooring', desc: 'Explore the full range of resilient flooring products.', icon: FileText },
       { label: 'Inspiration Gallery', href: '/inspiration', desc: 'Real installations showcasing resilient flooring in action.', icon: Images },
-      { label: 'Educational Videos', href: '/videos', desc: 'Short videos covering products, installation, and performance.', icon: PlayCircle },
       { label: 'Resources', href: '/resources', desc: 'Technical documents, standards, and sustainability guides.', icon: FileText },
       { label: 'Glossary', href: '/resources/glossary', desc: 'A searchable A–Z reference for resilient flooring terminology.', icon: FileText },
     ],
@@ -78,7 +77,7 @@ export const Navigation = ({
 
   const isActive = (item: typeof navItems[0]) => {
     if (item.href) return pathname === item.href
-    if (item.megaMenu) return item.megaMenu.some(child => pathname.startsWith(child.href))
+    if (item.megaMenu) return item.megaMenu.some(child => pathname === child.href || pathname.startsWith(child.href + '/'))
     return false
   }
 
@@ -94,7 +93,7 @@ export const Navigation = ({
   return (
     <>
       <nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`sticky top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
             ? 'bg-white/95 backdrop-blur-md border-b border-black/5 py-4 shadow-sm'
             : 'bg-white/90 backdrop-blur-md border-b border-black/5 py-6'
@@ -160,7 +159,13 @@ export const Navigation = ({
               <div className={`flex gap-8 ${item.highlight ? '' : ''}`}>
                 <div className={`grid gap-4 ${item.megaMenu!.length > 4 ? 'grid-cols-3' : 'grid-cols-2'} ${item.highlight ? 'flex-1' : 'max-w-[860px]'}`}>
                   {item.megaMenu!.map((megaItem) => {
-                    const isMegaActive = pathname === megaItem.href || pathname.startsWith(megaItem.href + '/')
+                    // A sibling child has a more-specific exact match — don't let a shorter prefix claim active state
+                    const exactSiblingMatch = item.megaMenu!.some(
+                      sibling => sibling.href !== megaItem.href && pathname === sibling.href
+                    )
+                    const isMegaActive =
+                      pathname === megaItem.href ||
+                      (!exactSiblingMatch && pathname.startsWith(megaItem.href + '/'))
                     return (
                       <a
                         key={megaItem.label}
@@ -196,7 +201,7 @@ export const Navigation = ({
                       className="flex flex-col items-center justify-center text-center p-6 bg-rfci-cream/50 hover:bg-rfci-cream transition-colors group/hl flex-1"
                     >
                       {item.highlight.logo ? (
-                        <img src={item.highlight.logo} alt={item.highlight.label} className="h-[84px] w-auto mb-4 opacity-70 group-hover/hl:opacity-100 transition-opacity" />
+                        <img src={item.highlight.logo} alt={item.highlight.label} className="h-[84px] w-auto mb-4 opacity-70 group-hover/hl:opacity-100 transition-opacity duration-300" />
                       ) : (
                         <div className="w-12 h-12 bg-rfci-blue/10 flex items-center justify-center text-rfci-blue group-hover/hl:bg-rfci-blue group-hover/hl:text-white transition-colors mb-4">
                           <ArrowSquareOut className="w-6 h-6" />
@@ -297,7 +302,7 @@ export const Footer = () => (
             The Resilient Floor Covering Institute represents the manufacturers and suppliers behind resilient flooring—working together on standards, certifications, and education.
           </p>
           <div className="flex gap-4">
-            <a href="https://www.linkedin.com/company/resilient-floor-covering-institute/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-rfci-blue transition-colors">
+            <a href="https://www.linkedin.com/company/resilient-floor-covering-institute/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-rfci-blue transition-colors duration-200">
               <LinkedinLogo className="w-4 h-4" weight="fill" />
             </a>
           </div>
@@ -306,33 +311,32 @@ export const Footer = () => (
         <div className="lg:col-span-2 lg:col-start-7">
           <h4 className="font-bold tracking-widest uppercase text-label text-white/40 mb-6">About</h4>
           <ul className="space-y-4 text-sm text-white/70">
-            <li><a href="/about" className="hover:text-rfci-blue transition-colors">About RFCI</a></li>
-            <li><a href="/members" className="hover:text-rfci-blue transition-colors">Member Directory</a></li>
-            <li><a href="/contact" className="hover:text-rfci-blue transition-colors">Contact</a></li>
+            <li><a href="/about" className="hover:text-rfci-blue transition-colors duration-200">About RFCI</a></li>
+            <li><a href="/members" className="hover:text-rfci-blue transition-colors duration-200">Member Directory</a></li>
+            <li><a href="/contact" className="hover:text-rfci-blue transition-colors duration-200">Contact</a></li>
           </ul>
         </div>
 
         <div className="lg:col-span-2">
           <h4 className="font-bold tracking-widest uppercase text-label text-white/40 mb-6">Resources</h4>
           <ul className="space-y-4 text-sm text-white/70">
-            <li><a href="/why-resilient" className="hover:text-rfci-blue transition-colors">Why Resilient</a></li>
-            <li><a href="/flooring" className="hover:text-rfci-blue transition-colors">Flooring Types</a></li>
-            <li><a href="/inspiration" className="hover:text-rfci-blue transition-colors">Inspiration Gallery</a></li>
-            <li><a href="/resources" className="hover:text-rfci-blue transition-colors">Resources</a></li>
-            <li><a href="/resources/glossary" className="hover:text-rfci-blue transition-colors">Glossary</a></li>
-            <li><a href="/videos" className="hover:text-rfci-blue transition-colors">Educational Videos</a></li>
+            <li><a href="/why-resilient" className="hover:text-rfci-blue transition-colors duration-200">Why Resilient</a></li>
+            <li><a href="/flooring" className="hover:text-rfci-blue transition-colors duration-200">Flooring Types</a></li>
+            <li><a href="/inspiration" className="hover:text-rfci-blue transition-colors duration-200">Inspiration Gallery</a></li>
+            <li><a href="/resources" className="hover:text-rfci-blue transition-colors duration-200">Resources</a></li>
+            <li><a href="/resources/glossary" className="hover:text-rfci-blue transition-colors duration-200">Glossary</a></li>
 
-            <li><a href="https://rfci.ecomedes.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rfci-blue transition-colors">Ecomedes</a></li>
+            <li><a href="https://rfci.ecomedes.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rfci-blue transition-colors duration-200">Ecomedes</a></li>
           </ul>
         </div>
 
         <div className="lg:col-span-2">
           <h4 className="font-bold tracking-widest uppercase text-label text-white/40 mb-6">Sustainability</h4>
           <ul className="space-y-4 text-sm text-white/70">
-            <li><a href="/certifications/floorscore" className="hover:text-rfci-blue transition-colors">FloorScore®</a></li>
-            <li><a href="/certifications/assure" className="hover:text-rfci-blue transition-colors">ASSURE® Certified</a></li>
-            <li><a href="/certifications/affirm" className="hover:text-rfci-blue transition-colors">AFFIRM™ Certified</a></li>
-            <li><a href="/certifications/epd" className="hover:text-rfci-blue transition-colors">EPDs</a></li>
+            <li><a href="/certifications/floorscore" className="hover:text-rfci-blue transition-colors duration-200">FloorScore®</a></li>
+            <li><a href="/certifications/assure" className="hover:text-rfci-blue transition-colors duration-200">ASSURE® Certified</a></li>
+            <li><a href="/certifications/affirm" className="hover:text-rfci-blue transition-colors duration-200">AFFIRM™ Certified</a></li>
+            <li><a href="/certifications/epd" className="hover:text-rfci-blue transition-colors duration-200">EPDs</a></li>
           </ul>
         </div>
       </div>
@@ -352,14 +356,14 @@ export const Footer = () => (
             <Phone className="w-4 h-4 mt-0.5 shrink-0 text-rfci-blue" />
             <div>
               <div className="font-medium text-white/80 mb-1">Phone</div>
-              <a href="tel:+17068822710" className="hover:text-rfci-blue transition-colors">(706) 882-2710</a>
+              <a href="tel:+17068822710" className="hover:text-rfci-blue transition-colors duration-200">(706) 882-2710</a>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <EnvelopeSimple className="w-4 h-4 mt-0.5 shrink-0 text-rfci-blue" />
             <div>
               <div className="font-medium text-white/80 mb-1">Email</div>
-              <a href="mailto:info@rfci.com" className="hover:text-rfci-blue transition-colors">info@rfci.com</a>
+              <a href="mailto:info@rfci.com" className="hover:text-rfci-blue transition-colors duration-200">info@rfci.com</a>
             </div>
           </div>
         </div>
@@ -368,9 +372,9 @@ export const Footer = () => (
       <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/40 mt-16 pt-8 border-t border-white/10">
         <p>&copy; {new Date().getFullYear()} Resilient Floor Covering Institute. All rights reserved.</p>
         <div className="flex gap-6">
-          <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="/terms-conditions" className="hover:text-white transition-colors">Terms &amp; Conditions</a>
-          <a href="/contact" className="hover:text-white transition-colors">Contact</a>
+          <a href="/privacy-policy" className="hover:text-white transition-colors duration-200">Privacy Policy</a>
+          <a href="/terms-conditions" className="hover:text-white transition-colors duration-200">Terms &amp; Conditions</a>
+          <a href="/contact" className="hover:text-white transition-colors duration-200">Contact</a>
         </div>
       </div>
     </div>

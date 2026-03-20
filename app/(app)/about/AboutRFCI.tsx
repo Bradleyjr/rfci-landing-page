@@ -36,7 +36,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
       {/* Hero */}
       <PhotoPageHero
         label="About RFCI"
-        heading={<>The voice of <span className="font-semibold">resilient flooring.</span></>}
+        heading={<>A voice for <span className="font-semibold">resilient flooring.</span></>}
         subheading={aboutPage?.heroSubheading || "Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America's resilient flooring industry — representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring."}
         photo={{ src: '/media/community/board-of-directors-2025.jpeg', alt: 'RFCI Board of Directors 2025' }}
       >
@@ -52,7 +52,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <SectionReveal>
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Who We Are</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light mb-6">
+              <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
                 A non-profit <span className="font-semibold">trade association</span>
               </h2>
               <p className="text-rfci-black/60 leading-relaxed font-light text-lg">
@@ -64,7 +64,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
               <div className="bg-rfci-cream p-10 md:p-12">
                 <div className="text-5xl md:text-6xl font-display font-bold text-rfci-blue mb-4">50</div>
                 <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-6">Years of industry leadership</div>
-                <p className="text-rfci-black/60 font-light leading-relaxed">
+                <p className="text-base text-rfci-black/60 font-light leading-relaxed">
                   Since 1976, RFCI has served as the unifying voice for resilient flooring — driving standards, advancing sustainability, and connecting the industry.
                 </p>
               </div>
@@ -78,7 +78,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="mb-16">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Our Strategic Focus</div>
-            <h2 className="text-3xl md:text-4xl font-display font-light">
+            <h2 className="text-4xl md:text-5xl font-display font-light">
               Five pillars that <span className="font-semibold">drive the industry.</span>
             </h2>
           </SectionReveal>
@@ -114,7 +114,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                       <div className={`md:col-span-4 font-display font-semibold transition-colors duration-300 ${activePillar === idx ? 'text-white' : 'text-white/50'}`}>
                         {pillar.title}
                       </div>
-                      <div className={`md:col-span-7 text-sm font-light leading-relaxed transition-colors duration-300 ${activePillar === idx ? 'text-white/70' : 'text-white/30'}`}>
+                      <div className={`md:col-span-7 text-base font-light leading-relaxed transition-colors duration-300 ${activePillar === idx ? 'text-white/70' : 'text-white/30'}`}>
                         {pillar.description}
                       </div>
                     </div>
@@ -132,7 +132,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Board Companies</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light">
+              <h2 className="text-4xl md:text-5xl font-display font-light">
                 Led by the <span className="font-semibold">industry’s best.</span>
               </h2>
             </SectionReveal>
@@ -146,7 +146,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                       {logoSrc ? (
                         <img src={logoSrc} alt={member.name} className="max-w-full max-h-full object-contain mix-blend-multiply grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" />
                       ) : (
-                        <span className="text-xs font-medium text-rfci-black/40 text-center group-hover:text-rfci-blue transition-colors">{member.name}</span>
+                        <span className="text-xs font-medium text-rfci-black/40 text-center group-hover:text-rfci-blue transition-colors duration-200">{member.name}</span>
                       )}
                     </a>
                   </SectionReveal>
@@ -155,7 +155,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
             </div>
 
             <SectionReveal className="mt-10 text-center">
-              <a href="/members" className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all">
+              <a href="/members" className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200">
                 View Full Member Directory <ArrowRight className="w-4 h-4" />
               </a>
             </SectionReveal>
@@ -169,7 +169,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Testimonials</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light">
+              <h2 className="text-4xl md:text-5xl font-display font-light">
                 Hear from the <span className="font-semibold">industry.</span>
               </h2>
             </SectionReveal>
@@ -180,7 +180,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                     href={video.videoUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group block h-full overflow-hidden rounded-sm border border-black/5 bg-white transition-all duration-200 hover:border-rfci-blue/20 hover:shadow-lg"
+                    className="group block h-full overflow-hidden border border-black/5 bg-white transition-all duration-200 hover:border-rfci-blue/20 hover:shadow-lg"
                   >
                     <div className="relative aspect-video overflow-hidden bg-rfci-black/10">
                       {video.thumbnailUrl ? (
@@ -200,10 +200,10 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                       <div className="mb-3 text-label font-bold uppercase tracking-widest text-rfci-blue">
                         {video.company} · {video.segment}
                       </div>
-                      <h2 className="mb-3 text-2xl font-display font-light leading-tight text-rfci-black">
+                      <h3 className="mb-3 text-xl md:text-2xl font-display font-light leading-tight text-rfci-black">
                         {video.title}
-                      </h2>
-                      <p className="text-rfci-black/60 font-light leading-relaxed">&ldquo;{video.quote}&rdquo;</p>
+                      </h3>
+                      <p className="text-base text-rfci-black/60 font-light leading-relaxed">&ldquo;{video.quote}&rdquo;</p>
                     </div>
                   </a>
                 </SectionReveal>
@@ -213,19 +213,63 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
         </section>
       )}
 
+      {/* Community Photo Gallery */}
+      <section className="py-20 md:py-28 bg-rfci-cream">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionReveal className="mb-12">
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Community</div>
+            <h2 className="text-4xl md:text-5xl font-display font-light">
+              Our members in <span className="font-semibold">action.</span>
+            </h2>
+          </SectionReveal>
+
+          <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+            {[
+              { src: '/media/community/all-member-spring-meeting-2025.jpeg', caption: 'All-Member Spring Meeting 2025' },
+              { src: '/media/community/reception-fall-2024.jpeg', caption: 'Fall Reception 2024' },
+              { src: '/media/community/technical-committee-2025.jpeg', caption: 'Technical Committee 2025' },
+              { src: '/media/community/spring-reception-2025.jpeg', caption: 'Spring Reception 2025' },
+              { src: '/media/community/board-of-directors-2025.jpeg', caption: 'Board of Directors 2025' },
+              { src: '/media/community/fall-meeting-tuscon-2025.jpeg', caption: 'Fall Meeting — Tucson 2025' },
+              { src: '/media/community/dinner-fall-2024.jpeg', caption: 'Dinner — Fall 2024' },
+              { src: '/media/community/sea-island-reception-2024.jpeg', caption: 'Sea Island Reception 2024' },
+              { src: '/media/community/chat-spring-meeting-2023.jpeg', caption: 'Spring Meeting 2023' },
+              { src: '/media/community/technical-meeting-fall-2024.jpeg', caption: 'Technical Meeting — Fall 2024' },
+              { src: '/media/community/lunch-all-member-meeting.jpeg', caption: 'All-Member Meeting Lunch' },
+              { src: '/media/community/golf-tournament-winners.jpeg', caption: 'Golf Tournament Winners' },
+            ].map((photo, index) => (
+              <SectionReveal key={photo.src} delay={(index % 4) * 0.06}>
+                <div className="group relative overflow-hidden bg-rfci-black/5 break-inside-avoid">
+                  <img
+                    src={photo.src}
+                    alt={photo.caption}
+                    className="w-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-rfci-black/0 group-hover:bg-rfci-black/40 transition-colors duration-500 flex items-end">
+                    <span className="w-full px-4 py-3 text-xs font-semibold tracking-wide text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-t from-rfci-black/60 to-transparent">
+                      {photo.caption}
+                    </span>
+                  </div>
+                </div>
+              </SectionReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 bg-rfci-blue">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <SectionReveal>
-            <h2 className="text-2xl md:text-3xl font-display font-light text-white mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-light text-white mb-6">
               See why resilient flooring leads the industry.
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/why-resilient" className="inline-flex items-center justify-center gap-2 bg-white text-rfci-black px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black hover:text-white transition-colors">
+              <a href="/why-resilient" className="inline-flex items-center justify-center gap-2 bg-white text-rfci-black px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black hover:text-white transition-colors duration-200">
                 Why Resilient <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="/certifications" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-3.5 text-sm font-semibold hover:bg-white/10 transition-colors">
-                Our Certifications <ArrowRight className="w-4 h-4" />
+              <a href="/certifications/floorscore" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-3.5 text-sm font-semibold hover:bg-white/10 transition-colors duration-200">
+                FloorScore Certification <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </SectionReveal>

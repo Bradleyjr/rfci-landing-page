@@ -6,8 +6,8 @@
   --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
 
   /* ── Type scale ──────────────────────────────────────────────────── */
-  /* Sub-xs label: 11px. Used for ALL-CAPS eyebrows/micro-labels only. */
-  --text-label: 0.6875rem;
+  /* Label text: 12px. Used for ALL-CAPS eyebrows/micro-labels only. */
+  --text-label: 0.75rem;
 
   /* ── Brand palette ───────────────────────────────────────────────── */
   --color-rfci-blue: #0164DB;

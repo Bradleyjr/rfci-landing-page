@@ -2,6 +2,7 @@ export type Certification = {
   slug: string
   title: string
   iconName: 'shieldCheck' | 'seal' | 'certificate' | 'globe'
+  logoUrl?: string
   description: string
   image?: { url: string }
   stats?: Array<{ value: string; label: string }>
@@ -15,6 +16,7 @@ export type Certification = {
   processLabel?: string
   processHeading?: string
   getStartedText?: string
+  getStartedDescription?: string
   getStartedUrl?: string
   ctaText?: string
   ctaUrl?: string
@@ -26,13 +28,14 @@ export const CERTIFICATIONS: Certification[] = [
     slug: 'floorscore',
     title: 'FloorScore\u00ae',
     iconName: 'shieldCheck',
-    description: 'FloorScore\u00ae is the flooring industry\'s most recognized indoor air quality (IAQ) certification. Independently administered by SCS Global Services, it verifies that a product meets California Section 01350 VOC emissions standards \u2014 one of the most stringent IAQ benchmarks in the world.',
+    logoUrl: '/media/cert-logos/floorscore.svg',
+    description: 'FloorScore\u00ae is the flooring industry\'s most recognized indoor air quality (IAQ) certification. Independently administered by SCS Global Services, it verifies that a product meets California Section 01350 VOC emissions standards \u2014 one of the stringent IAQ benchmarks in the world.',
     stats: [
       { value: 'CA 01350', label: 'Emissions Standard' },
       { value: 'SCS Global', label: 'Certification Body' },
     ],
     benefits: [
-      { title: 'Indoor Air Quality Protection', description: 'Certifies that VOC emissions meet California Section 01350 \u2014 the most stringent IAQ standard for building materials in North America.' },
+      { title: 'Indoor Air Quality Protection', description: 'Certifies that VOC emissions meet California Section 01350 \u2014 a stringent IAQ standard for building materials in North America.' },
       { title: 'Independent SCS Verification', description: 'SCS Global Services reviews all emissions test reports, determines compliance, and conducts periodic manufacturing plant inspections.' },
       { title: 'LEED & Green Building Credits', description: 'Recognized by LEED, WELL, BREEAM, CHPS, Green Globes, and many other green building rating systems.' },
       { title: 'Healthier Occupant Environments', description: 'Most people spend over 90% of their time indoors. FloorScore-certified products contribute measurably to cleaner air and healthier occupants.' },
@@ -78,25 +81,28 @@ export const CERTIFICATIONS: Certification[] = [
     ],
     certifiedProductsUrl: 'https://www.scsglobalservices.com/certified-green-products-guide?category=63&program=25',
     getStartedText: 'Apply for FloorScore Certification',
+    getStartedDescription: 'FloorScore certification is administered by SCS Global Services. Contact SCS to submit your product for emissions testing and begin the certification process.',
     getStartedUrl: 'https://www.scsglobalservices.com/services/floorscore',
     ctaText: 'Find FloorScore Certified Products',
     ctaUrl: 'https://www.scsglobalservices.com/certified-green-products-guide?category=63&program=25',
+    image: { url: '/images/inspiration/applications/homes/KLO09-RS.jpg' },
     order: 1,
   },
   {
     slug: 'assure',
     title: 'ASSURE\u00ae Certified',
     iconName: 'seal',
+    logoUrl: '/media/cert-logos/assure.svg',
     description: 'ASSURE\u00ae Certified was developed by RFCI to establish uniform quality standards for all rigid core luxury flooring (WPC and SPC) sold in North America, regardless of where it is manufactured. Products are independently tested and certified by SCS Global Services.',
     stats: [
       { value: 'WPC + SPC', label: 'Rigid Core Products' },
-      { value: '100PPM', label: 'Max Heavy Metals' },
+      { value: 'SCS Global', label: 'Certification Body' },
     ],
     benefits: [
       { title: 'Indoor Air Quality Assurance', description: 'Products must comply with CDPH Standard Method v1.2 at half the corresponding CREL \u2014 a stricter IAQ threshold than many competing certifications.' },
       { title: 'Performance & Vertical Deflection', description: 'Products must pass ASTM F3261 performance testing and include vertical deflection evaluation to confirm rigid core structural integrity under load.' },
-      { title: 'Heavy Metals Free', description: 'Tested for lead, hexavalent chromium, cadmium, and mercury via EPA SW 846 Method 3052. Total combined limit: 100 PPM.' },
-      { title: 'Ortho-Phthalates Free', description: 'Products cannot exceed 1,000 PPM for any individual or combined ortho-phthalates \u2014 tested per ASTM F3414, CPSC-CH-C1001-09.4, or GB/T 22048-2008.' },
+      { title: 'Heavy Metals Screened', description: 'Tested for lead, hexavalent chromium, cadmium, and mercury via EPA SW 846 Method 3052. Products must meet established concentration thresholds.' },
+      { title: 'Ortho-Phthalates Screened', description: 'Products are tested for individual and combined ortho-phthalates per ASTM F3414, CPSC-CH-C1001-09.4, or GB/T 22048-2008 and must meet established concentration limits.' },
       { title: 'Supply Chain Transparency', description: 'Manufacturers must maintain quality control procedures covering material suppliers, product traceability, chain of custody, and internal QC testing.' },
       { title: 'Specifier Confidence', description: 'ASSURE helps architects, designers, retailers, and end users identify rigid core products that meet a consistent, independently verified quality benchmark.' },
     ],
@@ -114,6 +120,7 @@ export const CERTIFICATIONS: Certification[] = [
     ],
     certifiedProductsUrl: 'https://www.scsglobalservices.com/certified-green-products-guide?category=63&program=349',
     getStartedText: 'Start ASSURE Certification',
+    getStartedDescription: 'ASSURE certification is administered by SCS Global Services. Reach out to begin the application process, arrange independent testing, and schedule a manufacturing facility audit.',
     getStartedUrl: 'mailto:remelander@scsglobalservices.com',
     contactInfo: {
       name: 'Rob Emelander',
@@ -123,12 +130,14 @@ export const CERTIFICATIONS: Certification[] = [
     },
     ctaText: 'Find ASSURE Certified Products',
     ctaUrl: 'https://www.scsglobalservices.com/certified-green-products-guide?category=63&program=349',
+    image: { url: '/images/inspiration/applications/homes/72200-RS.jpg' },
     order: 2,
   },
   {
     slug: 'affirm',
     title: 'AFFIRM\u2122 Certified',
     iconName: 'certificate',
+    logoUrl: '/media/cert-logos/affirm.svg',
     description: 'AFFIRM\u2122 Certified is a sustainability certification for resilient flooring based on an ANSI-accredited consensus standard. It evaluates products across environmental, health & wellness, and social impact categories \u2014 with two certification levels and independent third-party verification.',
     stats: [
       { value: 'ANSI', label: 'Accredited Standard' },
@@ -159,9 +168,11 @@ export const CERTIFICATIONS: Certification[] = [
     ],
     certifiedProductsUrl: 'https://rfci.ecomedes.com/',
     getStartedText: 'Learn About AFFIRM Certification',
+    getStartedDescription: 'AFFIRM certification is developed through an ANSI-accredited process administered by NSF. Visit NSF to learn how to participate and pursue certification for your products.',
     getStartedUrl: 'https://www.nsf.org/standards-development/participate-nsf-standards-development',
     ctaText: 'Find AFFIRM Certified Products',
     ctaUrl: 'https://rfci.ecomedes.com/',
+    image: { url: '/images/inspiration/applications/workplace/LLP332-Urban-Fabric-Oak-Lobby-P2_CM.jpg' },
     order: 3,
   },
   {
@@ -210,6 +221,7 @@ export const CERTIFICATIONS: Certification[] = [
     ],
     ctaText: 'View All EPDs on RFCI.com',
     ctaUrl: 'https://rfci.com/environmental-product-declaration/',
+    image: { url: '/images/inspiration/applications/workplace/Contour_LVT_Arrowroot_RS.jpg' },
     order: 4,
   },
 ]

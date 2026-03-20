@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight, Atom, DownloadSimple, FileText, CaretDown, Envelope, Phone, ArrowSquareOut, CheckCircle } from '@phosphor-icons/react'
+import { Atom, DownloadSimple, FileText, CaretDown, Envelope, Phone, ArrowSquareOut, CheckCircle } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { PageLayout } from '../../../_components/PageLayout'
 import { SectionReveal } from '../../../_components/SectionReveal'
@@ -10,7 +10,6 @@ import { CertificationHero } from './CertificationHero'
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function CertificationDetail({ certification: cert, otherCertifications }: { certification: any; otherCertifications: any[] }) {
   const benefits: Array<{ title: string; description: string }> = cert.benefits ?? []
-  const process: Array<{ step: string; description: string }> = cert.process ?? []
   const stats: Array<{ value: string; label: string }> = cert.stats ?? []
   const downloads: Array<{ title: string; description?: string; file?: { url?: string }; url?: string; year?: string; category?: string; isLink?: boolean }> = cert.downloads ?? []
   const faqs: Array<{ question: string; answer: string }> = cert.faqs ?? []
@@ -34,7 +33,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
         <section className="py-20 md:py-28 bg-white">
           <div className="max-w-3xl mx-auto px-6 md:px-12 prose prose-lg prose-rfci">
             {/* TODO: Render Lexical rich text when content is available */}
-            <p className="text-rfci-black/70 leading-relaxed font-light">
+            <p className="text-base text-rfci-black/70 leading-relaxed font-light">
               Detailed content will appear here once added through the CMS.
             </p>
           </div>
@@ -47,7 +46,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-16">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Key Benefits</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light">
+              <h2 className="text-4xl md:text-5xl font-display font-light">
                 Why <span className="font-semibold">{cert.title}</span>
               </h2>
             </SectionReveal>
@@ -62,10 +61,10 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                       </span>
                     </div>
                     <div className="md:col-span-3">
-                      <h3 className="text-lg font-display font-semibold">{benefit.title}</h3>
+                      <h3 className="text-xl md:text-2xl font-display font-light">{benefit.title}</h3>
                     </div>
                     <div className="md:col-span-8">
-                      <p className="text-rfci-black/60 text-sm leading-relaxed">{benefit.description}</p>
+                      <p className="text-rfci-black/60 text-base leading-relaxed">{benefit.description}</p>
                     </div>
                   </div>
                 </SectionReveal>
@@ -76,48 +75,26 @@ export function CertificationDetail({ certification: cert, otherCertifications }
       )}
 
       {/* Certification Process */}
-      {process.length > 0 && (
+      {cert.getStartedUrl && (
         <section className="py-20 md:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <SectionReveal className="mb-16">
+            <SectionReveal className="mb-10">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">{cert.processLabel || 'The Process'}</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light">
-                {cert.processHeading ? cert.processHeading : <>How to get <span className="font-semibold">certified</span></>}
+              <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
+                How to get <span className="font-semibold">certified</span>
               </h2>
+              <p className="text-base text-rfci-black/60 font-light leading-relaxed max-w-2xl mb-8">
+                {cert.getStartedDescription || 'Certification is administered by an independent third-party body. Contact the certifying organization directly to begin your application, submit product documentation, and arrange testing.'}
+              </p>
+              <a
+                href={cert.getStartedUrl}
+                target={cert.getStartedUrl.startsWith('mailto:') ? undefined : '_blank'}
+                rel={cert.getStartedUrl.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                className="inline-flex items-center gap-3 px-8 py-3.5 bg-rfci-blue text-white text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
+              >
+                {cert.getStartedText || 'Get Started'} <ArrowSquareOut className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+              </a>
             </SectionReveal>
-
-            <div className="max-w-3xl">
-              {process.map((step, i) => (
-                <SectionReveal key={i} delay={i * 0.08}>
-                  <div className="flex gap-6 pb-10 relative">
-                    {/* Vertical line */}
-                    {i < process.length - 1 && (
-                      <div className="absolute left-5 top-10 bottom-0 w-px bg-rfci-light-gray/50" />
-                    )}
-                    <div className="w-10 h-10 bg-rfci-blue text-white flex items-center justify-center shrink-0 text-sm font-bold relative z-10">
-                      {i + 1}
-                    </div>
-                    <div className="pt-1">
-                      <h3 className="text-lg font-display font-medium mb-2">{step.step}</h3>
-                      <p className="text-rfci-black/60 text-sm leading-relaxed font-light">{step.description}</p>
-                    </div>
-                  </div>
-                </SectionReveal>
-              ))}
-
-              {cert.getStartedUrl && (
-                <SectionReveal delay={process.length * 0.08}>
-                  <a
-                    href={cert.getStartedUrl}
-                    target={cert.getStartedUrl.startsWith('mailto:') ? undefined : '_blank'}
-                    rel={cert.getStartedUrl.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                    className="inline-flex items-center gap-3 mt-4 px-8 py-3.5 bg-rfci-blue text-white text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
-                  >
-                    {cert.getStartedText || 'Get Started'} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </a>
-                </SectionReveal>
-              )}
-            </div>
           </div>
         </section>
       )}
@@ -128,7 +105,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-16">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Resources</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light">
+              <h2 className="text-4xl md:text-5xl font-display font-light">
                 Links & <span className="font-semibold">documents</span>
               </h2>
             </SectionReveal>
@@ -137,7 +114,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
               <div key={category} className="mb-12 last:mb-0">
                 {Object.keys(downloadCategories).length > 1 && (
                   <SectionReveal>
-                    <h3 className="text-xl font-display font-medium text-rfci-black mb-6">{category}</h3>
+                    <h3 className="text-xl md:text-2xl font-display font-light text-rfci-black mb-6">{category}</h3>
                   </SectionReveal>
                 )}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -161,7 +138,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                               </span>
                             )}
                           </div>
-                          <h4 className="text-sm font-display font-medium text-rfci-black mb-1 leading-snug group-hover:text-rfci-blue transition-colors">
+                          <h4 className="text-lg font-display font-medium text-rfci-black mb-1 leading-snug group-hover:text-rfci-blue transition-colors duration-200">
                             {dl.title}
                           </h4>
                           {dl.description && (
@@ -191,7 +168,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-16">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">FAQ</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light">
+              <h2 className="text-4xl md:text-5xl font-display font-light">
                 Frequently asked <span className="font-semibold">questions</span>
               </h2>
             </SectionReveal>
@@ -213,7 +190,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Recognition</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light">
+              <h2 className="text-4xl md:text-5xl font-display font-light">
                 Programs that recognize <span className="font-semibold">{cert.title}</span>
               </h2>
             </SectionReveal>
@@ -238,7 +215,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal>
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Start Your Certification</div>
-              <h2 className="text-2xl md:text-3xl font-display font-light mb-8">
+              <h2 className="text-4xl md:text-5xl font-display font-light mb-8">
                 Contact <span className="font-semibold">{contactInfo.organization}</span>
               </h2>
               <div className="flex flex-wrap gap-8">
@@ -246,10 +223,10 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                   <div className="font-display font-medium text-lg">{contactInfo.name}</div>
                   <div className="text-sm text-rfci-black/60 mb-3">{contactInfo.organization}</div>
                   <div className="flex flex-col gap-2">
-                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="inline-flex items-center gap-2 text-sm text-rfci-blue hover:text-rfci-blue/80 transition-colors">
+                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="inline-flex items-center gap-2 text-sm text-rfci-blue hover:text-rfci-blue/80 transition-colors duration-200">
                       <Phone size={16} /> {contactInfo.phone}
                     </a>
-                    <a href={`mailto:${contactInfo.email}`} className="inline-flex items-center gap-2 text-sm text-rfci-blue hover:text-rfci-blue/80 transition-colors">
+                    <a href={`mailto:${contactInfo.email}`} className="inline-flex items-center gap-2 text-sm text-rfci-blue hover:text-rfci-blue/80 transition-colors duration-200">
                       <Envelope size={16} /> {contactInfo.email}
                     </a>
                   </div>
@@ -268,9 +245,9 @@ export function CertificationDetail({ certification: cert, otherCertifications }
               href={cert.ctaUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-white text-lg font-display font-medium hover:gap-4 transition-all"
+              className="inline-flex items-center gap-3 text-white text-lg font-display font-medium hover:gap-4 transition-all duration-200"
             >
-              {cert.ctaText || 'Learn More'} <ArrowRight className="w-5 h-5" />
+              {cert.ctaText || 'Learn More'} <ArrowSquareOut className="w-5 h-5" />
             </a>
           </div>
         </section>
@@ -281,7 +258,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
         <section className="py-20 md:py-28 bg-rfci-cream">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-display font-light">
+              <h2 className="text-4xl md:text-5xl font-display font-light">
                 Explore other <span className="font-semibold text-rfci-blue">certifications</span>
               </h2>
             </SectionReveal>
@@ -295,10 +272,10 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                       href={`/certifications/${other.slug}`}
                       className="group block p-8 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200"
                     >
-                      <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center mb-4 text-rfci-blue group-hover:bg-rfci-blue group-hover:text-white transition-colors">
+                      <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center mb-4 text-rfci-blue group-hover:bg-rfci-blue group-hover:text-white transition-colors duration-200">
                         <OtherIcon className="w-5 h-5" />
                       </div>
-                      <h3 className="text-xl font-display font-light group-hover:text-rfci-blue transition-colors mb-2">
+                      <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors mb-2">
                         {other.title}
                       </h3>
                       <p className="text-sm text-rfci-black/60 font-light line-clamp-2">{other.description}</p>
@@ -329,7 +306,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-start justify-between gap-4 text-left group"
       >
-        <h3 className="text-base font-display font-medium group-hover:text-rfci-blue transition-colors">{question}</h3>
+        <h4 className="text-lg font-display font-medium group-hover:text-rfci-blue transition-colors duration-200">{question}</h4>
         <CaretDown
           size={20}
           weight="bold"
@@ -340,7 +317,7 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
         className={`grid transition-[grid-template-rows] duration-200 ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
       >
         <div className="overflow-hidden">
-          <p className="text-sm text-rfci-black/60 leading-relaxed font-light pt-3">{answer}</p>
+          <p className="text-base text-rfci-black/60 leading-relaxed font-light pt-3">{answer}</p>
         </div>
       </div>
     </div>

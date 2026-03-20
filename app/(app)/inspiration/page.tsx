@@ -1,4 +1,4 @@
-import { InspirationGallery } from './InspirationGallery'
+import { InspirationGrid } from './InspirationGrid'
 import { INSPIRATION_PAGE } from '../../_data/pages'
 import { INSPIRATION_PROJECTS } from '../../_data/inspiration-projects'
 import { FLOORING_TYPES } from '../../_data/flooring-types'
@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function InspirationRoute() {
   return (
-    <InspirationGallery
+    <InspirationGrid
       projects={INSPIRATION_PROJECTS}
       flooringTypes={FLOORING_TYPES}
       environments={ENVIRONMENTS}

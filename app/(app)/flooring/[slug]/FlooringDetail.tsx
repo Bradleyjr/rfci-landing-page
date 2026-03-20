@@ -20,18 +20,20 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
   const advantages: string[] = ft.advantages ?? []
   const composition: string = ft.composition ?? ''
   const installation: string = ft.installation ?? ''
+  const diagrams: Array<{ url: string; label: string }> = ft.diagrams ?? []
 
   // Build dynamic section list based on available content
   const sections = useMemo(() => {
     const s: Array<{ id: string; label: string }> = []
     if (composition) s.push({ id: 'composition', label: 'Composition' })
+    if (diagrams.length > 0) s.push({ id: 'construction', label: 'Construction' })
     if (features.length > 0) s.push({ id: 'features', label: 'Features' })
     if (advantages.length > 0) s.push({ id: 'advantages', label: 'Advantages' })
     if (installation) s.push({ id: 'installation', label: 'Installation' })
     if (applications.length > 0) s.push({ id: 'applications', label: 'Applications' })
     if (relatedCerts.length > 0) s.push({ id: 'certifications', label: 'Certifications' })
     return s
-  }, [composition, features.length, advantages.length, installation, applications.length, relatedCerts.length])
+  }, [composition, diagrams.length, features.length, advantages.length, installation, applications.length, relatedCerts.length])
 
   // Measure main nav bottom on scroll so sticky nav always sits flush below it
   const [navBottom, setNavBottom] = useState(0)
@@ -39,7 +41,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
   const sectionNavRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const mainNav = document.querySelector('nav.fixed') as HTMLElement | null
+    const mainNav = document.querySelector('nav.sticky') as HTMLElement | null
     if (!mainNav) return
 
     const measure = () => {
@@ -98,7 +100,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="pt-28 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32 relative overflow-hidden" style={{ backgroundColor: ft.accentColor ? `${ft.accentColor}15` : '#F5F5F0' }}>
+      <section className="py-16 md:py-20 lg:py-24 relative overflow-hidden" style={{ backgroundColor: ft.accentColor ? `${ft.accentColor}15` : '#F5F5F0' }}>
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal>
             <a href="/flooring" className="inline-flex items-center gap-2 text-sm text-rfci-black/50 hover:text-rfci-blue transition-colors mb-8">
@@ -108,7 +110,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
             {/* Color accent */}
             <div className="w-16 h-1 mb-6" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight mb-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-[1.1] mb-3">
               {ft.title}
             </h1>
             <div className="text-label font-bold tracking-widest uppercase text-rfci-black/60 mb-6">
@@ -173,7 +175,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
               <SectionReveal className="lg:col-span-2">
                 <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
                 <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Composition</div>
-                <h2 className="text-3xl md:text-4xl font-display font-light">
+                <h2 className="text-4xl md:text-5xl font-display font-light">
                   What it&rsquo;s <span className="font-semibold">made of</span>
                 </h2>
               </SectionReveal>
@@ -187,14 +189,49 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
         </section>
       )}
 
+      {/* Construction Diagrams */}
+      {diagrams.length > 0 && (
+        <section id="construction" className="py-20 md:py-28 bg-white" style={{ scrollMarginTop: scrollOffset }}>
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <SectionReveal className="mb-16">
+              <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
+              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Construction</div>
+              <h2 className="text-4xl md:text-5xl font-display font-light">
+                How it&rsquo;s <span className="font-semibold">built</span>
+              </h2>
+            </SectionReveal>
+
+            <div className={`grid gap-10 md:gap-14 ${diagrams.length > 1 ? 'md:grid-cols-2' : 'max-w-3xl mx-auto'}`}>
+              {diagrams.map((diagram, i) => (
+                <SectionReveal key={i} delay={i * 0.1}>
+                  <div className="flex flex-col items-center gap-4">
+                    <img
+                      src={diagram.url}
+                      alt={`${ft.title} ${diagram.label} construction diagram`}
+                      className="w-full object-contain"
+                      loading="lazy"
+                    />
+                    {diagrams.length > 1 && (
+                      <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50">
+                        {diagram.label}
+                      </div>
+                    )}
+                  </div>
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Features */}
       {features.length > 0 && (
         <section id="features" className="py-20 md:py-28 bg-rfci-cream" style={{ scrollMarginTop: scrollOffset }}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-16">
               <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
-              <h2 className="text-3xl md:text-4xl font-display font-medium">
-                Key features
+              <h2 className="text-4xl md:text-5xl font-display font-light">
+                Key <span className="font-semibold">features</span>
               </h2>
             </SectionReveal>
 
@@ -202,8 +239,8 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
               {features.map((feature, i) => (
                 <SectionReveal key={i} delay={i * 0.08}>
                   <div className="bg-white p-8 border-t-2 border-black/5" style={{ borderTopColor: ft.accentColor ?? '#9CA3AF' }}>
-                    <h3 className="text-lg font-display font-medium mb-3">{feature.title}</h3>
-                    <p className="text-rfci-black/60 text-sm leading-relaxed font-light">{feature.description}</p>
+                    <h3 className="text-xl md:text-2xl font-display font-light mb-3">{feature.title}</h3>
+                    <p className="text-rfci-black/60 text-base leading-relaxed font-light">{feature.description}</p>
                   </div>
                 </SectionReveal>
               ))}
@@ -220,10 +257,10 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
               <SectionReveal className="lg:col-span-2">
                 <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
                 <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Advantages</div>
-                <h2 className="text-3xl md:text-4xl font-display font-light mb-4">
+                <h2 className="text-4xl md:text-5xl font-display font-light mb-4">
                   Why choose <span className="font-semibold">{ft.title}</span>
                 </h2>
-                <p className="text-rfci-black/50 font-light leading-relaxed">
+                <p className="text-base text-rfci-black/50 font-light leading-relaxed">
                   The key benefits that make {ft.title} a trusted choice across residential and commercial environments.
                 </p>
               </SectionReveal>
@@ -252,7 +289,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
               <SectionReveal className="lg:col-span-2">
                 <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
                 <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Installation</div>
-                <h2 className="text-3xl md:text-4xl font-display font-light">
+                <h2 className="text-4xl md:text-5xl font-display font-light">
                   How it&rsquo;s <span className="font-semibold">installed</span>
                 </h2>
               </SectionReveal>
@@ -273,7 +310,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
             <SectionReveal className="mb-16">
               <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Applications</div>
-              <h2 className="text-3xl md:text-4xl font-display font-light">
+              <h2 className="text-4xl md:text-5xl font-display font-light">
                 Where <span className="font-semibold">{ft.title}</span> excels
               </h2>
             </SectionReveal>
@@ -282,8 +319,8 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
               {applications.map((app, i) => (
                 <SectionReveal key={i} delay={i * 0.08}>
                   <div className="bg-white p-8 border border-black/5">
-                    <h3 className="text-lg font-display font-medium mb-2">{app.environment}</h3>
-                    <p className="text-rfci-black/60 text-sm leading-relaxed font-light">{app.description}</p>
+                    <h3 className="text-xl md:text-2xl font-display font-light mb-2">{app.environment}</h3>
+                    <p className="text-rfci-black/60 text-base leading-relaxed font-light">{app.description}</p>
                   </div>
                 </SectionReveal>
               ))}
@@ -298,8 +335,8 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
               <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
-              <h2 className="text-3xl md:text-4xl font-display font-medium">
-                Applicable certifications
+              <h2 className="text-4xl md:text-5xl font-display font-light">
+                Applicable <span className="font-semibold">certifications</span>
               </h2>
             </SectionReveal>
 
@@ -310,7 +347,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
                     href={`/certifications/${cert.slug}`}
                     className="group block p-8 bg-rfci-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200"
                   >
-                    <h3 className="text-xl font-display font-light group-hover:text-rfci-blue transition-colors mb-2">
+                    <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors mb-2">
                       {cert.title}
                     </h3>
                     <p className="text-sm text-rfci-black/60 font-light line-clamp-2 mb-4">{cert.description}</p>
@@ -333,7 +370,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
         <section className="py-16 md:py-20 bg-rfci-cream overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 md:px-12 mb-10">
             <SectionReveal>
-              <h2 className="text-2xl md:text-3xl font-display font-light">
+              <h2 className="text-4xl md:text-5xl font-display font-light">
                 Explore other <span className="font-semibold text-rfci-blue">flooring types</span>
               </h2>
             </SectionReveal>
@@ -352,7 +389,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
                   href={`/flooring/${other.slug}`}
                   className="group flex-shrink-0 w-64 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 p-6"
                 >
-                  <h3 className="text-lg font-display font-light group-hover:text-rfci-blue transition-colors mb-1">
+                  <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors mb-1">
                     {other.title}
                   </h3>
                   <span className="text-label font-bold tracking-widest uppercase text-rfci-black/50">
@@ -447,18 +484,18 @@ function InspirationParallax({ title, accentColor }: { title: string; accentColo
     >
       <div className="sticky top-0 h-screen overflow-hidden bg-rfci-cream">
         {/* Header */}
-        <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-rfci-cream via-rfci-cream/80 to-transparent pt-16 pb-28 px-6 md:px-12">
-          <div className="max-w-7xl mx-auto">
+        <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-rfci-cream via-rfci-cream/80 to-transparent pt-16 pb-28">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: accentColor ?? '#9CA3AF' }} />
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">In Action</div>
-            <h2 className="text-3xl md:text-4xl font-display font-light">
+            <h2 className="text-4xl md:text-5xl font-display font-light">
               See <span className="font-semibold">{title}</span> in real spaces
             </h2>
           </div>
         </div>
 
-        {/* Scattered editorial images */}
-        <div className="absolute inset-0 max-w-7xl mx-auto left-0 right-0 px-6 md:px-12">
+        {/* Scattered editorial images — centered via calc to match max-w-7xl container */}
+        <div className="absolute inset-0" style={{ left: 'max(1.5rem, calc((100% - 80rem) / 2 + 1.5rem))', right: 'max(1.5rem, calc((100% - 80rem) / 2 + 1.5rem))' }}>
           {galleryImages.map((project, i) => {
             const p = PLACEMENTS[i]
             return (
@@ -488,7 +525,7 @@ function InspirationParallax({ title, accentColor }: { title: string; accentColo
             className="inline-flex items-center gap-2 text-rfci-blue font-display font-medium text-lg hover:gap-3 transition-all group"
           >
             Browse the Inspiration Gallery
-            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
           </a>
         </div>
       </div>

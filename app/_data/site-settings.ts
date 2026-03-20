@@ -16,9 +16,9 @@ export const SITE_SETTINGS = {
   // Why Resilient
   whyResilientHeading: 'Why Resilient',
   whyResilientSubheading: 'Built for performance across every sector.',
-  whyResilientStatValue: '65',
-  whyResilientStatSuffix: '%',
-  whyResilientStatLabel: 'of hard surface flooring in North America',
+  whyResilientStatValue: 'No. 1',
+  whyResilientStatSuffix: '',
+  whyResilientStatLabel: 'hard surface flooring category in North America',
   whyResilientBenefits: [
     { title: 'Easy Maintenance', description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.' },
     { title: 'Moisture Performance', description: 'Depending on the construction, resilient flooring can offer strong water-resistant or waterproof performance for demanding interiors.' },
@@ -29,7 +29,7 @@ export const SITE_SETTINGS = {
 
   // Mission
   missionLabel: 'About RFCI',
-  missionHeading: 'The voice of',
+  missionHeading: 'A voice for',
   missionHeadingItalic: 'resilient flooring.',
   missionFoundedText: 'Est. 1976 \u00b7 LaGrange, Georgia',
   missionDescription1: 'Founded in 1976, RFCI is the non-profit trade association representing and protecting the resilient flooring industry in ways that no single manufacturer can.',

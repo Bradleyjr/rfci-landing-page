@@ -37,7 +37,7 @@ export function VideoDetail({ resource, relatedResources }: { resource: any; rel
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="bg-rfci-cream pt-28 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32">
+      <section className="bg-rfci-cream py-16 md:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal>
             <Link href="/resources" className="inline-flex items-center gap-2 text-sm text-rfci-black/50 hover:text-rfci-blue transition-colors mb-10">
@@ -52,7 +52,7 @@ export function VideoDetail({ resource, relatedResources }: { resource: any; rel
                 <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block mb-3 ${typeColor}`}>
                   Video
                 </span>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-light leading-tight">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-[1.1]">
                   {resource.title}
                 </h1>
               </div>
@@ -99,7 +99,7 @@ export function VideoDetail({ resource, relatedResources }: { resource: any; rel
             <div className="lg:col-span-1">
               <SectionReveal delay={0.1}>
                 <div className="bg-rfci-cream/50 border border-black/5 p-8">
-                  <h2 className="text-lg font-display font-medium text-rfci-black mb-4">About this video</h2>
+                  <h3 className="text-xl md:text-2xl font-display font-light text-rfci-black mb-4">About this video</h3>
 
                   {resource.description && (
                     <p className="text-sm text-rfci-black/60 leading-relaxed font-light mb-6">
@@ -119,7 +119,7 @@ export function VideoDetail({ resource, relatedResources }: { resource: any; rel
                       href={resource.externalUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-rfci-blue text-white px-5 py-2.5 text-sm font-semibold hover:bg-rfci-blue/90 transition-colors w-full justify-center"
+                      className="inline-flex items-center gap-2 bg-rfci-blue text-white px-5 py-2.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 w-full justify-center"
                     >
                       View on Course Site <ArrowSquareOut className="w-4 h-4" />
                     </a>
@@ -136,7 +136,7 @@ export function VideoDetail({ resource, relatedResources }: { resource: any; rel
         <section className="py-20 md:py-28 bg-rfci-cream">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-display font-light">
+              <h2 className="text-4xl md:text-5xl font-display font-light">
                 Related <span className="font-semibold text-rfci-blue">resources</span>
               </h2>
             </SectionReveal>
@@ -151,7 +151,7 @@ export function VideoDetail({ resource, relatedResources }: { resource: any; rel
                     <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block mb-4 ${TYPE_COLORS[r.type] || TYPE_COLORS.technical}`}>
                       {r.type}
                     </span>
-                    <h3 className="text-lg font-display font-light group-hover:text-rfci-blue transition-colors mb-2 line-clamp-2">
+                    <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors mb-2 line-clamp-2">
                       {r.title}
                     </h3>
                     <p className="text-sm text-rfci-black/60 font-light line-clamp-2">{r.description}</p>

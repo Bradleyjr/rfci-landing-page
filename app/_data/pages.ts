@@ -1,5 +1,5 @@
 export const ABOUT_PAGE = {
-  heroHeading: 'The voice of resilient flooring.',
+  heroHeading: 'A voice for resilient flooring.',
   heroSubheading: 'Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America\u2019s resilient flooring industry\u2014representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring.',
   missionStatement: 'RFCI is a non-profit organization that brings the resilient flooring industry together to advocate, educate, and lead\u2014advancing the interests of manufacturers, specifiers, and end users alike.',
   strategicPillars: [
@@ -14,8 +14,6 @@ export const ABOUT_PAGE = {
 export const WHY_RESILIENT_PAGE = {
   heroHeading: 'Why resilient flooring?',
   heroSubheading: 'Resilient flooring continues to earn specifications across healthcare, education, retail, housing, hospitality, and workplace settings because it balances performance, maintenance, comfort, and design flexibility.',
-  heroStatValue: '180',
-  heroStatLabel: 'years of resilient flooring innovation',
   benefits: [
     { title: 'Easy Maintenance', description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.' },
     { title: 'Moisture Performance', description: 'Depending on the construction, resilient flooring can offer strong water-resistant or waterproof performance in demanding interiors.' },
@@ -33,7 +31,7 @@ export const WHY_RESILIENT_PAGE = {
     { year: '1950s', title: 'Sheet Vinyl Expands', description: 'Post-war construction accelerates the use of sheet vinyl and other resilient formats across homes and commercial projects.' },
     { year: '1980s', title: 'Resilient Design Broadens', description: 'Manufacturing advances improve visuals, finishes, and maintenance performance for a wider range of applications.' },
     { year: '1990s', title: 'Luxury Vinyl Gains Momentum', description: 'LVT and LVP bring more realistic wood and stone visuals to the resilient category while keeping the maintenance advantages of hard-surface flooring.' },
-    { year: '2010s', title: 'Rigid Core Reshapes the Category', description: 'SPC and WPC rigid core products expand floating installation options and accelerate demand for waterproof resilient flooring systems.' },
+    { year: '2010s', title: 'Rigid Core Reshapes the Category', description: 'SPC and WPC rigid core products expand floating installation options and accelerate demand for dimensionally stable, moisture-resistant resilient flooring.' },
     { year: 'Today', title: 'A Full Portfolio of Solutions', description: 'Resilient flooring now spans sheet, tile, plank, rubber, linoleum, cork, and rigid core constructions for nearly every project type.' },
   ],
 }
@@ -69,8 +67,8 @@ export const MEMBERS_PAGE = {
   heroSubheading: 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.',
   boardSectionHeading: 'Flooring Manufacturers',
   boardSectionDescription: 'RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America \u2014 represented on the RFCI Board of Directors.',
-  associateSectionHeading: 'Supply Chain Partners',
-  associateSectionDescription: 'RFCI Supply Chain Partner members provide the raw materials, additives, adhesives, and components that make resilient flooring possible.',
+  associateSectionHeading: 'Associate Supply Chain Partners',
+  associateSectionDescription: 'RFCI Associate Supply Chain Partner members provide the raw materials, additives, adhesives, and components that make resilient flooring possible.',
 }
 
 export const INSPIRATION_PAGE = {

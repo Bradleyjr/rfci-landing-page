@@ -74,13 +74,13 @@ export function StandardsSection() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         <SectionReveal className="text-center mb-16">
           <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Sustainability</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6">{SITE_SETTINGS.standardsHeading}</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-light mb-6">{SITE_SETTINGS.standardsHeading}</h2>
           <p className="text-xl text-rfci-black/60 max-w-2xl mx-auto font-light">
             {SITE_SETTINGS.standardsSubheading}
           </p>
         </SectionReveal>
 
-        <div className="grid lg:grid-cols-12 gap-12 items-start min-w-0">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start min-w-0">
           {/* Desktop Tabs List */}
           <div className="hidden lg:block lg:col-span-5 space-y-4">
             {CERTIFICATIONS.map((tab) => {
@@ -101,7 +101,7 @@ export function StandardsSection() {
                     <IconComp className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className={`text-2xl font-display font-light tracking-tight transition-colors ${activeTab === tab.slug ? 'text-rfci-black' : 'text-rfci-black/40 group-hover:text-rfci-black/80'}`}>
+                    <h3 className={`text-xl md:text-2xl font-display font-light tracking-tight transition-colors ${activeTab === tab.slug ? 'text-rfci-black' : 'text-rfci-black/40 group-hover:text-rfci-black/80'}`}>
                       {tab.title}
                     </h3>
                   </div>
@@ -114,7 +114,7 @@ export function StandardsSection() {
           <div className="hidden lg:block lg:col-span-7 relative">
             <AnimatePresence mode="wait">
               {CERTIFICATIONS.filter(tab => tab.slug === activeTab).map(tab => {
-                const tabImageUrl = tab.image?.url || 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop'
+                const tabImageUrl = tab.image?.url || '/images/inspiration/applications/workplace/Inc_7800_Ridgeback_RS.jpg'
                 return (
                   <motion.div
                     key={tab.slug}
@@ -126,6 +126,11 @@ export function StandardsSection() {
                   >
                     <div className="relative h-64 md:h-80 shrink-0 overflow-hidden">
                       <img src={tabImageUrl} alt={tab.title} className="w-full h-full object-cover" />
+                      {tab.logoUrl && (
+                        <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm p-4 shadow-lg">
+                          <img src={tab.logoUrl} alt={`${tab.title} logo`} className="h-16 w-auto object-contain brightness-0" />
+                        </div>
+                      )}
                     </div>
                     <div className="p-10 md:p-12 flex-1 flex flex-col justify-between">
                       <p className="text-xl text-rfci-black/70 leading-relaxed mb-10">{tab.description}</p>
@@ -150,7 +155,7 @@ export function StandardsSection() {
           <div className="lg:hidden col-span-full min-w-0 flex flex-col gap-4">
             {CERTIFICATIONS.map((tab) => {
               const IconComp = CERT_ICONS[tab.iconName] ?? FileText
-              const tabImageUrl = tab.image?.url || 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1200&auto=format&fit=crop'
+              const tabImageUrl = tab.image?.url || '/images/inspiration/applications/workplace/Inc_7800_Ridgeback_RS.jpg'
               return (
                 <div key={tab.slug} className="bg-white border border-rfci-black/5 shadow-sm overflow-hidden flex flex-col min-w-0">
                   <button
@@ -167,7 +172,7 @@ export function StandardsSection() {
                       }`}>
                         <IconComp className="w-5 h-5" />
                       </div>
-                      <h3 className={`text-lg sm:text-xl font-display font-light tracking-tight transition-colors truncate ${activeTab === tab.slug ? 'text-rfci-black' : 'text-rfci-black/40'}`}>
+                      <h3 className={`text-xl md:text-2xl font-display font-light tracking-tight transition-colors truncate ${activeTab === tab.slug ? 'text-rfci-black' : 'text-rfci-black/40'}`}>
                         {tab.title}
                       </h3>
                     </div>
@@ -186,6 +191,11 @@ export function StandardsSection() {
                         <div className="p-6 pt-0 flex flex-col min-w-0">
                           <div className="relative h-48 w-full mb-6 mt-4 overflow-hidden">
                             <img src={tabImageUrl} alt={tab.title} className="w-full h-full object-cover" />
+                            {tab.logoUrl && (
+                              <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm p-3 shadow-lg">
+                                <img src={tab.logoUrl} alt={`${tab.title} logo`} className="h-12 w-auto object-contain brightness-0" />
+                              </div>
+                            )}
                           </div>
                           <p className="text-base text-rfci-black/70 leading-relaxed mb-8 break-words">{tab.description}</p>
                           <div className="grid grid-cols-2 gap-4 mb-8 min-w-0">

@@ -10,7 +10,7 @@ export function HistoryStackedReveal({ milestones }: { milestones: Milestone[] }
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionReveal className="mb-16 text-center">
           <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Our History</div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light">
+          <h2 className="text-4xl md:text-5xl font-display font-light">
             A simplified look at <span className="font-semibold">resilient flooring history.</span>
           </h2>
           <p className="mt-4 text-lg text-rfci-black/50 font-light max-w-2xl mx-auto">
@@ -35,11 +35,11 @@ export function HistoryStackedReveal({ milestones }: { milestones: Milestone[] }
                       </div>
                     </div>
                     <div className={`pl-12 md:pl-0 ${isEven ? '' : 'md:order-1'}`}>
-                      <article className="rounded-sm border border-black/5 bg-rfci-cream p-6 md:p-8">
-                        <h3 className="text-2xl md:text-3xl font-display font-light mb-3 text-rfci-black">
+                      <article className="border border-black/5 bg-rfci-cream p-6 md:p-8">
+                        <h3 className="text-xl md:text-2xl font-display font-light mb-3 text-rfci-black">
                           {milestone.title}
                         </h3>
-                        <p className="text-rfci-black/60 font-light leading-relaxed">
+                        <p className="text-base text-rfci-black/60 font-light leading-relaxed">
                           {milestone.description}
                         </p>
                       </article>

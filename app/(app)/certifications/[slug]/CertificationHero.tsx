@@ -1,10 +1,14 @@
 'use client'
 
-import { ArrowLeft, ArrowSquareOut } from '@phosphor-icons/react'
+import { ArrowSquareOut } from '@phosphor-icons/react'
 import { SectionReveal } from '../../../_components/SectionReveal'
-import { CERT_ICONS } from '../../../_lib/transforms'
 
-const CERT_BG = 'bg-rfci-black'
+const CERT_IMAGES: Record<string, string> = {
+  floorscore: '/images/inspiration/applications/homes/KLO09-RS.jpg',
+  assure: '/images/inspiration/applications/homes/72201-RS.jpg',
+  affirm: '/images/inspiration/applications/workplace/Lonseal-Lonbead-Designer-Office.jpg',
+  epd: '/images/inspiration/applications/workplace/Contour_LVT_Arrowroot_RS.jpg',
+}
 
 type CertificationHeroProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -13,34 +17,36 @@ type CertificationHeroProps = {
 }
 
 export function CertificationHero({ cert, stats }: CertificationHeroProps) {
-  const Icon = CERT_ICONS[cert.iconName]
+  const bgImage = cert.image?.url || CERT_IMAGES[cert.slug] || CERT_IMAGES.floorscore
+  const isEpd = cert.slug === 'epd'
 
   return (
-    <section className={`relative overflow-hidden ${CERT_BG} pt-32 pb-12 md:pt-36 md:pb-16 lg:pt-40 lg:pb-20`}>
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12">
-        <SectionReveal>
-          {/* Back link */}
-          <a
-            href="/certifications"
-            className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-10"
-          >
-            <ArrowLeft className="w-4 h-4" /> All Certifications
-          </a>
+    <section className="relative overflow-hidden min-h-[480px] md:min-h-[560px] flex items-center">
+      {/* Full-bleed background image */}
+      <img
+        src={bgImage}
+        alt={cert.title}
+        className="absolute inset-0 w-full h-full object-cover object-center"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-rfci-black/85 via-rfci-black/60 to-rfci-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-rfci-black/50 to-transparent" />
 
-          {/* Icon + label row */}
-          <div className="flex items-center gap-3 mb-4">
-            {Icon && (
-              <div className="w-8 h-8 bg-white/15 flex items-center justify-center shrink-0">
-                <Icon className="w-4 h-4 text-white" />
-              </div>
-            )}
-            <div className="text-label font-bold tracking-widest uppercase text-white/70">
-              Certification
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20 lg:py-24 w-full">
+        <SectionReveal>
+
+          {/* Logo — large, above heading (not for EPD) */}
+          {!isEpd && cert.logoUrl && (
+            <div className="mb-8">
+              <img
+                src={cert.logoUrl}
+                alt={`${cert.title} logo`}
+                className="h-20 md:h-24 w-auto object-contain brightness-0 invert"
+              />
             </div>
-          </div>
+          )}
 
           {/* Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight text-white mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-[1.1] text-white mb-6">
             {cert.title}
           </h1>
 
@@ -55,7 +61,7 @@ export function CertificationHero({ cert, stats }: CertificationHeroProps) {
               href={cert.certifiedProductsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 mt-8 text-white/80 hover:text-white text-sm font-semibold transition-colors"
+              className="inline-flex items-center gap-2 mt-8 text-white/80 hover:text-white text-sm font-semibold transition-colors duration-200"
             >
               View Certified Products <ArrowSquareOut size={18} />
             </a>

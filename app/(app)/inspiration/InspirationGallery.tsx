@@ -16,16 +16,16 @@ import { mediaUrl } from '../../_lib/transforms'
 
 export const PROJECTS_STATIC = [
   { title: 'AHF Fog Residential', imageUrl: 'https://rfci.com/wp-content/uploads/2022/03/1HG2M005_Fog-ROOM-1.jpg', memberName: 'AHF Products', flooringTypeName: 'Rubber', environmentName: 'Homes', description: 'A serene residential installation featuring AHF\'s Fog collection, demonstrating how rubber floor tiles create warm, quiet interiors.' },
-  { title: 'American Biltrite ABPure Cafeteria', imageUrl: 'https://rfci.com/wp-content/uploads/2022/03/abpure_cafeteria_ABS-38-34.jpg', memberName: 'American Biltrite', flooringTypeName: 'Homogeneous Sheet Vinyl', environmentName: 'Education', description: 'ABPure resilient flooring in a high-traffic cafeteria, chosen for hygienic properties and ease of maintenance.' },
-  { title: 'Beauflor Blacktex HD', imageUrl: 'https://rfci.com/wp-content/uploads/2019/06/Sheet-Vinyl-Blacktex-HD-Abstract_Mocha-Celina-Wood_607M.jpg', memberName: 'Beauflor', flooringTypeName: 'Heterogeneous Sheet Vinyl', environmentName: 'Homes', description: 'Premium wood-look sheet vinyl in Abstract Mocha and Celina Wood pattern for residential applications.' },
+  { title: 'American Biltrite ABPure Cafeteria', imageUrl: 'https://rfci.com/wp-content/uploads/2022/03/abpure_cafeteria_ABS-38-34.jpg', memberName: 'American Biltrite', flooringTypeName: 'Sheet Vinyl', environmentName: 'Education', description: 'ABPure resilient flooring in a high-traffic cafeteria, chosen for hygienic properties and ease of maintenance.' },
+  { title: 'Beauflor Blacktex HD', imageUrl: 'https://rfci.com/wp-content/uploads/2019/06/Sheet-Vinyl-Blacktex-HD-Abstract_Mocha-Celina-Wood_607M.jpg', memberName: 'Beauflor', flooringTypeName: 'Sheet Vinyl', environmentName: 'Homes', description: 'Premium wood-look sheet vinyl in Abstract Mocha and Celina Wood pattern for residential applications.' },
   { title: 'Bentley Memory Craftsman', imageUrl: 'https://rfci.com/wp-content/uploads/2023/07/memory-craftsman-random-ashlar-9x48-1.jpeg', memberName: 'Bentley', flooringTypeName: 'Rigid Core', environmentName: 'Corporate', description: 'Artisan wood aesthetics in a random ashlar 9x48 plank layout for commercial interiors.' },
   { title: 'CFL FirmFit Intown', imageUrl: 'https://rfci.com/wp-content/uploads/2022/05/FirmFit-Intown.png', memberName: 'CFL', flooringTypeName: 'Rigid Core', environmentName: 'Apartments', description: 'Rigid core flooring combining dimensional stability with contemporary wood visuals for modern apartments.' },
   { title: 'Congoleum Commercial', imageUrl: 'https://rfci.com/wp-content/uploads/2022/02/72005-RS.jpg', memberName: 'Congoleum', flooringTypeName: 'Flexible LVT', environmentName: 'Corporate', description: 'Resilient flooring showcasing Congoleum\'s legacy of durability and design in demanding commercial spaces.' },
-  { title: 'Gerflor Mipolam Symbioz Healthcare', imageUrl: 'https://rfci.com/wp-content/uploads/2019/10/Healthcare_Mipolam-Symbioz_Homogeneous-Sheet.jpg', memberName: 'Gerflor', flooringTypeName: 'Homogeneous Sheet Vinyl', environmentName: 'Healthcare', description: 'Mipolam Symbioz homogeneous sheet vinyl designed for seamless, hygienic healthcare environments.' },
+  { title: 'Gerflor Mipolam Symbioz Healthcare', imageUrl: 'https://rfci.com/wp-content/uploads/2019/10/Healthcare_Mipolam-Symbioz_Homogeneous-Sheet.jpg', memberName: 'Gerflor', flooringTypeName: 'Sheet Vinyl', environmentName: 'Healthcare', description: 'Mipolam Symbioz homogeneous sheet vinyl designed for seamless, hygienic healthcare environments.' },
   { title: 'HMTX MetStone Graphite', imageUrl: 'https://rfci.com/wp-content/uploads/2022/02/MetStone_9620GE32_Graphite_RS.jpg', memberName: 'HMTX Industries', flooringTypeName: 'Rigid Core', environmentName: 'Hospitality', description: 'Sophisticated stone-look resilient floor for modern commercial and hospitality spaces.' },
   { title: 'Interface Daycare', imageUrl: 'https://rfci.com/wp-content/uploads/2020/09/IED-DAY-PI001-Daycare_0000_web.jpg', memberName: 'Interface', flooringTypeName: 'Flexible LVT', environmentName: 'Education', description: 'Resilient flooring selected for safety, comfort, and easy maintenance in early childhood spaces.' },
   { title: 'Karndean Ghost Elm Library', imageUrl: 'https://rfci.com/wp-content/uploads/2022/04/RCP6544-GhostElm-UniversityLibrary_CM.jpg', memberName: 'Karndean', flooringTypeName: 'Flexible LVT', environmentName: 'Education', description: 'Ghost Elm luxury vinyl plank in a university library, creating a refined wood-look surface.' },
-  { title: 'Lonseal Lonbead Designer Office', imageUrl: 'https://rfci.com/wp-content/uploads/2019/07/Lonseal-Lonbead-Designer-Office.jpg', memberName: 'Lonseal', flooringTypeName: 'Heterogeneous Sheet Vinyl', environmentName: 'Corporate', description: 'Lonbead resilient flooring combining aesthetic versatility with commercial-grade performance.' },
+  { title: 'Lonseal Lonbead Designer Office', imageUrl: 'https://rfci.com/wp-content/uploads/2019/07/Lonseal-Lonbead-Designer-Office.jpg', memberName: 'Lonseal', flooringTypeName: 'Sheet Vinyl', environmentName: 'Corporate', description: 'Lonbead resilient flooring combining aesthetic versatility with commercial-grade performance.' },
   { title: 'Mannington Prop Hive Swarm', imageUrl: 'https://rfci.com/wp-content/uploads/2022/02/130382-Prop-Hive-Swarm.jpg', memberName: 'Mannington', flooringTypeName: 'Flexible LVT', environmentName: 'Corporate', description: 'A bold pattern demonstrating how resilient flooring can serve as a striking design element.' },
   { title: 'Mohawk Resilient Collection', imageUrl: 'https://rfci.com/wp-content/uploads/2019/07/RES06_48_00.jpg', memberName: 'Mohawk', flooringTypeName: 'Flexible LVT', environmentName: 'Homes', description: 'Plank-format design with authentic wood visuals for residential and commercial specification.' },
   { title: 'MSI Bedroom Installation', imageUrl: 'https://rfci.com/wp-content/uploads/2022/04/Bedroom-0016-HiResJPG-scaled.jpg', memberName: 'MSI', flooringTypeName: 'Rigid Core', environmentName: 'Homes', description: 'Realistic aesthetics with comfort and water resistance in a residential bedroom.' },
@@ -34,14 +34,14 @@ export const PROJECTS_STATIC = [
   { title: 'Roppe Rubber Sports Flooring', imageUrl: 'https://rfci.com/wp-content/uploads/2019/06/YaleES-RichardsonTx-Roppe-Oct178403.jpg', memberName: 'Roppe', flooringTypeName: 'Rubber', environmentName: 'Education', location: 'Richardson, TX', description: 'Rubber flooring at Yale Elementary School — superior slip resistance and acoustic comfort.' },
   { title: 'Shaw UV810 Room Scene', imageUrl: 'https://rfci.com/wp-content/uploads/2022/04/UV810_05025_Room.jpg', memberName: 'Shaw', flooringTypeName: 'Flexible LVT', environmentName: 'Homes', description: 'Design-forward hard surface resilient flooring in a refined residential setting.' },
   { title: 'Tandus Centiva Crayola Experience', imageUrl: 'https://rfci.com/wp-content/uploads/2018/03/Crayola_Experience-0002-20.jpg', memberName: 'Shaw', flooringTypeName: 'Flexible LVT', environmentName: 'Retail', description: 'Vibrant commercial entertainment venue where creative design meets heavy foot traffic.' },
-  { title: 'Tarkett Aria Melodia', imageUrl: 'https://rfci.com/wp-content/uploads/2022/03/large-Aria-Melodia-HO-Vinyl-066-658-773-.jpg', memberName: 'Tarkett', flooringTypeName: 'Heterogeneous Sheet Vinyl', environmentName: 'Healthcare', description: 'High-opacity vinyl flooring ideal for healthcare and medical clinic environments.' },
+  { title: 'Tarkett Aria Melodia', imageUrl: 'https://rfci.com/wp-content/uploads/2022/03/large-Aria-Melodia-HO-Vinyl-066-658-773-.jpg', memberName: 'Tarkett', flooringTypeName: 'Sheet Vinyl', environmentName: 'Healthcare', description: 'High-opacity vinyl flooring ideal for healthcare and medical clinic environments.' },
   { title: 'Torlys RigidTile Firm', imageUrl: 'https://rfci.com/wp-content/uploads/2022/05/RS_RT-FMD28781_RigidTile-Firm-Designer_Industrial_Com-scaled.jpg', memberName: 'Torlys', flooringTypeName: 'Rigid Core', environmentName: 'Corporate', description: 'Rigid core tile demonstrating performance under demanding industrial-commercial conditions.' },
   { title: 'Windm\u00F6ller Queens Oak Amber', imageUrl: 'https://rfci.com/wp-content/uploads/2022/03/Raumbild-Queens-Oak-Amber-PL096C-a4-4c-01.jpg', memberName: 'Windm\u00F6ller', flooringTypeName: 'Flexible LVT', environmentName: 'Homes', description: 'Premium European oak aesthetics brought to modern interiors.' },
   { title: 'Assisted Living Capri', imageUrl: 'https://rfci.com/wp-content/uploads/2022/05/RS_RT-FMP747_RigidTile_Capri_Residential-1-scaled.jpg', flooringTypeName: 'Rigid Core', environmentName: 'Senior Living', description: 'RigidTile Capri in a senior care facility — comfort, slip resistance, and calming aesthetic.' },
   { title: 'K-12 Classic Rock Ashlar', imageUrl: 'https://rfci.com/wp-content/uploads/2023/08/classic-rock-yacht-rock-18x36-ashlar.jpg', flooringTypeName: 'Flexible LVT', environmentName: 'Education', description: 'Visual interest with institutional durability in a K-12 educational environment.' },
   { title: 'Grocery Contour LVT', imageUrl: 'https://rfci.com/wp-content/uploads/2020/10/Contour_LVT_Abstract-Faux-Bois-Spread.jpg', flooringTypeName: 'Flexible LVT', environmentName: 'Retail', description: 'Abstract faux bois wood-look pattern — durable, easy to clean, and visually appealing.' },
   { title: 'Hospital Batiste Chambray', imageUrl: 'https://rfci.com/wp-content/uploads/2023/08/batiste-chambray-stair-step-18x36-1.jpg', flooringTypeName: 'Flexible LVT', environmentName: 'Healthcare', description: 'Textile-inspired pattern providing hygienic surfaces in a hospital setting.' },
-  { title: 'Restaurant Contract Vinyl', imageUrl: 'https://rfci.com/wp-content/uploads/2022/03/uc_contract_restaurant_UNT-04.jpg', flooringTypeName: 'Heterogeneous Sheet Vinyl', environmentName: 'Hospitality', description: 'Commercial-grade resilient flooring for high-traffic food service environments.' },
+  { title: 'Restaurant Contract Vinyl', imageUrl: 'https://rfci.com/wp-content/uploads/2022/03/uc_contract_restaurant_UNT-04.jpg', flooringTypeName: 'Sheet Vinyl', environmentName: 'Hospitality', description: 'Commercial-grade resilient flooring for high-traffic food service environments.' },
   { title: 'Sonata Boutique Retail', imageUrl: 'https://rfci.com/wp-content/uploads/2022/03/sonata_boutique_CEO-01-03.jpg', flooringTypeName: 'Flexible LVT', environmentName: 'Retail', description: 'Design sophistication meets commercial wear resistance in a boutique retail setting.' },
   { title: 'Transportation Brunella Marble', imageUrl: 'https://rfci.com/wp-content/uploads/2020/10/RKT3013-G-BrunellaMarble-Bathroom-P1_CM.jpg', flooringTypeName: 'Rigid Core', environmentName: 'Transportation', description: 'Stone aesthetics with water resistance and easy maintenance in transportation facilities.' },
   { title: 'Sustainable Workplace Plank', imageUrl: 'https://rfci.com/wp-content/uploads/2023/08/mood-sustainable-random-ashlar-9x48-1.jpg', flooringTypeName: 'Flexible LVT', environmentName: 'Corporate', description: 'Sustainability meets design flexibility in a modern workplace installation.' },
@@ -367,7 +367,7 @@ const CanvasTile = memo(function CanvasTile({
 
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-          <h3 className="text-white font-display font-medium text-base leading-snug mb-1">
+          <h3 className="text-white font-display font-light text-xl md:text-2xl leading-snug mb-1">
             {project.title}
           </h3>
           <div className="flex flex-wrap gap-1.5">
@@ -377,7 +377,7 @@ const CanvasTile = memo(function CanvasTile({
               </span>
             )}
             {getEnvironmentName(project) && (
-              <span className="text-[9px] font-bold tracking-widest uppercase text-white/80 bg-white/15 px-1.5 py-0.5">
+              <span className="text-[9px] font-bold tracking-widest uppercase text-white/90 bg-white/20 px-1.5 py-0.5">
                 {getEnvironmentName(project)}
               </span>
             )}
@@ -409,7 +409,7 @@ function MasonryItem({ project, index, onClick }: { project: any; index: number;
     >
       <img src={getImageUrl(project)} alt={project.title} loading="lazy" className="w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-3">
-        <h3 className="text-white font-display font-medium text-sm leading-snug">{project.title}</h3>
+        <h3 className="text-white font-display font-light text-xl md:text-2xl leading-snug">{project.title}</h3>
       </div>
     </motion.div>
   )
@@ -493,7 +493,7 @@ function CanvasFilterBar({
             {filteredCount}/{totalCount}
           </span>
           {hasFilters && (
-            <button onClick={resetFilters} className="text-label font-bold tracking-widest uppercase text-rfci-blue hover:text-rfci-blue/70 transition-colors">
+            <button onClick={resetFilters} className="text-label font-bold tracking-widest uppercase text-rfci-blue hover:text-rfci-blue/70 transition-colors duration-200">
               Clear
             </button>
           )}
@@ -667,7 +667,7 @@ export function InspirationGallery({
                 <p className="text-rfci-black/40 text-lg mb-4">No projects match your filters.</p>
                 <button
                   onClick={resetFilters}
-                  className="text-rfci-blue hover:text-rfci-blue/80 font-bold text-sm tracking-wider uppercase transition-colors"
+                  className="text-rfci-blue hover:text-rfci-blue/80 font-bold text-sm tracking-wider uppercase transition-colors duration-200"
                 >
                   Clear Filters
                 </button>
@@ -745,10 +745,10 @@ export function InspirationGallery({
       <section className="bg-white py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <SectionReveal>
-            <h2 className="text-3xl md:text-4xl font-display font-light mb-4">
+            <h2 className="text-4xl md:text-5xl font-display font-light mb-4">
               Have a project to <span className="font-semibold text-rfci-blue">share?</span>
             </h2>
-            <p className="text-rfci-black/60 max-w-xl mx-auto mb-8">
+            <p className="text-base text-rfci-black/60 max-w-xl mx-auto mb-8">
               RFCI members can submit their resilient flooring installations to be featured in our inspiration gallery.
             </p>
             <a
@@ -756,7 +756,7 @@ export function InspirationGallery({
               className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
             >
               Get in Touch
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
           </SectionReveal>
         </div>
@@ -802,10 +802,10 @@ export function InspirationGallery({
                   )}
                 </div>
 
-                <h2 className="text-2xl md:text-3xl font-display font-medium text-rfci-black mb-4">{activeProject.title}</h2>
+                <h3 className="text-xl md:text-2xl font-display font-medium text-rfci-black mb-4">{activeProject.title}</h3>
 
                 {activeProject.description && (
-                  <p className="text-rfci-black/60 leading-relaxed mb-6">{activeProject.description}</p>
+                  <p className="text-base text-rfci-black/60 leading-relaxed mb-6">{activeProject.description}</p>
                 )}
 
                 <div className="border-t border-black/5 pt-6 grid sm:grid-cols-2 gap-4">

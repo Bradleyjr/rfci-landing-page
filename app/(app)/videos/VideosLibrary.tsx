@@ -88,7 +88,7 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
                 rel="noopener noreferrer"
                 className="block group"
               >
-                <div className="relative aspect-video overflow-hidden mb-8 shadow-sm rounded-sm">
+                <div className="relative aspect-video overflow-hidden mb-8 shadow-sm">
                   <img
                     src={getThumbSrc(featured)}
                     alt={featured.title}
@@ -111,9 +111,9 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
                     </span>
                   )}
                 </div>
-                <h2 className="text-4xl md:text-5xl font-display font-light tracking-tight group-hover:text-rfci-blue transition-colors leading-[1.1] mb-4">
+                <h3 className="text-xl md:text-2xl font-display font-light tracking-tight group-hover:text-rfci-blue transition-colors leading-[1.1] mb-4">
                   {featured.title}
-                </h2>
+                </h3>
                 {featured.description && (
                   <p className="text-rfci-black/60 text-base md:text-lg leading-relaxed max-w-3xl">
                     {featured.description}
@@ -136,7 +136,7 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
                     href={video.courseUrl || 'https://rfci.com/videos/'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block group bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 rounded-sm overflow-hidden"
+                    className="block group bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 overflow-hidden"
                   >
                     <div className="relative aspect-video overflow-hidden">
                       <img
@@ -150,7 +150,7 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
                         </div>
                       </div>
                       {/* Duration badge */}
-                      <div className="absolute bottom-3 right-3 bg-rfci-black/70 backdrop-blur-sm text-white text-label font-bold tracking-wider uppercase px-3 py-1 rounded-sm">
+                      <div className="absolute bottom-3 right-3 bg-rfci-black/70 backdrop-blur-sm text-white text-label font-bold tracking-wider uppercase px-3 py-1">
                         {video.duration}
                       </div>
                     </div>
@@ -160,7 +160,7 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
                           {CATEGORY_LABELS[video.category] || video.category}
                         </span>
                       )}
-                      <h3 className="text-xl font-display font-light group-hover:text-rfci-blue transition-colors leading-tight mb-3">
+                      <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors leading-tight mb-3">
                         {video.title}
                       </h3>
                       {video.description && (
@@ -181,7 +181,7 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
       <section className="py-20 bg-rfci-cream">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <SectionReveal>
-            <h2 className="text-3xl md:text-4xl font-display font-light mb-6">Looking for more?</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-light mb-6">Looking for more?</h2>
             <p className="text-rfci-black/60 text-lg mb-8 max-w-xl mx-auto">
               Visit the full RFCI video library for additional courses, webinars, and educational resources.
             </p>
@@ -189,10 +189,10 @@ export function VideosLibrary({ videos, pageSettings }: { videos: any[]; pageSet
               href="https://rfci.com/videos/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-4 text-label font-bold tracking-widest uppercase hover:bg-rfci-blue/90 transition-colors group"
+              className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
             >
               Browse All Videos
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
           </SectionReveal>
         </div>

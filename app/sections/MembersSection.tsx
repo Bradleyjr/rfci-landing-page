@@ -61,14 +61,14 @@ export function MembersSection() {
           <div className="w-16 h-16 bg-white/10 flex items-center justify-center mb-8 border border-white/20">
             <Users className="w-8 h-8 text-rfci-blue" />
           </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-6 leading-[1.1] tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-display font-light mb-6 leading-tight">
             {SITE_SETTINGS.membersHeading}
           </h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
             {SITE_SETTINGS.membersSubheading}
           </p>
           <Link href="/members" className="inline-flex items-center gap-2 bg-white text-rfci-black px-8 py-3.5 text-sm font-semibold hover:bg-rfci-blue hover:text-white transition-colors duration-200 group">
-            {SITE_SETTINGS.membersCtaText || 'View Member Directory'} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            {SITE_SETTINGS.membersCtaText || 'View Member Directory'} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
           </Link>
         </SectionReveal>
       </div>

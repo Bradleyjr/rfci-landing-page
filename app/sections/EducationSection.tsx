@@ -77,11 +77,11 @@ export function EducationSection({ videos }: { videos: any[] }) {
           <SectionReveal direction="right">
             <a
               href="/videos"
-              className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest hover:text-rfci-blue transition-colors group"
+              className="flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200 group"
             >
               <span className="relative">
                 <span className="relative z-10 flex items-center gap-2">
-                  View All Videos <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  View All Videos <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-rfci-black group-hover:w-full transition-all duration-300 ease-out" />
               </span>
@@ -116,7 +116,7 @@ export function EducationSection({ videos }: { videos: any[] }) {
                   {featured.duration}
                 </span>
               </div>
-              <h3 className="text-4xl md:text-5xl font-display font-light tracking-tight group-hover:text-rfci-blue transition-colors leading-[1.1] mb-4">
+              <h3 className="text-xl md:text-2xl font-display font-light tracking-tight group-hover:text-rfci-blue transition-colors duration-200 leading-tight mb-4">
                 {featured.title}
               </h3>
               {featured.description && (
@@ -155,7 +155,7 @@ export function EducationSection({ videos }: { videos: any[] }) {
                       {video.duration}
                     </span>
                   </div>
-                  <h3 className="text-xl font-display font-light group-hover:text-rfci-blue transition-colors leading-tight">
+                  <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors leading-tight">
                     {video.title}
                   </h3>
                 </a>

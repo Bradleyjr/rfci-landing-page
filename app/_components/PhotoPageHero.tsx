@@ -12,7 +12,7 @@ type PhotoPageHeroProps = {
 
 export function PhotoPageHero({ label, heading, subheading, photo, children }: PhotoPageHeroProps) {
   return (
-    <section className="relative overflow-hidden min-h-[480px] md:min-h-[560px]">
+    <section className="relative overflow-hidden min-h-[480px] md:min-h-[560px] flex items-center">
       {/* Full-bleed photo */}
       <img
         src={photo.src}
@@ -20,17 +20,17 @@ export function PhotoPageHero({ label, heading, subheading, photo, children }: P
         className="absolute inset-0 w-full h-full object-cover object-center"
       />
 
-      {/* Dark overlays — stronger left/bottom for text legibility */}
+      {/* Dark overlays */}
       <div className="absolute inset-0 bg-gradient-to-r from-rfci-black/80 via-rfci-black/50 to-rfci-black/10" />
       <div className="absolute inset-0 bg-gradient-to-t from-rfci-black/40 to-transparent" />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 pt-32 pb-16 md:pt-36 md:pb-20 lg:pt-40 lg:pb-24">
+      {/* Content — vertically centered */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20 lg:py-24 w-full">
         <SectionReveal className="max-w-2xl">
           <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-4">
             {label}
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight text-white mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-[1.1] text-white mb-6">
             {heading}
           </h1>
           {subheading && (

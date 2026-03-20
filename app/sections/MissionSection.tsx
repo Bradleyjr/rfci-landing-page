@@ -52,16 +52,16 @@ export function MissionSection() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
 
         {/* ── Layer 1: Identity Band ─────────────────────────────────────── */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end mb-20">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start mb-20">
 
           {/* Left — statement heading, within design-system type scale */}
           <SectionReveal direction="left" className="lg:col-span-6">
             {/* text-label (11px) — design-system token, replaces off-scale text-[10px] */}
             <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">{SITE_SETTINGS.missionLabel}</div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight">
+            <h2 className="text-4xl md:text-5xl font-display font-light leading-tight">
               {SITE_SETTINGS.missionHeading}
               <br />
-              <span className="font-light italic text-white/80">{SITE_SETTINGS.missionHeadingItalic}</span>
+              <span className="font-semibold">{SITE_SETTINGS.missionHeadingItalic}</span>
             </h2>
           </SectionReveal>
 
@@ -70,16 +70,16 @@ export function MissionSection() {
             <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">
               {SITE_SETTINGS.missionFoundedText}
             </div>
-            <p className="text-white/90 font-light leading-relaxed mb-4">
+            <p className="text-base text-white/90 font-light leading-relaxed mb-4">
               {SITE_SETTINGS.missionDescription1}
             </p>
-            <p className="text-white/90 font-light leading-relaxed mb-8">
+            <p className="text-base text-white/90 font-light leading-relaxed mb-8">
               {SITE_SETTINGS.missionDescription2}
             </p>
             <a href="/about" className="text-white font-medium flex items-center gap-2 group text-sm">
               <span className="relative">
                 <span className="relative z-10 flex items-center gap-2">
-                  Learn more about RFCI <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  Learn more about RFCI <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
                 <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-white group-hover:w-full transition-all duration-300 ease-out" />
               </span>
@@ -146,7 +146,7 @@ export function MissionSection() {
                   />
 
                   {/* Desktop: number | title | description on one row */}
-                  <div className="hidden md:grid md:grid-cols-12 gap-6 py-7 pl-4 relative z-10">
+                  <div className="hidden md:grid md:grid-cols-12 gap-6 py-7 px-4 md:px-6 relative z-10">
                     <div className="col-span-2">
                       {/* Large decorative numbers — white/40 acceptable for ornamental elements */}
                       <span
@@ -170,7 +170,7 @@ export function MissionSection() {
                     <div className="col-span-6">
                       {/* Descriptions: white/70 default → white/90 on hover */}
                       <p
-                        className={`text-sm font-light leading-relaxed transition-all duration-300 ${
+                        className={`text-base font-light leading-relaxed transition-all duration-300 ${
                           hoveredPillar === idx ? 'text-white/90' : 'text-white/70'
                         }`}
                       >
@@ -189,7 +189,7 @@ export function MissionSection() {
                         {pillar.title}
                       </h4>
                     </div>
-                    <p className="text-sm font-light leading-relaxed pl-10 text-white/70">
+                    <p className="text-base font-light leading-relaxed pl-10 text-white/70">
                       {pillar.description}
                     </p>
                   </div>

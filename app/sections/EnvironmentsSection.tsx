@@ -22,7 +22,8 @@ export function EnvironmentsSection() {
     <section id="environments" className="py-28 md:py-32 bg-rfci-white relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <SectionReveal className="mb-16 md:mb-24 max-w-3xl">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-light mb-6 leading-tight">
+          <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Environments</div>
+          <h2 className="text-4xl md:text-5xl font-display font-light mb-6 leading-tight">
             {SITE_SETTINGS.environmentsHeading}
           </h2>
           <p className="text-lg md:text-xl text-rfci-black/60 leading-relaxed">
@@ -41,7 +42,7 @@ export function EnvironmentsSection() {
                     {/* Front — image */}
                     <div className="absolute inset-0 overflow-hidden shadow-sm" style={{ backfaceVisibility: 'hidden' }}>
                       <img
-                        src={env.image?.url || 'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=800&auto=format&fit=crop'}
+                        src={env.image?.url || '/images/inspiration/applications/homes/72200-RS.jpg'}
                         alt={env.name}
                         className="w-full h-full object-cover"
                       />
@@ -60,7 +61,7 @@ export function EnvironmentsSection() {
                       style={{ backfaceVisibility: 'hidden' }}
                     >
                       <IconComp className="w-6 h-6 text-white/60 mb-4" />
-                      <h3 className="text-lg md:text-xl font-display font-semibold mb-3 leading-tight">{env.name}</h3>
+                      <h3 className="text-xl md:text-2xl font-display font-light mb-3 leading-tight">{env.name}</h3>
                       <p className="text-sm text-white/80 leading-relaxed mb-4">
                         {env.description}
                       </p>

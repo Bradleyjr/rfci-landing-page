@@ -20,7 +20,7 @@ export function ArticleDetail({ resource, relatedResources }: { resource: any; r
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="bg-rfci-cream pt-28 pb-20 md:pt-32 md:pb-28 lg:pt-36 lg:pb-32">
+      <section className="bg-rfci-cream py-16 md:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal>
             <Link href="/resources" className="inline-flex items-center gap-2 text-sm text-rfci-black/50 hover:text-rfci-blue transition-colors mb-8">
@@ -33,7 +33,7 @@ export function ArticleDetail({ resource, relatedResources }: { resource: any; r
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-light leading-[1.1] mb-6">
               {resource.title}
             </h1>
 
@@ -71,7 +71,7 @@ export function ArticleDetail({ resource, relatedResources }: { resource: any; r
               <div dangerouslySetInnerHTML={{ __html: resource.body }} />
             </div>
           ) : (
-            <p className="text-rfci-black/50 text-center font-light">
+            <p className="text-base text-rfci-black/50 text-center font-light">
               No article content available.
             </p>
           )}
@@ -83,7 +83,7 @@ export function ArticleDetail({ resource, relatedResources }: { resource: any; r
         <section className="py-20 md:py-28 bg-rfci-cream">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
-              <h2 className="text-2xl md:text-3xl font-display font-light">
+              <h2 className="text-4xl md:text-5xl font-display font-light">
                 Related <span className="font-semibold text-rfci-blue">resources</span>
               </h2>
             </SectionReveal>
@@ -98,7 +98,7 @@ export function ArticleDetail({ resource, relatedResources }: { resource: any; r
                     <span className={`text-xs font-bold tracking-wider uppercase px-2.5 py-1 inline-block mb-4 ${TYPE_COLORS[r.type] || TYPE_COLORS.technical}`}>
                       {r.type}
                     </span>
-                    <h3 className="text-lg font-display font-light group-hover:text-rfci-blue transition-colors mb-2 line-clamp-2">
+                    <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors mb-2 line-clamp-2">
                       {r.title}
                     </h3>
                     <p className="text-sm text-rfci-black/60 font-light line-clamp-2">{r.description}</p>
