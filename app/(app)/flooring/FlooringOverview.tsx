@@ -17,64 +17,6 @@ type FlooringTypeDoc = {
   order?: number
 }
 
-const FLOORING_STATIC: FlooringTypeDoc[] = [
-  {
-    title: 'Flexible LVT',
-    subtitle: 'Luxury Vinyl Tile \u00B7 Planks',
-    slug: 'flexible-lvt',
-    description: 'The leading resilient flooring product in North America. Available in tile and plank formats with high-definition wood and stone visuals. Water resistant, dimensionally stable, and specified across residential and commercial projects.',
-    accentColor: '#9CA3AF',
-  },
-  {
-    title: 'Rigid Core',
-    subtitle: 'SPC \u00B7 WPC \u00B7 Multilayer',
-    slug: 'rigid-core',
-    description: 'A multilayer construction with a rigid mineral or polymer core. Dimensionally stable across temperature fluctuations and resistant to indentation under heavy static loads. Waterproof performance in moisture-prone environments.',
-    accentColor: '#78909C',
-  },
-  {
-    title: 'Sheet Vinyl',
-    subtitle: 'Heterogeneous \u00B7 Homogeneous',
-    slug: 'sheet-vinyl',
-    description: 'Available in heterogeneous (multi-layer, printed design) and homogeneous (through-body, single-layer) constructions. Heat-welded seams create a hygienic, seamless surface for healthcare, education, residential, and commercial environments.',
-    accentColor: '#B0C4DE',
-  },
-  {
-    title: 'Solid Vinyl Tile',
-    subtitle: 'SVT \u00B7 Flexible Tiles',
-    slug: 'solid-vinyl-tile',
-    description: 'Through-color vinyl tiles that perform under heavy rolling loads. No-wax formulations reduce lifecycle maintenance costs. Individual tiles can be replaced without disturbing adjacent flooring.',
-    accentColor: '#A5B4BC',
-  },
-  {
-    title: 'Vinyl Composition Tile',
-    subtitle: 'VCT \u00B7 Commercial Standard',
-    slug: 'vinyl-composition-tile',
-    description: 'Made from vinyl resins and limestone, VCT has been a commercial flooring staple for decades. Cost-effective at scale, durable under heavy foot traffic, and available in a wide color palette.',
-    accentColor: '#CFD8DC',
-  },
-  {
-    title: 'Rubber',
-    subtitle: 'Vulcanized \u00B7 Recycled Content',
-    slug: 'rubber',
-    description: 'Virtually indestructible, quiet, and warm underfoot. Superior slip resistance, acoustic performance, and comfort in high-demand environments.',
-    accentColor: '#D4A574',
-  },
-  {
-    title: 'Linoleum',
-    subtitle: 'Natural \u00B7 Bio-based',
-    slug: 'linoleum',
-    description: 'Manufactured from linseed oil, cork, wood flour, limestone, and tree resins. Biodegradable, with naturally low embodied carbon and documented antibacterial properties.',
-    accentColor: '#8FBC8F',
-  },
-  {
-    title: 'Cork',
-    subtitle: 'Natural \u00B7 Acoustic',
-    slug: 'cork',
-    description: 'Harvested from cork oak bark without cutting the tree. Hypoallergenic, resistant to mold and mildew, and provides excellent thermal and acoustic insulation.',
-    accentColor: '#C4A882',
-  },
-]
 
 // Build image lookup — use carouselImage first, fall back to productImage
 const CARD_IMAGES: Record<string, string> = Object.fromEntries(
@@ -95,14 +37,14 @@ function slugify(title: string): string {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function FlooringOverview({ flooringTypes, pageSettings }: { flooringTypes: any[]; pageSettings?: any }) {
-  const displayTypes: FlooringTypeDoc[] = flooringTypes?.length ? flooringTypes : FLOORING_STATIC
+  const displayTypes: FlooringTypeDoc[] = flooringTypes
 
   return (
     <PageLayout>
       <SplitPageHero
         label="Flooring Types"
         heading={pageSettings?.heroHeading || <>The full range of <span className="font-semibold text-rfci-blue">resilient flooring.</span></>}
-        subheading={pageSettings?.heroSubheading || 'From luxury vinyl tile to linoleum, rubber to cork—resilient flooring offers the widest range of performance, aesthetics, and sustainability options in the hard surface category.'}
+        subheading={pageSettings?.heroSubheading || 'From luxury vinyl tile to linoleum, rubber to cork—resilient flooring offers the widest range of performance, aesthetics, and installation options in the hard surface category.'}
         photo={{ src: '/images/inspiration/applications/homes/EL04-RS.jpg', alt: 'Resilient flooring in a modern kitchen' }}
       />
 

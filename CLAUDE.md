@@ -88,7 +88,7 @@ h4  — text-lg font-display font-medium
 
 ### Rules
 - All action CTAs are **square** (no `rounded-*` classes)
-- `rounded-full` is **only** for filter tabs and tag chips — never for action buttons
+- `rounded-full` is **only** for filter tabs — never for action buttons or tag chips (chips are square)
 - Icon always on the **RIGHT**, never left
 - No `uppercase` or `tracking-wider` on CTA text
 - Use `font-semibold` on CTA text, never `font-bold`
@@ -255,10 +255,74 @@ Always use explicit `duration-*`. Never rely on Tailwind's default 150ms.
 
 ## Design Decisions to Always Maintain
 
-1. **No rounded buttons** — square CTAs only (except filter tabs)
+1. **No rounded buttons** — square CTAs only (filter tabs are the only exception; tag chips are also square)
 2. **Icons right** — never put icons to the left of CTA label text
 3. **No uppercase CTA text** — `font-semibold` only, no `uppercase tracking-wider` on buttons
 4. **No bold icon weights** — don't pass `weight="bold"` to Phosphor icons in CTAs/links
 5. **Card hover border `/20` not `/30`** — always `hover:border-rfci-blue/20`
 6. **No card translate on hover** — cards don't lift, only border + shadow changes
 7. **Animation stagger resets per row** — use `(index % colCount) * 0.06`
+
+---
+
+## Figma MCP Integration Rules
+
+These rules define how to translate Figma inputs into code for this project. Follow them for every Figma-driven change.
+
+### Required Flow (do not skip)
+
+1. Run `get_design_context` first to fetch the structured representation for the exact node(s)
+2. If the response is too large or truncated, run `get_metadata` to get the high-level node map, then re-fetch only the required node(s) with `get_design_context`
+3. Run `get_screenshot` for a visual reference of the node being implemented
+4. Only after you have both `get_design_context` and `get_screenshot`, start implementation
+5. Translate the output (usually React + Tailwind) into this project's conventions (see below)
+6. Validate against the Figma screenshot for 1:1 visual parity before marking complete
+
+### Implementation Rules
+
+- Treat Figma MCP output as a **representation of intent**, not final code — always adapt to this project's conventions
+- Replace any Tailwind color utilities with RFCI color tokens (`rfci-blue`, `rfci-black`, `rfci-cream`, `rfci-white`, `rfci-teal`, `rfci-light-gray`)
+- Replace any `rounded-*` on buttons with no rounding — CTAs are always square
+- Replace any icon imports with `@phosphor-icons/react` equivalents at `weight="light"`
+- Reuse existing components from `app/_components/` and `app/sections/` instead of creating new ones
+- Wrap new sections in `<SectionReveal>` with appropriate `direction` and `delay` props
+- Apply stagger delay formula: `delay={index * 0.06}` (reset per row: `delay={(index % cols) * 0.06}`)
+- Strive for 1:1 visual parity with the Figma design — validate against the screenshot
+
+### Component Locations
+
+| Type | Location |
+|------|----------|
+| Shared layout/wrapper | `app/_components/` |
+| Page sections | `app/sections/` |
+| Page-specific components | Co-located in route folder (e.g. `app/(app)/about/`) |
+| Static content/data | `app/_data/*.ts` |
+| Utilities / helpers | `app/_lib/` |
+
+### Styling Approach
+
+- **Tailwind CSS v4** — all tokens in `app/globals.css` via `@theme` directive, no `tailwind.config.ts`
+- Path alias: `@/*` maps to project root
+- Custom utilities: `hide-scrollbar`, `bg-noise`, `bg-dot-grid` (defined in `globals.css`)
+- Custom keyframes: `marquee` (30s linear infinite), `hero-zoom`
+- No CSS Modules, no styled-components — utility classes only
+
+### Asset Handling
+
+- Local images live in `public/media/` (logos, video, photos) and `public/images/inspiration/` (gallery)
+- Reference local assets with root-relative paths: `/media/filename.jpg`, `/images/inspiration/...`
+- Hero video: `/media/hero-video.mp4`
+- IMPORTANT: If the Figma MCP server returns a localhost source for an image or SVG, use that source directly
+- IMPORTANT: Do NOT install new icon packages — use `@phosphor-icons/react` for all icons
+- IMPORTANT: Do NOT use placeholder images if a localhost source is provided
+
+### Design Token Quick Reference
+
+```
+Colors:    rfci-blue (#0164DB), rfci-black (#121212), rfci-cream (#F5F5F0),
+           rfci-white (#ECEFF1), rfci-teal (#00C2D1), rfci-light-gray (#CFD8DC)
+Fonts:     font-display (Sora, headings), font-sans (DM Sans, body)
+Label:     text-label (0.75rem / 12px)
+Sections:  py-20 md:py-28 | max-w-7xl mx-auto px-6 md:px-12
+Cards:     bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200
+```

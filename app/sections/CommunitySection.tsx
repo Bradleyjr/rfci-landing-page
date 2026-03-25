@@ -58,6 +58,9 @@ export function CommunitySection() {
             <p className="text-xl text-rfci-black/70 font-light leading-relaxed max-w-2xl">
               {sectionSubheading}
             </p>
+            <a href="/about#testimonials" className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200">
+              Hear what our members have to say about RFCI <ArrowRight className="w-4 h-4" />
+            </a>
           </SectionReveal>
 
           <SectionReveal direction="right" className="lg:col-span-5">

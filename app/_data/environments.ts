@@ -35,7 +35,7 @@ export const ENVIRONMENTS: Environment[] = [
   {
     name: 'Hospitality',
     flooringType: 'Sheet Vinyl',
-    description: 'Hotels, resorts, and hospitality venues need surfaces that balance guest experience, ease of maintenance, and long-term durability.',
+    description: 'Hotels, resorts, and restaurant venues need surfaces that balance guest experience, ease of maintenance, and long-term durability.',
     courtesy: 'Courtesy of RFCI member',
     image: { url: '/images/inspiration/applications/hotels/LTMD9E86W_CampbridgeWhiteOak-ROOM-1.jpg' },
     order: 4,

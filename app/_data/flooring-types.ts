@@ -18,7 +18,7 @@ export type FlooringType = {
 
 export const FLOORING_TYPES: FlooringType[] = [
   {
-    title: 'Flexible LVT',
+    title: 'Flexible LVP/LVT',
     subtitle: 'Luxury Vinyl Tile \u00b7 Planks',
     slug: 'flexible-lvt',
     description: 'Luxury vinyl tile (LVT) is a flexible resilient flooring category produced in tiles or planks. Design realism, easy maintenance, and strong water-resistant performance make it a practical alternative to ceramic tile, stone, and hardwood in many spaces.',
@@ -28,7 +28,7 @@ export const FLOORING_TYPES: FlooringType[] = [
     tags: [
       { label: 'Water Resistant', variant: 'green' },
       { label: 'High Traffic', variant: 'tan' },
-      { label: 'Easy Install', variant: 'gray' },
+      { label: 'Glue Down', variant: 'gray' },
     ],
     order: 1,
   },
@@ -42,7 +42,7 @@ export const FLOORING_TYPES: FlooringType[] = [
     carouselImage: '/images/inspiration/applications/homes/Kitchen-0559-Alt-03-HiResJPG-scaled.jpg',
     tags: [
       { label: 'Waterproof', variant: 'green' },
-      { label: 'Dimensionally Stable', variant: 'tan' },
+      { label: 'Click Installation', variant: 'tan' },
     ],
     order: 2,
   },
@@ -53,6 +53,7 @@ export const FLOORING_TYPES: FlooringType[] = [
     description: 'Sheet vinyl is offered in two primary constructions: heterogeneous (multi-layer with a printed design layer, available in 6\u2019 and 12\u2019 widths for residential and commercial use) and homogeneous (through-body single-layer construction where color and pattern run the full thickness, prized in healthcare and institutional settings). Both deliver seamless, hygienic surfaces with heat-weldable seams.',
     accentColor: '#B0C4DE',
     productImage: '/images/inspiration/applications/apartments/Sheet-Vinyl-Blacktex-HD-Avant-Garde_Bone-Venice-Wood-906M.jpg',
+    carouselImage: '/images/inspiration/applications/workplace/large-Melodia_HO_VinylSheet_CaseWestern_Cle_Clinic_SchoolofDentistry_HiRes-34.jpg',
     tags: [
       { label: 'Hygienic', variant: 'green' },
       { label: 'Seamless', variant: 'tan' },
@@ -61,7 +62,7 @@ export const FLOORING_TYPES: FlooringType[] = [
     order: 3,
   },
   {
-    title: 'Solid Vinyl Tile',
+    title: 'Solid Vinyl Tile (SVT)',
     subtitle: 'SVT \u00b7 Flexible Tiles',
     slug: 'solid-vinyl-tile',
     description: 'Solid vinyl tile (SVT) is a type of flexible resilient flooring often used in healthcare, institutional, and educational settings. Versatile and easy to handle, SVT can be used to create patterns and shapes within an overall creative floor design.',
@@ -74,7 +75,7 @@ export const FLOORING_TYPES: FlooringType[] = [
     order: 4,
   },
   {
-    title: 'Vinyl Composition Tile',
+    title: 'Vinyl Composition Tile (VCT)',
     subtitle: 'VCT \u00b7 Commercial Standard',
     slug: 'vinyl-composition-tile',
     description: 'Vinyl Composition Tile (VCT) is a finished flooring material used primarily in commercial and institutional applications. A popular choice due to its low cost and durability, with through-color construction that provides years of lasting beauty.',

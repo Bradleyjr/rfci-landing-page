@@ -128,7 +128,7 @@ export function StandardsSection() {
                       <img src={tabImageUrl} alt={tab.title} className="w-full h-full object-cover" />
                       {tab.logoUrl && (
                         <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm p-4 shadow-lg">
-                          <img src={tab.logoUrl} alt={`${tab.title} logo`} className="h-16 w-auto object-contain brightness-0" />
+                          <img src={tab.logoUrl} alt={`${tab.title} logo`} className="h-16 w-auto object-contain" />
                         </div>
                       )}
                     </div>
@@ -193,7 +193,7 @@ export function StandardsSection() {
                             <img src={tabImageUrl} alt={tab.title} className="w-full h-full object-cover" />
                             {tab.logoUrl && (
                               <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm p-3 shadow-lg">
-                                <img src={tab.logoUrl} alt={`${tab.title} logo`} className="h-12 w-auto object-contain brightness-0" />
+                                <img src={tab.logoUrl} alt={`${tab.title} logo`} className="h-12 w-auto object-contain" />
                               </div>
                             )}
                           </div>

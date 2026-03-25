@@ -2,7 +2,7 @@ export const SITE_SETTINGS = {
   // Hero
   heroLine1: 'RESILIENT FLOOR',
   heroLine2: 'COVERING',
-  heroSubheading: 'The trade association representing the resilient flooring industry. Setting standards, running certification programs, and advancing the number one flooring category in North America since 1976.',
+  heroSubheading: 'The trade association representing the resilient flooring industry since 1976\u2014setting standards, administering certification programs, and advancing the number one flooring category in North America.',
   heroCta: 'Explore RFCI',
   heroBoxText: 'Discover our certification programs, meet our member manufacturers, and learn how RFCI protects and promotes the resilient flooring industry.',
 
@@ -18,7 +18,7 @@ export const SITE_SETTINGS = {
   whyResilientSubheading: 'Built for performance across every sector.',
   whyResilientStatValue: 'No. 1',
   whyResilientStatSuffix: '',
-  whyResilientStatLabel: 'hard surface flooring category in North America',
+  whyResilientStatLabel: 'flooring category in North America',
   whyResilientBenefits: [
     { title: 'Easy Maintenance', description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.' },
     { title: 'Moisture Performance', description: 'Depending on the construction, resilient flooring can offer strong water-resistant or waterproof performance for demanding interiors.' },
@@ -32,20 +32,20 @@ export const SITE_SETTINGS = {
   missionHeading: 'A voice for',
   missionHeadingItalic: 'resilient flooring.',
   missionFoundedText: 'Est. 1976 \u00b7 LaGrange, Georgia',
-  missionDescription1: 'Founded in 1976, RFCI is the non-profit trade association representing and protecting the resilient flooring industry in ways that no single manufacturer can.',
-  missionDescription2: 'From setting technical standards to running third-party certification programs, we advance the category for the entire built environment.',
+  missionDescription1: 'RFCI is the nonprofit trade association representing and protecting the resilient flooring industry\u2014advancing the category in ways no single manufacturer can.',
+  missionDescription2: 'From residential to commercial spaces, we support resilient flooring across the entire built environment.',
   missionPillarsHeading: 'Our Strategic Focus',
   missionPillars: [
     { number: '01', title: 'Advocacy & Engagement', description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.' },
     { number: '02', title: 'Technical Standards', description: 'Developing and maintaining the performance standards that define product quality, safety, and installation best practices.' },
-    { number: '03', title: 'Sustainability Programs', description: 'Running FloorScore, ASSURE, AFFIRM, and EPDs \u2014 the programs that validate environmental and health performance for specifiers worldwide.' },
-    { number: '04', title: 'Promotion & Education', description: 'Advancing industry knowledge through continuing education, original research, and market promotion to the architecture and design community.' },
+    { number: '03', title: 'Sustainability Programs', description: 'Running FloorScore\u00ae, ASSURE\u00ae Certified, AFFIRM\u2122 Certified, and Environmental Product Declarations (EPDs) for the resilient category.' },
+    { number: '04', title: 'Promotion & Education', description: 'Advancing industry knowledge through continuing education, original research, and consumer outreach via our Beautifully Responsible\u00ae program\u2014while also engaging and informing the architecture and design community.' },
     { number: '05', title: 'Member Development', description: 'Growing and supporting a membership of leading manufacturers and supply chain partners who shape the future of resilient flooring.' },
   ],
 
   // Standards
   standardsHeading: 'Sustainability programs you can rely on',
-  standardsSubheading: 'RFCI manages the flooring industry\u2019s most trusted sustainability programs\u2014built on rigorous testing, transparency, and continuous improvement.',
+  standardsSubheading: 'RFCI manages these sustainability programs\u2014built on rigorous third-party testing, transparency, and continuous improvement.',
   standardsCtaText: 'Explore our sustainability programs',
 
   // Education

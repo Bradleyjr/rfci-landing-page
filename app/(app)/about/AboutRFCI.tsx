@@ -8,13 +8,6 @@ import { SectionReveal } from '../../_components/SectionReveal'
 import { mediaUrl } from '../../_lib/transforms'
 import { TESTIMONIAL_VIDEOS } from '../../_data/testimonial-videos'
 
-const PILLARS_STATIC = [
-  { number: '01', title: 'Advocacy & Engagement', description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.' },
-  { number: '02', title: 'Technical Standards', description: 'Developing and maintaining the performance standards that define product quality, safety, and installation best practices.' },
-  { number: '03', title: 'Sustainability & Certifications', description: 'Running FloorScore, ASSURE, and AFFIRM — the programs that validate environmental and health performance for specifiers worldwide.' },
-  { number: '04', title: 'Promotion & Education', description: 'Advancing industry knowledge through continuing education, original research, and market promotion to the architecture and design community.' },
-  { number: '05', title: 'Member Development', description: 'Growing and supporting a membership of leading manufacturers and supply chain partners who shape the future of resilient flooring.' },
-]
 
 type MemberDoc = {
   name: string
@@ -28,7 +21,7 @@ type MemberDoc = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any[] }) {
   const [activePillar, setActivePillar] = useState(0)
-  const pillars = aboutPage?.strategicPillars?.length ? aboutPage.strategicPillars : PILLARS_STATIC
+  const pillars = aboutPage.strategicPillars
   const boardMembers: MemberDoc[] = (members ?? []).filter((m: MemberDoc) => !m.tier || m.tier === 'board')
 
   return (
@@ -165,7 +158,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
 
       {/* Testimonial Videos */}
       {TESTIMONIAL_VIDEOS.length > 0 && (
-        <section className="py-20 md:py-28 bg-rfci-cream">
+        <section id="testimonials" className="py-20 md:py-28 bg-rfci-cream">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Testimonials</div>
@@ -269,7 +262,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                 Why Resilient <ArrowRight className="w-4 h-4" />
               </a>
               <a href="/certifications/floorscore" className="inline-flex items-center justify-center gap-2 border border-white/30 text-white px-8 py-3.5 text-sm font-semibold hover:bg-white/10 transition-colors duration-200">
-                FloorScore Certification <ArrowRight className="w-4 h-4" />
+                FloorScore® Certification <ArrowRight className="w-4 h-4" />
               </a>
             </div>
           </SectionReveal>

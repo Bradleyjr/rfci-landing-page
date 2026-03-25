@@ -18,12 +18,6 @@
   --color-rfci-cream: #F5F5F0;
   --color-rfci-light-gray: #CFD8DC;
 
-  /* Semantic tag colors */
-  --color-tag-green-bg: #E6F4EA;
-  --color-tag-green-text: #137333;
-  --color-tag-amber-bg: #FDF5D3;
-  --color-tag-amber-text: #856404;
-
   --animate-marquee: marquee 30s linear infinite;
   @keyframes marquee {
     0% { transform: translateX(0%); }

@@ -8,37 +8,14 @@ import { SplitPageHero } from '../../_components/SplitPageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
 import { HistoryStackedReveal } from './HistoryStackedReveal'
 
-const HISTORY_MILESTONES = [
-  { year: '1845', title: 'Linoleum Invented', description: 'Frederick Walton patents linoleum in England, creating the first true resilient floor covering from linseed oil and natural materials.' },
-  { year: '1872', title: 'US Manufacturing Begins', description: 'The American Linoleum Manufacturing Company opens in Staten Island, New York, launching domestic resilient flooring production.' },
-  { year: '1933', title: 'Vinyl Composition Tile Arrives', description: 'VCT enters the market as a durable, affordable option for schools, hospitals, and other high-traffic commercial interiors.' },
-  { year: '1950s', title: 'Sheet Vinyl Expands', description: 'Post-war construction accelerates the use of sheet vinyl and other resilient formats across homes and commercial projects.' },
-  { year: '1990s', title: 'Luxury Vinyl Gains Momentum', description: 'LVT and LVP bring more realistic wood and stone visuals to the resilient category while keeping the maintenance advantages of hard-surface flooring.' },
-  { year: '2010s', title: 'Rigid Core Reshapes the Category', description: 'SPC and WPC rigid core products expand floating installation options and accelerate demand for dimensionally stable, moisture-resistant resilient flooring.' },
-  { year: 'Today', title: 'A Full Portfolio of Solutions', description: 'Resilient flooring now spans sheet, tile, plank, rubber, linoleum, cork, and rigid core constructions for nearly every project type.' },
-]
-
-const DEFAULT_BENEFITS = [
-  { number: '01', keyword: 'MAINTAIN', title: 'Easy Maintenance', description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years. No waxing, no sealing, no refinishing—just routine cleaning.' },
-  { number: '02', keyword: 'PROTECT', title: 'Moisture Performance', description: 'Depending on the construction, resilient flooring can offer strong water-resistant or waterproof performance for demanding interiors. Product-specific installation details still matter.' },
-  { number: '03', keyword: 'VALUE', title: 'Cost Effective', description: 'Competitive installed cost paired with a long service life delivers strong value across the full lifecycle. When factoring in installation, maintenance, and replacement, resilient flooring consistently outperforms alternatives.' },
-  { number: '04', keyword: 'DESIGN', title: 'Design Versatility', description: 'Realistic wood, stone, and custom visuals across tile, plank, and sheet formats for any design vision. Advanced printing and embossing technologies make it nearly indistinguishable from natural materials.' },
-  { number: '05', keyword: 'SUSTAIN', title: 'Sustainability', description: 'Recyclable materials, low-VOC manufacturing, and third-party certifications support green building goals. RFCI member companies are driving industry-wide improvements in environmental performance.' },
-  { number: '06', keyword: 'CERTIFY', title: 'Certified Performance', description: 'FloorScore, ASSURE, and AFFIRM certifications provide independent verification of indoor air quality, sustainability, and material health—giving specifiers confidence backed by data.' },
-  { number: '07', keyword: 'STABLE', title: 'Dimensional Stability', description: 'Resistant to temperature fluctuations and moisture expansion, making it ideal for challenging subfloor conditions including concrete slabs, radiant heat systems, and below-grade installations.' },
-  { number: '08', keyword: 'COMFORT', title: 'Comfort Underfoot', description: 'Resilient by definition—these floors flex underfoot, reducing fatigue and impact noise in high-traffic environments. A meaningful advantage in healthcare, education, and retail spaces where people stand for hours.' },
-]
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]; environments: any[] }) {
-  const milestones = pageData?.historyMilestones?.length ? pageData.historyMilestones : HISTORY_MILESTONES
-  const benefits = pageData?.benefits?.length
-    ? pageData.benefits.map((benefit: { title: string; description: string }, index: number) => ({
-        number: String(index + 1).padStart(2, '0'),
-        keyword: DEFAULT_BENEFITS[index]?.keyword ?? 'BENEFIT',
-        ...benefit,
-      }))
-    : DEFAULT_BENEFITS
+export function WhyResilient({ pageData }: { pageData: any }) {
+  const milestones = pageData.historyMilestones
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const benefits = pageData.benefits.map((benefit: any, index: number) => ({
+    number: String(index + 1).padStart(2, '0'),
+    ...benefit,
+  }))
 
   return (
     <PageLayout>
@@ -118,7 +95,7 @@ export function WhyResilient({ pageData }: { pageData: any; flooringTypes: any[]
                 RFCI certification and declaration programs provide independent, third-party tools that help specifiers evaluate those commitments.
               </p>
               <a href="/certifications/floorscore" className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200">
-                Explore FloorScore <ArrowRight className="w-4 h-4" />
+                Explore FloorScore® <ArrowRight className="w-4 h-4" />
               </a>
             </SectionReveal>
 

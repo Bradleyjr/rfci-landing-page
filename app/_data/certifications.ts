@@ -29,7 +29,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: 'FloorScore\u00ae',
     iconName: 'shieldCheck',
     logoUrl: '/media/cert-logos/floorscore.svg',
-    description: 'FloorScore\u00ae is the flooring industry\'s most recognized indoor air quality (IAQ) certification. Independently administered by SCS Global Services, it verifies that a product meets California Section 01350 VOC emissions standards \u2014 one of the stringent IAQ benchmarks in the world.',
+    description: 'FloorScore\u00ae is the flooring industry\'s most recognized indoor air quality (IAQ) certification. Independently administered by SCS Global Services, it verifies that a product meets California Section 01350 VOC emissions standards \u2014 one of the most stringent IAQ benchmarks in the world.',
     stats: [
       { value: 'CA 01350', label: 'Emissions Standard' },
       { value: 'SCS Global', label: 'Certification Body' },
@@ -85,7 +85,7 @@ export const CERTIFICATIONS: Certification[] = [
     getStartedUrl: 'https://www.scsglobalservices.com/services/floorscore',
     ctaText: 'Find FloorScore Certified Products',
     ctaUrl: 'https://www.scsglobalservices.com/certified-green-products-guide?category=63&program=25',
-    image: { url: '/images/inspiration/applications/homes/KLO09-RS.jpg' },
+    image: { url: '/media/cert-photos/floorscore.png' },
     order: 1,
   },
   {
@@ -130,7 +130,7 @@ export const CERTIFICATIONS: Certification[] = [
     },
     ctaText: 'Find ASSURE Certified Products',
     ctaUrl: 'https://www.scsglobalservices.com/certified-green-products-guide?category=63&program=349',
-    image: { url: '/images/inspiration/applications/homes/72200-RS.jpg' },
+    image: { url: '/media/cert-photos/assure.png' },
     order: 2,
   },
   {
@@ -172,7 +172,7 @@ export const CERTIFICATIONS: Certification[] = [
     getStartedUrl: 'https://www.nsf.org/standards-development/participate-nsf-standards-development',
     ctaText: 'Find AFFIRM Certified Products',
     ctaUrl: 'https://rfci.ecomedes.com/',
-    image: { url: '/images/inspiration/applications/workplace/LLP332-Urban-Fabric-Oak-Lobby-P2_CM.jpg' },
+    image: { url: '/media/cert-photos/affirm.png' },
     order: 3,
   },
   {
@@ -181,7 +181,7 @@ export const CERTIFICATIONS: Certification[] = [
     iconName: 'globe',
     description: 'An Environmental Product Declaration (EPD) is a transparent, third-party verified document that communicates the environmental impacts of a product across its full lifecycle \u2014 based on ISO 14025 and ISO 14040 standards. RFCI publishes Industry Wide EPDs for nine resilient flooring product types.',
     stats: [
-      { value: 'ISO 14025', label: 'EPD Standard' },
+      { value: 'ISO 14025 + 14040', label: 'EPD Standards' },
       { value: '9', label: 'Product Types Covered' },
     ],
     benefits: [
@@ -221,7 +221,7 @@ export const CERTIFICATIONS: Certification[] = [
     ],
     ctaText: 'View All EPDs on RFCI.com',
     ctaUrl: 'https://rfci.com/environmental-product-declaration/',
-    image: { url: '/images/inspiration/applications/workplace/Contour_LVT_Arrowroot_RS.jpg' },
+    image: { url: '/media/cert-photos/epd.jpg' },
     order: 4,
   },
 ]

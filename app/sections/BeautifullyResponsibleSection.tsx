@@ -29,9 +29,7 @@ export function BeautifullyResponsibleSection() {
               Don&rsquo;t compromise&mdash;on your personal style, budget, or&nbsp;well&#8209;being.
             </p>
             <p className="text-base md:text-lg text-white/70 font-light leading-relaxed mb-10 max-w-xl">
-              Beautifully Responsible&reg; is RFCI&rsquo;s consumer initiative connecting homeowners
-              with resilient flooring that&rsquo;s mindfully manufactured, third-party certified,
-              and designed for the way you live.
+              Beautifully Responsible&reg; showcases the hundreds of residential resilient flooring options our members design to deliver lasting style and durability. The campaign highlights independent verification &mdash; such as FloorScore&reg; for indoor air quality and ASSURE&reg; Certified for rigid core performance &mdash; along with transparent environmental information including EPDs and HPDs. Through this platform, RFCI gives consumers a trusted resource to understand the benefits of resilient flooring and the rigorous third-party criteria it meets before it enters their homes.
             </p>
             <a
               href="https://beautifullyresponsible.com"

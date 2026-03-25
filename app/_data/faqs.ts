@@ -21,16 +21,16 @@ export const FAQS: FAQ[] = [
     order: 2,
   },
   {
-    question: 'What is FloorScore certification?',
+    question: 'What is FloorScore® certification?',
     answer:
-      "FloorScore is the flooring industry's most recognized indoor air quality certification. It verifies that products comply with California Section 01350 VOC emissions requirements through independent testing and review.",
+      "FloorScore® is the flooring industry's most recognized indoor air quality certification. It verifies that products comply with California Section 01350 VOC emissions requirements through independent testing and review.",
     category: 'certifications',
     order: 3,
   },
   {
-    question: 'What does ASSURE certification cover?',
+    question: 'What does ASSURE® Certified cover?',
     answer:
-      "ASSURE is RFCI's quality assurance certification for rigid core products. It covers indoor air quality, product performance, vertical deflection, heavy metals, and ortho-phthalates for eligible SPC and WPC constructions.",
+      "ASSURE® Certified is RFCI's quality assurance certification for rigid core products. It covers indoor air quality, product performance, vertical deflection, heavy metals, and ortho-phthalates for eligible SPC and WPC constructions.",
     category: 'certifications',
     order: 4,
   },
@@ -70,16 +70,9 @@ export const FAQS: FAQ[] = [
     order: 9,
   },
   {
-    question: 'Does RFCI offer continuing education?',
-    answer:
-      'Yes. RFCI provides AIA-approved continuing education units covering topics such as indoor air quality, sustainability certifications, material health, and Environmental Product Declarations.',
-    category: 'general',
-    order: 10,
-  },
-  {
     question: 'How does resilient flooring impact indoor air quality?',
     answer:
-      'Resilient flooring can support healthier indoor environments when products are selected with low-emitting certifications such as FloorScore and when installation and maintenance recommendations are followed.',
+      'Resilient flooring can support healthier indoor environments when products are selected with low-emitting certifications such as FloorScore® and when installation and maintenance recommendations are followed.',
     category: 'sustainability',
     order: 11,
   },
@@ -91,9 +84,9 @@ export const FAQS: FAQ[] = [
     order: 12,
   },
   {
-    question: 'What is the difference between FloorScore, ASSURE, and AFFIRM?',
+    question: 'What is the difference between FloorScore®, ASSURE® Certified, and AFFIRM™ Certification?',
     answer:
-      'FloorScore focuses on low VOC emissions and indoor air quality. ASSURE is a rigid core quality assurance program covering performance, vertical deflection, heavy metals, and ortho-phthalates. AFFIRM is a broader sustainability certification built on NSF/ANSI 332 that evaluates environmental, health and wellness, and social responsibility criteria.',
+      'FloorScore® focuses on low VOC emissions and indoor air quality. ASSURE® Certified is a rigid core quality assurance program covering performance, vertical deflection, heavy metals, and ortho-phthalates. AFFIRM™ Certification is a broader sustainability certification built on NSF/ANSI 332 that evaluates environmental, health and wellness, and social responsibility criteria.',
     category: 'certifications',
     order: 13,
   },
@@ -103,13 +96,6 @@ export const FAQS: FAQ[] = [
       'Water resistant products are designed to handle routine moisture exposure for a period of time, while waterproof products are marketed to resist water damage to the product itself under intended conditions. In both cases, specifiers should still confirm requirements for seams, subfloors, transitions, and installation details.',
     category: 'installation',
     order: 14,
-  },
-  {
-    question: 'How does resilient flooring compare to carpet for health and maintenance?',
-    answer:
-      'Resilient flooring offers a cleanable, hard-surface option that does not trap dust, allergens, or moisture the way carpet can. That is one reason it is often specified in healthcare, education, and food-service settings.',
-    category: 'general',
-    order: 15,
   },
   {
     question: 'What types of resilient flooring are available?',
@@ -128,7 +114,7 @@ export const FAQS: FAQ[] = [
   {
     question: 'What is NSF/ANSI 332?',
     answer:
-      'NSF/ANSI 332 is the Sustainability Assessment Standard for Resilient Floor Coverings. It provides the framework behind AFFIRM and evaluates environmental, health and wellness, and social responsibility criteria.',
+      'NSF/ANSI 332 is the Sustainability Assessment Standard for Resilient Floor Coverings. It provides the framework behind AFFIRM™ Certification and evaluates environmental, health and wellness, and social responsibility criteria.',
     category: 'sustainability',
     order: 18,
   },
