@@ -72,7 +72,7 @@ const SCRAPED_GLOSSARY_SEEDS: GlossarySeed[] = [
       'Added to the urethane finish for increased abrasion resistance of the wear layer.',
   },
   {
-    term: 'ASSURE Certified',
+    term: 'ASSURE® Certified',
     definition:
       'A third-party quality assurance testing program for rigid core flooring products developed by RFCI and conducted by SCS Global.',
   },
@@ -405,20 +405,20 @@ const ADDITIONAL_GLOSSARY_SEEDS: GlossarySeed[] = [
 
 const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
   {
-    term: 'AFFIRM Certified',
+    term: 'AFFIRM™ Certified',
     definition:
       'RFCI’s multi-attribute sustainability certification built on NSF/ANSI 332. It evaluates resilient flooring products across environmental, health and wellness, and social responsibility criteria, with independent verification.',
     category: 'Certifications',
-    aliases: ['AFFIRM', 'NSF/ANSI 332'],
+    aliases: ['AFFIRM™', 'NSF/ANSI 332'],
     relatedTerms: ['Material Health', 'Environmental Product Declaration', 'ecomedes'],
   },
   {
-    term: 'ASSURE Certified',
+    term: 'ASSURE® Certified',
     definition:
       'RFCI’s quality assurance certification for rigid core products, including SPC and WPC constructions. The program evaluates indoor air quality, performance, vertical deflection, heavy metals, and ortho-phthalates.',
     category: 'Certifications',
-    aliases: ['ASSURE'],
-    relatedTerms: ['Rigid Core', 'Vertical Deflection', 'FloorScore'],
+    aliases: ['ASSURE®'],
+    relatedTerms: ['Rigid Core', 'Vertical Deflection', 'FloorScore®'],
   },
   {
     term: 'Environmental Product Declaration',
@@ -426,23 +426,23 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
       'A third-party verified report that communicates a product’s environmental impacts across its life cycle using standardized LCA methodology. RFCI publishes industry-wide EPDs for multiple resilient flooring product types.',
     category: 'Sustainability',
     aliases: ['EPD', 'Environmental Product Declarations'],
-    relatedTerms: ['Material Health', 'AFFIRM Certified', 'ecomedes'],
+    relatedTerms: ['Material Health', 'AFFIRM™ Certified', 'ecomedes'],
   },
   {
-    term: 'FloorScore',
+    term: 'FloorScore®',
     definition:
       'An indoor air quality certification administered by SCS Global Services that verifies flooring products comply with California Section 01350 VOC emissions requirements.',
     category: 'Certifications',
-    aliases: ['FloorScore certification', 'FloorScore Certified'],
-    relatedTerms: ['VOC', 'ASSURE Certified'],
+    aliases: ['FloorScore® certification', 'FloorScore® Certified'],
+    relatedTerms: ['VOC', 'ASSURE® Certified'],
   },
   {
     term: 'Material Health',
     definition:
-      'A way of evaluating how a product’s ingredients affect people and the environment. In resilient flooring, material health often relates to ingredient disclosure, substances of concern, and third-party certifications such as AFFIRM.',
+      'A way of evaluating how a product’s ingredients affect people and the environment. In resilient flooring, material health often relates to ingredient disclosure, substances of concern, and third-party certifications such as AFFIRM™.',
     category: 'Sustainability',
     aliases: ['healthy materials'],
-    relatedTerms: ['AFFIRM Certified', 'VOC', 'Environmental Product Declaration'],
+    relatedTerms: ['AFFIRM™ Certified', 'VOC', 'Environmental Product Declaration'],
   },
   {
     term: 'Rigid Core',
@@ -450,7 +450,7 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
       'A resilient flooring category with a rigid polymeric core, a decorative top surface, and often an attached underlayment. The two main rigid core constructions are SPC and WPC.',
     category: 'Flooring Types',
     aliases: ['multilayer flooring'],
-    relatedTerms: ['SPC', 'WPC', 'ASSURE Certified'],
+    relatedTerms: ['SPC', 'WPC', 'ASSURE® Certified'],
   },
   {
     term: 'Slip Resistance',
@@ -466,23 +466,23 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
       'Solid Polymer Core rigid core flooring. SPC products are known for density, indentation resistance, and dimensional stability in demanding environments.',
     category: 'Flooring Types',
     aliases: ['Stone Polymer Composite', 'Solid Polymer Core'],
-    relatedTerms: ['Rigid Core', 'WPC', 'ASSURE Certified'],
+    relatedTerms: ['Rigid Core', 'WPC', 'ASSURE® Certified'],
   },
   {
     term: 'VOC',
     definition:
-      'Volatile Organic Compound. VOCs can off-gas from some building materials, so RFCI programs like FloorScore focus on testing and documenting low-emitting resilient flooring products.',
+      'Volatile Organic Compound. VOCs can off-gas from some building materials, so RFCI programs like FloorScore® focus on testing and documenting low-emitting resilient flooring products.',
     category: 'Performance',
     aliases: ['volatile organic compound', 'volatile organic compounds'],
-    relatedTerms: ['FloorScore', 'Material Health'],
+    relatedTerms: ['FloorScore®', 'Material Health'],
   },
   {
     term: 'Vertical Deflection',
     definition:
-      'A performance measure used to evaluate how much a flooring product flexes under load. For rigid core products, it helps confirm structural integrity and contributes to ASSURE performance qualification.',
+      'A performance measure used to evaluate how much a flooring product flexes under load. For rigid core products, it helps confirm structural integrity and contributes to ASSURE® performance qualification.',
     category: 'Performance',
     aliases: ['deflection'],
-    relatedTerms: ['ASSURE Certified', 'Rigid Core'],
+    relatedTerms: ['ASSURE® Certified', 'Rigid Core'],
   },
   {
     term: 'Water Resistant',
@@ -506,7 +506,7 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
       'Expanded Polymer Core rigid core flooring. WPC constructions are generally thicker and lighter than SPC, often with added underfoot comfort and acoustical benefits.',
     category: 'Flooring Types',
     aliases: ['Wood Polymer Composite', 'Expanded Polymer Core'],
-    relatedTerms: ['Rigid Core', 'SPC', 'ASSURE Certified'],
+    relatedTerms: ['Rigid Core', 'SPC', 'ASSURE® Certified'],
   },
   {
     term: 'ecomedes',
@@ -514,12 +514,12 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
       'RFCI’s product transparency database, used by architects, designers, and specifiers to find resilient flooring products and review certifications, declarations, and green building attributes in one place.',
     category: 'Sustainability',
     aliases: ['RFCI ecomedes', 'product database'],
-    relatedTerms: ['AFFIRM Certified', 'Environmental Product Declaration'],
+    relatedTerms: ['AFFIRM™ Certified', 'Environmental Product Declaration'],
   },
 ]
 
 const CATEGORY_TERMS: Record<GlossaryCategory, string[]> = {
-  Certifications: ['AFFIRM Certified', 'ASSURE Certified', 'FloorScore'],
+  Certifications: ['AFFIRM™ Certified', 'ASSURE® Certified', 'FloorScore®'],
   'Flooring Types': [
     'Asphalt Tile',
     'Cork',

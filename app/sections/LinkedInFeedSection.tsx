@@ -34,7 +34,7 @@ const FAKE_POSTS = [
     name: 'Resilient Floor Covering Institute',
     handle: 'resilient-floor-covering-institute',
     time: '1w',
-    text: 'From EPDs to FloorScore certification, RFCI members are committed to product transparency and environmental stewardship. Discover how resilient flooring is advancing green building goals.',
+    text: 'From EPDs to FloorScore® certification, RFCI members are committed to product transparency and environmental stewardship. Discover how resilient flooring is advancing green building goals.',
     image: '/images/inspiration/applications/retail/KP138-Grey-Limed-Oak-Retail-LS_CM.jpg',
     likes: 62,
     comments: 8,

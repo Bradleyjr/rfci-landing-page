@@ -189,7 +189,7 @@ export function ContactPage() {
                       key={defaultSubject}
                     >
                       <option value="" disabled>Select a topic</option>
-                      <option value="certifications">Certifications (FloorScore, ASSURE, AFFIRM)</option>
+                      <option value="certifications">Certifications (FloorScore®, ASSURE® Certified, AFFIRM™)</option>
                       <option value="membership">Membership Inquiry</option>
                       <option value="events">Upcoming Events</option>
                       <option value="technical">Technical Question</option>

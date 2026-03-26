@@ -126,18 +126,6 @@ export function GlossaryPage({ entries }: { entries: GlossaryEntry[] }) {
                                 </h3>
                               </div>
 
-                              {entry.aliases.length > 0 && (
-                                <div className="flex flex-wrap justify-end gap-2">
-                                  {entry.aliases.map((alias) => (
-                                    <span
-                                      key={alias}
-                                      className="rounded-full bg-rfci-cream px-3 py-1 text-label font-bold uppercase tracking-widest text-rfci-black/60"
-                                    >
-                                      {alias}
-                                    </span>
-                                  ))}
-                                </div>
-                              )}
                             </div>
 
                             <p className="text-base leading-relaxed text-rfci-black/65 font-light">

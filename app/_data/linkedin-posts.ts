@@ -18,8 +18,8 @@ export const LINKEDIN_POSTS: LinkedInPost[] = [
     order: 1,
   },
   {
-    title: 'FloorScore Reaches 10,000 Certified Products',
-    excerpt: 'A milestone for indoor air quality certification \u2014 FloorScore now covers more than 10,000 products worldwide.',
+    title: 'FloorScore® Reaches 10,000 Certified Products',
+    excerpt: 'A milestone for indoor air quality certification \u2014 FloorScore® now covers more than 10,000 products worldwide.',
     imageUrl: '/images/inspiration/applications/homes/72201-RS.jpg',
     postUrl: 'https://www.linkedin.com/company/resilient-floor-covering-institute/',
     postDate: 'Feb 12, 2026',
