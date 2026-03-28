@@ -29,7 +29,7 @@ function glossaryKey(term: string): string {
   return term
     .toLowerCase()
     .replace(/[®™]/g, '')
-    .replace(/['’]/g, '')
+    .replace(/['']/g, '')
     .replace(/[^a-z0-9]+/g, ' ')
     .trim()
 }
@@ -82,9 +82,9 @@ const SCRAPED_GLOSSARY_SEEDS: GlossarySeed[] = [
       'Vinyl is constructed of several different layers: the wear layer, the printed or decorative layer, an inner core consisting of a foam and vinyl layer, and a backing. The type of backing determines how it can be installed.',
   },
   {
-    term: 'Beautifully Responsible',
+    term: 'Beautifully Responsible®',
     definition:
-      'RFCI’s consumer-facing message about family-friendly, eco-friendly resilient flooring that matches style, budget, and sustainable values.',
+      "RFCI's consumer-facing message about family-friendly, eco-friendly resilient flooring that matches style, budget, and sustainable values.",
   },
   {
     term: 'Below-Grade',
@@ -119,7 +119,7 @@ const SCRAPED_GLOSSARY_SEEDS: GlossarySeed[] = [
   {
     term: 'Decorative Layer',
     definition:
-      'The rotogravure printing process offers a multitude of design possibilities that are expressed through the decorative layer, such as patterns, geometrics, and natural stone visuals.',
+      'The layer that expresses the design of the floor, whether it resembles natural surfaces like wood or stone, or patterns or colors.',
   },
   {
     term: 'Dimensional Stability',
@@ -280,12 +280,7 @@ const SCRAPED_GLOSSARY_SEEDS: GlossarySeed[] = [
   {
     term: 'Resilient',
     definition:
-      'These floors have some give or elasticity when walked on. The category includes linoleum, cork, rubber, and specialty resilient products.',
-  },
-  {
-    term: 'Resilient Flooring',
-    definition:
-      'An organic floor surfacing material made in sheet or tile form, or formed in place as a seamless material, of which the wearing surface is non-textile. The classification by common usage includes, but is not limited to asphalt, cork, linoleum, rubber, vinyl, vinyl composition, and polymeric poured seamless floors.',
+      'These floors have some give or elasticity when walked on. The category includes Flexible Luxury Vinyl (LVT/LVP), Rigid Core, Solid Vinyl Tile (SVT), Vinyl Composition Tile (VCT), Sheet Vinyl, Linoleum, Rubber, and Cork.',
   },
   {
     term: 'Resin',
@@ -310,7 +305,7 @@ const SCRAPED_GLOSSARY_SEEDS: GlossarySeed[] = [
   {
     term: 'Seams',
     definition:
-      'Since vinyl comes in 6 ft and 12 ft widths, seaming may be necessary depending on the area to be covered. Certain patterns hide seams better than others.',
+      'Since sheet vinyl comes in 6 ft and 12 ft widths, seaming may be necessary depending on the area to be covered. Certain patterns hide seams better than others.',
   },
   {
     term: 'Seam Sealer',
@@ -321,10 +316,6 @@ const SCRAPED_GLOSSARY_SEEDS: GlossarySeed[] = [
     term: 'Sheet, Resilient Flooring',
     definition:
       'Flexible resilient flooring, packaged in roll form, in which the length substantially exceeds the width.',
-  },
-  {
-    term: 'Slip Resistance',
-    definition: 'The ability to counteract loss of traction.',
   },
   {
     term: 'Solid Vinyl Tile',
@@ -359,7 +350,7 @@ const SCRAPED_GLOSSARY_SEEDS: GlossarySeed[] = [
   {
     term: 'Tile, Resilient Flooring',
     definition:
-      'Resilient flooring that is packaged in flat pieces and can be installed as individual units.',
+      'Resilient flooring that is finished to resemble ceramic or stone tiles.',
   },
   {
     term: 'Traction',
@@ -389,7 +380,7 @@ const SCRAPED_GLOSSARY_SEEDS: GlossarySeed[] = [
   {
     term: 'Wear',
     definition:
-      'The accumulative and integrative action of deleterious mechanical influences encountered in use that tend to impair a material’s serviceability, including abrasion, scratching, gouging, and scuffing.',
+      "The accumulative and integrative action of deleterious mechanical influences encountered in use that tend to impair a material's serviceability, including abrasion, scratching, gouging, and scuffing.",
   },
 ]
 
@@ -407,15 +398,15 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
   {
     term: 'AFFIRM™ Certified',
     definition:
-      'RFCI’s multi-attribute sustainability certification built on NSF/ANSI 332. It evaluates resilient flooring products across environmental, health and wellness, and social responsibility criteria, with independent verification.',
+      "RFCI's multi-attribute sustainability certification built on NSF/ANSI 332. It evaluates resilient flooring products across environmental, health and wellness, and social responsibility criteria, with independent verification.",
     category: 'Certifications',
     aliases: ['AFFIRM™', 'NSF/ANSI 332'],
-    relatedTerms: ['Material Health', 'Environmental Product Declaration', 'ecomedes'],
+    relatedTerms: ['Material Health', 'Environmental Product Declaration', 'Ecomedes®'],
   },
   {
     term: 'ASSURE® Certified',
     definition:
-      'RFCI’s quality assurance certification for rigid core products, including SPC and WPC constructions. The program evaluates indoor air quality, performance, vertical deflection, heavy metals, and ortho-phthalates.',
+      "RFCI's quality assurance certification for rigid core products, including SPC and WPC constructions. The program evaluates indoor air quality, performance, vertical deflection, heavy metals, and ortho-phthalates.",
     category: 'Certifications',
     aliases: ['ASSURE®'],
     relatedTerms: ['Rigid Core', 'Vertical Deflection', 'FloorScore®'],
@@ -423,10 +414,10 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
   {
     term: 'Environmental Product Declaration',
     definition:
-      'A third-party verified report that communicates a product’s environmental impacts across its life cycle using standardized LCA methodology. RFCI publishes industry-wide EPDs for multiple resilient flooring product types.',
+      "A third-party verified report that communicates a product's environmental impacts across its life cycle using standardized LCA methodology. RFCI publishes industry-wide EPDs for multiple resilient flooring product types.",
     category: 'Sustainability',
     aliases: ['EPD', 'Environmental Product Declarations'],
-    relatedTerms: ['Material Health', 'AFFIRM™ Certified', 'ecomedes'],
+    relatedTerms: ['Material Health', 'AFFIRM™ Certified', 'Ecomedes®'],
   },
   {
     term: 'FloorScore®',
@@ -439,7 +430,7 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
   {
     term: 'Material Health',
     definition:
-      'A way of evaluating how a product’s ingredients affect people and the environment. In resilient flooring, material health often relates to ingredient disclosure, substances of concern, and third-party certifications such as AFFIRM™.',
+      "A way of evaluating how a product's ingredients affect people and the environment. In resilient flooring, material health often relates to ingredient disclosure, substances of concern, and third-party certifications such as AFFIRM™.",
     category: 'Sustainability',
     aliases: ['healthy materials'],
     relatedTerms: ['AFFIRM™ Certified', 'VOC', 'Environmental Product Declaration'],
@@ -451,14 +442,6 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
     category: 'Flooring Types',
     aliases: ['multilayer flooring'],
     relatedTerms: ['SPC', 'WPC', 'ASSURE® Certified'],
-  },
-  {
-    term: 'Slip Resistance',
-    definition:
-      'The ability of a walking surface to help counteract loss of traction. Under current ADA guidance, floors are expected to be stable, firm, and slip resistant rather than tied to the withdrawn 0.6 and 0.8 coefficient thresholds.',
-    category: 'Performance',
-    aliases: ['slip resistant'],
-    relatedTerms: ['Water Resistant', 'Waterproof', 'Coefficient of Friction'],
   },
   {
     term: 'SPC',
@@ -479,7 +462,7 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
   {
     term: 'Vertical Deflection',
     definition:
-      'A performance measure used to evaluate how much a flooring product flexes under load. For rigid core products, it helps confirm structural integrity and contributes to ASSURE® performance qualification.',
+      'A performance measure used to evaluate how much a flooring product flexes under load. For rigid core products, it helps confirm structural integrity and contributes to ASSURE® Certified performance qualification.',
     category: 'Performance',
     aliases: ['deflection'],
     relatedTerms: ['ASSURE® Certified', 'Rigid Core'],
@@ -509,11 +492,11 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
     relatedTerms: ['Rigid Core', 'SPC', 'ASSURE® Certified'],
   },
   {
-    term: 'ecomedes',
+    term: 'Ecomedes®',
     definition:
-      'RFCI’s product transparency database, used by architects, designers, and specifiers to find resilient flooring products and review certifications, declarations, and green building attributes in one place.',
+      "RFCI's product transparency database, used by architects, designers, and specifiers to find resilient flooring products and review certifications, declarations, and green building attributes in one place.",
     category: 'Sustainability',
-    aliases: ['RFCI ecomedes', 'product database'],
+    aliases: ['RFCI Ecomedes', 'product database'],
     relatedTerms: ['AFFIRM™ Certified', 'Environmental Product Declaration'],
   },
 ]
@@ -535,7 +518,6 @@ const CATEGORY_TERMS: Record<GlossaryCategory, string[]> = {
     'Polymeric Poured (Seamless) Floors',
     'Printed Sheet Vinyl Flooring',
     'Resilient',
-    'Resilient Flooring',
     'Rigid Core',
     'Rubber',
     'Sheet, Resilient Flooring',
@@ -593,7 +575,6 @@ const CATEGORY_TERMS: Record<GlossaryCategory, string[]> = {
     'Gouge',
     'Heterogeneous',
     'Mar',
-    'Slip Resistance',
     'Static Coefficient of Friction',
     'Tangential Force',
     'Traction',
@@ -605,13 +586,13 @@ const CATEGORY_TERMS: Record<GlossaryCategory, string[]> = {
     'Wearlayer',
   ],
   Sustainability: [
-    'Beautifully Responsible',
+    'Beautifully Responsible®',
     'Environmental Product Declaration',
     'Material Health',
     'Post-Consumer Recycled Content',
     'Pre-Consumer Recycled Content',
     'Recycled Content',
-    'ecomedes',
+    'Ecomedes®',
   ],
   'Industry Terms': [],
 }
@@ -620,7 +601,7 @@ const ALIAS_LOOKUP: Record<string, string[]> = {
   [glossaryKey('Above-Grade')]: ['Above Grade'],
   [glossaryKey('Below-Grade')]: ['Below Grade'],
   [glossaryKey('On-Grade')]: ['On Grade'],
-  [glossaryKey('Beautifully Responsible')]: ['Beautifully ResponsibleTM'],
+  [glossaryKey('Beautifully Responsible®')]: ['Beautifully ResponsibleTM'],
   [glossaryKey('Coefficient of Friction')]: ['COF'],
   [glossaryKey('Homogeneous Rubber Flooring')]: ['Homogenous Rubber Flooring'],
   [glossaryKey('Injection Molded Flooring')]: ['Injection molded Flooring'],
@@ -643,7 +624,6 @@ const RELATED_LOOKUP: Record<string, string[]> = {
   [glossaryKey('Coefficient of Friction')]: [
     'Static Coefficient of Friction',
     'Traction',
-    'Slip Resistance',
   ],
   [glossaryKey('Heat Welded Seam')]: ['Seams', 'Seam Sealer'],
   [glossaryKey('Heterogeneous')]: ['Heterogeneous Resilient Flooring'],
@@ -660,11 +640,11 @@ const RELATED_LOOKUP: Record<string, string[]> = {
     'Post-Consumer Recycled Content',
     'Pre-Consumer Recycled Content',
   ],
-  [glossaryKey('Resilient')]: ['Resilient Flooring'],
+  [glossaryKey('Resilient')]: [],
   [glossaryKey('Rubber')]: ['Homogeneous Rubber Flooring'],
   [glossaryKey('Subflooring')]: ['Substrate', 'Underlayment'],
   [glossaryKey('Substrate')]: ['Subflooring', 'Underlayment'],
-  [glossaryKey('Traction')]: ['Coefficient of Friction', 'Slip Resistance'],
+  [glossaryKey('Traction')]: ['Coefficient of Friction'],
   [glossaryKey('VCT Vinyl Composition Tiles')]: ['Solid Vinyl Tile', 'Vinyl'],
   [glossaryKey('Vinyl')]: ['Solid Vinyl Tile', 'VCT Vinyl Composition Tiles'],
   [glossaryKey('Wear')]: ['Abrasion', 'Wearlayer'],

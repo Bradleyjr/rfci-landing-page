@@ -9,7 +9,7 @@ export const FAQS: FAQ[] = [
   {
     question: 'What is resilient flooring?',
     answer:
-      'Resilient flooring refers to a category of hard surface flooring materials that offer a degree of flexibility and "give" underfoot. This includes luxury vinyl tile (LVT), vinyl composition tile (VCT), sheet vinyl, linoleum, rubber, cork, and rigid core constructions.',
+      'Resilient flooring refers to a category of hard surface flooring materials that offer a degree of flexibility and "give" underfoot. This includes Flexible Luxury Vinyl (LVT/LVP), Rigid Core, Solid Vinyl Tile (SVT), Vinyl Composition Tile (VCT), Sheet Vinyl, Linoleum, Rubber, and Cork.',
     category: 'general',
     order: 1,
   },

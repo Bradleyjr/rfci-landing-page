@@ -122,11 +122,10 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
             </p>
 
             {/* Tags */}
-            {tags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {tags.map((tag: { label: string; style: string; dot?: string }, i: number) => (
-                  <span key={i} className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-label font-bold uppercase tracking-widest ${tag.style}`}>
-                    {tag.dot && <span className={`w-1.5 h-1.5 rounded-full ${tag.dot}`} />}
+            {(ft.tags ?? []).length > 0 && (
+              <div className="flex flex-wrap gap-1.5">
+                {(ft.tags ?? []).map((tag: { label: string }, i: number) => (
+                  <span key={i} className="inline-flex items-center px-2.5 py-1 text-label font-bold uppercase tracking-widest bg-rfci-cream text-rfci-black/70">
                     {tag.label}
                   </span>
                 ))}
