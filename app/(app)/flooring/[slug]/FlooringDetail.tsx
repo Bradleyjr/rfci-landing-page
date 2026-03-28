@@ -175,7 +175,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
                 <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
                 <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Composition</div>
                 <h2 className="text-4xl md:text-5xl font-display font-light">
-                  What it&rsquo;s <span className="font-semibold">made of</span>
+                  How it&rsquo;s <span className="font-semibold">made</span>
                 </h2>
               </SectionReveal>
               <SectionReveal className="lg:col-span-3" delay={0.1}>

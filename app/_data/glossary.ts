@@ -473,7 +473,7 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
       'A product characteristic indicating the flooring can resist routine moisture exposure for a period of time, but not necessarily prevent water from penetrating every joint, edge, or substrate condition.',
     category: 'Performance',
     aliases: ['moisture resistant'],
-    relatedTerms: ['Waterproof', 'Slip Resistance'],
+    relatedTerms: ['Waterproof'],
   },
   {
     term: 'Waterproof',

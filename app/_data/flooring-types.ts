@@ -77,7 +77,7 @@ export const FLOORING_TYPES: FlooringType[] = [
   {
     title: 'Vinyl Composition Tile (VCT)',
     subtitle: 'VCT \u00b7 Commercial Standard',
-    slug: 'vinyl-composition-tile',
+    slug: 'vct',
     description: 'Vinyl Composition Tile (VCT) is a finished flooring material used primarily in commercial and institutional applications. A popular choice due to its low cost and durability, with through-color construction that provides years of lasting beauty.',
     accentColor: '#CFD8DC',
     productImage: '/media/flooring/vct.png',
