@@ -260,7 +260,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
                   Why choose <span className="font-semibold">{ft.title}</span>
                 </h2>
                 <p className="text-base text-rfci-black/50 font-light leading-relaxed">
-                  The key benefits that make {ft.title} a trusted choice across residential and commercial environments.
+                  The key benefits that make {ft.title} a trusted choice across commercial and institutional environments.
                 </p>
               </SectionReveal>
               <div className="lg:col-span-3">
