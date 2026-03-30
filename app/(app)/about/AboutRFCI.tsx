@@ -58,7 +58,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                 <div className="text-5xl md:text-6xl font-display font-bold text-rfci-blue mb-4">50+</div>
                 <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-6">Years of Service</div>
                 <p className="text-base text-rfci-black/60 font-light leading-relaxed">
-                  Bring out the best in our members to drive the unifying voice quality, sustainability, and innovation for a growing industry.
+                  Bringing out the best in our members to drive the unifying voice quality, sustainability, and innovation for a growing industry.
                 </p>
               </div>
             </SectionReveal>
