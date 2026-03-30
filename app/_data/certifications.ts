@@ -154,7 +154,7 @@ export const CERTIFICATIONS: Certification[] = [
     ],
     benefits: [
       { title: 'ANSI-Accredited Standard', description: 'The AFFIRM standard is developed through an ANSI-accredited consensus process involving public health, industry, and user stakeholders.' },
-      { title: 'Three Impact Areas', description: 'Covers Environmental requirements, Health and Wellness, and Social Responsibility \u2014 a true multi-attribute sustainability standard.' },
+      { title: 'Three Impact Areas', description: 'Covers Environmental, Health and Wellness, and Social Responsibility requirements \u2014 a true multi-attribute sustainability standard.' },
       { title: 'Two Certification Levels', description: 'Level 1 is required baseline compliance. Level 2 is optional and rewards products that meet additional criteria across the three impact areas.' },
       { title: 'Public Health Council Review', description: 'All standards reviewed by the AFFIRM Council of Public Health Consultants \u2014 composed of professionals from federal and state agencies, academic institutions, and recognized public health leaders.' },
       { title: 'Specifier Confidence', description: 'The AFFIRM label enables architects, designers, facility managers, and procurement agents to easily verify third-party sustainability compliance.' },
