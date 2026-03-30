@@ -191,7 +191,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                     </div>
                     <div className="p-6">
                       <div className="mb-3 text-label font-bold uppercase tracking-widest text-rfci-blue">
-                        {video.company} · {video.segment}
+                        {video.company}
                       </div>
                       <h3 className="mb-3 text-xl md:text-2xl font-display font-light leading-tight text-rfci-black">
                         {video.title}
