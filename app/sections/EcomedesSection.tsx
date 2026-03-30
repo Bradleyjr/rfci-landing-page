@@ -53,7 +53,7 @@ export function EcomedesSection() {
           <img
             src="/media/ecomedes-hero.jpg"
             alt="Designer reviewing flooring samples with Ecomedes platform on screen"
-            className="w-full aspect-[16/7] object-cover"
+            className="w-full aspect-[16/7] object-cover object-top"
           />
         </SectionReveal>
 
