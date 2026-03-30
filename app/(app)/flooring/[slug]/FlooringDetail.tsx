@@ -385,23 +385,23 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
       {/* Diagram Lightbox */}
       {enlargedDiagram && (
         <div
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-6 md:p-16"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-6 md:p-16"
           onClick={() => setEnlargedDiagram(null)}
         >
-          <div className="relative max-w-4xl w-full" onClick={e => e.stopPropagation()}>
+          <div className="relative max-w-4xl w-full bg-white p-8 md:p-12 shadow-2xl" onClick={e => e.stopPropagation()}>
             <button
               onClick={() => setEnlargedDiagram(null)}
-              className="absolute -top-10 right-0 flex items-center gap-1.5 text-white/60 hover:text-white transition-colors text-sm font-semibold"
+              className="absolute top-4 right-4 flex items-center gap-1.5 text-rfci-black/40 hover:text-rfci-black transition-colors text-sm font-semibold"
             >
               Close <X className="w-4 h-4" />
             </button>
             <img
               src={enlargedDiagram.url}
               alt={enlargedDiagram.label}
-              className="w-full object-contain max-h-[80vh]"
+              className="w-full object-contain max-h-[75vh]"
             />
             {enlargedDiagram.label && (
-              <div className="text-center mt-4 text-label font-bold tracking-widest uppercase text-white/50">
+              <div className="text-center mt-6 text-label font-bold tracking-widest uppercase text-rfci-black/40">
                 {enlargedDiagram.label}
               </div>
             )}
