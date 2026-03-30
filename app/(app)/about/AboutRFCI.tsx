@@ -163,7 +163,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
             <SectionReveal className="mb-12">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Testimonials</div>
               <h2 className="text-4xl md:text-5xl font-display font-light">
-                Hear from the <span className="font-semibold">members.</span>
+                Hear from <span className="font-semibold">the members.</span>
               </h2>
             </SectionReveal>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
