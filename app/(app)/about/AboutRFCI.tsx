@@ -55,10 +55,10 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
 
             <SectionReveal direction="right">
               <div className="bg-rfci-cream p-10 md:p-12">
-                <div className="text-5xl md:text-6xl font-display font-bold text-rfci-blue mb-4">50</div>
-                <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-6">Years of industry leadership</div>
+                <div className="text-5xl md:text-6xl font-display font-bold text-rfci-blue mb-4">50+</div>
+                <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-6">Years of Service</div>
                 <p className="text-base text-rfci-black/60 font-light leading-relaxed">
-                  Since 1976, RFCI has served as the unifying voice for resilient flooring — driving standards, advancing sustainability, and connecting the industry.
+                  Bring out the best in our members to drive the unifying voice quality, sustainability, and innovation for a growing industry.
                 </p>
               </div>
             </SectionReveal>
@@ -163,7 +163,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
             <SectionReveal className="mb-12">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Testimonials</div>
               <h2 className="text-4xl md:text-5xl font-display font-light">
-                Hear from the <span className="font-semibold">industry.</span>
+                Hear from the <span className="font-semibold">members.</span>
               </h2>
             </SectionReveal>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

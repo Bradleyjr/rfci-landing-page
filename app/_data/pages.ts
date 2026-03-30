@@ -1,13 +1,13 @@
 export const ABOUT_PAGE = {
   heroHeading: 'A voice for resilient flooring.',
   heroSubheading: 'Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America\u2019s resilient flooring industry\u2014representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring.',
-  missionStatement: 'RFCI is a non-profit organization that brings the resilient flooring industry together to advocate, educate, and lead\u2014advancing the interests of manufacturers, specifiers, and end users alike.',
+  missionStatement: 'Made up of over 60 Manufacturer and Supply Chain members, representing a full range of resilient flooring products doing business in North America, coming together to advocate, educate, and lead the category in ways no single company can.',
   strategicPillars: [
     { number: '01', title: 'Advocacy & Government Affairs', description: 'Represent the resilient flooring industry before legislative and regulatory bodies at federal, state, and local levels.' },
     { number: '02', title: 'Certification Programs', description: 'Administer FloorScore®, ASSURE® Certified, and AFFIRM™ Certification programs that independently verify indoor air quality, sustainability, and material health.' },
     { number: '03', title: 'Technical Standards', description: 'Develop and maintain industry standards, recommended work practices, and installation guidelines that ensure product quality and performance.' },
     { number: '04', title: 'Sustainability Leadership', description: 'Publish Environmental Product Declarations, promote lifecycle assessment, and advance recycling and end-of-life recovery programs.' },
-    { number: '05', title: 'Education & Outreach', description: 'Provide AIA-approved continuing education, industry research, and resources to architects, designers, facility managers, and specifiers.' },
+    { number: '05', title: 'Promotion & Education', description: 'Advancing industry knowledge through continuing education, original research, and consumer outreach via our Beautifully Responsible\u00ae program\u2014while also engaging and informing the architecture and design community.' },
   ],
 }
 
