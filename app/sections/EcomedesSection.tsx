@@ -47,6 +47,16 @@ export function EcomedesSection() {
           </SectionReveal>
 
         </div>
+
+        {/* Hero image below */}
+        <SectionReveal className="mt-16 md:mt-20">
+          <img
+            src="/media/ecomedes-hero.jpg"
+            alt="Designer reviewing flooring samples with Ecomedes platform on screen"
+            className="w-full aspect-[16/7] object-cover"
+          />
+        </SectionReveal>
+
       </div>
     </section>
   )
