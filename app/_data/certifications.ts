@@ -195,7 +195,7 @@ export const CERTIFICATIONS: Certification[] = [
     benefits: [
       { title: 'Full Lifecycle Transparency', description: 'EPDs report environmental impact from raw material extraction through manufacturing, use phase, and end-of-life \u2014 per ISO 14040 Life Cycle Assessment methodology.' },
       { title: 'LEED & Green Globes Credits', description: 'EPDs contribute to LEED v4, v4.1, and v5 Material and Resources credits and Green Globes credits for environmental product information.' },
-      { title: 'Industry Wide EPDs Available', description: 'RFCI publishes industry-average EPDs for 9 resilient flooring types: Heterogeneous Sheet, Homogeneous Sheet, LVT Gluedown, LVT Looselay, Rubber, Rigid Core SPC, Rigid Core WPC, Solid Vinyl Tile, and VCT.' },
+      { title: 'Industry Wide EPDs Available', description: 'RFCI publishes industry wide EPDs for 9 resilient flooring types: Heterogeneous Sheet, Homogeneous Sheet, LVT Gluedown, LVT Looselay, Rubber, Rigid Core SPC, Rigid Core WPC, Solid Vinyl Tile, and VCT.' },
       { title: 'ISO 14025 Compliant', description: 'All RFCI EPDs are Type III declarations compliant with ISO 14025, the international standard for Environmental Product Declarations.' },
       { title: 'Comparative Analysis Tool', description: 'EPDs enable apples-to-apples environmental comparison between flooring products, giving specifiers objective data for decision-making.' },
       { title: '2024 EPDs Now Available', description: 'Updated 2024 Industry Wide EPDs reflect current manufacturing data and supersede the 2019 archived versions, which remain available for reference.' },
