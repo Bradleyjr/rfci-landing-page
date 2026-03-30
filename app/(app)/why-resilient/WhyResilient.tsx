@@ -33,8 +33,8 @@ export function WhyResilient({ pageData }: { pageData: any }) {
             <SectionReveal direction="left">
               <div className="relative">
                 <img
-                  src="/images/inspiration/applications/homes/APX134-RS-Mokuzai-Sapling.jpg"
-                  alt="Modern interior with resilient flooring"
+                  src="/images/inspiration/applications/workplace/iStock-2207512846.jpg"
+                  alt="Modern reception area with resilient flooring"
                   className="w-full aspect-[4/3] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-rfci-black/20 to-transparent" />
