@@ -57,9 +57,10 @@ export const CERTIFICATIONS: Certification[] = [
     faqs: [
       { question: 'Where can I find a list of flooring products that have earned the FloorScore\u00ae seal?', answer: 'A current list is maintained by SCS Global Services at scscertified.com.' },
       { question: 'In short, what does FloorScore\u00ae require?', answer: 'To earn the FloorScore seal, a product must satisfy requirements including: testing demonstrating compliance with emission concentrations for listed VOCs under California Section 01350; manufacturing facility on-site audits and yearly surveillance audits; annual product re-testing; product record keeping; and a documented quality control plan.' },
+      { question: 'What does IAQ stand for?', answer: 'Indoor Air Quality (IAQ) refers to the condition of the air inside buildings\u2014especially as it relates to the health, comfort, and well-being of occupants. It is influenced by factors such as ventilation, humidity, and the presence of pollutants, including dust, allergens, and volatile organic compounds (VOCs)\u2014chemicals emitted from products like flooring, paints, and furnishings.' },
+      { question: 'What are VOCs?', answer: 'Volatile Organic Compounds (VOCs) are a group of carbon-based chemicals that easily evaporate into the air at room temperature. They are commonly emitted from products such as paints, adhesives, flooring, and furnishings, and can impact IAQ (Indoor Air Quality) and occupant health depending on their concentration and exposure levels.' },
       { question: 'Why does IAQ matter to me?', answer: 'If you\u2019re like most people, you spend over 90% of your life indoors. Poor IAQ can be a factor in a variety of health problems, such as headaches and dizziness and more serious long-term effects.' },
       { question: 'Are some people more sensitive to VOCs than others?', answer: 'Yes. During installation when VOC levels can be higher, people who are sensitive to odors or chemicals should avoid the area. FloorScore certification does not include the installation process.' },
-      { question: 'Why is hard surface flooring recommended for classrooms, offices, and homes?', answer: 'Hard surface floors are easy to clean and maintain because they provide a one-dimensional surface that doesn\u2019t absorb odors, spills, dust or soil. They also don\u2019t easily retain moisture, which can promote the growth of microorganisms, such as dust mites and mold, that can contribute to poor IAQ.' },
     ],
     recognizedPrograms: [
       'U.S. Green Building Council LEED Rating System',
@@ -117,6 +118,14 @@ export const CERTIFICATIONS: Certification[] = [
       { title: 'ASSURE Certified Information Flyer (English)', description: 'Program overview and certification requirements for rigid core luxury flooring.', url: 'https://rfci.com/wp-content/uploads/2023/06/Download-our-Information-flyer-English.pdf', category: 'Program Documents' },
       { title: 'ASSURE Certified Information Flyer (Chinese)', description: '\u4e2d\u6587\u7248\u672c \u2014 Program overview and certification requirements.', url: 'https://rfci.com/wp-content/uploads/2023/06/Download-our-Information-flyer-Chinese.pdf', category: 'Program Documents' },
       { title: 'ASSURE Certification Application', description: 'Application form to begin the ASSURE certification process with SCS Global Services.', url: 'https://rfci.com/wp-content/uploads/2020/02/ECS_APP_Assure_122219-2.docx', category: 'Program Documents' },
+    ],
+    faqs: [
+      { question: 'What does SPC mean?', answer: 'Solid Polymer Core (SPC) refers to a rigid core flooring made from a blend of limestone powder and stabilizers, creating a dense, durable, and highly water-resistant product.' },
+      { question: 'What does WPC mean?', answer: 'Expanded Polymer Core (WPC) is a rigid core flooring that combines wood or wood-like materials with plastic composites, resulting in a slightly softer, more cushioned feel underfoot.' },
+      { question: 'What does "multi-layered" mean?', answer: '"Multi-layered" describes flooring constructed with several distinct layers\u2014typically including a wear layer, design layer, core, and backing\u2014each contributing to performance, durability, and comfort.' },
+      { question: 'What does a "floating floor" mean?', answer: 'A "floating floor" is installed without being glued or nailed to the subfloor. Instead, planks or tiles lock together and rest on top of the subfloor, allowing for easier installation and natural movement.' },
+      { question: 'What are the key differences between SPC and WPC rigid core flooring?', answer: 'SPC is denser, more rigid, and better suited for high-traffic or commercial environments, while WPC is thicker, quieter, and more comfortable underfoot, making it a popular choice for residential spaces.' },
+      { question: 'What is the Vertical Deflection test?', answer: 'The Vertical Deflection test is part of ASSURE\u00ae Certified and measures how much a flooring product flexes or compresses under a concentrated load. It helps evaluate a floor\'s resistance to compromising the locking profile of the planks or tiles after installation.' },
     ],
     certifiedProductsUrl: 'https://www.scsglobalservices.com/certified-green-products-guide?category=63&program=349',
     getStartedText: 'Start ASSURE Certification',
