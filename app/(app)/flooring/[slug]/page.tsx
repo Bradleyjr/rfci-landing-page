@@ -31,7 +31,7 @@ const FLOORING_FALLBACK: Record<string, any> = {
     tags: [{ label: 'Water Resistant', variant: 'green' }, { label: 'High Traffic', variant: 'tan' }, { label: 'Easy Install', variant: 'gray' }],
     features: [
       { title: 'Easy to Maintain', description: 'Flexible luxury vinyl flooring makes clean-up a breeze. No need for harsh chemicals. Just sweep and damp mop to keep it looking like new.' },
-      { title: 'Design Realism', description: 'Longer and wider planks with larger-format tiles reduce pattern repeat, while in-register printing and texture embossing create authentic wood and stone visuals.' },
+      { title: 'Design Realism', description: 'Longer and wider planks and larger format tiles reduce pattern repeat, while in-register printing and texture embossing create authentic wood and stone visuals.' },
       { title: 'Versatile Installation', description: 'Three installation methods: dry-back/glue-down, floating click/lock system, and loose-lay with minimal or no adhesives for installing over existing floors.' },
       { title: 'Scratch & Scuff Resistant', description: 'Commercial grade wear layers provide high-performance attributes. Ideal for pet-loving owners and busy lifestyles with easy cleaning and durability.' },
       { title: 'Water Resistant', description: 'Designed to handle routine moisture exposure and cleaning. Product-specific seams, subfloor conditions, and installation details still matter when evaluating water performance.' },
