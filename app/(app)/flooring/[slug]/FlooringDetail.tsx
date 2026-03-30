@@ -310,7 +310,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
               <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Applications</div>
               <h2 className="text-4xl md:text-5xl font-display font-light">
-                Where <span className="font-semibold">{ft.title}</span> excels
+                Where {ft.title} <span className="font-semibold">excels</span>
               </h2>
             </SectionReveal>
 
@@ -488,7 +488,7 @@ function InspirationParallax({ title, accentColor }: { title: string; accentColo
             <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: accentColor ?? '#9CA3AF' }} />
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">In Action</div>
             <h2 className="text-4xl md:text-5xl font-display font-light">
-              See <span className="font-semibold">{title}</span> in real spaces
+              See {title} in <span className="font-semibold">real spaces</span>
             </h2>
           </div>
         </div>
