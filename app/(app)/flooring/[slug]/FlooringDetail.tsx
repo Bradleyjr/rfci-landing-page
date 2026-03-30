@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
-import { ArrowRight, ArrowLeft, CheckCircle, ArrowUpRight } from '@phosphor-icons/react'
+import { ArrowRight, ArrowLeft, CheckCircle, ArrowUpRight, X, MagnifyingGlassPlus } from '@phosphor-icons/react'
 import { PageLayout } from '../../../_components/PageLayout'
 import { SectionReveal } from '../../../_components/SectionReveal'
 import { TAG_STYLES, mediaUrl } from '../../../_lib/transforms'
@@ -21,6 +21,14 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
   const composition: string = ft.composition ?? ''
   const installation: string = ft.installation ?? ''
   const diagrams: Array<{ url: string; label: string }> = ft.diagrams ?? []
+  const [enlargedDiagram, setEnlargedDiagram] = useState<{ url: string; label: string } | null>(null)
+
+  useEffect(() => {
+    if (!enlargedDiagram) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setEnlargedDiagram(null) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [enlargedDiagram])
 
   // Build dynamic section list based on available content
   const sections = useMemo(() => {
@@ -203,13 +211,23 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
             <div className={`grid gap-10 md:gap-14 ${diagrams.length > 1 ? 'md:grid-cols-2' : 'max-w-3xl mx-auto'}`}>
               {diagrams.map((diagram, i) => (
                 <SectionReveal key={i} delay={i * 0.1}>
-                  <div className="flex flex-col items-center gap-4">
-                    <img
-                      src={diagram.url}
-                      alt={`${ft.title} ${diagram.label} construction diagram`}
-                      className="w-full object-contain"
-                      loading="lazy"
-                    />
+                  <div
+                    className="flex flex-col items-center gap-4 cursor-zoom-in group"
+                    onClick={() => setEnlargedDiagram(diagram)}
+                    role="button"
+                    aria-label={`Enlarge ${diagram.label} diagram`}
+                  >
+                    <div className="relative w-full">
+                      <img
+                        src={diagram.url}
+                        alt={`${ft.title} ${diagram.label} construction diagram`}
+                        className="w-full object-contain group-hover:opacity-90 transition-opacity duration-200"
+                        loading="lazy"
+                      />
+                      <div className="absolute bottom-3 right-3 bg-white/80 backdrop-blur-sm p-1.5 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                        <MagnifyingGlassPlus className="w-4 h-4 text-rfci-black/60" />
+                      </div>
+                    </div>
                     {diagrams.length > 1 && (
                       <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50">
                         {diagram.label}
@@ -363,6 +381,33 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
 
       {/* Inspiration Gallery — scroll-locked parallax */}
       <InspirationParallax title={ft.title} accentColor={ft.accentColor} />
+
+      {/* Diagram Lightbox */}
+      {enlargedDiagram && (
+        <div
+          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-6 md:p-16"
+          onClick={() => setEnlargedDiagram(null)}
+        >
+          <div className="relative max-w-4xl w-full" onClick={e => e.stopPropagation()}>
+            <button
+              onClick={() => setEnlargedDiagram(null)}
+              className="absolute -top-10 right-0 flex items-center gap-1.5 text-white/60 hover:text-white transition-colors text-sm font-semibold"
+            >
+              Close <X className="w-4 h-4" />
+            </button>
+            <img
+              src={enlargedDiagram.url}
+              alt={enlargedDiagram.label}
+              className="w-full object-contain max-h-[80vh]"
+            />
+            {enlargedDiagram.label && (
+              <div className="text-center mt-4 text-label font-bold tracking-widest uppercase text-white/50">
+                {enlargedDiagram.label}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Other Flooring Types — marquee */}
       {otherTypes.length > 0 && (
