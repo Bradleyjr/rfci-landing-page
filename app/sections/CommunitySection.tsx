@@ -46,7 +46,7 @@ export function CommunitySection() {
   return (
     <section id="community" className="pt-32 bg-rfci-white relative z-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <SectionReveal direction="left" className="max-w-3xl">
+        <SectionReveal className="max-w-3xl mx-auto text-center">
           <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Community</div>
           <h2 className="text-4xl md:text-5xl font-display font-light mb-8 leading-tight">
             {firstPart ? <>{firstPart}<br /></> : null}<span className="font-semibold text-rfci-blue">{lastPart}</span>
