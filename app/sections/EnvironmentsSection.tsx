@@ -1,20 +1,20 @@
 'use client'
 
-import { House, BuildingOffice, Storefront, Bed, FirstAid, GraduationCap, Buildings, Warehouse, type Icon } from '@phosphor-icons/react'
+import { House, BuildingOffice, Storefront, Bed, FirstAid, GraduationCap, Buildings, Heart, type Icon } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
 import { ENV_DELAYS } from '../_lib/transforms'
 import { ENVIRONMENTS } from '../_data/environments'
 import { SITE_SETTINGS } from '../_data/site-settings'
 
 const ENV_ICONS: Icon[] = [
-  House,
-  BuildingOffice,
-  Storefront,
-  Bed,
-  FirstAid,
-  GraduationCap,
-  Buildings,
-  Warehouse,
+  House,         // Single-Family Homes
+  Buildings,     // Multi-Family
+  BuildingOffice, // Workplace
+  GraduationCap, // Education
+  FirstAid,      // Hospitals & Clinics
+  Heart,         // Senior Living
+  Bed,           // Hospitality
+  Storefront,    // Retail
 ]
 
 export function EnvironmentsSection() {
