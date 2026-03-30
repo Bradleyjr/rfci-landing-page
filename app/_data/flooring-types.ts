@@ -18,7 +18,7 @@ export type FlooringType = {
 
 export const FLOORING_TYPES: FlooringType[] = [
   {
-    title: 'Flexible LVP/LVT',
+    title: 'Flexible LVT/LVP',
     subtitle: 'Luxury Vinyl Tile \u00b7 Planks',
     slug: 'flexible-lvt',
     description: 'Luxury vinyl tile (LVT) is a flexible resilient flooring category produced in tiles or planks. Design realism, easy maintenance, and strong water-resistant performance make it a practical alternative to ceramic tile, stone, and hardwood in many spaces.',
