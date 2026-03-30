@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useScroll, useSpring, useTransform } from 'motion/react'
-import { Calendar, MapPin, ArrowRight } from '@phosphor-icons/react'
+import { ArrowRight } from '@phosphor-icons/react'
 import { SectionReveal } from '../_components/SectionReveal'
 import { COMMUNITY_EVENT } from '../_data/community-event'
 
@@ -28,9 +28,6 @@ export function CommunitySection() {
 
   const sectionHeading = COMMUNITY_EVENT.sectionHeading
   const sectionSubheading = COMMUNITY_EVENT.sectionSubheading
-  const eventTitle = COMMUNITY_EVENT.eventTitle
-  const eventLocation = COMMUNITY_EVENT.eventLocation
-  const eventDate = COMMUNITY_EVENT.eventDate
 
   const photos = STATIC_PHOTOS
 
@@ -49,39 +46,18 @@ export function CommunitySection() {
   return (
     <section id="community" className="pt-32 bg-rfci-white relative z-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
-          <SectionReveal direction="left" className="lg:col-span-7">
-            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Community</div>
-            <h2 className="text-4xl md:text-5xl font-display font-light mb-8 leading-tight">
-              {firstPart ? <>{firstPart}<br /></> : null}<span className="font-semibold text-rfci-blue">{lastPart}</span>
-            </h2>
-            <p className="text-xl text-rfci-black/70 font-light leading-relaxed max-w-2xl">
-              {sectionSubheading}
-            </p>
-            <a href="/about#testimonials" className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200">
-              Hear what our members have to say about RFCI <ArrowRight className="w-4 h-4" />
-            </a>
-          </SectionReveal>
-
-          <SectionReveal direction="right" className="lg:col-span-5">
-            <div className="bg-white p-8 border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-rfci-blue/10 flex items-center justify-center">
-                  <Calendar className="w-5 h-5 text-rfci-blue" />
-                </div>
-                <div>
-                  <h4 className="font-display font-medium text-lg">{eventTitle}</h4>
-                  <p className="text-sm text-rfci-black/60 flex items-center gap-1">
-                    <MapPin className="w-3 h-3" /> {eventLocation} &bull; {eventDate}
-                  </p>
-                </div>
-              </div>
-              <a href={`/contact?subject=events&message=${encodeURIComponent("I'd like to learn more about the upcoming " + eventTitle + ".")}`} className="w-full py-3 bg-rfci-blue text-white text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 flex items-center justify-center gap-2 group">
-                Inquire About This Event <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-              </a>
-            </div>
-          </SectionReveal>
-        </div>
+        <SectionReveal direction="left" className="max-w-3xl">
+          <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Community</div>
+          <h2 className="text-4xl md:text-5xl font-display font-light mb-8 leading-tight">
+            {firstPart ? <>{firstPart}<br /></> : null}<span className="font-semibold text-rfci-blue">{lastPart}</span>
+          </h2>
+          <p className="text-xl text-rfci-black/70 font-light leading-relaxed">
+            {sectionSubheading}
+          </p>
+          <a href="/about#testimonials" className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200">
+            Hear what our members have to say about RFCI <ArrowRight className="w-4 h-4" />
+          </a>
+        </SectionReveal>
       </div>
 
       {/* Scrapbook Image Arc */}
