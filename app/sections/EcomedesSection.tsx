@@ -7,7 +7,7 @@ export function EcomedesSection() {
   return (
     <section id="ecomedes" className="bg-white py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid lg:grid-cols-[3fr_2fr] gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-[3fr_2fr] gap-16 lg:gap-24 items-start">
 
           {/* Left — eyebrow + heading */}
           <SectionReveal direction="left">
