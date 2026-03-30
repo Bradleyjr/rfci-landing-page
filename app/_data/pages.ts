@@ -3,11 +3,11 @@ export const ABOUT_PAGE = {
   heroSubheading: 'Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America\u2019s resilient flooring industry\u2014representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring.',
   missionStatement: 'Made up of over 60 Manufacturer and Supply Chain members, representing a full range of resilient flooring products doing business in North America, coming together to advocate, educate, and lead the category in ways no single company can.',
   strategicPillars: [
-    { number: '01', title: 'Advocacy & Government Affairs', description: 'Represent the resilient flooring industry before legislative and regulatory bodies at federal, state, and local levels.' },
-    { number: '02', title: 'Certification Programs', description: 'Administer FloorScore®, ASSURE® Certified, and AFFIRM™ Certification programs that independently verify indoor air quality, sustainability, and material health.' },
-    { number: '03', title: 'Technical Standards', description: 'Develop and maintain industry standards, recommended work practices, and installation guidelines that ensure product quality and performance.' },
-    { number: '04', title: 'Sustainability Leadership', description: 'Publish Environmental Product Declarations, promote lifecycle assessment, and advance recycling and end-of-life recovery programs.' },
-    { number: '05', title: 'Promotion & Education', description: 'Advancing industry knowledge through continuing education, original research, and consumer outreach via our Beautifully Responsible\u00ae program\u2014while also engaging and informing the architecture and design community.' },
+    { number: '01', title: 'Advocacy & Engagement', description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.' },
+    { number: '02', title: 'Technical Standards', description: 'Developing and maintaining the performance standards that define product quality, safety, and installation best practices.' },
+    { number: '03', title: 'Sustainability Programs', description: 'Running FloorScore\u00ae, ASSURE\u00ae Certified, AFFIRM\u2122 Certified, and Environmental Product Declarations (EPDs) for the resilient category.' },
+    { number: '04', title: 'Promotion & Education', description: 'Advancing industry knowledge through continuing education, original research, and consumer outreach via our Beautifully Responsible\u00ae program\u2014while also engaging and informing the architecture and design community.' },
+    { number: '05', title: 'Member Development', description: 'Growing and supporting a membership of leading manufacturers and supply chain partners who shape the future of resilient flooring.' },
   ],
 }
 
