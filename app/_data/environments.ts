@@ -21,7 +21,7 @@ export const ENVIRONMENTS: Environment[] = [
     flooringType: 'Rigid Core LVT',
     description: 'Resilient flooring supports fast turns, everyday durability, and broad design flexibility for multifamily interiors.',
     courtesy: 'Courtesy of Mannington',
-    image: { url: '/images/inspiration/applications/apartments/PFSR677_PierOak-ROOM-2.jpg' },
+    image: { url: '/images/inspiration/applications/apartments/env-multi-family.jpg' },
     order: 2,
   },
   {
@@ -29,7 +29,7 @@ export const ENVIRONMENTS: Environment[] = [
     flooringType: 'Luxury Vinyl Tile',
     description: 'Workplaces use resilient flooring to support daily traffic, flexible planning, and strong lifecycle value.',
     courtesy: 'Courtesy of Karndean',
-    image: { url: '/images/inspiration/applications/workplace/LLP332-Urban-Fabric-Oak-Lobby-P2_CM.jpg' },
+    image: { url: '/images/inspiration/applications/workplace/env-workplace.jpg' },
     order: 3,
   },
   {
@@ -37,7 +37,7 @@ export const ENVIRONMENTS: Environment[] = [
     flooringType: 'Linoleum',
     description: 'Schools need durable, easy-to-care-for surfaces that can support classrooms, corridors, cafeterias, and commons areas.',
     courtesy: 'Courtesy of RFCI member',
-    image: { url: '/images/inspiration/applications/education/LinoFloor_Education_552_561_601_670_761_RS.jpg' },
+    image: { url: '/images/inspiration/applications/education/env-education.jpg' },
     order: 4,
   },
   {
@@ -45,7 +45,7 @@ export const ENVIRONMENTS: Environment[] = [
     flooringType: 'Sheet Vinyl',
     description: 'Cleanability, infection-control protocols, and dependable performance make resilient flooring a core healthcare solution.',
     courtesy: 'Courtesy of RFCI member',
-    image: { url: '/images/inspiration/applications/hospitals/Hartford-Healthcare-Envire-1-9-2017.jpg' },
+    image: { url: '/images/inspiration/applications/hospitals/env-hospitals-clinics.jpg' },
     order: 5,
   },
   {
@@ -61,7 +61,7 @@ export const ENVIRONMENTS: Environment[] = [
     flooringType: 'Sheet Vinyl',
     description: 'Hotels, resorts, and restaurant venues need surfaces that balance guest experience, ease of maintenance, and long-term durability.',
     courtesy: 'Courtesy of RFCI member',
-    image: { url: '/images/inspiration/applications/hotels/LTMD9E86W_CampbridgeWhiteOak-ROOM-1.jpg' },
+    image: { url: '/images/inspiration/applications/hotels/env-hospitality.jpg' },
     order: 7,
   },
   {
@@ -69,7 +69,7 @@ export const ENVIRONMENTS: Environment[] = [
     flooringType: 'Flexible LVT',
     description: 'Retail spaces demand flooring that handles foot traffic, supports brand aesthetics, and holds up under daily wear.',
     courtesy: 'Courtesy of RFCI member',
-    image: { url: '/images/inspiration/applications/retail/Expressions_VYL_VCT_Hospitality_1240_1347_1789_RS_HiRes.jpg' },
+    image: { url: '/images/inspiration/applications/retail/env-retail.jpg' },
     order: 8,
   },
 ]
