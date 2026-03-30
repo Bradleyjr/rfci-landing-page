@@ -326,7 +326,7 @@ export const Footer = () => (
             <li><a href="/resources" className="hover:text-rfci-blue transition-colors duration-200">Resources</a></li>
             <li><a href="/resources/glossary" className="hover:text-rfci-blue transition-colors duration-200">Glossary</a></li>
 
-            <li><a href="https://rfci.ecomedes.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rfci-blue transition-colors duration-200">Ecomedes</a></li>
+            <li><a href="https://rfci.ecomedes.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rfci-blue transition-colors duration-200">Ecomedes®</a></li>
           </ul>
         </div>
 

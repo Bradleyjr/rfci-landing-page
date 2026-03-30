@@ -45,7 +45,7 @@ export const WHY_RESILIENT_PAGE = {
     { year: 'Early 2020s', title: 'Sustainability & Realism Advance', description: 'Continued dominance of rigid core and waterproof flooring in North America. Increased focus on sustainability including recycling initiatives, low-VOC emissions, and EPDs. Enhanced realism through registered embossing and larger-format planks and tiles.' },
     { year: '2020', title: 'ASSURE® Certified Introduced', description: 'ASSURE® Certified introduced by RFCI and SCS Global.' },
     { year: '2024', title: 'AFFIRM™ Certification Introduced', description: 'AFFIRM™ Certification introduced by RFCI and SCS Global.' },
-    { year: '2024', title: 'Ecomedes Platform Launched', description: 'Ecomedes/RFCI site launched.' },
+    { year: '2024', title: 'Ecomedes® Platform Launched', description: 'Ecomedes®/RFCI site launched.' },
     { year: '2025', title: 'Dominant Flooring Category', description: 'Resilient flooring recognized as the dominant flooring category in North America.' },
     { year: '2025', title: 'ASSURE® Vertical Deflection Test Added', description: 'Vertical Deflection test added to ASSURE® Certified.' },
     { year: '2026', title: 'RFCI Exceeds 60 Members', description: 'RFCI exceeds 60 members.' },
