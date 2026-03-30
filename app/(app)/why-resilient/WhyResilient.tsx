@@ -22,7 +22,7 @@ export function WhyResilient({ pageData }: { pageData: any }) {
       <SplitPageHero
         label="Why Resilient"
         heading={<>Why <span className="font-semibold text-rfci-blue">resilient flooring?</span></>}
-        subheading={pageData?.heroSubheading || 'Resilient flooring continues to earn specifications across healthcare, education, retail, housing, hospitality, and workplace settings because it balances performance, maintenance, comfort, and design flexibility.'}
+        subheading={pageData?.heroSubheading || 'Resilient flooring delivers durability, water resistance, and easy maintenance\u2014combining style, comfort, and value for homes, businesses, and institutions with long-lasting, worry-free performance.'}
         photo={{ src: '/images/inspiration/applications/workplace/FF_14582_Herringbone_Charcoal_RS_150DPI.jpg', alt: 'Herringbone pattern resilient flooring in modern interior' }}
       />
 

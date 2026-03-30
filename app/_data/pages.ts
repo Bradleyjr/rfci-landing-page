@@ -13,7 +13,7 @@ export const ABOUT_PAGE = {
 
 export const WHY_RESILIENT_PAGE = {
   heroHeading: 'Why resilient flooring?',
-  heroSubheading: 'Resilient flooring continues to earn specifications across healthcare, education, retail, housing, hospitality, and workplace settings because it balances performance, maintenance, comfort, and design flexibility.',
+  heroSubheading: 'Resilient flooring delivers durability, water resistance, and easy maintenance\u2014combining style, comfort, and value for homes, businesses, and institutions with long-lasting, worry-free performance.',
   benefits: [
     { keyword: 'MAINTAIN', title: 'Easy Maintenance', description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.' },
     { keyword: 'PROTECT', title: 'Moisture Performance', description: 'Depending on the construction, resilient flooring can offer strong water-resistant or waterproof performance in demanding interiors.' },
