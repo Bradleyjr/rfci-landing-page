@@ -40,7 +40,6 @@ export const CERTIFICATIONS: Certification[] = [
       { title: 'LEED & Green Building Credits', description: 'Recognized by LEED, WELL, BREEAM, CHPS, Green Globes, and many other green building rating systems.' },
       { title: 'Healthier Occupant Environments', description: 'Most people spend over 90% of their time indoors. FloorScore-certified products contribute measurably to cleaner air and healthier occupants.' },
       { title: 'Ongoing Compliance', description: 'Certification requires annual desk reviews, periodic manufacturing audits, and documented quality control \u2014 not a one-time stamp.' },
-      { title: 'Hard Surface Advantage', description: 'Hard surface flooring does not retain moisture, odors, dust mites, or mold the way carpet can \u2014 making it the recommended choice for schools, offices, and healthcare.' },
     ],
     process: [
       { step: 'Product Submission', description: 'Manufacturer submits products for testing under the FloorScore program through SCS Global Services.' },
