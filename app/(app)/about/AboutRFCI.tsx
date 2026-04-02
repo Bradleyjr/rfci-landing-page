@@ -96,7 +96,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                 <SectionReveal key={idx} delay={idx * 0.06}>
                   <div
                     className={`border-t border-white/10 py-8 cursor-pointer transition-all duration-300 ${
-                      activePillar === idx ? 'bg-white/[0.03] border-l-2 border-l-rfci-blue/50 pl-6' : 'pl-6 border-l-2 border-l-transparent'
+                      activePillar === idx ? 'bg-white/[0.03] border-l-2 border-l-rfci-blue/50 pl-6 pr-6' : 'pl-6 pr-6 border-l-2 border-l-transparent'
                     }`}
                     onMouseEnter={() => setActivePillar(idx)}
                   >

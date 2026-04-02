@@ -188,31 +188,46 @@ export const RESOURCES: Resource[] = [
     order: 4,
   },
 
-  // Videos - Flooring Types (after featured CEU videos)
+  // Videos - Flooring Types (client-specified order after featured CEU videos)
   {
-    title: 'Cork Tile',
-    slug: 'cork-tile',
+    title: 'Vinyl Resilient Flooring Types',
+    slug: 'vinyl-resilient-flooring-types',
     description:
-      'Resilient Flooring Type: Cork. Performance, production, construction, installation, and advantages.',
+      'Resilient Flooring Type: Vinyl. Performance, production, construction, installation, and advantages.',
     type: 'video',
-    category: 'Cork',
-    externalUrl: 'https://rfci.com/resources/cork-tile/',
-    videoUrl: 'https://www.youtube.com/watch?v=1WPqNn3iFDM',
+    category: 'All Vinyl Flooring Types',
+    externalUrl: 'https://rfci.com/resources/vinyl-resilient-flooring-types/',
+    videoUrl: 'https://www.youtube.com/watch?v=UEpvCY2Gplc',
     thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/10/cork-tile-300x189.png',
-    order: 10,
+      'https://rfci.com/wp-content/uploads/2021/09/vinyl-res-flooring-types-1-300x300.jpg',
+    order: 5,
   },
   {
-    title: 'Sheet Vinyl \u2014 Heterogeneous',
-    slug: 'heterogeneous-sheet-vinyl',
+    title: 'Rigid Core: SPC & WPC',
+    slug: 'rigid-core-spc-wpc',
     description:
-      'Resilient Flooring Type: Sheet Vinyl (Heterogeneous). Multi-layer construction with printed design layer. Performance, production, installation, and advantages.',
+      'Resilient Flooring Type: Rigid Core. Performance, production, construction, installation, and advantages.',
     type: 'video',
-    category: 'Sheet Vinyl',
-    videoUrl: 'https://www.youtube.com/watch?v=3pWQnT0UWxM',
+    category: 'Rigid Core',
+    externalUrl: 'https://rfci.com/resources/rigid-core-spc-wpc/',
+    videoUrl: 'https://www.youtube.com/watch?v=LJUFYGEOlbU',
     thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/10/Heterogeneous-Sheet-Vinyl-300x172.png',
-    order: 11,
+      'https://rfci.com/wp-content/uploads/2021/10/rigid-core-replacement-300x208.jpeg',
+    order: 6,
+  },
+  {
+    title: 'Luxury Vinyl Tile & Luxury Vinyl Plank',
+    slug: 'luxury-vinyl-tile-plank',
+    description:
+      'Resilient Flooring Type: LVT/LVP. Performance, production, construction, installation, and advantages.',
+    type: 'video',
+    category: 'Luxury Vinyl Tile/Luxury Vinyl Plank',
+    externalUrl:
+      'https://rfci.com/resources/luxury-vinyl-tile-luxury-vinyl-plank/',
+    videoUrl: 'https://www.youtube.com/watch?v=EEeOxO_3ZS0',
+    thumbnailUrl:
+      'https://rfci.com/wp-content/uploads/2021/10/Luxury-Vinyl-Tile-Luxury-Vinyl-Plank-300x200.jpg',
+    order: 7,
   },
   {
     title: 'Sheet Vinyl \u2014 Homogeneous',
@@ -225,6 +240,57 @@ export const RESOURCES: Resource[] = [
     videoUrl: 'https://www.youtube.com/watch?v=Stq-QSVFnqM',
     thumbnailUrl:
       'https://rfci.com/wp-content/uploads/2021/09/homogeneous-sheet-replacement-300x300.jpeg',
+    order: 8,
+  },
+  {
+    title: 'Sheet Vinyl \u2014 Heterogeneous',
+    slug: 'heterogeneous-sheet-vinyl',
+    description:
+      'Resilient Flooring Type: Sheet Vinyl (Heterogeneous). Multi-layer construction with printed design layer. Performance, production, installation, and advantages.',
+    type: 'video',
+    category: 'Sheet Vinyl',
+    videoUrl: 'https://www.youtube.com/watch?v=3pWQnT0UWxM',
+    thumbnailUrl:
+      'https://rfci.com/wp-content/uploads/2021/10/Heterogeneous-Sheet-Vinyl-300x172.png',
+    order: 9,
+  },
+  {
+    title: 'Solid Vinyl Tile',
+    slug: 'solid-vinyl-tile',
+    description:
+      'Resilient Flooring Type: Solid Vinyl Tile. Performance, production, construction, installation, and advantages.',
+    type: 'video',
+    category: 'Solid Vinyl Tile',
+    externalUrl: 'https://rfci.com/resources/solid-vinyl-tile/',
+    videoUrl: 'https://www.youtube.com/watch?v=lyXNSENWFtQ',
+    thumbnailUrl:
+      'https://rfci.com/wp-content/uploads/2021/10/solid-vinyl-tile-replacement-300x200.jpeg',
+    order: 10,
+  },
+  {
+    title: 'Vinyl Composition Tile (VCT)',
+    slug: 'vinyl-composition-tile-vct',
+    description:
+      'Resilient Flooring Type: Vinyl Composition Tile. Performance, production, construction, installation, and advantages.',
+    type: 'video',
+    category: 'Vinyl Composition Tile',
+    externalUrl: 'https://rfci.com/resources/vinyl-composition-tile-vct/',
+    videoUrl: 'https://www.youtube.com/watch?v=QvSHgL-ArT4',
+    thumbnailUrl:
+      'https://rfci.com/wp-content/uploads/2021/09/VCT-replacement-2-225x300.jpg',
+    order: 11,
+  },
+  {
+    title: 'Rubber Tile & Sheet',
+    slug: 'rubber-tile-sheet',
+    description:
+      'Resilient Flooring Type: Rubber Tile & Sheet. Performance, production, construction, installation, and advantages.',
+    type: 'video',
+    category: 'Rubber',
+    externalUrl: 'https://rfci.com/resources/rubber-tile-sheet/',
+    videoUrl: 'https://www.youtube.com/watch?v=3PHNbahJdsw',
+    thumbnailUrl:
+      'https://rfci.com/wp-content/uploads/2021/10/Rubber-Tile-300x300.jpg',
     order: 12,
   },
   {
@@ -241,20 +307,6 @@ export const RESOURCES: Resource[] = [
     order: 13,
   },
   {
-    title: 'Luxury Vinyl Tile & Luxury Vinyl Plank',
-    slug: 'luxury-vinyl-tile-plank',
-    description:
-      'Resilient Flooring Type: LVT/LVP. Performance, production, construction, installation, and advantages.',
-    type: 'video',
-    category: 'Luxury Vinyl Tile/Luxury Vinyl Plank',
-    externalUrl:
-      'https://rfci.com/resources/luxury-vinyl-tile-luxury-vinyl-plank/',
-    videoUrl: 'https://www.youtube.com/watch?v=EEeOxO_3ZS0',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/10/Luxury-Vinyl-Tile-Luxury-Vinyl-Plank-300x200.jpg',
-    order: 14,
-  },
-  {
     title: 'Other Polymeric Resilient Flooring',
     slug: 'other-polymeric-resilient-flooring',
     description:
@@ -266,72 +318,20 @@ export const RESOURCES: Resource[] = [
     videoUrl: 'https://www.youtube.com/watch?v=1KP4k1VfsrI',
     thumbnailUrl:
       'https://rfci.com/wp-content/uploads/2021/10/Other-Polymers-Composites-300x156.png',
+    order: 14,
+  },
+  {
+    title: 'Cork Tile',
+    slug: 'cork-tile',
+    description:
+      'Resilient Flooring Type: Cork. Performance, production, construction, installation, and advantages.',
+    type: 'video',
+    category: 'Cork',
+    externalUrl: 'https://rfci.com/resources/cork-tile/',
+    videoUrl: 'https://www.youtube.com/watch?v=1WPqNn3iFDM',
+    thumbnailUrl:
+      'https://rfci.com/wp-content/uploads/2021/10/cork-tile-300x189.png',
     order: 15,
-  },
-  {
-    title: 'Rigid Core: SPC & WPC',
-    slug: 'rigid-core-spc-wpc',
-    description:
-      'Resilient Flooring Type: Rigid Core. Performance, production, construction, installation, and advantages.',
-    type: 'video',
-    category: 'Rigid Core',
-    externalUrl: 'https://rfci.com/resources/rigid-core-spc-wpc/',
-    videoUrl: 'https://www.youtube.com/watch?v=LJUFYGEOlbU',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/10/rigid-core-replacement-300x208.jpeg',
-    order: 16,
-  },
-  {
-    title: 'Rubber Tile & Sheet',
-    slug: 'rubber-tile-sheet',
-    description:
-      'Resilient Flooring Type: Rubber Tile & Sheet. Performance, production, construction, installation, and advantages.',
-    type: 'video',
-    category: 'Rubber',
-    externalUrl: 'https://rfci.com/resources/rubber-tile-sheet/',
-    videoUrl: 'https://www.youtube.com/watch?v=3PHNbahJdsw',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/10/Rubber-Tile-300x300.jpg',
-    order: 17,
-  },
-  {
-    title: 'Solid Vinyl Tile',
-    slug: 'solid-vinyl-tile',
-    description:
-      'Resilient Flooring Type: Solid Vinyl Tile. Performance, production, construction, installation, and advantages.',
-    type: 'video',
-    category: 'Solid Vinyl Tile',
-    externalUrl: 'https://rfci.com/resources/solid-vinyl-tile/',
-    videoUrl: 'https://www.youtube.com/watch?v=lyXNSENWFtQ',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/10/solid-vinyl-tile-replacement-300x200.jpeg',
-    order: 18,
-  },
-  {
-    title: 'Vinyl Composition Tile (VCT)',
-    slug: 'vinyl-composition-tile-vct',
-    description:
-      'Resilient Flooring Type: Vinyl Composition Tile. Performance, production, construction, installation, and advantages.',
-    type: 'video',
-    category: 'Vinyl Composition Tile',
-    externalUrl: 'https://rfci.com/resources/vinyl-composition-tile-vct/',
-    videoUrl: 'https://www.youtube.com/watch?v=QvSHgL-ArT4',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/09/VCT-replacement-2-225x300.jpg',
-    order: 19,
-  },
-  {
-    title: 'Vinyl Resilient Flooring Types',
-    slug: 'vinyl-resilient-flooring-types',
-    description:
-      'Resilient Flooring Type: Vinyl. Performance, production, construction, installation, and advantages.',
-    type: 'video',
-    category: 'All Vinyl Flooring Types',
-    externalUrl: 'https://rfci.com/resources/vinyl-resilient-flooring-types/',
-    videoUrl: 'https://www.youtube.com/watch?v=UEpvCY2Gplc',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/09/vinyl-res-flooring-types-1-300x300.jpg',
-    order: 20,
   },
 
   // Videos - Educational
@@ -346,7 +346,7 @@ export const RESOURCES: Resource[] = [
     videoUrl: 'https://www.youtube.com/watch?v=gnkNIsj5kjI',
     thumbnailUrl:
       'https://rfci.com/wp-content/uploads/2021/09/OPR-replacement-300x300.jpg',
-    order: 21,
+    order: 16,
   },
   {
     title: 'Project Conditions',
@@ -359,7 +359,7 @@ export const RESOURCES: Resource[] = [
     videoUrl: 'https://www.youtube.com/watch?v=wbJXGYu6Wvk',
     thumbnailUrl:
       'https://rfci.com/wp-content/uploads/2021/09/Project-Conditions-Image-300x270.jpg',
-    order: 22,
+    order: 17,
   },
 
   // Articles
