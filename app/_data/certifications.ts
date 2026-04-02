@@ -1,7 +1,7 @@
 export type Certification = {
   slug: string
   title: string
-  iconName: 'shieldCheck' | 'seal' | 'certificate'
+  iconName: 'shieldCheck' | 'seal' | 'certificate' | 'globe'
   logoUrl?: string
   description: string
   image?: { url: string }
@@ -181,5 +181,52 @@ export const CERTIFICATIONS: Certification[] = [
     ctaUrl: 'https://rfci.ecomedes.com/',
     image: { url: '/media/cert-photos/affirm.png' },
     order: 3,
+  },
+  {
+    slug: 'epd',
+    title: 'Environmental Product Declarations',
+    iconName: 'globe',
+    description: 'An Environmental Product Declaration (EPD) is a transparent, third-party verified document that communicates the environmental impacts of a product across its full lifecycle \u2014 based on ISO 14025 and ISO 14040 standards. RFCI publishes Industry Wide EPDs for nine resilient flooring product types.',
+    stats: [
+      { value: 'ISO 14025 + 14040', label: 'EPD Standards' },
+      { value: '9', label: 'Product Types Covered' },
+    ],
+    benefits: [
+      { title: 'Full Lifecycle Transparency', description: 'EPDs report environmental impact from raw material extraction through manufacturing, use phase, and end-of-life \u2014 per ISO 14040 Life Cycle Assessment methodology.' },
+      { title: 'LEED & Green Globes Credits', description: 'EPDs contribute to LEED v4, v4.1, and v5 Material and Resources credits and Green Globes credits for environmental product information.' },
+      { title: 'Industry Wide EPDs Available', description: 'RFCI publishes industry wide EPDs for 9 resilient flooring types: Heterogeneous Sheet, Homogeneous Sheet, LVT Gluedown, LVT Looselay, Rubber, Rigid Core SPC, Rigid Core WPC, Solid Vinyl Tile, and VCT.' },
+      { title: 'ISO 14025 Compliant', description: 'All RFCI EPDs are Type III declarations compliant with ISO 14025, the international standard for Environmental Product Declarations.' },
+      { title: 'Comparative Analysis Tool', description: 'EPDs enable apples-to-apples environmental comparison between flooring products, giving specifiers objective data for decision-making.' },
+      { title: '2024 EPDs Now Available', description: 'Updated 2024 Industry Wide EPDs reflect current manufacturing data and supersede the 2019 archived versions, which remain available for reference.' },
+    ],
+    processLabel: 'The Process',
+    processHeading: 'How EPDs are developed',
+    process: [
+      { step: 'Life Cycle Assessment', description: 'Conduct an LCA per ISO 14040 and 14044 covering raw material extraction, manufacturing, distribution, use, and end-of-life.' },
+      { step: 'Product Category Rules Alignment', description: 'Ensure the LCA follows ULE 10010-7 Product Category Rules (PCR) for building-related flooring products.' },
+      { step: 'Third-Party Verification', description: 'An independent verifier reviews the LCA and EPD document for accuracy and completeness before publication.' },
+      { step: 'EPD Publication & Registration', description: 'The verified EPD is published and registered with a program operator, making it publicly available for specifier reference.' },
+    ],
+    downloads: [
+      { title: 'Heterogeneous Sheet', year: '2024', category: '2024 Current EPDs', url: 'https://rfci.com/wp-content/uploads/2024/05/SCS-EPD-10144_RFCI_Heterogeneous-Sheet_050924_compressed.pdf' },
+      { title: 'Homogeneous Sheet', year: '2024', category: '2024 Current EPDs', url: 'https://rfci.com/wp-content/uploads/2024/05/SCS-EPD-10145_RFCI_Homogeneous-Sheet_050924_compressed.pdf' },
+      { title: 'Luxury Vinyl Tile (LVT) \u2014 Gluedown', year: '2024', category: '2024 Current EPDs', url: 'https://rfci.com/wp-content/uploads/2024/05/SCS-EPD-10146_RFCI_LVT-Gluedown_050924_compressed.pdf' },
+      { title: 'Luxury Vinyl Tile (LVT) \u2014 Looselay', year: '2024', category: '2024 Current EPDs', url: 'https://rfci.com/wp-content/uploads/2024/05/SCS-EPD-10147_RFCI_LVT-LooseLay_050924_compressed.pdf' },
+      { title: 'Rubber Sheet and Tile', year: '2024', category: '2024 Current EPDs', url: 'https://rfci.com/wp-content/uploads/2024/05/SCS-EPD-10148_RFCI_Rubber-Flooring_050924_compressed.pdf' },
+      { title: 'Rigid Core \u2014 SPC', year: '2024', category: '2024 Current EPDs', url: 'https://rfci.com/wp-content/uploads/2024/05/SCS-EPD-10149_RFCI_SPC-RigidCore_050924_compressed.pdf' },
+      { title: 'Rigid Core \u2014 WPC', year: '2024', category: '2024 Current EPDs', url: 'https://rfci.com/wp-content/uploads/2024/05/SCS-EPD-10152_RFCI_WPC-RigidCore_050924_compressed.pdf' },
+      { title: 'Solid Vinyl Tile (SVT)', year: '2024', category: '2024 Current EPDs', url: 'https://rfci.com/wp-content/uploads/2024/05/SCS-EPD-10150_RFCI_SVT_050924_compressed.pdf' },
+      { title: 'Vinyl Composition Tile (VCT)', year: '2024', category: '2024 Current EPDs', url: 'https://rfci.com/wp-content/uploads/2024/05/SCS-EPD-10151_RFCI_VCT_050924_compressed.pdf' },
+      { title: 'Heterogeneous Vinyl Flooring', year: '2019', category: '2019 Archived EPDs', url: 'https://rfci.com/wp-content/uploads/2019/01/101.1_RFCI_EPD_Heterogeneous-Vinyl-Flooring.pdf' },
+      { title: 'Homogeneous Vinyl Flooring', year: '2019', category: '2019 Archived EPDs', url: 'https://rfci.com/wp-content/uploads/2019/01/102.1_RFCI_EPD_Homogeneous-Vinyl-Flooring.pdf' },
+      { title: 'Rigid Core Flooring', year: '2019', category: '2019 Archived EPDs', url: 'https://rfci.com/wp-content/uploads/2019/01/103.1_RFCI_EPD_Rigid-Core-Flooring.pdf' },
+      { title: 'Rubber Flooring', year: '2019', category: '2019 Archived EPDs', url: 'https://rfci.com/wp-content/uploads/2019/01/104.1_RFCI_EPD_Rubber-Flooring.pdf' },
+      { title: 'Vinyl Tile', year: '2019', category: '2019 Archived EPDs', url: 'https://rfci.com/wp-content/uploads/2019/01/106.1_RFCI_EPD_Vinyl-Tile.pdf' },
+      { title: 'Vinyl Composition Tile', year: '2019', category: '2019 Archived EPDs', url: 'https://rfci.com/wp-content/uploads/2019/01/105.1_RFCI_EPD_Vinyl-Composition-Tile.pdf' },
+    ],
+    ctaText: 'View All EPDs on RFCI.com',
+    ctaUrl: 'https://rfci.com/environmental-product-declaration/',
+    image: { url: '/media/cert-photos/epd.jpg' },
+    order: 4,
   },
 ]

@@ -24,7 +24,7 @@ export default async function CertificationPage({ params }: { params: Promise<{ 
   const cert = CERTIFICATIONS.find(c => c.slug === slug)
   if (!cert) notFound()
 
-  const otherCerts = CERTIFICATIONS.filter(c => c.slug !== slug)
+  const otherCerts = CERTIFICATIONS.filter(c => c.slug !== slug && c.slug !== 'epd')
 
   return <CertificationDetail certification={cert} otherCertifications={otherCerts} />
 }

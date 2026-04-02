@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, ShieldCheck, Seal, Certificate, Images, MapPin, EnvelopeSimple, LinkedinLogo, ArrowSquareOut } from '@phosphor-icons/react'
+import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, ShieldCheck, Seal, Certificate, Globe, Images, MapPin, EnvelopeSimple, LinkedinLogo, ArrowSquareOut } from '@phosphor-icons/react'
 
 const navItems = [
   {
@@ -32,6 +32,7 @@ const navItems = [
       { label: 'FloorScore®', href: '/certifications/floorscore', desc: 'The leading indoor air quality certification for hard surface flooring.', icon: ShieldCheck },
       { label: 'ASSURE® Certified', href: '/certifications/assure', desc: 'Third-party sustainability certification across the full product lifecycle.', icon: Seal },
       { label: 'AFFIRM™ Certified', href: '/certifications/affirm', desc: 'Material health certification for resilient flooring products.', icon: Certificate },
+      { label: 'Environmental Product Declaration', href: '/certifications/epd', desc: 'Transparent reporting of environmental impact across a product\'s lifecycle.', icon: Globe },
     ],
   },
   {
@@ -335,6 +336,7 @@ export const Footer = () => (
             <li><a href="/certifications/floorscore" className="hover:text-rfci-blue transition-colors duration-200">FloorScore®</a></li>
             <li><a href="/certifications/assure" className="hover:text-rfci-blue transition-colors duration-200">ASSURE® Certified</a></li>
             <li><a href="/certifications/affirm" className="hover:text-rfci-blue transition-colors duration-200">AFFIRM™ Certified</a></li>
+            <li><a href="/certifications/epd" className="hover:text-rfci-blue transition-colors duration-200">EPDs</a></li>
           </ul>
         </div>
       </div>

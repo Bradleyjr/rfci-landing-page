@@ -130,7 +130,65 @@ export const RESOURCES: Resource[] = [
     order: 9,
   },
 
-  // Videos - Flooring Types
+  // Videos - Featured CEU (first 4 in video library)
+  {
+    title: 'Resilient Flooring: Verified and Certified!',
+    slug: 'verified-certified-video',
+    description:
+      'Certifications, declarations, and ecolabels provide sustainability and health and wellness information that subsequently supports requirements in building rating systems.',
+    type: 'video',
+    category: 'Sustainability',
+    externalUrl:
+      'https://rfci.com/courses/resilient-flooring-verified-and-certified/',
+    videoUrl: 'https://vimeo.com/889986028',
+    thumbnailUrl:
+      'https://rfci.com/wp-content/uploads/2024/04/Verified_Certified_Azul-Arc_CEU-Program_Resource-Hub-300x173.png',
+    order: 1,
+  },
+  {
+    title: 'Demystifying EPDs in Sustainable Design',
+    slug: 'demystifying-epds',
+    description:
+      'Environmental Product Declarations (EPDs) can be a powerful tool to use when choosing materials for commercial projects. Understanding the ins & outs of this valuable tool has never been more necessary.',
+    type: 'video',
+    category: 'Sustainability',
+    externalUrl:
+      'https://rfci.com/courses/demystifying-epds-in-sustainable-design/',
+    videoUrl: 'https://vimeo.com/770737791',
+    thumbnailUrl:
+      'https://rfci.com/wp-content/uploads/2022/11/Optimized-3-500x300.jpg',
+    order: 2,
+  },
+  {
+    title: 'Resilient Flooring and Sustainability',
+    slug: 'resilient-flooring-sustainability',
+    description:
+      'It is important for a specifier to utilize a multi-attribute approach for the selection of resilient flooring products to verify performance, durability, sustainability, and material health attributes.',
+    type: 'video',
+    category: 'Sustainability',
+    externalUrl:
+      'https://rfci.com/courses/resilient-flooring-and-sustainability/',
+    videoUrl: 'https://vimeo.com/759120070',
+    thumbnailUrl:
+      'https://rfci.com/wp-content/uploads/2022/10/Optimized-2-500x300.jpg',
+    order: 3,
+  },
+  {
+    title: 'Resilient Flooring and Materiality',
+    slug: 'resilient-flooring-materiality',
+    description:
+      'When specifying products for the built environment, it is important to transparently understand the origin of material ingredients, how materials are used to produce resilient floor products.',
+    type: 'video',
+    category: 'Sustainability',
+    externalUrl:
+      'https://rfci.com/courses/resilient-flooring-materiality/',
+    videoUrl: 'https://vimeo.com/889960016',
+    thumbnailUrl:
+      'https://rfci.com/wp-content/uploads/2021/11/Resilient-Flooring-Materiality-Course-Image-Cropped-300x194.png',
+    order: 4,
+  },
+
+  // Videos - Flooring Types (after featured CEU videos)
   {
     title: 'Cork Tile',
     slug: 'cork-tile',
@@ -302,31 +360,6 @@ export const RESOURCES: Resource[] = [
     thumbnailUrl:
       'https://rfci.com/wp-content/uploads/2021/09/Project-Conditions-Image-300x270.jpg',
     order: 22,
-  },
-  {
-    title: 'Resilient Flooring & Materiality',
-    slug: 'resilient-flooring-materiality',
-    description: 'Transparency, Product Service Life, and Performance.',
-    type: 'video',
-    category: 'Sustainability',
-    externalUrl:
-      'https://rfci.com/videos/resilient-flooring-materiality/',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/11/Resilient-Flooring-Materiality-Course-Image-Cropped-300x194.png',
-    order: 23,
-  },
-  {
-    title: 'Verified and Certified! (Video)',
-    slug: 'verified-certified-video',
-    description:
-      'Sustainable certifications and declarations for resilient flooring \u2014 FloorScore, ASSURE, AFFIRM, and Environmental Product Declarations.',
-    type: 'video',
-    category: 'Sustainability',
-    externalUrl:
-      'https://rfci.com/videos/resilient-flooring-verified-and-certified/',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2024/04/Verified_Certified_Azul-Arc_CEU-Program_Resource-Hub-300x173.png',
-    order: 24,
   },
 
   // Articles

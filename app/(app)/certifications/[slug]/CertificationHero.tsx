@@ -7,6 +7,7 @@ const CERT_IMAGES: Record<string, string> = {
   floorscore: '/images/inspiration/applications/homes/KLO09-RS.jpg',
   assure: '/images/inspiration/applications/homes/72201-RS.jpg',
   affirm: '/images/inspiration/applications/workplace/Lonseal-Lonbead-Designer-Office.jpg',
+  epd: '/images/inspiration/applications/workplace/Contour_LVT_Arrowroot_RS.jpg',
 }
 
 type CertificationHeroProps = {
@@ -17,6 +18,7 @@ type CertificationHeroProps = {
 
 export function CertificationHero({ cert, stats }: CertificationHeroProps) {
   const bgImage = cert.image?.url || CERT_IMAGES[cert.slug] || CERT_IMAGES.floorscore
+  const isEpd = cert.slug === 'epd'
 
   return (
     <section className="relative overflow-hidden min-h-[480px] md:min-h-[560px] flex items-center">
@@ -32,8 +34,8 @@ export function CertificationHero({ cert, stats }: CertificationHeroProps) {
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20 lg:py-24 w-full">
         <SectionReveal>
 
-          {/* Logo — large, above heading */}
-          {cert.logoUrl && (
+          {/* Logo — large, above heading (not for EPD) */}
+          {!isEpd && cert.logoUrl && (
             <div className="mb-8">
               <img
                 src={cert.logoUrl}
