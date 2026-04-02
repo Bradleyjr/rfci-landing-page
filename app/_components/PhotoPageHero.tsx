@@ -21,8 +21,8 @@ export function PhotoPageHero({ label, heading, subheading, photo, children }: P
       />
 
       {/* Dark overlays */}
-      <div className="absolute inset-0 bg-gradient-to-r from-rfci-black/80 via-rfci-black/50 to-rfci-black/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-rfci-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-rfci-black/90 via-rfci-black/70 to-rfci-black/30" />
+      <div className="absolute inset-0 bg-gradient-to-t from-rfci-black/60 to-transparent" />
 
       {/* Content — vertically centered */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20 lg:py-24 w-full">

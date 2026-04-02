@@ -401,7 +401,7 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
       "RFCI's multi-attribute sustainability certification built on NSF/ANSI 332. It evaluates resilient flooring products across environmental, health and wellness, and social responsibility criteria, with independent verification.",
     category: 'Certifications',
     aliases: ['AFFIRM™', 'NSF/ANSI 332'],
-    relatedTerms: ['Material Health', 'Environmental Product Declaration', 'Ecomedes®'],
+    relatedTerms: ['Material Health', 'Environmental Product Declaration', 'ecomedes®'],
   },
   {
     term: 'ASSURE® Certified',
@@ -417,7 +417,7 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
       "A third-party verified report that communicates a product's environmental impacts across its life cycle using standardized LCA methodology. RFCI publishes industry-wide EPDs for multiple resilient flooring product types.",
     category: 'Sustainability',
     aliases: ['EPD', 'Environmental Product Declarations'],
-    relatedTerms: ['Material Health', 'AFFIRM™ Certified', 'Ecomedes®'],
+    relatedTerms: ['Material Health', 'AFFIRM™ Certified', 'ecomedes®'],
   },
   {
     term: 'FloorScore®',
@@ -492,11 +492,11 @@ const MODERN_GLOSSARY_OVERRIDES: GlossarySeed[] = [
     relatedTerms: ['Rigid Core', 'SPC', 'ASSURE® Certified'],
   },
   {
-    term: 'Ecomedes®',
+    term: 'ecomedes®',
     definition:
       "RFCI's product transparency database, used by architects, designers, and specifiers to find resilient flooring products and review certifications, declarations, and green building attributes in one place.",
     category: 'Sustainability',
-    aliases: ['RFCI Ecomedes', 'product database'],
+    aliases: ['RFCI ecomedes', 'product database'],
     relatedTerms: ['AFFIRM™ Certified', 'Environmental Product Declaration'],
   },
 ]
@@ -592,7 +592,7 @@ const CATEGORY_TERMS: Record<GlossaryCategory, string[]> = {
     'Post-Consumer Recycled Content',
     'Pre-Consumer Recycled Content',
     'Recycled Content',
-    'Ecomedes®',
+    'ecomedes®',
   ],
   'Industry Terms': [],
 }

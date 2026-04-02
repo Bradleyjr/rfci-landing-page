@@ -5,7 +5,7 @@ export const ABOUT_PAGE = {
   strategicPillars: [
     { number: '01', title: 'Advocacy & Engagement', description: 'Addressing key national and state issues with governmental and non-governmental entities.' },
     { number: '02', title: 'Technical Initiatives', description: 'Actively engaging key technical topics in the resilient flooring universe, including certification development, supporting consensus standards development, the creation of helpful technical tools for a multitude of resilient flooring customers, and much more. Highlighted certifications for resilient flooring include:', bullets: ['FloorScore\u00ae', 'ASSURE\u00ae Certified', 'AFFIRM\u2122 Certified'] },
-    { number: '03', title: 'Sustainability Programs', description: 'Supporting major sustainability initiatives in resilient flooring including the development/provision of industry-wide Environmental Product Declarations (EPDs), active participation in the consensus development of Product Category Rules (PCRs), a partnership with Ecomedes\u00ae to substantially increase the efficiency of the specification cycle for the design community as related to sustainability, and more.' },
+    { number: '03', title: 'Sustainability Programs', description: 'Supporting major sustainability initiatives in resilient flooring including the development/provision of industry-wide Environmental Product Declarations (EPDs), active participation in the consensus development of Product Category Rules (PCRs), a partnership with ecomedes\u00ae to substantially increase the efficiency of the specification cycle for the design community as related to sustainability, and more.' },
     { number: '04', title: 'Promotion & Education', description: 'Advancing industry knowledge via educational resources, original research, and consumer outreach via our Beautifully Responsible\u00ae program\u2014while also engaging and informing the architecture and design community.' },
     { number: '05', title: 'Member Development', description: 'Actively supporting our members on a host of key strategic fronts that impact the resilient flooring sector.' },
   ],
@@ -46,7 +46,7 @@ export const WHY_RESILIENT_PAGE = {
     { year: 'Early 2020s', title: 'Sustainability & Realism Advance', description: 'Continued dominance of rigid core and waterproof flooring in North America. Increased focus on sustainability including recycling initiatives, low-VOC emissions, and EPDs. Enhanced realism through registered embossing and larger-format planks and tiles.' },
     { year: '2020', title: 'ASSURE® Certified Introduced', description: 'ASSURE® Certified introduced by RFCI and SCS Global.' },
     { year: '2024', title: 'AFFIRM™ Certification Introduced', description: 'AFFIRM™ Certification introduced by RFCI and SCS Global.' },
-    { year: '2024', title: 'Ecomedes® Platform Launched', description: 'Ecomedes®/RFCI site launched.' },
+    { year: '2024', title: 'ecomedes® Platform Launched', description: 'ecomedes®/RFCI site launched.' },
     { year: '2025', title: 'Dominant Flooring Category', description: 'Resilient flooring recognized as the dominant flooring category in North America.' },
     { year: '2025', title: 'ASSURE® Vertical Deflection Test Added', description: 'Vertical Deflection test added to ASSURE® Certified.' },
     { year: '2026', title: 'RFCI Exceeds 60 Members', description: 'RFCI exceeds 60 members.' },

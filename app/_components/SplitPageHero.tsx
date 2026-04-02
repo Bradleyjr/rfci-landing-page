@@ -11,6 +11,7 @@ type SplitPageHeroProps = {
   photo?: { src: string; alt: string }
   cta?: { label: string; href: string; external?: boolean }
   reverse?: boolean
+  wideText?: boolean
 }
 
 const themeClasses = {
@@ -37,14 +38,14 @@ const themeClasses = {
   },
 }
 
-export function SplitPageHero({ label, heading, subheading, theme = 'light', photo, cta, reverse = false }: SplitPageHeroProps) {
+export function SplitPageHero({ label, heading, subheading, theme = 'light', photo, cta, reverse = false, wideText = false }: SplitPageHeroProps) {
   const t = themeClasses[theme]
 
   return (
     <section className={`${t.bg} relative overflow-hidden min-h-[420px] md:min-h-[480px]`}>
       {/* Full-bleed image — covers the image side of the hero */}
       {photo && (
-        <div className={`hidden lg:block absolute top-0 bottom-0 ${reverse ? 'left-0' : 'right-0'} w-[50%]`}>
+        <div className={`hidden lg:block absolute top-0 bottom-0 ${reverse ? 'left-0' : 'right-0'} ${wideText ? 'w-[42%]' : 'w-[50%]'}`}>
           <img
             src={photo.src}
             alt={photo.alt}
@@ -65,7 +66,7 @@ export function SplitPageHero({ label, heading, subheading, theme = 'light', pho
           {/* Text column */}
           <SectionReveal
             direction={reverse ? 'right' : 'left'}
-            className={`py-16 md:py-20 lg:py-24 flex flex-col justify-center ${reverse ? 'lg:col-span-5 lg:col-start-8' : 'lg:col-span-5'}`}
+            className={`py-16 md:py-20 lg:py-24 flex flex-col justify-center ${reverse ? (wideText ? 'lg:col-span-7 lg:col-start-6' : 'lg:col-span-5 lg:col-start-8') : (wideText ? 'lg:col-span-7' : 'lg:col-span-5')}`}
           >
             <div className={`text-label font-bold tracking-widest uppercase ${t.label} mb-4`}>
               {label}

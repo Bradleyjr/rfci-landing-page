@@ -64,8 +64,8 @@ export const TESTIMONIAL_VIDEOS: TestimonialVideo[] = [
     order: 6,
   },
   {
-    title: 'Paul Shahriari of Ecomedes®',
-    company: 'Ecomedes®',
+    title: 'Paul Shahriari of ecomedes®',
+    company: 'ecomedes®',
     segment: 'Partner',
     quote: 'With the RFCI platform, we bring all that data together in one location.',
     thumbnailUrl: '/media/testimonials/paul-shahriari-ecomedes.png',

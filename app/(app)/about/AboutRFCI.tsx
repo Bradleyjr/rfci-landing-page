@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ArrowRight, MapPin, Calendar, PlayCircle } from '@phosphor-icons/react'
+import { ArrowRight, MapPin, Calendar, PlayCircle, FilePdf } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { PhotoPageHero } from '../../_components/PhotoPageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
@@ -51,20 +51,12 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
               <p className="text-rfci-black/60 leading-relaxed font-light text-lg">
                 {aboutPage?.missionStatement || 'RFCI is a non-profit organization that brings the resilient flooring industry together to advocate, educate, and lead—advancing the interests of manufacturers, specifiers, and end users alike.'}
               </p>
-              <a
-                href="https://rfci.com/recommended-work-practices/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200 mt-6"
-              >
-                Recommended Work Practices <ArrowRight className="w-4 h-4" />
-              </a>
             </SectionReveal>
 
             <SectionReveal direction="right">
-              <div className="bg-rfci-cream p-10 md:p-12">
-                <div className="text-5xl md:text-6xl font-display font-bold text-rfci-blue mb-4">50+</div>
-                <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-6">Years of Service and Accomplishment</div>
+              <div className="bg-rfci-cream p-10 md:p-12 flex flex-col justify-center min-h-[240px]">
+                <div className="text-6xl md:text-7xl font-display font-bold text-rfci-blue">50+</div>
+                <div className="text-label font-bold tracking-widest uppercase text-rfci-black/40 mt-3">Years of Service and Accomplishment</div>
               </div>
             </SectionReveal>
           </div>
@@ -261,6 +253,38 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                 </div>
               </SectionReveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Recommended Work Practices */}
+      <section className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <SectionReveal>
+              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Industry Resource</div>
+              <h2 className="text-4xl md:text-5xl font-display font-light">
+                Recommended <span className="font-semibold">Work Practices</span>
+              </h2>
+            </SectionReveal>
+            <SectionReveal direction="right" className="flex flex-col gap-4">
+              <a
+                href="https://rfci.com/wp-content/uploads/2018/04/RWP_MASTER_English_2018.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 self-start"
+              >
+                <FilePdf className="w-5 h-5" /> Download English Version <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="https://rfci.com/wp-content/uploads/2018/04/RWP_Master_Spanish_2018.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 border border-rfci-black/10 text-rfci-black px-8 py-3.5 text-sm font-semibold hover:bg-rfci-blue hover:text-white hover:border-rfci-blue transition-colors duration-200 self-start"
+              >
+                <FilePdf className="w-5 h-5" /> Download Spanish Version <ArrowRight className="w-4 h-4" />
+              </a>
+            </SectionReveal>
           </div>
         </div>
       </section>
