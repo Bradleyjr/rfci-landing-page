@@ -1,4 +1,3 @@
-import { MEMBERS_PAGE } from '../../_data/pages'
 import { MEMBERS } from '../../_data/members'
 import { MembersDirectory } from './MembersDirectory'
 
@@ -8,5 +7,5 @@ export const metadata = {
 }
 
 export default function MembersRoute() {
-  return <MembersDirectory members={MEMBERS} pageSettings={MEMBERS_PAGE} />
+  return <MembersDirectory members={MEMBERS} />
 }

@@ -1,22 +1,14 @@
 'use client'
 
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react'
-import { ArrowRight, ArrowLeft, CheckCircle, ArrowUpRight, X, MagnifyingGlassPlus } from '@phosphor-icons/react'
+import { useState, useEffect, useRef, useMemo } from 'react'
+import { ArrowLeft, CheckCircle, ArrowUpRight, X, MagnifyingGlassPlus } from '@phosphor-icons/react'
 import { PageLayout } from '../../../_components/PageLayout'
 import { SectionReveal } from '../../../_components/SectionReveal'
-import { TAG_STYLES, mediaUrl } from '../../../_lib/transforms'
-import { PROJECTS_STATIC } from '../../inspiration/InspirationGallery'
+import { mediaUrl } from '../../../_lib/transforms'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType: any; otherTypes: any[] }) {
-  const tags = (ft.tags ?? []).map((tag: { label: string; variant: string }) => ({
-    label: tag.label,
-    ...(TAG_STYLES[tag.variant] ?? TAG_STYLES.gray),
-  }))
   const heroImg = mediaUrl(ft.heroImage) || mediaUrl(ft.image)
-  const features: Array<{ title: string; description: string }> = ft.features ?? []
-  const applications: Array<{ environment: string; description: string }> = ft.applications ?? []
-  const relatedCerts: Array<{ slug: string; title: string; iconName: string; description: string }> = ft.relatedCertifications ?? []
   const advantages: string[] = ft.advantages ?? []
   const composition: string = ft.composition ?? ''
   const installation: string = ft.installation ?? ''
@@ -35,13 +27,10 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
     const s: Array<{ id: string; label: string }> = []
     if (composition) s.push({ id: 'composition', label: 'Composition' })
     if (diagrams.length > 0) s.push({ id: 'construction', label: 'Construction' })
-    if (features.length > 0) s.push({ id: 'features', label: 'Features' })
     if (advantages.length > 0) s.push({ id: 'advantages', label: 'Advantages' })
     if (installation) s.push({ id: 'installation', label: 'Installation' })
-    if (applications.length > 0) s.push({ id: 'applications', label: 'Applications' })
-    if (relatedCerts.length > 0) s.push({ id: 'certifications', label: 'Certifications' })
     return s
-  }, [composition, diagrams.length, features.length, advantages.length, installation, applications.length, relatedCerts.length])
+  }, [composition, diagrams.length, advantages.length, installation])
 
   // Measure main nav bottom on scroll so sticky nav always sits flush below it
   const [navBottom, setNavBottom] = useState(0)
@@ -129,16 +118,6 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
               {ft.description}
             </p>
 
-            {/* Tags */}
-            {(ft.tags ?? []).length > 0 && (
-              <div className="flex flex-wrap gap-1.5">
-                {(ft.tags ?? []).map((tag: { label: string }, i: number) => (
-                  <span key={i} className="inline-flex items-center px-2.5 py-1 text-label font-bold uppercase tracking-widest bg-rfci-cream text-rfci-black/70">
-                    {tag.label}
-                  </span>
-                ))}
-              </div>
-            )}
           </SectionReveal>
         </div>
       </section>
@@ -241,31 +220,6 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
         </section>
       )}
 
-      {/* Features */}
-      {features.length > 0 && (
-        <section id="features" className="py-20 md:py-28 bg-rfci-cream" style={{ scrollMarginTop: scrollOffset }}>
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <SectionReveal className="mb-16">
-              <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
-              <h2 className="text-4xl md:text-5xl font-display font-light">
-                Key <span className="font-semibold">features</span>
-              </h2>
-            </SectionReveal>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {features.map((feature, i) => (
-                <SectionReveal key={i} delay={i * 0.08}>
-                  <div className="bg-white p-8 border-t-2 border-black/5" style={{ borderTopColor: ft.accentColor ?? '#9CA3AF' }}>
-                    <h3 className="text-xl md:text-2xl font-display font-light mb-3">{feature.title}</h3>
-                    <p className="text-rfci-black/60 text-base leading-relaxed font-light">{feature.description}</p>
-                  </div>
-                </SectionReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Advantages */}
       {advantages.length > 0 && (
         <section id="advantages" className="py-20 md:py-28 bg-white" style={{ scrollMarginTop: scrollOffset }}>
@@ -320,67 +274,27 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
         </section>
       )}
 
-      {/* Applications */}
-      {applications.length > 0 && (
-        <section id="applications" className="py-20 md:py-28 bg-rfci-cream" style={{ scrollMarginTop: scrollOffset }}>
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <SectionReveal className="mb-16">
-              <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Applications</div>
-              <h2 className="text-4xl md:text-5xl font-display font-light">
-                Where {ft.title} <span className="font-semibold">excels</span>
-              </h2>
-            </SectionReveal>
-
-            <div className="grid md:grid-cols-2 gap-6">
-              {applications.map((app, i) => (
-                <SectionReveal key={i} delay={i * 0.08}>
-                  <div className="bg-white p-8 border border-black/5">
-                    <h3 className="text-xl md:text-2xl font-display font-light mb-2">{app.environment}</h3>
-                    <p className="text-rfci-black/60 text-base leading-relaxed font-light">{app.description}</p>
-                  </div>
-                </SectionReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Related Certifications */}
-      {relatedCerts.length > 0 && (
-        <section id="certifications" className="py-20 md:py-28 bg-white" style={{ scrollMarginTop: scrollOffset }}>
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <SectionReveal className="mb-12">
-              <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
-              <h2 className="text-4xl md:text-5xl font-display font-light">
-                Applicable <span className="font-semibold">certifications</span>
-              </h2>
-            </SectionReveal>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {relatedCerts.map((cert, i) => (
-                <SectionReveal key={cert.slug || i} delay={i * 0.1}>
-                  <a
-                    href={`/certifications/${cert.slug}`}
-                    className="group block p-8 bg-rfci-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200"
-                  >
-                    <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors mb-2">
-                      {cert.title}
-                    </h3>
-                    <p className="text-sm text-rfci-black/60 font-light line-clamp-2 mb-4">{cert.description}</p>
-                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue">
-                      Learn more <ArrowRight className="w-4 h-4" />
-                    </span>
-                  </a>
-                </SectionReveal>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Inspiration Gallery — scroll-locked parallax */}
-      <InspirationParallax title={ft.title} accentColor={ft.accentColor} />
+      {/* Inspiration Gallery CTA */}
+      <section className="py-20 md:py-28 bg-rfci-cream">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
+          <SectionReveal>
+            <div className="w-10 h-[3px] mb-6 mx-auto" style={{ backgroundColor: ft.accentColor ?? '#9CA3AF' }} />
+            <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
+              See it in <span className="font-semibold">real spaces</span>
+            </h2>
+            <p className="text-rfci-black/60 text-lg mb-10 max-w-xl mx-auto font-light">
+              Explore our inspiration gallery to see resilient flooring installed in real commercial and residential environments.
+            </p>
+            <a
+              href="/inspiration"
+              className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
+            >
+              Browse the Inspiration Gallery
+              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+            </a>
+          </SectionReveal>
+        </div>
+      </section>
 
       {/* Diagram Lightbox */}
       {enlargedDiagram && (
@@ -431,14 +345,11 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
                 <a
                   key={`${other.slug}-${i}`}
                   href={`/flooring/${other.slug}`}
-                  className="group flex-shrink-0 w-64 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 p-6"
+                  className="group flex-shrink-0 w-64 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 p-6 flex items-center justify-center"
                 >
-                  <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors mb-1">
+                  <h3 className="text-xl md:text-2xl font-display font-light group-hover:text-rfci-blue transition-colors text-center">
                     {other.title}
                   </h3>
-                  <span className="text-label font-bold tracking-widest uppercase text-rfci-black/50">
-                    {other.subtitle}
-                  </span>
                 </a>
               ))}
             </div>
@@ -452,127 +363,5 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
 type FlooringLike = {
   slug: string
   title: string
-  subtitle: string
   accentColor?: string
-}
-
-// ---------------------------------------------------------------------------
-// Scroll-locked parallax inspiration gallery
-// ---------------------------------------------------------------------------
-
-// Editorial placements — each image has a starting position within the
-// viewport (startTop as vh%) so they're immediately visible on entry,
-// then each drifts upward at its own speed until it exits the top.
-const PLACEMENTS = [
-  { left: '5%',  startTop: 42, w: 'w-[38%] md:w-[28%]', aspect: 'aspect-[3/4]', speed: 0.45 },
-  { left: '55%', startTop: 52, w: 'w-[40%] md:w-[30%]', aspect: 'aspect-[4/3]', speed: 0.6 },
-  { left: '25%', startTop: 67, w: 'w-[32%] md:w-[22%]', aspect: 'aspect-square', speed: 0.35 },
-  { left: '62%', startTop: 77, w: 'w-[34%] md:w-[24%]', aspect: 'aspect-[3/4]', speed: 0.5 },
-  { left: '8%',  startTop: 87, w: 'w-[36%] md:w-[26%]', aspect: 'aspect-[4/3]', speed: 0.65 },
-]
-
-function InspirationParallax({ title, accentColor }: { title: string; accentColor?: string }) {
-  const galleryImages = useMemo(
-    () => {
-      const norm = title.toLowerCase()
-      return PROJECTS_STATIC.filter((p) => {
-        const pName = p.flooringTypeName.toLowerCase()
-        return pName === norm || norm.startsWith(pName) || pName.startsWith(norm)
-      }).slice(0, PLACEMENTS.length)
-    },
-    [title],
-  )
-
-  const wrapperRef = useRef<HTMLDivElement>(null)
-  const imageRefs = useRef<(HTMLDivElement | null)[]>([])
-  const rafRef = useRef<number>(0)
-
-  const onScroll = useCallback(() => {
-    const wrapper = wrapperRef.current
-    if (!wrapper) return
-
-    const rect = wrapper.getBoundingClientRect()
-    const viewH = window.innerHeight
-    const scrollable = wrapper.offsetHeight - viewH
-    if (scrollable <= 0) return
-    const progress = Math.min(1, Math.max(0, -rect.top / scrollable))
-
-    imageRefs.current.forEach((el, i) => {
-      if (!el) return
-      const { startTop, speed } = PLACEMENTS[i]
-      // Start at its natural position (startTop vh), fly upward as progress increases
-      const startY = (startTop / 100) * viewH
-      const travel = viewH * 0.7 * speed
-      const y = startY - progress * travel
-      el.style.transform = `translateY(${y}px)`
-    })
-  }, [])
-
-  useEffect(() => {
-    if (galleryImages.length === 0) return
-    const tick = () => {
-      onScroll()
-      rafRef.current = requestAnimationFrame(tick)
-    }
-    rafRef.current = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(rafRef.current)
-  }, [onScroll, galleryImages.length])
-
-  if (galleryImages.length === 0) return null
-
-  return (
-    <section
-      ref={wrapperRef}
-      className="relative"
-      style={{ height: '180vh' }}
-    >
-      <div className="sticky top-0 h-screen overflow-hidden bg-rfci-cream">
-        {/* Header */}
-        <div className="absolute top-0 left-0 right-0 z-10 bg-gradient-to-b from-rfci-cream via-rfci-cream/80 to-transparent pt-16 pb-28">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <div className="w-10 h-[3px] mb-4" style={{ backgroundColor: accentColor ?? '#9CA3AF' }} />
-            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">In Action</div>
-            <h2 className="text-4xl md:text-5xl font-display font-light">
-              See {title} in <span className="font-semibold">real spaces</span>
-            </h2>
-          </div>
-        </div>
-
-        {/* Scattered editorial images — centered via calc to match max-w-7xl container */}
-        <div className="absolute inset-0" style={{ left: 'max(1.5rem, calc((100% - 80rem) / 2 + 1.5rem))', right: 'max(1.5rem, calc((100% - 80rem) / 2 + 1.5rem))' }}>
-          {galleryImages.map((project, i) => {
-            const p = PLACEMENTS[i]
-            return (
-              <div
-                key={project.title}
-                ref={(el) => { imageRefs.current[i] = el }}
-                className={`absolute ${p.w} will-change-transform`}
-                style={{ left: p.left, top: 0 }}
-              >
-                <div className={`${p.aspect} overflow-hidden shadow-lg`}>
-                  <img
-                    src={project.imageUrl}
-                    alt={project.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
-            )
-          })}
-        </div>
-
-        {/* Bottom gradient + CTA */}
-        <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-rfci-cream via-rfci-cream/80 to-transparent pb-10 pt-28 text-center">
-          <a
-            href="/inspiration"
-            className="inline-flex items-center gap-2 text-rfci-blue font-display font-medium text-lg hover:gap-3 transition-all group"
-          >
-            Browse the Inspiration Gallery
-            <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
-          </a>
-        </div>
-      </div>
-    </section>
-  )
 }

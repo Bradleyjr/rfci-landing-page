@@ -53,7 +53,7 @@ export function ContactPage() {
     <PageLayout>
       <PageHero
         label="Contact"
-        heading={<>Get in <span className="font-semibold text-rfci-blue">touch.</span></>}
+        heading={<>Get in <span className="font-semibold text-rfci-blue">touch</span></>}
         subheading="Have a question about certifications, membership, or resilient flooring? We're here to help."
         theme="light"
       />
@@ -107,7 +107,7 @@ export function ContactPage() {
               {submitted ? (
                 <div className="bg-rfci-cream p-12 text-center">
                   <CheckCircle className="w-12 h-12 text-rfci-blue mx-auto mb-4" weight="fill" />
-                  <h3 className="text-xl md:text-2xl font-display font-light mb-3">Message sent.</h3>
+                  <h3 className="text-xl md:text-2xl font-display font-light mb-3">Message sent</h3>
                   <p className="text-base text-rfci-black/60">
                     Thank you for reaching out. Our team will get back to you within 1-2 business days.
                   </p>

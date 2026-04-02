@@ -1,6 +1,4 @@
 import { VideosLibrary } from './VideosLibrary'
-import { VIDEOS_PAGE } from '../../_data/pages'
-import { VIDEOS } from '../../_data/videos'
 
 export const metadata = {
   title: 'Education & CEU Courses | RFCI',
@@ -8,5 +6,5 @@ export const metadata = {
 }
 
 export default function VideosRoute() {
-  return <VideosLibrary videos={VIDEOS} pageSettings={VIDEOS_PAGE} />
+  return <VideosLibrary />
 }

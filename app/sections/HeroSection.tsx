@@ -76,15 +76,25 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
             >
               {SITE_SETTINGS.heroSubheading}
             </motion.p>
-            <motion.a
-              href="/about"
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200"
+              className="flex flex-wrap gap-3"
             >
-              {SITE_SETTINGS.heroCta} <ArrowRight className="w-4 h-4" />
-            </motion.a>
+              <a
+                href="/about"
+                className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200"
+              >
+                {SITE_SETTINGS.heroCta} <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="/members"
+                className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200"
+              >
+                Meet our Members <ArrowRight className="w-4 h-4" />
+              </a>
+            </motion.div>
           </div>
 
           <motion.div

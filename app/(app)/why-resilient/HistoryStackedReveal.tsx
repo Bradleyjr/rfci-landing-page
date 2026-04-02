@@ -15,7 +15,7 @@ export function HistoryStackedReveal({ milestones }: { milestones: Milestone[] }
         <SectionReveal className="text-center">
           <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Our History</div>
           <h2 className="text-4xl md:text-5xl font-display font-light">
-            180 years of <span className="font-semibold">resilient flooring history.</span>
+            180 years of <span className="font-semibold">resilient flooring history</span>
           </h2>
           <p className="mt-4 text-lg text-rfci-black/50 font-light max-w-2xl mx-auto">
             From rubber and linoleum in the 1840s to rigid core and RFCI certification programs today, the category has evolved across more than 180 years.

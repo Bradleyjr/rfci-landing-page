@@ -383,13 +383,11 @@ function DetailModal({
 export function InspirationGrid({
   projects,
   environments,
-  pageSettings,
 }: {
   projects: any[]
   flooringTypes?: any[]
   environments: any[]
   members?: any[]
-  pageSettings?: any
 }) {
   const allProjects = projects.length > 0 ? projects : PROJECTS_STATIC
 
@@ -449,17 +447,8 @@ export function InspirationGrid({
       {/* Hero */}
       <PhotoPageHero
         label="Inspiration"
-        heading={
-          pageSettings?.heroHeading || (
-            <>
-              Real-world <span className="font-semibold">installations.</span>
-            </>
-          )
-        }
-        subheading={
-          pageSettings?.heroSubheading ||
-          'Explore resilient flooring projects from RFCI member companies across healthcare, education, hospitality, corporate, and more.'
-        }
+        heading={<>Real-world <span className="font-semibold">installations</span></>}
+        subheading="Explore resilient flooring projects from RFCI member companies across healthcare, education, hospitality, corporate, and more."
         photo={{
           src: 'https://rfci.com/wp-content/uploads/2022/04/RCP6544-GhostElm-UniversityLibrary_CM.jpg',
           alt: 'Karndean Ghost Elm resilient flooring in university library',

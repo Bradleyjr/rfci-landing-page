@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, ShieldCheck, Seal, Certificate, Globe, Images, MapPin, Phone, EnvelopeSimple, LinkedinLogo, ArrowSquareOut } from '@phosphor-icons/react'
+import { List as Menu, X, CaretDown, Leaf, FileText, PlayCircle, ShieldCheck, Seal, Certificate, Globe, Images, MapPin, EnvelopeSimple, LinkedinLogo, ArrowSquareOut } from '@phosphor-icons/react'
 
 const navItems = [
   {
@@ -299,7 +299,7 @@ export const Footer = () => (
             </a>
           </div>
           <p className="text-white/60 text-sm leading-relaxed max-w-sm mb-8">
-            The Resilient Floor Covering Institute represents the manufacturers and suppliers behind resilient flooring—working together on standards, certifications, and education.
+            The trade association representing the resilient flooring industry in North America since 1976.
           </p>
           <div className="flex gap-4">
             <a href="https://www.linkedin.com/company/resilient-floor-covering-institute/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-white/5 flex items-center justify-center hover:bg-rfci-blue transition-colors duration-200">
@@ -326,7 +326,7 @@ export const Footer = () => (
             <li><a href="/resources" className="hover:text-rfci-blue transition-colors duration-200">Resources</a></li>
             <li><a href="/resources/glossary" className="hover:text-rfci-blue transition-colors duration-200">Glossary</a></li>
 
-            <li><a href="https://rfci.ecomedes.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rfci-blue transition-colors duration-200">Ecomedes®</a></li>
+            <li><a href="https://rfci.ecomedes.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rfci-blue transition-colors duration-200">ecomedes®</a></li>
           </ul>
         </div>
 
@@ -343,20 +343,13 @@ export const Footer = () => (
 
       {/* Contact Block */}
       <div className="border-t border-white/10 pt-10 mb-10">
-        <div className="grid md:grid-cols-3 gap-8 text-sm text-white/60">
+        <div className="grid md:grid-cols-2 gap-8 text-sm text-white/60">
           <div className="flex items-start gap-3">
             <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-rfci-blue" />
             <div>
               <div className="font-medium text-white/80 mb-1">RFCI Headquarters</div>
-              115 Greystone Power Blvd<br />
-              LaGrange, GA 30240
-            </div>
-          </div>
-          <div className="flex items-start gap-3">
-            <Phone className="w-4 h-4 mt-0.5 shrink-0 text-rfci-blue" />
-            <div>
-              <div className="font-medium text-white/80 mb-1">Phone</div>
-              <a href="tel:+17068822710" className="hover:text-rfci-blue transition-colors duration-200">(706) 882-2710</a>
+              115 Broad Street, Suite 201<br />
+              LaGrange, Georgia 30240
             </div>
           </div>
           <div className="flex items-start gap-3">

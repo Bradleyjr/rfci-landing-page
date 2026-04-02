@@ -274,7 +274,7 @@ function AnchorNav({ availableSections }: { availableSections: Set<string> }) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function ResourcesPage({ resources, pageSettings }: { resources: any[]; pageSettings?: any }) {
+export function ResourcesPage({ resources }: { resources: any[] }) {
   const [showAllVideos, setShowAllVideos] = useState(false)
   const items = resources?.length ? resources : RESOURCES
 
@@ -331,8 +331,8 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
     <PageLayout>
       <PageHero
         label="Resources"
-        heading={pageSettings?.heroHeading || <>Resources & <span className="font-semibold text-rfci-blue">technical documents.</span></>}
-        subheading={pageSettings?.heroSubheading || 'Access technical guides, sustainability reports, standards documents, and white papers from RFCI.'}
+        heading={<>Resources & <span className="font-semibold text-rfci-blue">technical documents</span></>}
+        subheading="Access technical guides, sustainability reports, standards documents, and white papers from RFCI."
       />
 
       {/* Sticky anchor nav */}
@@ -495,7 +495,7 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
             <SectionReveal className="mb-12 md:mb-16">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">News</div>
               <h2 className="text-4xl md:text-5xl font-display font-light">
-                Press <span className="font-semibold">releases.</span>
+                Press <span className="font-semibold">releases</span>
               </h2>
             </SectionReveal>
 
@@ -571,13 +571,13 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
         <div className="max-w-3xl mx-auto px-6 md:px-12 text-center">
           <SectionReveal>
             <h2 className="text-4xl md:text-5xl font-display font-light mb-4">
-              {pageSettings?.ctaHeading || 'Need something specific?'}
+              Need something specific?
             </h2>
             <p className="text-base text-white/60 font-light leading-relaxed mb-8 max-w-xl mx-auto">
-              {pageSettings?.ctaSubheading || 'If you are looking for a specific document or technical resource, reach out to our team and we will help you find it.'}
+              If you are looking for a specific document or technical resource, reach out to our team and we will help you find it.
             </p>
             <a
-              href={`mailto:${pageSettings?.ctaEmail || 'info@rfci.com'}`}
+              href="mailto:info@rfci.com"
               className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-white hover:text-rfci-black transition-colors duration-200"
             >
               Contact Us <ArrowRight className="w-4 h-4" />

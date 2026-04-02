@@ -42,7 +42,7 @@ export function GlossaryPage({ entries }: { entries: GlossaryEntry[] }) {
     <PageLayout>
       <PageHero
         label="Glossary"
-        heading={<>Resilient flooring <span className="font-semibold text-rfci-blue">glossary.</span></>}
+        heading={<>Resilient flooring <span className="font-semibold text-rfci-blue">glossary</span></>}
         subheading="Definitions for RFCI certifications, flooring types, sustainability language, and technical terms used throughout the site."
       />
 

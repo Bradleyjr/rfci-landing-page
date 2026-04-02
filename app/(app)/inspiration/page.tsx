@@ -1,5 +1,4 @@
 import { InspirationGrid } from './InspirationGrid'
-import { INSPIRATION_PAGE } from '../../_data/pages'
 import { INSPIRATION_PROJECTS } from '../../_data/inspiration-projects'
 import { FLOORING_TYPES } from '../../_data/flooring-types'
 import { ENVIRONMENTS } from '../../_data/environments'
@@ -17,7 +16,6 @@ export default function InspirationRoute() {
       flooringTypes={FLOORING_TYPES}
       environments={ENVIRONMENTS}
       members={MEMBERS}
-      pageSettings={INSPIRATION_PAGE}
     />
   )
 }

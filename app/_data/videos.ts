@@ -5,20 +5,22 @@ export type Video = {
   thumbnailUrl?: string
   thumbnail?: { url: string }
   courseUrl?: string
+  vimeoUrl?: string
   category?: string
   embedUrl?: string
   featured?: boolean
   order: number
 }
 
-export const VIDEOS: Video[] = [
+// "Key Topics in the Resilient Flooring Universe" — featured CEU section
+export const FEATURED_VIDEOS: Video[] = [
   {
     title: 'Resilient Flooring: Verified and Certified!',
     description: 'Certifications, declarations, and ecolabels provide sustainability and health and wellness information that subsequently supports requirements in building rating systems.',
     duration: '17 min watch',
     thumbnailUrl: 'https://rfci.com/wp-content/uploads/2023/11/Photograph-1_CEU-Cover-Photo_no-Title_PNG-500x300.png',
     courseUrl: 'https://rfci.com/courses/resilient-flooring-verified-and-certified/',
-    featured: true,
+    vimeoUrl: 'https://vimeo.com/889986028',
     order: 1,
   },
   {
@@ -27,7 +29,7 @@ export const VIDEOS: Video[] = [
     duration: '19 min watch',
     thumbnailUrl: 'https://rfci.com/wp-content/uploads/2022/11/Optimized-3-500x300.jpg',
     courseUrl: 'https://rfci.com/courses/demystifying-epds-in-sustainable-design/',
-    featured: false,
+    vimeoUrl: 'https://vimeo.com/770737791',
     order: 2,
   },
   {
@@ -36,7 +38,7 @@ export const VIDEOS: Video[] = [
     duration: '19 min watch',
     thumbnailUrl: 'https://rfci.com/wp-content/uploads/2022/10/Optimized-2-500x300.jpg',
     courseUrl: 'https://rfci.com/courses/resilient-flooring-and-sustainability/',
-    featured: false,
+    vimeoUrl: 'https://vimeo.com/759120070',
     order: 3,
   },
   {
@@ -45,7 +47,10 @@ export const VIDEOS: Video[] = [
     duration: '19 min watch',
     thumbnailUrl: 'https://rfci.com/wp-content/uploads/2021/11/Resilient-Flooring-Materiality-Course-Image-Cropped-1-500x300.png',
     courseUrl: 'https://rfci.com/courses/resilient-flooring-materiality/',
-    featured: false,
+    vimeoUrl: 'https://vimeo.com/889960016',
     order: 4,
   },
 ]
+
+// Keep VIDEOS export for backwards compatibility
+export const VIDEOS: Video[] = FEATURED_VIDEOS

@@ -7,7 +7,7 @@ export default function NotFound() {
         <div className="min-h-screen bg-rfci-cream flex flex-col items-center justify-center px-6 text-center">
           <div className="text-8xl font-display font-bold text-rfci-blue/20 mb-4">404</div>
           <h1 className="text-4xl md:text-5xl font-display font-light text-rfci-black mb-4">
-            Page not found.
+            Page not found
           </h1>
           <p className="text-base text-rfci-black/60 font-light max-w-md mb-8">
             The page you&apos;re looking for doesn&apos;t exist or has been moved. Let&apos;s get you back on track.

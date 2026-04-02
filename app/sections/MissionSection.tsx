@@ -42,7 +42,7 @@ const PILLARS = [
 ]
 
 export function MissionSection() {
-  const displayPillars = SITE_SETTINGS.missionPillars?.length ? SITE_SETTINGS.missionPillars : PILLARS
+  const displayPillars: Array<{ number: string; title: string; description: string; bullets?: string[] }> = SITE_SETTINGS.missionPillars?.length ? SITE_SETTINGS.missionPillars : PILLARS
   // Hover-driven — whichever row the user mouses over updates the sticky panel
   const [hoveredPillar, setHoveredPillar] = useState(0)
 

@@ -29,7 +29,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
       {/* Hero */}
       <PhotoPageHero
         label="About RFCI"
-        heading={<>A voice for <span className="font-semibold">resilient flooring.</span></>}
+        heading={<>A voice for <span className="font-semibold">resilient flooring</span></>}
         subheading={aboutPage?.heroSubheading || "Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America's resilient flooring industry — representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring."}
         photo={{ src: '/media/community/board-of-directors-2025.jpeg', alt: 'RFCI Board of Directors 2025' }}
       >
@@ -72,7 +72,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
           <SectionReveal className="mb-16">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Our Strategic Focus</div>
             <h2 className="text-4xl md:text-5xl font-display font-light">
-              Five pillars that <span className="font-semibold">drive the industry.</span>
+              Five pillars that <span className="font-semibold">drive the industry</span>
             </h2>
           </SectionReveal>
 
@@ -92,7 +92,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
 
             {/* Pillar rows */}
             <div className="lg:col-span-9">
-              {pillars.map((pillar: { number: string; title: string; description: string }, idx: number) => (
+              {pillars.map((pillar: { number: string; title: string; description: string; bullets?: string[] }, idx: number) => (
                 <SectionReveal key={idx} delay={idx * 0.06}>
                   <div
                     className={`border-t border-white/10 py-8 cursor-pointer transition-all duration-300 ${
@@ -222,7 +222,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
           <SectionReveal className="mb-12">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Community</div>
             <h2 className="text-4xl md:text-5xl font-display font-light">
-              Our members in <span className="font-semibold">action.</span>
+              Our members in <span className="font-semibold">action</span>
             </h2>
           </SectionReveal>
 

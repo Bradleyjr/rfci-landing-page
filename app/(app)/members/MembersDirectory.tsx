@@ -51,7 +51,7 @@ function MemberCard({ member }: { member: Member }) {
   return card
 }
 
-export function MembersDirectory({ members, pageSettings }: { members?: Member[]; pageSettings?: { heroHeading?: string; heroSubheading?: string; boardSectionHeading?: string; boardSectionDescription?: string; associateSectionHeading?: string; associateSectionDescription?: string } }) {
+export function MembersDirectory({ members }: { members?: Member[] }) {
   const displayMembers = members?.length ? members : MEMBERS
 
   const boardMembers = displayMembers.filter(m => m.tier === 'board')
@@ -61,8 +61,8 @@ export function MembersDirectory({ members, pageSettings }: { members?: Member[]
     <PageLayout>
       <PhotoPageHero
         label="Member Directory"
-        heading={pageSettings?.heroHeading || <>Meet our <span className="font-semibold">member companies.</span></>}
-        subheading={pageSettings?.heroSubheading || 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.'}
+        heading={<>Meet our <span className="font-semibold">member companies</span></>}
+        subheading="RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward."
         photo={{ src: '/media/community/all-member-spring-meeting-2025.jpeg', alt: 'RFCI members networking at spring meeting' }}
       />
 
@@ -72,10 +72,10 @@ export function MembersDirectory({ members, pageSettings }: { members?: Member[]
           <SectionReveal className="mb-12">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Members</div>
             <h2 className="text-4xl md:text-5xl font-display font-light mb-4">
-              {pageSettings?.boardSectionHeading || <>Flooring <span className="font-semibold">Manufacturers</span></>}
+              <>Flooring <span className="font-semibold">Manufacturers</span></>
             </h2>
             <p className="text-lg text-rfci-black/60 font-light max-w-2xl leading-relaxed">
-              {pageSettings?.boardSectionDescription || 'RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America — represented on the RFCI Board of Directors.'}
+              RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America — represented on the RFCI Board of Directors.
             </p>
           </SectionReveal>
 
@@ -96,10 +96,10 @@ export function MembersDirectory({ members, pageSettings }: { members?: Member[]
             <SectionReveal className="mb-12">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Associate Members</div>
               <h2 className="text-4xl md:text-5xl font-display font-light mb-4">
-                {pageSettings?.associateSectionHeading || <>Associate Supply Chain <span className="font-semibold">Partners</span></>}
+                <>Associate Supply Chain <span className="font-semibold">Partners</span></>
               </h2>
               <p className="text-lg text-rfci-black/60 font-light max-w-2xl leading-relaxed">
-                {pageSettings?.associateSectionDescription || 'RFCI Associate Supply Chain Partner members provide the raw materials, additives, adhesives, and components that make resilient flooring possible.'}
+                RFCI Associate Supply Chain Partner members provide the raw materials, additives, adhesives, and components that make resilient flooring possible.
               </p>
             </SectionReveal>
 

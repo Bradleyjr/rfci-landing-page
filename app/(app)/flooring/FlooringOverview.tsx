@@ -36,15 +36,15 @@ function slugify(title: string): string {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function FlooringOverview({ flooringTypes, pageSettings }: { flooringTypes: any[]; pageSettings?: any }) {
+export function FlooringOverview({ flooringTypes }: { flooringTypes: any[] }) {
   const displayTypes: FlooringTypeDoc[] = flooringTypes
 
   return (
     <PageLayout>
       <SplitPageHero
         label="Flooring Types"
-        heading={pageSettings?.heroHeading || <>The full range of <span className="font-semibold text-rfci-blue">resilient flooring.</span></>}
-        subheading={pageSettings?.heroSubheading || 'From luxury vinyl tile to linoleum, rubber to cork—resilient flooring offers the widest range of performance, aesthetics, and installation options in the hard surface category.'}
+        heading={<>The full range of <span className="font-semibold text-rfci-blue">resilient flooring</span></>}
+        subheading="From luxury vinyl tile to linoleum, rubber to cork—resilient flooring offers the widest range of performance, aesthetics, and installation options in the hard surface category."
         photo={{ src: '/images/inspiration/applications/homes/EL04-RS.jpg', alt: 'Resilient flooring in a modern kitchen' }}
       />
 

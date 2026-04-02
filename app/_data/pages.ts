@@ -52,46 +52,6 @@ export const WHY_RESILIENT_PAGE = {
   ],
 }
 
-export const FAQ_PAGE = {
-  heroHeading: 'Frequently Asked Questions',
-  heroSubheading: 'Find answers to common questions about resilient flooring, RFCI certifications, sustainability, and membership.',
-  ctaHeading: 'Still have questions?',
-  ctaSubheading: 'We are here to help. Reach out to our team and we will get back to you as soon as possible.',
-  ctaEmail: 'info@rfci.com',
-}
-
-export const FLOORING_PAGE = {
-  heroHeading: 'The full range of resilient flooring',
-  heroSubheading: 'From luxury vinyl tile to linoleum, rubber to cork\u2014resilient flooring offers the widest range of performance, aesthetics, and installation options in the hard surface category.',
-}
-
-export const RESOURCES_PAGE = {
-  heroHeading: 'Resources & Technical Documents',
-  heroSubheading: 'Access technical guides, sustainability reports, standards documents, and white papers from RFCI.',
-  ctaHeading: 'Need something specific?',
-  ctaSubheading: 'If you are looking for a specific document or technical resource, reach out to our team and we will help you find it.',
-  ctaEmail: 'info@rfci.com',
-}
-
-export const VIDEOS_PAGE = {
-  heroHeading: 'Education & CEU Courses',
-  heroSubheading: 'Explore RFCI\u2019s continuing education program \u2014 earn CEU credits and deepen your understanding of resilient flooring certifications, sustainability practices, and material health.',
-}
-
-export const MEMBERS_PAGE = {
-  heroHeading: 'Meet our member companies',
-  heroSubheading: 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.',
-  boardSectionHeading: 'Flooring Manufacturers',
-  boardSectionDescription: 'RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America \u2014 represented on the RFCI Board of Directors.',
-  associateSectionHeading: 'Associate Supply Chain Partners',
-  associateSectionDescription: 'RFCI Associate Supply Chain Partner members provide the raw materials, additives, adhesives, and components that make resilient flooring possible.',
-}
-
-export const INSPIRATION_PAGE = {
-  heroHeading: 'Real-world installations',
-  heroSubheading: 'Explore resilient flooring projects from RFCI member companies across healthcare, education, hospitality, corporate, and more.',
-}
-
 export const CERTIFICATIONS_PAGE = {
   heroHeading: 'Sustainability programs you can rely on',
   heroSubheading: 'RFCI\u2019s sustainability programs verify indoor air quality, environmental performance, and material transparency\u2014giving architects and designers confidence in every specification.',
