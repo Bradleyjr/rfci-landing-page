@@ -334,33 +334,6 @@ export const RESOURCES: Resource[] = [
     order: 15,
   },
 
-  // Videos - Educational
-  {
-    title: "Owner's Project Requirements (OPR)",
-    slug: 'owners-project-requirements-opr',
-    description:
-      "Establish the owner's requirements for product selection, including performance characteristics, sustainability goals, and maintenance considerations.",
-    type: 'video',
-    category: 'Owner Project Requirements',
-    externalUrl: 'https://rfci.com/resources/owners-project-requirements-opr/',
-    videoUrl: 'https://www.youtube.com/watch?v=gnkNIsj5kjI',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/09/OPR-replacement-300x300.jpg',
-    order: 16,
-  },
-  {
-    title: 'Project Conditions',
-    slug: 'project-conditions',
-    description:
-      'Understand importance of subfloor preparation for successful installation.',
-    type: 'video',
-    category: 'Matter of Practice',
-    externalUrl: 'https://rfci.com/resources/project-conditions/',
-    videoUrl: 'https://www.youtube.com/watch?v=wbJXGYu6Wvk',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/09/Project-Conditions-Image-300x270.jpg',
-    order: 17,
-  },
 
   // Articles
   {
