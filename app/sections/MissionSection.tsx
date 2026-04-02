@@ -7,8 +7,8 @@ import { SITE_SETTINGS } from '../_data/site-settings'
 
 const PILLAR_IMAGES = [
   '/media/mission/advocacy-engagement.jpg',    // 01 Advocacy & Engagement
-  '/media/mission/technical-standards.jpg',    // 02 Technical Standards
-  '/media/mission/sustainability-programs.jpg',// 03 Sustainability Programs
+  '/media/mission/sustainability-programs.jpg', // 02 Technical Initiatives
+  '/media/mission/technical-standards.jpg',    // 03 Sustainability Programs
   '/media/mission/promotion-education.jpg',    // 04 Promotion & Education
   '/media/mission/member-development.jpg',     // 05 Member Development
 ]
