@@ -274,6 +274,48 @@ function AnchorNav({ availableSections }: { availableSections: Set<string> }) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
+function VideoCard({ video, index }: { video: any; index: number }) {
+  const videoLink = video.internalUrl || (video.slug && `/resources/${video.slug}`) || video.externalUrl || video.videoUrl || '#'
+  const isExternal = !video.internalUrl && !(video.slug)
+  return (
+    <SectionReveal key={video.title} delay={(index % 2) * 0.06}>
+      <a
+        href={videoLink}
+        target={isExternal ? '_blank' : undefined}
+        rel={isExternal ? 'noopener noreferrer' : undefined}
+        className="group block bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 overflow-hidden"
+      >
+        <div className="relative aspect-video bg-rfci-black/10 overflow-hidden">
+          {video.thumbnailUrl && (
+            <img
+              src={video.thumbnailUrl}
+              alt={video.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+          )}
+          <div className="absolute inset-0 bg-rfci-black/30 group-hover:bg-rfci-black/50 transition-colors duration-500 flex items-center justify-center">
+            <div className="w-16 h-16 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500">
+              <PlayCircle className="w-7 h-7 text-white group-hover:text-rfci-blue transition-colors duration-500" />
+            </div>
+          </div>
+        </div>
+        <div className="p-6">
+          {video.category && (
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-2">{video.category}</div>
+          )}
+          <h3 className="text-xl md:text-2xl font-display font-light text-rfci-black mb-2 leading-snug group-hover:text-rfci-blue transition-colors duration-200">
+            {video.title}
+          </h3>
+          {video.description && (
+            <p className="text-sm text-rfci-black/60 font-light leading-relaxed">{video.description}</p>
+          )}
+        </div>
+      </a>
+    </SectionReveal>
+  )
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function ResourcesPage({ resources }: { resources: any[] }) {
   const [showAllVideos, setShowAllVideos] = useState(false)
   const items = resources?.length ? resources : RESOURCES
@@ -332,7 +374,7 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
       <PageHero
         label="Resources"
         heading={<>Resources & <span className="font-semibold text-rfci-blue">technical documents</span></>}
-        subheading="Access technical guides, sustainability reports, standards documents, and white papers from RFCI."
+        subheading="Access helpful videos, certification information, technical papers, articles, key websites, and press releases."
       />
 
       {/* Sticky anchor nav */}
@@ -349,53 +391,21 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
               </h2>
             </SectionReveal>
 
+            {/* Featured CEU Videos */}
+            <SectionReveal>
+              <h3 className="text-xl md:text-2xl font-display font-light mb-6">
+                Key Topics in the Resilient Flooring Universe
+              </h3>
+            </SectionReveal>
             <div className="grid md:grid-cols-2 gap-6">
-              {(showAllVideos ? videoResources : videoResources.slice(0, 4)).map((video, index) => {
-                const videoLink = video.internalUrl || (video.slug && `/resources/${video.slug}`) || video.externalUrl || video.videoUrl || '#'
-                const isExternal = !video.internalUrl && !(video.slug)
-                return (
-                  <SectionReveal key={video.title} delay={(index % 2) * 0.06}>
-                    <a
-                      href={videoLink}
-                      target={isExternal ? '_blank' : undefined}
-                      rel={isExternal ? 'noopener noreferrer' : undefined}
-                      className="group block bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 overflow-hidden"
-                    >
-                      {/* Thumbnail */}
-                      <div className="relative aspect-video bg-rfci-black/10 overflow-hidden">
-                        {video.thumbnailUrl && (
-                          <img
-                            src={video.thumbnailUrl}
-                            alt={video.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                          />
-                        )}
-                        <div className="absolute inset-0 bg-rfci-black/30 group-hover:bg-rfci-black/50 transition-colors duration-500 flex items-center justify-center">
-                          <div className="w-16 h-16 rounded-full border border-white/30 bg-white/10 backdrop-blur-md flex items-center justify-center group-hover:bg-white group-hover:scale-110 transition-all duration-500">
-                            <PlayCircle className="w-7 h-7 text-white group-hover:text-rfci-blue transition-colors duration-500" />
-                          </div>
-                        </div>
-                      </div>
-                      {/* Info */}
-                      <div className="p-6">
-                        {video.category && (
-                          <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-2">{video.category}</div>
-                        )}
-                        <h3 className="text-xl md:text-2xl font-display font-light text-rfci-black mb-2 leading-snug group-hover:text-rfci-blue transition-colors duration-200">
-                          {video.title}
-                        </h3>
-                        {video.description && (
-                          <p className="text-sm text-rfci-black/60 font-light leading-relaxed">{video.description}</p>
-                        )}
-                      </div>
-                    </a>
-                  </SectionReveal>
-                )
-              })}
+              {videoResources.slice(0, 4).map((video, index) => (
+                <VideoCard key={video.title} video={video} index={index} />
+              ))}
             </div>
 
-            {!showAllVideos && videoResources.length > 4 && (
-              <div className="mt-8 text-center">
+            {/* Product Videos */}
+            {videoResources.length > 4 && !showAllVideos && (
+              <div className="mt-10 text-center">
                 <button
                   onClick={() => setShowAllVideos(true)}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200"
@@ -403,6 +413,21 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
                   See all {videoResources.length} videos <CaretDown className="w-4 h-4" />
                 </button>
               </div>
+            )}
+
+            {showAllVideos && videoResources.length > 4 && (
+              <>
+                <SectionReveal className="mt-16">
+                  <h3 className="text-xl md:text-2xl font-display font-light mb-6">
+                    Meet the Resilient Flooring Categories
+                  </h3>
+                </SectionReveal>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {videoResources.slice(4).map((video, index) => (
+                    <VideoCard key={video.title} video={video} index={index} />
+                  ))}
+                </div>
+              </>
             )}
           </div>
         </section>
