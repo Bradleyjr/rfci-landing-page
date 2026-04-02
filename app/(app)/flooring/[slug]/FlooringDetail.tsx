@@ -10,8 +10,10 @@ import { mediaUrl } from '../../../_lib/transforms'
 export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType: any; otherTypes: any[] }) {
   const heroImg = mediaUrl(ft.heroImage) || mediaUrl(ft.image)
   const advantages: string[] = ft.advantages ?? []
+  const advantageGroups: Array<{ label: string; items: string[] }> = ft.advantageGroups ?? []
   const composition: string = ft.composition ?? ''
   const installation: string = ft.installation ?? ''
+  const installationGroups: Array<{ label: string; text: string }> = ft.installationGroups ?? []
   const diagrams: Array<{ url: string; label: string }> = ft.diagrams ?? []
   const [enlargedDiagram, setEnlargedDiagram] = useState<{ url: string; label: string } | null>(null)
 
@@ -27,10 +29,10 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
     const s: Array<{ id: string; label: string }> = []
     if (composition) s.push({ id: 'composition', label: 'Composition' })
     if (diagrams.length > 0) s.push({ id: 'construction', label: 'Construction' })
-    if (advantages.length > 0) s.push({ id: 'advantages', label: 'Advantages' })
-    if (installation) s.push({ id: 'installation', label: 'Installation' })
+    if (advantages.length > 0 || advantageGroups.length > 0) s.push({ id: 'advantages', label: 'Advantages' })
+    if (installation || installationGroups.length > 0) s.push({ id: 'installation', label: 'Installation' })
     return s
-  }, [composition, diagrams.length, advantages.length, installation])
+  }, [composition, diagrams.length, advantages.length, advantageGroups.length, installation, installationGroups.length])
 
   // Measure main nav bottom on scroll so sticky nav always sits flush below it
   const [navBottom, setNavBottom] = useState(0)
@@ -221,7 +223,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
       )}
 
       {/* Advantages */}
-      {advantages.length > 0 && (
+      {(advantages.length > 0 || advantageGroups.length > 0) && (
         <section id="advantages" className="py-20 md:py-28 bg-white" style={{ scrollMarginTop: scrollOffset }}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
@@ -236,16 +238,34 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
                 </p>
               </SectionReveal>
               <div className="lg:col-span-3">
-                <ul className="space-y-4">
-                  {advantages.map((adv, i) => (
-                    <SectionReveal key={i} delay={i * 0.05}>
-                      <li className="flex gap-4 items-start">
-                        <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: ft.accentColor ?? '#0164DB' }} weight="fill" />
-                        <span className="text-rfci-black/70 leading-relaxed font-light">{adv}</span>
-                      </li>
-                    </SectionReveal>
-                  ))}
-                </ul>
+                {advantageGroups.length > 0 ? (
+                  <div className="space-y-10">
+                    {advantageGroups.map((group) => (
+                      <div key={group.label}>
+                        <h3 className="text-xl md:text-2xl font-display font-light mb-5">{group.label}</h3>
+                        <ul className="space-y-4">
+                          {group.items.map((adv, i) => (
+                            <li key={i} className="flex gap-4 items-start">
+                              <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: ft.accentColor ?? '#0164DB' }} weight="fill" />
+                              <span className="text-rfci-black/70 leading-relaxed font-light">{adv}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <ul className="space-y-4">
+                    {advantages.map((adv, i) => (
+                      <SectionReveal key={i} delay={i * 0.05}>
+                        <li className="flex gap-4 items-start">
+                          <CheckCircle className="w-5 h-5 mt-0.5 flex-shrink-0" style={{ color: ft.accentColor ?? '#0164DB' }} weight="fill" />
+                          <span className="text-rfci-black/70 leading-relaxed font-light">{adv}</span>
+                        </li>
+                      </SectionReveal>
+                    ))}
+                  </ul>
+                )}
               </div>
             </div>
           </div>
@@ -253,7 +273,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
       )}
 
       {/* Installation */}
-      {installation && (
+      {(installation || installationGroups.length > 0) && (
         <section id="installation" className="py-20 md:py-28" style={{ backgroundColor: ft.accentColor ? `${ft.accentColor}10` : '#F5F5F0', scrollMarginTop: scrollOffset }}>
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
@@ -265,9 +285,22 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
                 </h2>
               </SectionReveal>
               <SectionReveal className="lg:col-span-3" delay={0.1}>
-                <p className="text-rfci-black/70 leading-relaxed text-base md:text-lg font-light">
-                  {installation}
-                </p>
+                {installationGroups.length > 0 ? (
+                  <div className="space-y-8">
+                    {installationGroups.map((group) => (
+                      <div key={group.label}>
+                        <h3 className="text-xl md:text-2xl font-display font-light mb-3">{group.label}</h3>
+                        <p className="text-rfci-black/70 leading-relaxed text-base md:text-lg font-light whitespace-pre-line">
+                          {group.text}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-rfci-black/70 leading-relaxed text-base md:text-lg font-light">
+                    {installation}
+                  </p>
+                )}
               </SectionReveal>
             </div>
           </div>

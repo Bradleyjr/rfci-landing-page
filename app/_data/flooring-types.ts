@@ -33,7 +33,9 @@ export type FlooringType = {
   diagrams: Array<{ url: string; label: string }>
   composition: string
   advantages: string[]
+  advantageGroups?: Array<{ label: string; items: string[] }>
   installation: string
+  installationGroups?: Array<{ label: string; text: string }>
   relatedCertifications: CertSummary[]
   order: number
 }
@@ -111,24 +113,45 @@ export const FLOORING_TYPES: FlooringType[] = [
       { url: '/media/flooring/diagrams/homogeneous-sheet-vinyl-diagram.png', label: 'Homogeneous Construction' },
     ],
     composition: 'Homogeneous sheet vinyl is made of a single layer and is sometimes referred to as through-color, meaning the color and visual on the surface goes all the way through the floor. This gives the flooring rigidity and toughness along with vibrancy and depth of color. Hence, it can be used in places that experience heavy foot traffic. This type flooring is typically available in solid colors and multi-color chip configurations. It is incredibly durable and stain resistant which makes it a great flooring choice for heavy traffic areas.\n\nHeterogeneous sheet vinyl features a multi-layer construction with a wear layer which may provide a printed image or consists of solid chips made from vinyl resin providing endless design possibilities, lasting performance, and low maintenance cost. A layer of foam may be included for underfoot comfort which reduces impact noise and sound transmission and provides added flexibility for ease of handling and installation. Depending on the construction, these products are typically used in commercial, light commercial, residential, and multi-family applications.',
-    advantages: [
-      'Homogeneous: Known for durability',
-      'Homogeneous: Easier to maintain',
-      'Homogeneous: Favorable moisture properties',
-      'Homogeneous: True through-color construction provides even wear and a consistent appearance over time',
-      'Homogeneous: Seams can be heat welded',
-      'Homogeneous: Product can be flash coved for more efficient cleaning',
-      'Heterogeneous: Known for durability',
-      'Heterogeneous: Easier to maintain',
-      'Heterogeneous: Favorable moisture properties',
-      'Heterogeneous: True through-color construction provides even wear and a consistent appearance over time',
-      'Heterogeneous: Technological advancements provide authentic wood and stone visuals and patterns that reflect popular design trends',
-      'Heterogeneous: Available in wide widths',
-      'Heterogeneous: A great choice for budget-conscious consumers looking for an attractive, durable, seamless residential flooring option',
-      'Heterogeneous: Commercial grades of heterogeneous sheet vinyl flooring offer not only superior durability but also attractive design alternatives',
-      'Heterogeneous: Warm, quiet and with many beautiful designs',
+    advantages: [],
+    advantageGroups: [
+      {
+        label: 'Homogeneous',
+        items: [
+          'Known for durability',
+          'Easier to maintain',
+          'Favorable moisture properties',
+          'True through-color construction provides even wear and a consistent appearance over time',
+          'Seams can be heat welded',
+          'Product can be flash coved for more efficient cleaning',
+        ],
+      },
+      {
+        label: 'Heterogeneous',
+        items: [
+          'Known for durability',
+          'Easier to maintain',
+          'Favorable moisture properties',
+          'True through-color construction provides even wear and a consistent appearance over time',
+          'Technological advancements provide authentic wood and stone visuals and patterns that reflect popular design trends',
+          'Available in wide widths',
+          'A great choice for budget-conscious consumers looking for an attractive, durable, seamless residential flooring option',
+          'Commercial grades of heterogeneous sheet vinyl flooring offer not only superior durability but also attractive design alternatives',
+          'Warm, quiet and with many beautiful designs',
+        ],
+      },
     ],
-    installation: 'Homogeneous: These flooring products are glued down to provide high performance in areas with heavy foot and rolling load traffic.\n\nHeterogeneous: Products come with either a fiberglass, felt or foam backing. Fiberglass-backed sheet vinyl can be installed without glue, or as a modified loose-lay product using minimal adhesive. Felt and foam-backed products are applied to the subfloor with the use of an adhesive.\n\nInstalling a vinyl sheet floor is a very exacting process that requires excellent cutting and seaming skills, and subfloor knowledge. Professional installation by a reputable flooring dealer is highly recommended and may save money in the long run.',
+    installation: '',
+    installationGroups: [
+      {
+        label: 'Homogeneous',
+        text: 'These flooring products are glued down to provide high performance in areas with heavy foot and rolling load traffic.',
+      },
+      {
+        label: 'Heterogeneous',
+        text: 'Products come with either a fiberglass, felt or foam backing. Fiberglass-backed sheet vinyl can be installed without glue, or as a modified loose-lay product using minimal adhesive. Felt and foam-backed products are applied to the subfloor with the use of an adhesive.\n\nInstalling a vinyl sheet floor is a very exacting process that requires excellent cutting and seaming skills, and subfloor knowledge. Professional installation by a reputable flooring dealer is highly recommended and may save money in the long run.',
+      },
+    ],
     relatedCertifications: [CERT_FLOORSCORE],
     order: 3,
   },
