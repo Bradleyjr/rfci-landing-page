@@ -61,9 +61,9 @@ export function WhyResilient({ pageData }: { pageData: any }) {
             </h2>
           </SectionReveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-rfci-black/5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-rfci-black/5">
             {benefits.map((benefit, idx) => (
-              <SectionReveal key={idx} delay={(idx % 3) * 0.06}>
+              <SectionReveal key={idx} delay={(idx % 4) * 0.06}>
                 <div className="bg-rfci-cream p-8 md:p-10 h-full group hover:bg-white transition-colors duration-200">
                   <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">{benefit.keyword}</div>
                   <h3 className="text-xl md:text-2xl font-display font-light text-rfci-black mb-3 group-hover:text-rfci-blue transition-colors duration-200">
