@@ -18,18 +18,20 @@ export type Resource = {
 }
 
 export const RESOURCES: Resource[] = [
-  // Certifications
+  // Certifications (ordered: FloorScore → ASSURE → AFFIRM)
   {
-    title: 'AFFIRM\u2122 Certified',
-    slug: 'affirm-certified',
+    title: 'FloorScore\u00AE',
+    slug: 'floorscore',
     description:
-      'Certified to AFFIRM\u2122 Certified Sustainability Assessment for Resilient Floor Coverings.',
+      'FloorScore IAQ Certification means that a flooring product is independently certified by SCS to comply with the volatile organic compound emissions criteria of the California Section 01350 Program.',
     type: 'certification',
     category: 'Sustainability',
-    iconName: 'certificate',
-    internalUrl: '/certifications/affirm',
+    iconName: 'shieldCheck',
+    internalUrl: '/certifications/floorscore',
+    downloadUrl:
+      'https://www.scsglobalservices.com/files/applications/ECS_APP_IAQFloorscoreApp_V2-0_082812.pdf',
     thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/12/NSF-ANSI-332-300x300.jpg',
+      'https://rfci.com/wp-content/uploads/2022/02/Untitled-design-95-300x300.png',
     order: 1,
   },
   {
@@ -48,33 +50,17 @@ export const RESOURCES: Resource[] = [
     order: 2,
   },
   {
-    title: 'FloorScore\u00AE',
-    slug: 'floorscore',
+    title: 'AFFIRM\u2122 Certified',
+    slug: 'affirm-certified',
     description:
-      'FloorScore IAQ Certification means that a flooring product is independently certified by SCS to comply with the volatile organic compound emissions criteria of the California Section 01350 Program.',
+      'Certified to AFFIRM\u2122 Certified Sustainability Assessment for Resilient Floor Coverings.',
     type: 'certification',
     category: 'Sustainability',
-    iconName: 'shieldCheck',
-    internalUrl: '/certifications/floorscore',
-    downloadUrl:
-      'https://www.scsglobalservices.com/files/applications/ECS_APP_IAQFloorscoreApp_V2-0_082812.pdf',
+    iconName: 'certificate',
+    internalUrl: '/certifications/affirm',
     thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2022/02/Untitled-design-95-300x300.png',
+      'https://rfci.com/wp-content/uploads/2021/12/NSF-ANSI-332-300x300.jpg',
     order: 3,
-  },
-
-  // Declarations
-  {
-    title: 'Environmental Product Declaration',
-    slug: 'environmental-product-declaration',
-    description:
-      'Transparent lifecycle reporting for resilient flooring products, including current 2024 industry-wide EPDs and archived 2019 declarations for reference.',
-    type: 'declaration',
-    category: 'Sustainability',
-    internalUrl: '/certifications/epd',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2022/02/earth-300x300-1-300x300.png',
-    order: 4,
   },
 
   // Technical Papers

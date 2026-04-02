@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { MapPin, Phone, EnvelopeSimple, LinkedinLogo, ArrowRight, CheckCircle } from '@phosphor-icons/react'
+import { MapPin, EnvelopeSimple, LinkedinLogo, ArrowRight, CheckCircle } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { PageHero } from '../../_components/PageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
@@ -11,15 +11,9 @@ const CONTACT_INFO = [
   {
     icon: MapPin,
     label: 'Headquarters',
-    value: '115 Greystone Power Blvd',
-    detail: 'LaGrange, GA 30240',
-    href: 'https://maps.google.com/?q=115+Greystone+Power+Blvd+LaGrange+GA+30240',
-  },
-  {
-    icon: Phone,
-    label: 'Phone',
-    value: '(706) 882-2710',
-    href: 'tel:+17068822710',
+    value: '115 Broad Street, Suite 201',
+    detail: 'LaGrange, Georgia 30240',
+    href: 'https://maps.google.com/?q=115+Broad+Street+Suite+201+LaGrange+Georgia+30240',
   },
   {
     icon: EnvelopeSimple,

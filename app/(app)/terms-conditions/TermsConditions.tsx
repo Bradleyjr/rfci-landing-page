@@ -105,12 +105,9 @@ export function TermsConditions() {
                 </p>
                 <div className="mt-4 text-sm text-rfci-black/60">
                   <p>Resilient Floor Covering Institute</p>
-                  <p>115 Greystone Power Blvd</p>
-                  <p>LaGrange, GA 30240</p>
-                  <p className="text-base mt-2">
-                    Phone: <a href="tel:+17068822710" className="text-rfci-blue hover:underline">(706) 882-2710</a>
-                  </p>
-                  <p>
+                  <p>115 Broad Street, Suite 201</p>
+                  <p>LaGrange, Georgia 30240</p>
+                  <p className="mt-2">
                     Email: <a href="mailto:info@rfci.com" className="text-rfci-blue hover:underline">info@rfci.com</a>
                   </p>
                 </div>

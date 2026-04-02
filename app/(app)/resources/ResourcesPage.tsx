@@ -283,9 +283,9 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
     .filter((r) => r.type === 'video' && r.thumbnailUrl)
     .sort((a: { order: number }, b: { order: number }) => a.order - b.order)
 
-  // Certifications & Declarations
+  // Certifications
   const certDeclarationResources = items.filter(
-    (r) => r.type === 'certification' || r.type === 'declaration'
+    (r) => r.type === 'certification'
   )
 
   // Technical Papers
@@ -415,7 +415,7 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
             <SectionReveal className="mb-12 md:mb-16">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Sustainability</div>
               <h2 className="text-4xl md:text-5xl font-display font-light">
-                Certifications & <span className="font-semibold">declarations</span>
+                <span className="font-semibold">Certifications</span>
               </h2>
             </SectionReveal>
 
