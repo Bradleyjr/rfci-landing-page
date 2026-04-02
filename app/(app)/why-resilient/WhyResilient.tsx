@@ -18,18 +18,11 @@ export function WhyResilient({ pageData }: { pageData: any }) {
       <SplitPageHero
         label="Why Resilient"
         heading={<>Why <span className="font-semibold text-rfci-blue">resilient flooring?</span></>}
-        subheading={
-          <div className="space-y-4">
-            <p>Resilient flooring has been the fastest growing category of flooring and is now the largest in North America. Resilient&rsquo;s growth has been propelled by some key factors that are strongly valued by the residential and commercial sectors.</p>
-            <p>First, consider the broad breadth of product categories that comprise resilient flooring. From very technical products to a host of products that fill the airwaves of home renovation shows, resilient flooring has a deep bench of product solutions!</p>
-            <p>Some of the core product factors that propel resilient include countless inspiring designs, ease of maintenance, durability, moisture performance, attentiveness to sustainability, certified performance, ease of installation, advanced engineering, and much more.</p>
-            <p>In a world where affordability is a concern for most, the resilient flooring product line-up has countless options for that first time home owner and wonderful options for that dream home owner.</p>
-          </div>
-        }
+        subheading="Resilient flooring has been the fastest growing category of flooring and is now the largest in North America. Resilient's growth has been propelled by some key factors that are strongly valued by the residential and commercial sectors."
         photo={{ src: '/images/inspiration/applications/workplace/FF_14582_Herringbone_Charcoal_RS_150DPI.jpg', alt: 'Herringbone pattern resilient flooring in modern interior' }}
       />
 
-      {/* Editorial Lede */}
+      {/* Editorial Lede — continuation of hero narrative */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
@@ -44,11 +37,14 @@ export function WhyResilient({ pageData }: { pageData: any }) {
               </div>
             </SectionReveal>
             <SectionReveal direction="right">
-              <p className="text-2xl md:text-3xl font-display font-light leading-relaxed text-rfci-black">
-                Resilient flooring keeps showing up where projects need <span className="font-semibold">performance, cleanability, and design flexibility.</span>
+              <p className="text-lg md:text-xl text-rfci-black/70 font-light leading-relaxed">
+                First, consider the broad breadth of product categories that comprise resilient flooring. From very technical products to a host of products that fill the airwaves of home renovation shows, resilient flooring has a deep bench of product solutions!
               </p>
-              <p className="text-lg text-rfci-black/60 font-light leading-relaxed mt-8">
-                The reasons are practical, not trendy. Across healthcare, education, housing, retail, hospitality, and workplace interiors, resilient flooring continues to earn specifications because it balances maintenance, comfort, durability, and sustainability.
+              <p className="text-lg md:text-xl text-rfci-black/70 font-light leading-relaxed mt-6">
+                Some of the core product factors that propel resilient include countless inspiring designs, ease of maintenance, durability, moisture performance, attentiveness to sustainability, certified performance, ease of installation, advanced engineering, and much more.
+              </p>
+              <p className="text-lg md:text-xl text-rfci-black/70 font-light leading-relaxed mt-6">
+                In a world where affordability is a concern for most, the resilient flooring product line-up has countless options for that first time home owner and wonderful options for that dream home owner.
               </p>
             </SectionReveal>
           </div>
