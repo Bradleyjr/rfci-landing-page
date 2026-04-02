@@ -6,6 +6,18 @@ import { PageLayout } from '../../../_components/PageLayout'
 import { SectionReveal } from '../../../_components/SectionReveal'
 import { mediaUrl } from '../../../_lib/transforms'
 
+function Paragraphs({ text, className }: { text: string; className?: string }) {
+  const paragraphs = text.split('\n\n').filter(Boolean)
+  if (paragraphs.length <= 1) {
+    return <p className={className}>{text}</p>
+  }
+  return (
+    <div className={`space-y-4 ${className ?? ''}`}>
+      {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+    </div>
+  )
+}
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType: any; otherTypes: any[] }) {
   const heroImg = mediaUrl(ft.heroImage) || mediaUrl(ft.image)
@@ -116,9 +128,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
               {ft.subtitle}
             </div>
 
-            <p className="text-lg md:text-xl text-rfci-black/60 max-w-3xl leading-relaxed font-light mb-8">
-              {ft.description}
-            </p>
+            <Paragraphs text={ft.description} className="text-lg md:text-xl text-rfci-black/60 max-w-3xl leading-relaxed font-light mb-8" />
 
           </SectionReveal>
         </div>
@@ -168,9 +178,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
                 </h2>
               </SectionReveal>
               <SectionReveal className="lg:col-span-3" delay={0.1}>
-                <p className="text-rfci-black/70 leading-relaxed text-base md:text-lg font-light">
-                  {composition}
-                </p>
+                <Paragraphs text={composition} className="text-rfci-black/70 leading-relaxed text-base md:text-lg font-light" />
               </SectionReveal>
             </div>
           </div>
@@ -297,9 +305,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
                     ))}
                   </div>
                 ) : (
-                  <p className="text-rfci-black/70 leading-relaxed text-base md:text-lg font-light">
-                    {installation}
-                  </p>
+                  <Paragraphs text={installation} className="text-rfci-black/70 leading-relaxed text-base md:text-lg font-light" />
                 )}
               </SectionReveal>
             </div>
