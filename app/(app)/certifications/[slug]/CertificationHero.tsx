@@ -51,9 +51,11 @@ export function CertificationHero({ cert, stats }: CertificationHeroProps) {
           </h1>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed font-light">
-            {cert.description}
-          </p>
+          <div className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed font-light space-y-4">
+            {(cert.description as string).split('\n\n').map((p: string, i: number) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
 
           {/* Certified products link */}
           {cert.certifiedProductsUrl && (

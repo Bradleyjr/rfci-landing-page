@@ -32,7 +32,7 @@ const navItems = [
       { label: 'FloorScore®', href: '/certifications/floorscore', desc: 'The leading indoor air quality certification for hard surface flooring.', icon: ShieldCheck },
       { label: 'ASSURE® Certified', href: '/certifications/assure', desc: 'Third-party sustainability certification across the full product lifecycle.', icon: Seal },
       { label: 'AFFIRM™ Certified', href: '/certifications/affirm', desc: 'Material health certification for resilient flooring products.', icon: Certificate },
-      { label: 'Environmental Product Declaration', href: '/certifications/epd', desc: 'Transparent reporting of environmental impact across a product\'s lifecycle.', icon: Globe },
+      { label: 'Industry Wide EPDs', href: '/certifications/epd', desc: 'Transparent reporting of environmental impact across a product\'s lifecycle.', icon: Globe },
     ],
   },
   {
@@ -312,8 +312,9 @@ export const Footer = () => (
           <h4 className="font-bold tracking-widest uppercase text-label text-white/40 mb-6">About</h4>
           <ul className="space-y-4 text-sm text-white/70">
             <li><a href="/about" className="hover:text-rfci-blue transition-colors duration-200">About RFCI</a></li>
-            <li><a href="/members" className="hover:text-rfci-blue transition-colors duration-200">Member Directory</a></li>
+            <li><a href="/members" className="hover:text-rfci-blue transition-colors duration-200">Member Listing</a></li>
             <li><a href="/contact" className="hover:text-rfci-blue transition-colors duration-200">Contact</a></li>
+            <li><a href="https://rfci.com/recommended-work-practices/" target="_blank" rel="noopener noreferrer" className="hover:text-rfci-blue transition-colors duration-200">Recommended Work Practices</a></li>
           </ul>
         </div>
 

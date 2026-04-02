@@ -60,11 +60,15 @@ export function MembersDirectory({ members }: { members?: Member[] }) {
   return (
     <PageLayout>
       <PhotoPageHero
-        label="Member Directory"
+        label="Member Listing"
         heading={<>Meet our <span className="font-semibold">member companies</span></>}
-        subheading="RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward."
+        subheading="RFCI members are the manufacturers and suppliers behind resilient flooring, companies who are focused on the future of resilient flooring. They include the largest manufacturers in the resilient flooring industry. All RFCI member companies are known for their innovation, quality, and sustainability initiatives. They've joined together through RFCI because they share a genuine commitment to improving our industry and advancing sustainability. Environmental initiatives such as FloorScore®, ASSURE® Certified, and ANSI/NSF332 Sustainability Assessment for Resilient Floor Coverings help meet these goals."
         photo={{ src: '/media/community/all-member-spring-meeting-2025.jpeg', alt: 'RFCI members networking at spring meeting' }}
-      />
+      >
+        <p className="text-white/70 text-lg leading-relaxed font-light mt-4">
+          RFCI members are absolutely committed to working together to promote the industry, serve their customers better, protect the environment, and comply with all legal requirements. Membership is open to any flooring manufacturer or supplier who meets the RFCI membership criteria.
+        </p>
+      </PhotoPageHero>
 
       {/* Board Companies */}
       <section className="py-20 md:py-28 bg-white">
@@ -75,7 +79,7 @@ export function MembersDirectory({ members }: { members?: Member[] }) {
               <>Flooring <span className="font-semibold">Manufacturers</span></>
             </h2>
             <p className="text-lg text-rfci-black/60 font-light max-w-2xl leading-relaxed">
-              RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America — represented on the RFCI Board of Directors.
+              RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America.
             </p>
           </SectionReveal>
 

@@ -1,7 +1,7 @@
 export const ABOUT_PAGE = {
   heroHeading: 'A voice for resilient flooring',
-  heroSubheading: 'Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America\u2019s resilient flooring industry\u2014representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring.',
-  missionStatement: 'Made up of over 60 Manufacturer and Supply Chain members, representing a full range of resilient flooring products doing business in North America, coming together to advocate, educate, and lead the category in ways no single company can.',
+  heroSubheading: 'Founded in 1976, the Resilient Floor Covering Institute (RFCI) is the trade association for North America\u2019s resilient flooring industry\u2014engaging the manufacturers of resilient flooring and suppliers of the industry.',
+  missionStatement: 'RFCI is composed of nearly 60 Manufacturer and Associate Supply Chain members, all focused on a core goal of Industry Growth and Well Being.',
   strategicPillars: [
     { number: '01', title: 'Advocacy & Engagement', description: 'Addressing key national and state issues with governmental and non-governmental entities.' },
     { number: '02', title: 'Technical Initiatives', description: 'Actively engaging key technical topics in the resilient flooring universe, including certification development, supporting consensus standards development, the creation of helpful technical tools for a multitude of resilient flooring customers, and much more. Highlighted certifications for resilient flooring include:', bullets: ['FloorScore\u00ae', 'ASSURE\u00ae Certified', 'AFFIRM\u2122 Certified'] },
@@ -15,14 +15,15 @@ export const WHY_RESILIENT_PAGE = {
   heroHeading: 'Why resilient flooring?',
   heroSubheading: 'Resilient flooring delivers durability, water resistance, and easy maintenance\u2014combining style, comfort, and value for homes, businesses, and institutions with long-lasting, worry-free performance.',
   benefits: [
-    { keyword: 'MAINTAIN', title: 'Easy Maintenance', description: 'Simple cleaning protocols and minimal upkeep keep lifecycle costs low and surfaces looking new for years.' },
-    { keyword: 'PROTECT', title: 'Moisture Performance', description: 'Depending on the construction, resilient flooring can offer strong water-resistant or waterproof performance in demanding interiors.' },
-    { keyword: 'VALUE', title: 'Cost Effective', description: 'Competitive installed cost paired with a long service life delivers strong value across the full lifecycle.' },
-    { keyword: 'DESIGN', title: 'Design Versatility', description: 'Realistic wood, stone, and custom visuals across tile, plank, and sheet formats for any design vision.' },
-    { keyword: 'SUSTAIN', title: 'Sustainability', description: 'Recyclable materials, low-VOC manufacturing, and third-party certifications support green building goals.' },
-    { keyword: 'CERTIFY', title: 'Certified Performance', description: 'FloorScore®, ASSURE® Certified, and AFFIRM™ Certification provide independent verification of indoor air quality and sustainability.' },
-    { keyword: 'STABLE', title: 'Dimensional Stability', description: 'Resistant to temperature fluctuations and moisture expansion, making it ideal for challenging subfloor conditions.' },
-    { keyword: 'COMFORT', title: 'Comfort Underfoot', description: 'Resilient by definition\u2014these floors flex underfoot, reducing fatigue and impact noise in high-traffic environments.' },
+    { keyword: 'BREADTH', title: 'Broad Array of Product Categories and Solutions for the Residential and Commercial Sectors', description: 'Resilient flooring is a Go-To for the many segments of the built environment' },
+    { keyword: 'DESIGN', title: 'Countless Inspiring Designs', description: 'The design universe in resilient flooring is immense, covering a host of preferences' },
+    { keyword: 'MAINTAIN', title: 'Ease of Maintenance', description: 'Any users of resilient products is going to be quick to point out the ease of maintenance for most products' },
+    { keyword: 'DURABLE', title: 'Durability', description: 'Resilient flooring is known for providing countless durable solutions' },
+    { keyword: 'MOISTURE', title: 'Moisture Performance', description: 'Moisture Performance is always a key factor in flooring decisions. Resilient flooring has hit the issues head-on with a host of options that provide advanced capabilities' },
+    { keyword: 'SUSTAIN', title: 'Attentiveness to Sustainability', description: 'Sustainability is core to the entire flooring industry. From the mid 90\u2019s when flooring companies charged ahead on sustainability in the built environment, the industry never let go. Resilient flooring embraces some key areas of sustainability' },
+    { keyword: 'CERTIFY', title: 'Certified Performance', description: 'We believe in certifications! FloorScore\u00ae, ASSURE\u00ae Certified, and AFFIRM\u2122 Certified pack a punch for the consumers of resilient products' },
+    { keyword: 'INSTALL', title: 'Ease of Installation', description: 'Our passion for product design has been joined by innovative new methods of installation in many resilient products' },
+    { keyword: 'INNOVATE', title: 'Commitment to Innovation', description: 'Innovation is ever the driver in resilient flooring... a part of the industry\u2019s soul. Customers can count on a continual flow of innovation in the sector' },
   ],
   historyMilestones: [
     { year: '1843', title: 'Rubber Flooring Introduced', description: 'Rubber flooring introduced by Thomas Hancock in England, marking one of the earliest resilient surfaces.' },

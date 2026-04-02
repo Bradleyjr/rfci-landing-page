@@ -253,8 +253,8 @@ export function CertificationDetail({ certification: cert, otherCertifications }
         </section>
       )}
 
-      {/* Other Certifications */}
-      {otherCertifications.length > 0 && (
+      {/* Other Certifications (hidden for EPD — EPDs are not certifications) */}
+      {otherCertifications.length > 0 && cert.slug !== 'epd' && (
         <section className="py-20 md:py-28 bg-rfci-cream">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
             <SectionReveal className="mb-12">

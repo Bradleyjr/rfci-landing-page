@@ -46,20 +46,25 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
             <SectionReveal>
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Who We Are</div>
               <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
-                A non-profit <span className="font-semibold">trade association</span>
+                A trade association focused on North America&rsquo;s <span className="font-semibold">Resilient Flooring Industry</span>
               </h2>
               <p className="text-rfci-black/60 leading-relaxed font-light text-lg">
                 {aboutPage?.missionStatement || 'RFCI is a non-profit organization that brings the resilient flooring industry together to advocate, educate, and lead—advancing the interests of manufacturers, specifiers, and end users alike.'}
               </p>
+              <a
+                href="https://rfci.com/recommended-work-practices/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200 mt-6"
+              >
+                Recommended Work Practices <ArrowRight className="w-4 h-4" />
+              </a>
             </SectionReveal>
 
             <SectionReveal direction="right">
               <div className="bg-rfci-cream p-10 md:p-12">
                 <div className="text-5xl md:text-6xl font-display font-bold text-rfci-blue mb-4">50+</div>
-                <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-6">Years of Service</div>
-                <p className="text-base text-rfci-black/60 font-light leading-relaxed">
-                  Bringing out the best in our members to drive the unifying voice of quality, sustainability, and innovation for a growing industry.
-                </p>
+                <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-6">Years of Service and Accomplishment</div>
               </div>
             </SectionReveal>
           </div>
@@ -159,7 +164,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
 
             <SectionReveal className="mt-10 text-center">
               <a href="/members" className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200">
-                View Full Member Directory <ArrowRight className="w-4 h-4" />
+                View Full Member Listing <ArrowRight className="w-4 h-4" />
               </a>
             </SectionReveal>
           </div>

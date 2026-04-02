@@ -6,7 +6,7 @@ import { SectionReveal } from './SectionReveal'
 type SplitPageHeroProps = {
   label: string
   heading: React.ReactNode
-  subheading?: string
+  subheading?: React.ReactNode
   theme?: 'light' | 'dark' | 'blue'
   photo?: { src: string; alt: string }
   cta?: { label: string; href: string; external?: boolean }
@@ -74,9 +74,9 @@ export function SplitPageHero({ label, heading, subheading, theme = 'light', pho
               {heading}
             </h1>
             {subheading && (
-              <p className={`text-lg md:text-xl ${t.subheading} max-w-lg leading-relaxed font-light`}>
+              <div className={`text-lg md:text-xl ${t.subheading} max-w-lg leading-relaxed font-light`}>
                 {subheading}
-              </p>
+              </div>
             )}
             {cta && (
               <a

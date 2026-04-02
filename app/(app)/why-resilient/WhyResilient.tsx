@@ -1,16 +1,12 @@
 'use client'
 
 import { ArrowRight } from '@phosphor-icons/react'
-import { FAQAccordion } from '../../_components/FAQAccordion'
-import { FAQS } from '../../_data/faqs'
 import { PageLayout } from '../../_components/PageLayout'
 import { SplitPageHero } from '../../_components/SplitPageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
-import { HistoryStackedReveal } from './HistoryStackedReveal'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function WhyResilient({ pageData }: { pageData: any }) {
-  const milestones = pageData.historyMilestones
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const benefits = pageData.benefits.map((benefit: any, index: number) => ({
     number: String(index + 1).padStart(2, '0'),
@@ -22,7 +18,14 @@ export function WhyResilient({ pageData }: { pageData: any }) {
       <SplitPageHero
         label="Why Resilient"
         heading={<>Why <span className="font-semibold text-rfci-blue">resilient flooring?</span></>}
-        subheading={pageData?.heroSubheading || 'Resilient flooring delivers durability, water resistance, and easy maintenance\u2014combining style, comfort, and value for homes, businesses, and institutions with long-lasting, worry-free performance.'}
+        subheading={
+          <div className="space-y-4">
+            <p>Resilient flooring has been the fastest growing category of flooring and is now the largest in North America. Resilient&rsquo;s growth has been propelled by some key factors that are strongly valued by the residential and commercial sectors.</p>
+            <p>First, consider the broad breadth of product categories that comprise resilient flooring. From very technical products to a host of products that fill the airwaves of home renovation shows, resilient flooring has a deep bench of product solutions!</p>
+            <p>Some of the core product factors that propel resilient include countless inspiring designs, ease of maintenance, durability, moisture performance, attentiveness to sustainability, certified performance, ease of installation, advanced engineering, and much more.</p>
+            <p>In a world where affordability is a concern for most, the resilient flooring product line-up has countless options for that first time home owner and wonderful options for that dream home owner.</p>
+          </div>
+        }
         photo={{ src: '/images/inspiration/applications/workplace/FF_14582_Herringbone_Charcoal_RS_150DPI.jpg', alt: 'Herringbone pattern resilient flooring in modern interior' }}
       />
 
@@ -58,13 +61,13 @@ export function WhyResilient({ pageData }: { pageData: any }) {
           <SectionReveal className="mb-12 md:mb-16">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">The Advantages</div>
             <h2 className="text-4xl md:text-5xl font-display font-light">
-              Eight reasons resilient <span className="font-semibold">keeps earning the spec</span>
+              Key factors that propel <span className="font-semibold">resilient flooring</span>
             </h2>
           </SectionReveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-rfci-black/5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-rfci-black/5">
             {benefits.map((benefit, idx) => (
-              <SectionReveal key={idx} delay={(idx % 4) * 0.06}>
+              <SectionReveal key={idx} delay={(idx % 3) * 0.06}>
                 <div className="bg-rfci-cream p-8 md:p-10 h-full group hover:bg-white transition-colors duration-200">
                   <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">{benefit.keyword}</div>
                   <h3 className="text-xl md:text-2xl font-display font-light text-rfci-black mb-3 group-hover:text-rfci-blue transition-colors duration-200">
@@ -80,74 +83,43 @@ export function WhyResilient({ pageData }: { pageData: any }) {
         </div>
       </section>
 
-      {/* Sustainability */}
+      {/* Explore More — CTA Links */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <SectionReveal>
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Sustainability</div>
-              <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
-                Built for the planet, <span className="font-semibold">built to last</span>
-              </h2>
-              <p className="text-lg text-rfci-black/60 leading-relaxed font-light mb-6">
-                Resilient flooring manufacturers continue to reduce environmental impact through responsible sourcing,
-                low-emitting product programs, lifecycle reporting, material health transparency, and end-of-life recovery efforts.
-                RFCI certification and declaration programs provide independent, third-party tools that help specifiers evaluate those commitments.
-              </p>
-              <a href="/certifications/floorscore" className="inline-flex items-center gap-2 text-sm font-semibold text-rfci-blue hover:gap-3 transition-all duration-200">
-                Explore FloorScore® <ArrowRight className="w-4 h-4" />
-              </a>
-            </SectionReveal>
-
-            <SectionReveal direction="right">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-rfci-cream p-6 border border-black/5">
-                  <div className="text-3xl font-display font-bold text-rfci-blue mb-2">4</div>
-                  <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50">Core RFCI certification and declaration programs</div>
-                </div>
-                <div className="bg-rfci-cream p-6 border border-black/5">
-                  <div className="text-3xl font-display font-bold text-rfci-blue mb-2">9</div>
-                  <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50">Resilient flooring types covered by RFCI EPDs</div>
-                </div>
-                <div className="bg-rfci-cream p-6 border border-black/5 col-span-2">
-                  <div className="text-3xl font-display font-bold text-rfci-blue mb-2">SPC + WPC</div>
-                  <div className="text-label font-bold tracking-widest uppercase text-rfci-black/50">Rigid core constructions shaping the modern category</div>
-                </div>
-              </div>
-            </SectionReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* History */}
-      <HistoryStackedReveal milestones={milestones} />
-
-      {/* FAQ */}
-      <section className="py-20 md:py-28 bg-rfci-cream">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <SectionReveal className="mb-12">
-            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">FAQ</div>
+          <SectionReveal className="mb-12 md:mb-16">
+            <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Explore More</div>
             <h2 className="text-4xl md:text-5xl font-display font-light">
-              Common <span className="font-semibold">questions</span>
+              Learn <span className="font-semibold">more</span>
             </h2>
           </SectionReveal>
-          <div className="grid lg:grid-cols-2 gap-x-16">
-            {(() => {
-              const faqs = FAQS.filter(f => f.category !== 'certifications').sort((a, b) => a.order - b.order)
-              const mid = Math.ceil(faqs.length / 2)
-              return (
-                <>
-                  <FAQAccordion faqs={faqs.slice(0, mid)} />
-                  <FAQAccordion faqs={faqs.slice(mid)} />
-                </>
-              )
-            })()}
+
+          <div className="grid sm:grid-cols-2 gap-6">
+            {[
+              { label: 'Learn more about the various resilient flooring categories', href: '/flooring' },
+              { label: 'Learn about key certifications in resilient flooring', href: '/certifications/floorscore' },
+              { label: 'Learn about Industry Wide Environmental Product Declarations (EPDs) in Resilient Flooring', href: '/certifications/epd' },
+              { label: 'Learn more about ecomedes\u00ae and resilient products', href: 'https://rfci.ecomedes.com/', external: true },
+            ].map((link, idx) => (
+              <SectionReveal key={idx} delay={(idx % 2) * 0.06}>
+                <a
+                  href={link.href}
+                  target={link.external ? '_blank' : undefined}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
+                  className="group flex items-start gap-4 p-6 bg-rfci-cream border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200"
+                >
+                  <ArrowRight className="w-5 h-5 mt-0.5 text-rfci-blue shrink-0 group-hover:translate-x-1 transition-transform duration-200" />
+                  <span className="text-base text-rfci-black/70 font-light leading-relaxed group-hover:text-rfci-blue transition-colors duration-200">
+                    {link.label}
+                  </span>
+                </a>
+              </SectionReveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Flooring Types CTA */}
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28 bg-rfci-cream">
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <SectionReveal>
             <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
