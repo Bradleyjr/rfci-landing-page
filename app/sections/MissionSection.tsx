@@ -178,6 +178,16 @@ export function MissionSection() {
                       >
                         {pillar.description}
                       </p>
+                      {pillar.bullets && (
+                        <ul className={`mt-2 space-y-1 text-base font-light transition-all duration-300 ${hoveredPillar === idx ? 'text-white/90' : 'text-white/70'}`}>
+                          {pillar.bullets.map((b: string) => (
+                            <li key={b} className="flex items-center gap-2">
+                              <span className="w-1 h-1 rounded-full bg-current shrink-0" />
+                              {b}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </div>
 
@@ -194,6 +204,16 @@ export function MissionSection() {
                     <p className="text-base font-light leading-relaxed pl-10 text-white/70">
                       {pillar.description}
                     </p>
+                    {pillar.bullets && (
+                      <ul className="mt-2 pl-10 space-y-1 text-base font-light text-white/70">
+                        {pillar.bullets.map((b: string) => (
+                          <li key={b} className="flex items-center gap-2">
+                            <span className="w-1 h-1 rounded-full bg-current shrink-0" />
+                            {b}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
 
                 </div>

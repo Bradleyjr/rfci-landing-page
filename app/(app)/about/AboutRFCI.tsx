@@ -109,6 +109,16 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
                       </div>
                       <div className={`md:col-span-7 text-base font-light leading-relaxed transition-colors duration-300 ${activePillar === idx ? 'text-white/70' : 'text-white/30'}`}>
                         {pillar.description}
+                        {pillar.bullets && (
+                          <ul className="mt-2 space-y-1">
+                            {pillar.bullets.map((b: string) => (
+                              <li key={b} className="flex items-center gap-2">
+                                <span className="w-1 h-1 rounded-full bg-current shrink-0" />
+                                {b}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                     </div>
                   </div>

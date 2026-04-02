@@ -3,11 +3,11 @@ export const ABOUT_PAGE = {
   heroSubheading: 'Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America\u2019s resilient flooring industry\u2014representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring.',
   missionStatement: 'Made up of over 60 Manufacturer and Supply Chain members, representing a full range of resilient flooring products doing business in North America, coming together to advocate, educate, and lead the category in ways no single company can.',
   strategicPillars: [
-    { number: '01', title: 'Advocacy & Engagement', description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.' },
-    { number: '02', title: 'Technical Standards', description: 'Developing and maintaining the performance standards that define product quality, safety, and installation best practices.' },
-    { number: '03', title: 'Sustainability Programs', description: 'Running FloorScore\u00ae, ASSURE\u00ae Certified, AFFIRM\u2122 Certified, and Environmental Product Declarations (EPDs) for the resilient category.' },
-    { number: '04', title: 'Promotion & Education', description: 'Advancing industry knowledge through continuing education, original research, and consumer outreach via our Beautifully Responsible\u00ae program\u2014while also engaging and informing the architecture and design community.' },
-    { number: '05', title: 'Member Development', description: 'Growing and supporting a membership of leading manufacturers and supply chain partners who shape the future of resilient flooring.' },
+    { number: '01', title: 'Advocacy & Engagement', description: 'Addressing key national and state issues with governmental and non-governmental entities.' },
+    { number: '02', title: 'Technical Initiatives', description: 'Actively engaging key technical topics in the resilient flooring universe, including certification development, supporting consensus standards development, the creation of helpful technical tools for a multitude of resilient flooring customers, and much more. Highlighted certifications for resilient flooring include:', bullets: ['FloorScore\u00ae', 'ASSURE\u00ae Certified', 'AFFIRM\u2122 Certified'] },
+    { number: '03', title: 'Sustainability Programs', description: 'Supporting major sustainability initiatives in resilient flooring including the development/provision of industry-wide Environmental Product Declarations (EPDs), active participation in the consensus development of Product Category Rules (PCRs), a partnership with Ecomedes\u00ae to substantially increase the efficiency of the specification cycle for the design community as related to sustainability, and more.' },
+    { number: '04', title: 'Promotion & Education', description: 'Advancing industry knowledge via educational resources, original research, and consumer outreach via our Beautifully Responsible\u00ae program\u2014while also engaging and informing the architecture and design community.' },
+    { number: '05', title: 'Member Development', description: 'Actively supporting our members on a host of key strategic fronts that impact the resilient flooring sector.' },
   ],
 }
 
