@@ -265,7 +265,7 @@ export function AboutRFCI({ aboutPage, members }: { aboutPage: any; members: any
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <SectionReveal>
             <h2 className="text-4xl md:text-5xl font-display font-light text-white mb-6">
-              See why resilient flooring leads the industry.
+              See why resilient flooring leads the industry
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/why-resilient" className="inline-flex items-center justify-center gap-2 bg-white text-rfci-black px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black hover:text-white transition-colors duration-200">

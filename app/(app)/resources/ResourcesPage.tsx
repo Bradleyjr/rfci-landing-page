@@ -345,7 +345,7 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
             <SectionReveal className="mb-12 md:mb-16">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Educational Videos</div>
               <h2 className="text-4xl md:text-5xl font-display font-light">
-                Learn from our <span className="font-semibold">video library.</span>
+                Learn from our <span className="font-semibold">video library</span>
               </h2>
             </SectionReveal>
 
@@ -415,7 +415,7 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
             <SectionReveal className="mb-12 md:mb-16">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Sustainability</div>
               <h2 className="text-4xl md:text-5xl font-display font-light">
-                Certifications & <span className="font-semibold">declarations.</span>
+                Certifications & <span className="font-semibold">declarations</span>
               </h2>
             </SectionReveal>
 
@@ -435,7 +435,7 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
             <SectionReveal className="mb-12 md:mb-16">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Technical Information</div>
               <h2 className="text-4xl md:text-5xl font-display font-light">
-                Technical <span className="font-semibold">papers.</span>
+                Technical <span className="font-semibold">papers</span>
               </h2>
             </SectionReveal>
 
@@ -455,7 +455,7 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
             <SectionReveal className="mb-12 md:mb-16">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Knowledge Base</div>
               <h2 className="text-4xl md:text-5xl font-display font-light">
-                Articles & <span className="font-semibold">guides.</span>
+                Articles & <span className="font-semibold">guides</span>
               </h2>
             </SectionReveal>
 
@@ -475,7 +475,7 @@ export function ResourcesPage({ resources, pageSettings }: { resources: any[]; p
             <SectionReveal className="mb-12 md:mb-16">
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">External Resources</div>
               <h2 className="text-4xl md:text-5xl font-display font-light">
-                Websites & <span className="font-semibold">tools.</span>
+                Websites & <span className="font-semibold">tools</span>
               </h2>
             </SectionReveal>
 

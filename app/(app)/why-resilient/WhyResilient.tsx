@@ -58,7 +58,7 @@ export function WhyResilient({ pageData }: { pageData: any }) {
           <SectionReveal className="mb-12 md:mb-16">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">The Advantages</div>
             <h2 className="text-4xl md:text-5xl font-display font-light">
-              Eight reasons resilient <span className="font-semibold">keeps earning the spec.</span>
+              Eight reasons resilient <span className="font-semibold">keeps earning the spec</span>
             </h2>
           </SectionReveal>
 
@@ -87,7 +87,7 @@ export function WhyResilient({ pageData }: { pageData: any }) {
             <SectionReveal>
               <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Sustainability</div>
               <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
-                Built for the planet, <span className="font-semibold">built to last.</span>
+                Built for the planet, <span className="font-semibold">built to last</span>
               </h2>
               <p className="text-lg text-rfci-black/60 leading-relaxed font-light mb-6">
                 Resilient flooring manufacturers continue to reduce environmental impact through responsible sourcing,
@@ -128,7 +128,7 @@ export function WhyResilient({ pageData }: { pageData: any }) {
           <SectionReveal className="mb-12">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">FAQ</div>
             <h2 className="text-4xl md:text-5xl font-display font-light">
-              Common <span className="font-semibold">questions.</span>
+              Common <span className="font-semibold">questions</span>
             </h2>
           </SectionReveal>
           <div className="grid lg:grid-cols-2 gap-x-16">
@@ -151,7 +151,7 @@ export function WhyResilient({ pageData }: { pageData: any }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12 text-center">
           <SectionReveal>
             <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
-              Explore the <span className="font-semibold text-rfci-blue">full range.</span>
+              Explore the <span className="font-semibold text-rfci-blue">full range</span>
             </h2>
             <p className="text-lg text-rfci-black/60 font-light max-w-2xl mx-auto mb-10">
               From luxury vinyl tile to linoleum, rubber to cork&mdash;discover the specific properties and applications of each resilient flooring type.

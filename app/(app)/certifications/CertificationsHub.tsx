@@ -159,7 +159,7 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
           <SectionReveal className="max-w-3xl mx-auto text-center">
             <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Why it matters</div>
             <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
-              Sustainability programs that protect people <span className="font-semibold">and the planet.</span>
+              Sustainability programs that protect people <span className="font-semibold">and the planet</span>
             </h2>
             <p className="text-lg text-rfci-black/60 leading-relaxed font-light mb-8">
               For architects, designers, and specifiers, RFCI&apos;s sustainability programs provide independent, third-party verification
