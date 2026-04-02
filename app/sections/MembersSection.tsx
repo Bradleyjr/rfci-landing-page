@@ -68,7 +68,7 @@ export function MembersSection() {
             {SITE_SETTINGS.membersSubheading}
           </p>
           <Link href="/members" className="inline-flex items-center gap-2 bg-white text-rfci-black px-8 py-3.5 text-sm font-semibold hover:bg-rfci-blue hover:text-white transition-colors duration-200 group">
-            {SITE_SETTINGS.membersCtaText || 'View Member Directory'} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+            {SITE_SETTINGS.membersCtaText || 'View Member Listing'} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
           </Link>
         </SectionReveal>
       </div>

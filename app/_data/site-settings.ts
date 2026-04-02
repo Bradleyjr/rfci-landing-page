@@ -59,5 +59,5 @@ export const SITE_SETTINGS = {
   // Members
   membersHeading: 'Meet our member companies',
   membersSubheading: 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.',
-  membersCtaText: 'View Member Directory',
+  membersCtaText: 'View Member Listing',
 }

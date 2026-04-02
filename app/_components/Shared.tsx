@@ -36,7 +36,7 @@ const navItems = [
     ],
   },
   {
-    title: 'Member Directory',
+    title: 'Member Listing',
     href: '/members',
   },
   {
