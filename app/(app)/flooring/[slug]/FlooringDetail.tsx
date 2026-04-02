@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef, useMemo } from 'react'
-import { ArrowLeft, CheckCircle, ArrowUpRight, X, MagnifyingGlassPlus } from '@phosphor-icons/react'
+import { ArrowLeft, ArrowRight, CheckCircle, X, MagnifyingGlassPlus } from '@phosphor-icons/react'
 import { PageLayout } from '../../../_components/PageLayout'
 import { SectionReveal } from '../../../_components/SectionReveal'
 import { mediaUrl } from '../../../_lib/transforms'
@@ -290,7 +290,7 @@ export function FlooringDetail({ flooringType: ft, otherTypes }: { flooringType:
               className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
             >
               Browse the Inspiration Gallery
-              <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
             </a>
           </SectionReveal>
         </div>
