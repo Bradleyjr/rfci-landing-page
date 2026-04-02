@@ -1,5 +1,5 @@
 export const ABOUT_PAGE = {
-  heroHeading: 'A voice for resilient flooring.',
+  heroHeading: 'A voice for resilient flooring',
   heroSubheading: 'Founded in 1976, the Resilient Floor Covering Institute is the trade association for North America\u2019s resilient flooring industry\u2014representing the manufacturers and suppliers behind vinyl, rubber, linoleum, and cork flooring.',
   missionStatement: 'Made up of over 60 Manufacturer and Supply Chain members, representing a full range of resilient flooring products doing business in North America, coming together to advocate, educate, and lead the category in ways no single company can.',
   strategicPillars: [
@@ -61,7 +61,7 @@ export const FAQ_PAGE = {
 }
 
 export const FLOORING_PAGE = {
-  heroHeading: 'The full range of resilient flooring.',
+  heroHeading: 'The full range of resilient flooring',
   heroSubheading: 'From luxury vinyl tile to linoleum, rubber to cork\u2014resilient flooring offers the widest range of performance, aesthetics, and installation options in the hard surface category.',
 }
 
@@ -79,7 +79,7 @@ export const VIDEOS_PAGE = {
 }
 
 export const MEMBERS_PAGE = {
-  heroHeading: 'Meet our member companies.',
+  heroHeading: 'Meet our member companies',
   heroSubheading: 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.',
   boardSectionHeading: 'Flooring Manufacturers',
   boardSectionDescription: 'RFCI Flooring Manufacturer members are the leading producers of resilient flooring sold in North America \u2014 represented on the RFCI Board of Directors.',
@@ -88,11 +88,11 @@ export const MEMBERS_PAGE = {
 }
 
 export const INSPIRATION_PAGE = {
-  heroHeading: 'Real-world installations.',
+  heroHeading: 'Real-world installations',
   heroSubheading: 'Explore resilient flooring projects from RFCI member companies across healthcare, education, hospitality, corporate, and more.',
 }
 
 export const CERTIFICATIONS_PAGE = {
-  heroHeading: 'Sustainability programs you can rely on.',
+  heroHeading: 'Sustainability programs you can rely on',
   heroSubheading: 'RFCI\u2019s sustainability programs verify indoor air quality, environmental performance, and material transparency\u2014giving architects and designers confidence in every specification.',
 }

@@ -7,15 +7,15 @@ export const SITE_SETTINGS = {
   heroBoxText: 'Discover our certification programs, meet our member manufacturers, and learn how RFCI protects and promotes the resilient flooring industry.',
 
   // Materials Carousel
-  materialsHeading: 'The full range of resilient flooring.',
+  materialsHeading: 'The full range of resilient flooring',
 
   // Environments
-  environmentsHeading: 'Built for real spaces.',
+  environmentsHeading: 'Built for real spaces',
   environmentsSubheading: 'From single-family homes to hospitals and hotels, resilient flooring delivers in any environment.',
 
   // Why Resilient
   whyResilientHeading: 'Why Resilient',
-  whyResilientSubheading: 'Built for performance across every sector.',
+  whyResilientSubheading: 'Built for performance across every sector',
   whyResilientStatValue: 'No. 1',
   whyResilientStatSuffix: '',
   whyResilientStatLabel: 'flooring category in North America',
@@ -30,7 +30,7 @@ export const SITE_SETTINGS = {
   // Mission
   missionLabel: 'About RFCI',
   missionHeading: 'A voice for',
-  missionHeadingItalic: 'resilient flooring.',
+  missionHeadingItalic: 'resilient flooring',
   missionFoundedText: 'Est. 1976 \u00b7 LaGrange, Georgia',
   missionDescription1: 'The Resilient Floor Covering Institute (RFCI) is an industry trade association of leading resilient flooring manufacturers and suppliers of raw materials, additives, and sundry flooring products for the North American market. The Institute was established to support the interests of the total resilient floor covering industry \u2013 as well as the people and communities that use its products.',
   missionDescription2: '',
@@ -57,7 +57,7 @@ export const SITE_SETTINGS = {
   linkedinUrl: 'https://www.linkedin.com/company/resilient-floor-covering-institute/',
 
   // Members
-  membersHeading: 'Meet our member companies.',
+  membersHeading: 'Meet our member companies',
   membersSubheading: 'RFCI members are the manufacturers and suppliers behind resilient flooring. Together, we set standards, share knowledge, and move the category forward.',
   membersCtaText: 'View Member Directory',
 }
