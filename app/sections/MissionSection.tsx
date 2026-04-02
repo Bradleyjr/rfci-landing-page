@@ -70,12 +70,14 @@ export function MissionSection() {
             <div className="text-label font-bold tracking-widest uppercase text-white/70 mb-6">
               {SITE_SETTINGS.missionFoundedText}
             </div>
-            <p className="text-base text-white/90 font-light leading-relaxed mb-4">
+            <p className="text-base text-white/90 font-light leading-relaxed mb-8">
               {SITE_SETTINGS.missionDescription1}
             </p>
-            <p className="text-base text-white/90 font-light leading-relaxed mb-8">
-              {SITE_SETTINGS.missionDescription2}
-            </p>
+            {SITE_SETTINGS.missionDescription2 && (
+              <p className="text-base text-white/90 font-light leading-relaxed mb-8">
+                {SITE_SETTINGS.missionDescription2}
+              </p>
+            )}
             <a href="/about" className="text-white font-medium flex items-center gap-2 group text-sm">
               <span className="relative">
                 <span className="relative z-10 flex items-center gap-2">

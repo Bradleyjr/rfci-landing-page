@@ -32,8 +32,8 @@ export const SITE_SETTINGS = {
   missionHeading: 'A voice for',
   missionHeadingItalic: 'resilient flooring.',
   missionFoundedText: 'Est. 1976 \u00b7 LaGrange, Georgia',
-  missionDescription1: 'RFCI is the nonprofit trade association representing and protecting the resilient flooring industry\u2014advancing the category in ways no single manufacturer can.',
-  missionDescription2: 'From residential to commercial spaces, we support resilient flooring across the entire built environment.',
+  missionDescription1: 'The Resilient Floor Covering Institute (RFCI) is an industry trade association of leading resilient flooring manufacturers and suppliers of raw materials, additives, and sundry flooring products for the North American market. The Institute was established to support the interests of the total resilient floor covering industry \u2013 as well as the people and communities that use its products.',
+  missionDescription2: '',
   missionPillarsHeading: 'Our Strategic Focus',
   missionPillars: [
     { number: '01', title: 'Advocacy & Engagement', description: 'Representing the resilient flooring industry on legislative, regulatory, and public policy issues at the federal and state level.' },
