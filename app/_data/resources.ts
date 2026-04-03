@@ -4,7 +4,7 @@ export type Resource = {
   title: string
   slug: string
   description?: string
-  type: 'technical' | 'video' | 'certification' | 'declaration' | 'article' | 'website' | 'press'
+  type: 'technical' | 'video' | 'certification' | 'declaration' | 'article' | 'guide' | 'website' | 'press'
   category?: string
   iconName?: string
   internalUrl?: string
