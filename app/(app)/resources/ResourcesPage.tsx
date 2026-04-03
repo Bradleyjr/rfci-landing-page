@@ -19,6 +19,7 @@ const TYPE_LABELS: Record<string, string> = {
   technical: 'Technical Paper',
   video: 'Video',
   article: 'Article',
+  guide: 'Guide',
   website: 'Website',
   press: 'Press Release',
 }
@@ -29,6 +30,7 @@ const TYPE_ICONS: Record<string, typeof ShieldCheck> = {
   technical: BookOpen,
   video: Play,
   article: Article,
+  guide: BookOpen,
   website: Globe,
   press: NewspaperClipping,
 }

@@ -355,6 +355,7 @@ export const RESOURCES: Resource[] = [
       'An A\u2013Z glossary of resilient flooring terms, certifications, product types, and technical language used throughout RFCI resources.',
     type: 'guide',
     category: 'Reference',
+    internalUrl: '/resources/glossary',
     thumbnailUrl:
       '/images/inspiration/applications/homes/EL04-RS.jpg',
     order: 32,
