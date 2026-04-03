@@ -343,55 +343,21 @@ export const RESOURCES: Resource[] = [
       'How resilient flooring contributes to sustainable building design through lifecycle performance, recyclability, and environmental certifications.',
     type: 'article',
     category: 'Sustainability',
-    externalUrl:
-      'https://rfci.com/resources/resilient-flooring-the-sustainable-specification/',
     thumbnailUrl:
       'https://rfci.com/wp-content/uploads/2021/11/LVT-Armstrong-Floors-300x300.jpeg',
+    body: '<p class="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-6">ARTICLE SOURCE: The Construction Specifier</p><a href="https://www.constructionspecifier.com/publications/de/202110/index.html" target="_blank" rel="noopener noreferrer"><img src="https://rfci.com/wp-content/uploads/2021/11/LVT-Armstrong-Floors.jpeg" alt="Resilient Flooring: The Sustainable Specification" class="w-full mb-8 hover:opacity-90 transition-opacity duration-200" /></a><p>For more details, please click <a href="https://www.constructionspecifier.com/publications/de/202110/index.html" target="_blank" rel="noopener noreferrer">here</a>.</p>',
     order: 25,
-  },
-  {
-    title: 'Understanding Material Health in Resilient Flooring',
-    slug: 'understanding-material-health',
-    description:
-      'A guide to material health transparency, ingredient disclosure, and the role of AFFIRM certification in resilient flooring.',
-    type: 'article',
-    category: 'Sustainability',
-    thumbnailUrl:
-      '/images/inspiration/applications/workplace/Gen_2235DL_Alta_RS.jpg',
-    order: 31,
   },
   {
     title: 'Glossary',
     slug: 'glossary',
     description:
-      'An A–Z glossary of resilient flooring terms, certifications, product types, and technical language used throughout RFCI resources.',
-    type: 'article',
+      'An A\u2013Z glossary of resilient flooring terms, certifications, product types, and technical language used throughout RFCI resources.',
+    type: 'guide',
     category: 'Reference',
     thumbnailUrl:
       '/images/inspiration/applications/homes/EL04-RS.jpg',
     order: 32,
-  },
-  {
-    title: 'Safety, Slip Resistance & ADA',
-    slug: 'safety-slip-resistance',
-    description:
-      'Updated guidance on resilient flooring safety, slip resistance, and current ADA framing for stable, firm, slip-resistant surfaces.',
-    type: 'article',
-    category: 'Technical Information',
-    thumbnailUrl:
-      '/images/inspiration/applications/homes/72084-RS.jpg',
-    order: 33,
-  },
-  {
-    title: 'Nine Steps to Superior Sustainability',
-    slug: 'nine-steps-to-superior-sustainability',
-    description:
-      'A refreshed sustainability framework for resilient flooring that now includes AFFIRM and the RFCI ecomedes product database.',
-    type: 'article',
-    category: 'Sustainability',
-    thumbnailUrl:
-      '/images/inspiration/applications/workplace/Contour_LVT_Arrowroot_RS.jpg',
-    order: 34,
   },
 
   // External Websites
@@ -400,40 +366,10 @@ export const RESOURCES: Resource[] = [
     slug: 'beautifully-responsible',
     type: 'website',
     category: 'Resilient Flooring Benefits',
-    externalUrl: 'https://beautifullyresponsible.com/articles/',
+    externalUrl: 'https://beautifullyresponsible.com',
     thumbnailUrl:
       'https://rfci.com/wp-content/uploads/2021/12/BR-replacement-300x197.jpg',
     order: 26,
-  },
-  {
-    title: 'Building Transparency',
-    slug: 'building-transparency',
-    type: 'website',
-    category: 'Sustainability',
-    externalUrl: 'https://www.buildingtransparency.org/',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2022/02/Untitled-design-90-300x300-1-300x300.png',
-    order: 27,
-  },
-  {
-    title: 'Chemistry in Building and Construction',
-    slug: 'chemistry-building-construction',
-    type: 'website',
-    category: 'Chemistry',
-    externalUrl: 'https://www.buildingwithchemistry.org/',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/12/Untitled-design-75-300x300.png',
-    order: 28,
-  },
-  {
-    title: 'INSTALL International Standards and Training Alliance',
-    slug: 'install-standards-training',
-    type: 'website',
-    category: 'Installation',
-    externalUrl: 'https://installfloors.org/',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/12/Untitled-design-100-300x300.png',
-    order: 29,
   },
   {
     title: 'RFCI + ecomedes Product Database',
@@ -445,6 +381,7 @@ export const RESOURCES: Resource[] = [
       'https://rfci.com/wp-content/uploads/2022/08/ecomedes-logo-300x300.jpg',
     order: 30,
   },
+
   {
     title: 'Testimonial Video Archive',
     slug: 'testimonial-videos',
@@ -452,7 +389,7 @@ export const RESOURCES: Resource[] = [
       'A dedicated home for RFCI testimonial videos from members, partners, and industry stakeholders.',
     type: 'website',
     category: 'Videos',
-    internalUrl: '/testimonial-videos',
+    internalUrl: '/about#testimonials',
     thumbnailUrl:
       '/images/inspiration/applications/restaurants/33677_HerringboneAuroraOak-ROOM-1.jpg',
     order: 36,

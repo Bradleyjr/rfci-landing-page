@@ -74,27 +74,54 @@ export function CertificationDetail({ certification: cert, otherCertifications }
         </section>
       )}
 
-      {/* Certification Process */}
+      {/* Certification Process + Contact (consolidated when contactInfo exists) */}
       {cert.getStartedUrl && (
         <section className="py-20 md:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <SectionReveal className="mb-10">
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">{cert.processLabel || 'The Process'}</div>
-              <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
-                How to get <span className="font-semibold">certified</span>
-              </h2>
-              <p className="text-base text-rfci-black/60 font-light leading-relaxed max-w-2xl mb-8">
-                {cert.getStartedDescription || 'Certification is administered by an independent third-party body. Contact the certifying organization directly to begin your application, submit product documentation, and arrange testing.'}
-              </p>
-              <a
-                href={cert.getStartedUrl}
-                target={cert.getStartedUrl.startsWith('mailto:') ? undefined : '_blank'}
-                rel={cert.getStartedUrl.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                className="inline-flex items-center gap-3 px-8 py-3.5 bg-rfci-blue text-white text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
-              >
-                {cert.getStartedText || 'Get Started'} <ArrowSquareOut className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
-              </a>
-            </SectionReveal>
+            <div className={contactInfo ? 'grid lg:grid-cols-2 gap-16 items-start' : ''}>
+              <SectionReveal>
+                <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">{cert.processLabel || 'The Process'}</div>
+                <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
+                  How to get <span className="font-semibold">certified</span>
+                </h2>
+                <p className="text-base text-rfci-black/60 font-light leading-relaxed max-w-2xl mb-8">
+                  {cert.getStartedDescription || 'Certification is administered by an independent third-party body. Contact the certifying organization directly to begin your application, submit product documentation, and arrange testing.'}
+                </p>
+                {!contactInfo && (
+                  <a
+                    href={cert.getStartedUrl}
+                    target={cert.getStartedUrl.startsWith('mailto:') ? undefined : '_blank'}
+                    rel={cert.getStartedUrl.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                    className="inline-flex items-center gap-3 px-8 py-3.5 bg-rfci-blue text-white text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
+                  >
+                    {cert.getStartedText || 'Get Started'} <ArrowSquareOut className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                  </a>
+                )}
+              </SectionReveal>
+              {contactInfo && (
+                <SectionReveal direction="right">
+                  <div className="bg-rfci-cream p-10 md:p-12">
+                    <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Start Your Certification</div>
+                    <div className="font-display font-medium text-xl mb-1">{contactInfo.name}</div>
+                    <div className="text-sm text-rfci-black/50 mb-6">{contactInfo.organization}</div>
+                    <div className="flex flex-col gap-3 mb-8">
+                      <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="inline-flex items-center gap-2 text-sm text-rfci-blue hover:text-rfci-blue/80 transition-colors duration-200">
+                        <Phone size={16} /> {contactInfo.phone}
+                      </a>
+                      <a href={`mailto:${contactInfo.email}`} className="inline-flex items-center gap-2 text-sm text-rfci-blue hover:text-rfci-blue/80 transition-colors duration-200">
+                        <Envelope size={16} /> {contactInfo.email}
+                      </a>
+                    </div>
+                    <a
+                      href={`mailto:${contactInfo.email}`}
+                      className="inline-flex items-center gap-3 px-8 py-3.5 bg-rfci-blue text-white text-sm font-semibold hover:bg-rfci-black transition-colors duration-200 group"
+                    >
+                      {cert.getStartedText || 'Get Started'} <ArrowSquareOut className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                    </a>
+                  </div>
+                </SectionReveal>
+              )}
+            </div>
           </div>
         </section>
       )}
@@ -209,33 +236,6 @@ export function CertificationDetail({ certification: cert, otherCertifications }
         </section>
       )}
 
-      {/* Contact for Certification */}
-      {contactInfo && (
-        <section className="py-16 bg-white border-t border-rfci-light-gray/30">
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <SectionReveal>
-              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Start Your Certification</div>
-              <h2 className="text-4xl md:text-5xl font-display font-light mb-8">
-                Contact <span className="font-semibold">{contactInfo.organization}</span>
-              </h2>
-              <div className="flex flex-wrap gap-8">
-                <div>
-                  <div className="font-display font-medium text-lg">{contactInfo.name}</div>
-                  <div className="text-sm text-rfci-black/60 mb-3">{contactInfo.organization}</div>
-                  <div className="flex flex-col gap-2">
-                    <a href={`tel:${contactInfo.phone.replace(/\s/g, '')}`} className="inline-flex items-center gap-2 text-sm text-rfci-blue hover:text-rfci-blue/80 transition-colors duration-200">
-                      <Phone size={16} /> {contactInfo.phone}
-                    </a>
-                    <a href={`mailto:${contactInfo.email}`} className="inline-flex items-center gap-2 text-sm text-rfci-blue hover:text-rfci-blue/80 transition-colors duration-200">
-                      <Envelope size={16} /> {contactInfo.email}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </SectionReveal>
-          </div>
-        </section>
-      )}
 
       {/* CTA */}
       {cert.ctaUrl && (
@@ -317,7 +317,11 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
         className={`grid transition-[grid-template-rows] duration-200 ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
       >
         <div className="overflow-hidden">
-          <p className="text-base text-rfci-black/60 leading-relaxed font-light pt-3">{answer}</p>
+          <div className="text-base text-rfci-black/60 leading-relaxed font-light pt-3 space-y-3">
+            {answer.split('\n\n').map((para, i) => (
+              <p key={i}>{para}</p>
+            ))}
+          </div>
         </div>
       </div>
     </div>

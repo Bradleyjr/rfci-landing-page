@@ -36,7 +36,7 @@ export const MEMBERS: Member[] = [
   { name: 'Torlys',            logoUrl: '/media/member-logos/torlys.png',             website: 'https://torlys.com',            tier: 'board', row: '2', order: 10 },
   { name: 'Windm\u00f6ller',   logoUrl: '/media/member-logos/windmoller.png',         website: 'https://windmoellerinc.com',    tier: 'board', row: '2', order: 11 },
   // Supply Chain Partners (Associate members)
-  { name: 'Amorim',              logoUrl: '/media/member-logos/amorim.png',              website: 'https://amorimcorkcomposites.com', tier: 'associate', order: 1 },
+  { name: 'Amorim Cork Composites', logoUrl: '/media/member-logos/amorim.png',           website: 'https://amorimcorkcomposites.com', tier: 'associate', order: 1 },
   { name: 'AM Stabilizers',      logoUrl: '/media/member-logos/am-stabilizers.png',      website: 'https://amstabilizers.com',        tier: 'associate', order: 2 },
   { name: 'Baerlocher',          logoUrl: '/media/member-logos/baerlocher.png',          website: 'https://baerlocherusa.com',        tier: 'associate', order: 3 },
   { name: 'BASF',                logoUrl: '/media/member-logos/basf.png',                website: 'https://basf.com',                 tier: 'associate', order: 4 },
@@ -48,7 +48,7 @@ export const MEMBERS: Member[] = [
   { name: 'Interprint',          logoUrl: '/media/member-logos/interprint.png',          website: 'https://interprint.com',           tier: 'associate', order: 10 },
   { name: 'i4F',                 logoUrl: '/media/member-logos/i4f.png',                 website: 'https://i4f.com',                  tier: 'associate', order: 11 },
   { name: 'Klockner Pentaplast', logoUrl: '/media/member-logos/klockner-pentaplast.png', website: 'https://kpfilms.com',              tier: 'associate', order: 12 },
-  { name: 'Lighthouse Adhesive', logoUrl: '/media/member-logos/lighthouse-adhesive.png', website: 'https://lighthouseadhesives.com',  tier: 'associate', order: 13 },
+  { name: 'Lighthouse Adhesives', logoUrl: '/media/member-logos/lighthouse-adhesive.png', website: 'https://lighthouseadhesives.com',  tier: 'associate', order: 13 },
   { name: 'Mapei',               logoUrl: '/media/member-logos/mapei.png',               website: 'https://mapei.com',                tier: 'associate', order: 14 },
   { name: 'Microban',            logoUrl: '/media/member-logos/microban.png',            website: 'https://microban.com',             tier: 'associate', order: 15 },
   { name: 'Mondorevive',         logoUrl: '/media/member-logos/mondorevive.png',         website: 'https://mondorevive.com',          tier: 'associate', order: 16 },

@@ -97,7 +97,7 @@ export function WhyResilient({ pageData }: { pageData: any }) {
           <div className="grid sm:grid-cols-2 gap-6">
             {[
               { label: 'Learn more about the various resilient flooring categories', href: '/flooring' },
-              { label: 'Learn about key certifications in resilient flooring', href: '/certifications/floorscore' },
+              { label: 'Learn about key certifications in resilient flooring', href: '/certifications' },
               { label: 'Learn about Industry Wide Environmental Product Declarations (EPDs) in Resilient Flooring', href: '/certifications/epd' },
               { label: 'Learn more about ecomedes\u00ae and resilient products', href: 'https://rfci.ecomedes.com/', external: true },
             ].map((link, idx) => (

@@ -19,6 +19,15 @@ export const PRESS_RELEASES: PressRelease[] = [
     featured: true,
   },
   {
+    title: 'RFCI Fall Meeting Achieves Record Attendance and Announces New Officers for 2026\u20132027',
+    date: 'November 4, 2025',
+    excerpt:
+      'RFCI achieved record attendance at its Fall 2025 meeting and announced new board officers for the 2026\u20132027 term.',
+    pdfUrl: '/press-releases/2025-11-04-fall-meeting-record-attendance.pdf',
+    category: 'Events',
+    featured: false,
+  },
+  {
     title: 'OxyChem Joins RFCI as a Tier 1 Associate Supply Chain Member',
     date: 'October 24, 2025',
     excerpt:
@@ -37,6 +46,15 @@ export const PRESS_RELEASES: PressRelease[] = [
     featured: true,
   },
   {
+    title: 'Lighthouse Adhesives Joins RFCI',
+    date: 'September 4, 2025',
+    excerpt:
+      'Lighthouse Adhesives joined RFCI as an Associate Supply Chain Member, bringing adhesive manufacturing expertise to the resilient flooring industry.',
+    pdfUrl: '/press-releases/2025-09-04-lighthouse-adhesives-joins-rfci.pdf',
+    category: 'Membership',
+    featured: false,
+  },
+  {
     title: 'Polytex Environmental Inks Joins RFCI',
     date: 'August 8, 2025',
     excerpt:
@@ -51,15 +69,6 @@ export const PRESS_RELEASES: PressRelease[] = [
     excerpt:
       'Mondorevive joined RFCI as an Associate Supply Chain Member, bringing film manufacturing capabilities that support resilient flooring production.',
     pdfUrl: '/press-releases/2025-08-01-mondorevive-joins-rfci.pdf',
-    category: 'Membership',
-    featured: false,
-  },
-  {
-    title: 'Schattdecor Joins RFCI',
-    date: 'April 1, 2025',
-    excerpt:
-      'Schattdecor joined RFCI, aligning its design and surface expertise with the North American resilient flooring market.',
-    pdfUrl: '/press-releases/2025-04-01-schattdecor-joins-rfci.pdf',
     category: 'Membership',
     featured: false,
   },
@@ -82,6 +91,15 @@ export const PRESS_RELEASES: PressRelease[] = [
     featured: false,
   },
   {
+    title: 'Schattdecor Joins RFCI',
+    date: 'April 1, 2025',
+    excerpt:
+      'Schattdecor joined RFCI, aligning its design and surface expertise with the North American resilient flooring market.',
+    pdfUrl: '/press-releases/2025-04-01-schattdecor-joins-rfci.pdf',
+    category: 'Membership',
+    featured: false,
+  },
+  {
     title: 'The CLASSEN Group Joins RFCI',
     date: 'January 27, 2025',
     excerpt:
@@ -100,21 +118,21 @@ export const PRESS_RELEASES: PressRelease[] = [
     featured: false,
   },
   {
-    title: 'Dennis H. Bradway Joins RFCI as Technical Consultant',
-    date: 'January 8, 2024',
-    excerpt:
-      'Dennis H. Bradway joined RFCI as a Technical Consultant, expanding the association’s technical leadership alongside Jane Rohde.',
-    pdfUrl: '/press-releases/2024-01-08-dennis-bradway-joins-rfci.pdf',
-    category: 'Leadership',
-    featured: false,
-  },
-  {
     title: 'Interprint Joins RFCI',
     date: 'January 2, 2024',
     excerpt:
       'Interprint joined RFCI as an associate member, adding decor-printing expertise and global manufacturing capabilities to the organization.',
     pdfUrl: '/press-releases/2024-01-02-interprint-joins-rfci.pdf',
     category: 'Membership',
+    featured: false,
+  },
+  {
+    title: 'RFCI Fall Meeting Looks Forward to 2024',
+    date: 'October 29, 2023',
+    excerpt:
+      'RFCI held its Fall 2023 meeting with a forward-looking agenda addressing industry trends, certification updates, and strategic priorities for 2024.',
+    pdfUrl: '/press-releases/2023-10-29-fall-meeting-looks-forward-2024.pdf',
+    category: 'Events',
     featured: false,
   },
   {
@@ -163,11 +181,29 @@ export const PRESS_RELEASES: PressRelease[] = [
     featured: false,
   },
   {
+    title: 'Amorim Cork Composites and AM Stabilizers Join RFCI',
+    date: 'May 11, 2023',
+    excerpt:
+      'Amorim Cork Composites and AM Stabilizers joined RFCI, adding cork composites and stabilizer expertise to the association\u2019s membership.',
+    pdfUrl: '/press-releases/2023-05-11-amorim-am-stabilizers-join-rfci.pdf',
+    category: 'Membership',
+    featured: false,
+  },
+  {
     title: 'Spring 2023 Board of Directors and Associate Member Meeting',
     date: 'May 10, 2023',
     excerpt:
       'RFCI reported strong attendance and a full program of economic and industry speakers at its 2023 Spring Board and Associate Member Meeting in Palmetto Bluff.',
     pdfUrl: '/press-releases/2023-05-10-spring-board-meeting.pdf',
+    category: 'Events',
+    featured: false,
+  },
+  {
+    title: 'Technical and Marketing Issues On Agenda at RFCI Spring Committee Meetings',
+    date: 'March 13, 2023',
+    excerpt:
+      'RFCI\u2019s spring technical and marketing committee meetings addressed certification updates, industry trends, and marketing strategies for the resilient flooring sector.',
+    pdfUrl: '/press-releases/2023-03-13-spring-committee-meetings.pdf',
     category: 'Events',
     featured: false,
   },
@@ -217,12 +253,12 @@ export const PRESS_RELEASES: PressRelease[] = [
     featured: false,
   },
   {
-    title: 'RFCI Launches “Demystifying EPDs in Sustainable Design” CEU',
+    title: 'MSI, Patcham, and Valtris Join RFCI',
     date: 'April 18, 2022',
     excerpt:
-      'RFCI introduced its AIA and IDCEC accredited “Demystifying EPDs in Sustainable Design” CEU to help architects and designers understand Environmental Product Declarations.',
-    pdfUrl: '/press-releases/2022-04-18-demystifying-epds-ceu.pdf',
-    category: 'Education',
+      'MSI, Patcham, and Valtris joined RFCI as new members, expanding the association\u2019s reach across resilient flooring manufacturing and supply chain sectors.',
+    pdfUrl: '/press-releases/2022-04-18-msi-patcham-valtris-join-rfci.pdf',
+    category: 'Membership',
     featured: false,
   },
   {

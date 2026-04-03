@@ -334,7 +334,7 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
   const technicalResources = items.filter((r) => r.type === 'technical')
 
   // Articles
-  const articleResources = items.filter((r) => r.type === 'article')
+  const articleResources = items.filter((r) => r.type === 'article' || r.type === 'guide')
 
   // Websites & Tools
   const websiteResources = items.filter((r) => r.type === 'website')
@@ -343,7 +343,7 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
   const pressResources = items
     .filter((r) => r.type === 'press')
     .sort((a: { date?: string; order: number }, b: { date?: string; order: number }) => {
-      if (a.date && b.date) return b.date.localeCompare(a.date)
+      if (a.date && b.date) return new Date(b.date).getTime() - new Date(a.date).getTime()
       return a.order - b.order
     })
 

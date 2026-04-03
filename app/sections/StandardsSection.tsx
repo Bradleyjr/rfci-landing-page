@@ -133,7 +133,7 @@ export function StandardsSection() {
                       )}
                     </div>
                     <div className="p-10 md:p-12 flex-1 flex flex-col justify-between">
-                      <p className="text-xl text-rfci-black/70 leading-relaxed mb-10">{tab.description}</p>
+                      <p className="text-xl text-rfci-black/70 leading-relaxed mb-10 line-clamp-6">{tab.description}</p>
                       <div>
                         <div className="grid grid-cols-2 gap-8 mb-10">
                           {(tab.stats ?? []).map((stat, i) => (
@@ -197,7 +197,7 @@ export function StandardsSection() {
                               </div>
                             )}
                           </div>
-                          <p className="text-base text-rfci-black/70 leading-relaxed mb-8 break-words">{tab.description}</p>
+                          <p className="text-base text-rfci-black/70 leading-relaxed mb-8 break-words line-clamp-6">{tab.description}</p>
                           <div className="grid grid-cols-2 gap-4 mb-8 min-w-0">
                             {(tab.stats ?? []).map((stat, i) => (
                               <div key={i} className="border-l-2 border-rfci-blue pl-4 min-w-0">

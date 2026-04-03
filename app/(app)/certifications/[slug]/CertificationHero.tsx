@@ -52,9 +52,22 @@ export function CertificationHero({ cert, stats }: CertificationHeroProps) {
 
           {/* Description */}
           <div className="text-lg md:text-xl text-white/70 max-w-2xl leading-relaxed font-light space-y-4">
-            {(cert.description as string).split('\n\n').map((p: string, i: number) => (
-              <p key={i}>{p}</p>
-            ))}
+            {(cert.description as string).split('\n\n').map((p: string, i: number) => {
+              // For EPD, render inline links to Green Globes and LEED
+              if (isEpd && (p.includes('Green Globes') || p.includes('LEED'))) {
+                const parts = p.split(/(Green Globes\u00ae|LEED\u00ae)/g)
+                return (
+                  <p key={i}>
+                    {parts.map((part, j) => {
+                      if (part === 'Green Globes\u00ae') return <a key={j} href="https://thegbi.org/greenglobes/" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-2 hover:text-rfci-blue transition-colors">{part}</a>
+                      if (part === 'LEED\u00ae') return <a key={j} href="https://www.usgbc.org/leed" target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-2 hover:text-rfci-blue transition-colors">{part}</a>
+                      return <span key={j}>{part}</span>
+                    })}
+                  </p>
+                )
+              }
+              return <p key={i}>{p}</p>
+            })}
           </div>
 
           {/* Certified products link */}

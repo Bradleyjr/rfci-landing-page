@@ -123,12 +123,10 @@ export function MembersDirectory({ members }: { members?: Member[] }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionReveal className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-display font-light mb-6 leading-tight">
-              Together, we represent <span className="font-semibold text-rfci-blue">the full spectrum</span> of resilient flooring.
+              Our member companies are <span className="font-semibold text-rfci-blue">on the move!</span>
             </h2>
             <p className="text-white/70 text-lg leading-relaxed font-light">
-              From luxury vinyl tile to linoleum, rubber to cork, our member companies manufacture the products
-              that define resilient flooring. United under RFCI, we advocate for the industry, develop standards,
-              and advance sustainability.
+              Across the entire spectrum of resilient products, RFCI member companies innovate, create, and thrill customers in both the residential and commercial sectors. Their efforts have produced unequalled growth and have made resilient products the largest category of flooring in North America. With a solid strategic plan, RFCI is deeply honored to serve them!
             </p>
           </SectionReveal>
         </div>
