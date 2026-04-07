@@ -1,6 +1,6 @@
 'use client'
 
-import { Atom, DownloadSimple, FileText, CaretDown, Envelope, Phone, ArrowSquareOut, CheckCircle } from '@phosphor-icons/react'
+import { Atom, DownloadSimple, FileText, CaretDown, Envelope, Phone, ArrowSquareOut, CheckCircle, ArrowRight } from '@phosphor-icons/react'
 import { useState } from 'react'
 import { PageLayout } from '../../../_components/PageLayout'
 import { SectionReveal } from '../../../_components/SectionReveal'
@@ -12,6 +12,7 @@ export function CertificationDetail({ certification: cert, otherCertifications }
   const benefits: Array<{ title: string; description: string }> = cert.benefits ?? []
   const stats: Array<{ value: string; label: string }> = cert.stats ?? []
   const downloads: Array<{ title: string; description?: string; file?: { url?: string }; url?: string; year?: string; category?: string; isLink?: boolean }> = cert.downloads ?? []
+  const supplementaryLinks: Array<{ title: string; description?: string; url: string; isDownload?: boolean }> = cert.supplementaryLinks ?? []
   const faqs: Array<{ question: string; answer: string }> = cert.faqs ?? []
   const recognizedPrograms: string[] = cert.recognizedPrograms ?? []
   const contactInfo = cert.contactInfo as { name: string; phone: string; email: string; organization: string } | undefined
@@ -27,6 +28,27 @@ export function CertificationDetail({ certification: cert, otherCertifications }
   return (
     <PageLayout>
       <CertificationHero cert={cert} stats={stats} />
+
+      {/* IAQ Graphic — FloorScore only */}
+      {cert.iaqGraphic && (
+        <section className="py-20 md:py-28 bg-white">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <SectionReveal className="mb-12">
+              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Indoor Air Quality</div>
+              <h2 className="text-4xl md:text-5xl font-display font-light">
+                Why should I be concerned with <span className="font-semibold">Indoor Air Quality?</span>
+              </h2>
+            </SectionReveal>
+            <SectionReveal>
+              <img
+                src={cert.iaqGraphic}
+                alt="Why Indoor Air Quality matters — FloorScore infographic"
+                className="w-full"
+              />
+            </SectionReveal>
+          </div>
+        </section>
+      )}
 
       {/* Long Description (rich text) */}
       {cert.longDescription && (
@@ -76,15 +98,15 @@ export function CertificationDetail({ certification: cert, otherCertifications }
 
       {/* Certification Process + Contact (consolidated when contactInfo exists) */}
       {cert.getStartedUrl && (
-        <section className="py-20 md:py-28 bg-white">
+        <section className="py-20 md:py-28 bg-rfci-cream">
           <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <div className={contactInfo ? 'grid lg:grid-cols-2 gap-16 items-start' : ''}>
-              <SectionReveal>
+            <div className={contactInfo ? 'flex flex-col lg:flex-row gap-16' : ''}>
+              <SectionReveal className={contactInfo ? 'flex-1' : ''}>
                 <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">{cert.processLabel || 'The Process'}</div>
                 <h2 className="text-4xl md:text-5xl font-display font-light mb-6">
                   How to get <span className="font-semibold">certified</span>
                 </h2>
-                <p className="text-base text-rfci-black/60 font-light leading-relaxed max-w-2xl mb-8">
+                <p className={`text-base text-rfci-black/60 font-light leading-relaxed max-w-2xl ${!contactInfo ? 'mb-8' : ''}`}>
                   {cert.getStartedDescription || 'Certification is administered by an independent third-party body. Contact the certifying organization directly to begin your application, submit product documentation, and arrange testing.'}
                 </p>
                 {!contactInfo && (
@@ -99,8 +121,8 @@ export function CertificationDetail({ certification: cert, otherCertifications }
                 )}
               </SectionReveal>
               {contactInfo && (
-                <SectionReveal direction="right">
-                  <div className="bg-rfci-cream p-10 md:p-12">
+                <SectionReveal direction="right" className="flex-1 flex items-center">
+                  <div className="w-full">
                     <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Start Your Certification</div>
                     <div className="font-display font-medium text-xl mb-1">{contactInfo.name}</div>
                     <div className="text-sm text-rfci-black/50 mb-6">{contactInfo.organization}</div>
@@ -204,6 +226,45 @@ export function CertificationDetail({ certification: cert, otherCertifications }
               {faqs.map((faq, i) => (
                 <SectionReveal key={i} delay={i * 0.06}>
                   <FaqItem question={faq.question} answer={faq.answer} />
+                </SectionReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Resources — supplementary links (SCS one-pager, details, about) */}
+      {supplementaryLinks.length > 0 && (
+        <section className="py-20 md:py-28 bg-rfci-white">
+          <div className="max-w-7xl mx-auto px-6 md:px-12">
+            <SectionReveal className="mb-12">
+              <div className="text-label font-bold tracking-widest uppercase text-rfci-blue mb-4">Resources</div>
+              <h2 className="text-4xl md:text-5xl font-display font-light">
+                Links & <span className="font-semibold">documents</span>
+              </h2>
+            </SectionReveal>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {supplementaryLinks.map((link, i) => (
+                <SectionReveal key={i} delay={i * 0.06}>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block p-6 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 h-full"
+                  >
+                    <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center text-rfci-blue group-hover:bg-rfci-blue group-hover:text-white transition-colors shrink-0 mb-3">
+                      {link.isDownload ? <DownloadSimple className="w-5 h-5" /> : <ArrowSquareOut className="w-5 h-5" />}
+                    </div>
+                    <h4 className="text-lg font-display font-medium text-rfci-black mb-1 leading-snug group-hover:text-rfci-blue transition-colors duration-200">
+                      {link.title}
+                    </h4>
+                    {link.description && (
+                      <p className="text-xs text-rfci-black/50 leading-relaxed font-light mb-3">{link.description}</p>
+                    )}
+                    <div className="flex items-center gap-1.5 text-rfci-blue text-xs font-semibold mt-auto">
+                      {link.isDownload ? <><DownloadSimple className="w-4 h-4" /> Download PDF</> : <><ArrowSquareOut className="w-4 h-4" /> Visit Website</>}
+                    </div>
+                  </a>
                 </SectionReveal>
               ))}
             </div>
