@@ -123,12 +123,12 @@ function ThumbnailCard({ resource, index, emphasizeExternal = false }: { resourc
   const cardContent = (
     <div className="group bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 overflow-hidden h-full flex flex-col">
       {/* Thumbnail */}
-      <div className="relative aspect-[16/10] bg-rfci-black/10 overflow-hidden flex-shrink-0">
+      <div className={`relative aspect-[16/10] overflow-hidden flex-shrink-0 ${resource.type === 'certification' ? 'bg-white' : 'bg-rfci-black/10'}`}>
         {resource.thumbnailUrl ? (
           <img
             src={resource.thumbnailUrl}
             alt={resource.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            className={`w-full h-full transition-transform duration-700 ${resource.type === 'certification' ? 'object-contain p-6' : 'object-cover group-hover:scale-105'}`}
           />
         ) : (
           <div className={`w-full h-full flex items-center justify-center ${iconBg}`}>
@@ -604,7 +604,7 @@ export function ResourcesPage({ resources }: { resources: any[] }) {
               If you are looking for a specific document or technical resource, reach out to our team and we will help you find it.
             </p>
             <a
-              href="mailto:info@rfci.com"
+              href="/contact"
               className="inline-flex items-center gap-2 bg-rfci-blue text-white px-8 py-3.5 text-sm font-semibold hover:bg-white hover:text-rfci-black transition-colors duration-200"
             >
               Contact Us <ArrowRight className="w-4 h-4" />

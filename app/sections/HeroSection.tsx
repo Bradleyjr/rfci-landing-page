@@ -72,7 +72,7 @@ export function HeroSection({ heroY }: { heroY: MotionValue<number> }) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="text-lg md:text-xl text-rfci-black/70 max-w-lg font-light mb-8 md:mb-10 leading-relaxed"
+              className="text-lg md:text-xl text-rfci-black/70 max-w-lg font-light mb-8 md:mb-10 leading-relaxed whitespace-pre-line"
             >
               {SITE_SETTINGS.heroSubheading}
             </motion.p>

@@ -16,7 +16,6 @@ const navItems = [
       { label: 'Flooring Types', href: '/flooring', desc: 'Explore the full range of resilient flooring products.', icon: FileText },
       { label: 'Inspiration Gallery', href: '/inspiration', desc: 'Real installations showcasing resilient flooring in action.', icon: Images },
       { label: 'Resources', href: '/resources', desc: 'Technical documents, standards, and sustainability guides.', icon: FileText },
-      { label: 'Glossary', href: '/resources/glossary', desc: 'A searchable A–Z reference for resilient flooring terminology.', icon: FileText },
     ],
     highlight: {
       label: 'ecomedes',
@@ -325,7 +324,6 @@ export const Footer = () => (
             <li><a href="/flooring" className="hover:text-rfci-blue transition-colors duration-200">Flooring Types</a></li>
             <li><a href="/inspiration" className="hover:text-rfci-blue transition-colors duration-200">Inspiration Gallery</a></li>
             <li><a href="/resources" className="hover:text-rfci-blue transition-colors duration-200">Resources</a></li>
-            <li><a href="/resources/glossary" className="hover:text-rfci-blue transition-colors duration-200">Glossary</a></li>
 
             <li><a href="https://rfci.ecomedes.com/" target="_blank" rel="noopener noreferrer" className="hover:text-rfci-blue transition-colors duration-200">ecomedes®</a></li>
           </ul>

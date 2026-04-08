@@ -65,7 +65,21 @@ export const FLOORING_TYPES: FlooringType[] = [
       'Broad array of price points',
       'Modular format provides options if tile replacement is necessary',
     ],
-    installation: 'There are three basic ways to install LVT:\n\nDry-back or glue-down where planks or tiles are glued directly to the subfloor.\n\nFloating, which uses a click or locking system to keep the floor in place.\n\nLoose-lay where the products are designed to stay flat on the subfloor using minimal or no adhesives. Great for installing over existing floors that are difficult or costly to remove.\n\nAn underlayment is often used to provide a moisture vapor barrier and for sound absorption.\n\nEach method offers its own unique features, as well as applications it is best suited for. Most manufacturers offer multiple products across all different installation categories. Always follow the manufacturer\'s installation instructions.',
+    installation: '',
+    installationGroups: [
+      {
+        label: 'Dry-Back / Glue-Down',
+        text: 'Planks or tiles are adhered directly to the subfloor using adhesive. This method provides a stable, permanent installation well-suited for high-traffic commercial applications.',
+      },
+      {
+        label: 'Floating / Click-Lock',
+        text: 'Products connect using a click or locking system and float over the subfloor without adhesive. An underlayment is often used beneath to provide a moisture vapor barrier and sound absorption.',
+      },
+      {
+        label: 'Loose-Lay',
+        text: 'Products are designed to stay flat on the subfloor using minimal or no adhesives — ideal for installing over existing floors that are difficult or costly to remove. Always follow the manufacturer\'s installation instructions.',
+      },
+    ],
     relatedCertifications: [CERT_FLOORSCORE, CERT_AFFIRM],
     order: 1,
   },

@@ -124,7 +124,7 @@ export function ContactPage() {
                         name="firstName"
                         type="text"
                         required
-                        className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-0 outline-none transition-colors duration-200"
+                        className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-2 focus:ring-rfci-blue/30 focus:outline-none transition-colors duration-200"
                         placeholder="Jane"
                       />
                     </div>
@@ -137,7 +137,7 @@ export function ContactPage() {
                         name="lastName"
                         type="text"
                         required
-                        className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-0 outline-none transition-colors duration-200"
+                        className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-2 focus:ring-rfci-blue/30 focus:outline-none transition-colors duration-200"
                         placeholder="Smith"
                       />
                     </div>
@@ -152,7 +152,7 @@ export function ContactPage() {
                       name="email"
                       type="email"
                       required
-                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-0 outline-none transition-colors duration-200"
+                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-2 focus:ring-rfci-blue/30 focus:outline-none transition-colors duration-200"
                       placeholder="jane@company.com"
                     />
                   </div>
@@ -165,7 +165,7 @@ export function ContactPage() {
                       id="company"
                       name="company"
                       type="text"
-                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-0 outline-none transition-colors duration-200"
+                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-2 focus:ring-rfci-blue/30 focus:outline-none transition-colors duration-200"
                       placeholder="Optional"
                     />
                   </div>
@@ -178,7 +178,7 @@ export function ContactPage() {
                       id="subject"
                       name="subject"
                       required
-                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black focus:border-rfci-blue focus:ring-0 outline-none transition-colors duration-200"
+                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black focus:border-rfci-blue focus:ring-2 focus:ring-rfci-blue/30 focus:outline-none transition-colors duration-200"
                       defaultValue={defaultSubject || ''}
                       key={defaultSubject}
                     >
@@ -201,7 +201,7 @@ export function ContactPage() {
                       name="message"
                       required
                       rows={5}
-                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-0 outline-none transition-colors resize-none"
+                      className="w-full px-4 py-3 border border-rfci-black/10 bg-white text-rfci-black placeholder:text-rfci-black/30 focus:border-rfci-blue focus:ring-2 focus:ring-rfci-blue/30 focus:outline-none transition-colors resize-none"
                       defaultValue={defaultMessage}
                       key={defaultMessage}
                       placeholder="How can we help?"

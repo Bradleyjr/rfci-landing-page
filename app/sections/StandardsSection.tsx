@@ -50,13 +50,15 @@ function AnimatedStat({ value, label }: { key?: Key; value: string; label: strin
   )
 }
 
+const TABS = CERTIFICATIONS.filter(c => c.slug !== 'epd')
+
 export function StandardsSection() {
-  const [activeTab, setActiveTab] = useState(CERTIFICATIONS[0]?.slug ?? '')
+  const [activeTab, setActiveTab] = useState(TABS[0]?.slug ?? '')
 
   // Update activeTab if certifications change (e.g., after SSR hydration)
   useEffect(() => {
-    if (CERTIFICATIONS.length && !CERTIFICATIONS.find(c => c.slug === activeTab)) {
-      setActiveTab(CERTIFICATIONS[0].slug)
+    if (TABS.length && !TABS.find(c => c.slug === activeTab)) {
+      setActiveTab(TABS[0].slug)
     }
   }, [activeTab])
 
@@ -83,7 +85,7 @@ export function StandardsSection() {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start min-w-0">
           {/* Desktop Tabs List */}
           <div className="hidden lg:block lg:col-span-5 space-y-4">
-            {CERTIFICATIONS.map((tab) => {
+            {TABS.map((tab) => {
               const IconComp = CERT_ICONS[tab.iconName] ?? ShieldCheck
               return (
                 <button
@@ -113,7 +115,7 @@ export function StandardsSection() {
           {/* Desktop Tab Content with AnimatePresence */}
           <div className="hidden lg:block lg:col-span-7 relative">
             <AnimatePresence mode="wait">
-              {CERTIFICATIONS.filter(tab => tab.slug === activeTab).map(tab => {
+              {TABS.filter(tab => tab.slug === activeTab).map(tab => {
                 const tabImageUrl = tab.image?.url || '/images/inspiration/applications/workplace/Inc_7800_Ridgeback_RS.jpg'
                 return (
                   <motion.div
@@ -128,7 +130,7 @@ export function StandardsSection() {
                       <img src={tabImageUrl} alt={tab.title} className="w-full h-full object-cover" />
                       {tab.logoUrl && (
                         <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm p-4 shadow-lg">
-                          <img src={tab.logoUrl} alt={`${tab.title} logo`} className="h-16 w-auto object-contain brightness-0" />
+                          <img src={tab.logoUrl} alt={`${tab.title} logo`} className="h-16 w-auto object-contain" />
                         </div>
                       )}
                     </div>
@@ -153,7 +155,7 @@ export function StandardsSection() {
 
           {/* Mobile Accordion */}
           <div className="lg:hidden col-span-full min-w-0 flex flex-col gap-4">
-            {CERTIFICATIONS.map((tab) => {
+            {TABS.map((tab) => {
               const IconComp = CERT_ICONS[tab.iconName] ?? FileText
               const tabImageUrl = tab.image?.url || '/images/inspiration/applications/workplace/Inc_7800_Ridgeback_RS.jpg'
               return (
@@ -193,7 +195,7 @@ export function StandardsSection() {
                             <img src={tabImageUrl} alt={tab.title} className="w-full h-full object-cover" />
                             {tab.logoUrl && (
                               <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-sm p-3 shadow-lg">
-                                <img src={tab.logoUrl} alt={`${tab.title} logo`} className="h-12 w-auto object-contain brightness-0" />
+                                <img src={tab.logoUrl} alt={`${tab.title} logo`} className="h-12 w-auto object-contain" />
                               </div>
                             )}
                           </div>

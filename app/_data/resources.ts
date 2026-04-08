@@ -58,8 +58,7 @@ export const RESOURCES: Resource[] = [
     category: 'Sustainability',
     iconName: 'certificate',
     internalUrl: '/certifications/affirm',
-    thumbnailUrl:
-      'https://rfci.com/wp-content/uploads/2021/12/NSF-ANSI-332-300x300.jpg',
+    thumbnailUrl: '/media/cert-logos/affirm-certified.png',
     order: 3,
   },
 
@@ -347,18 +346,6 @@ export const RESOURCES: Resource[] = [
       'https://rfci.com/wp-content/uploads/2021/11/LVT-Armstrong-Floors-300x300.jpeg',
     body: '<p class="text-label font-bold tracking-widest uppercase text-rfci-black/50 mb-6">ARTICLE SOURCE: The Construction Specifier</p><a href="https://www.constructionspecifier.com/publications/de/202110/index.html" target="_blank" rel="noopener noreferrer"><img src="https://rfci.com/wp-content/uploads/2021/11/LVT-Armstrong-Floors.jpeg" alt="Resilient Flooring: The Sustainable Specification" class="w-full mb-8 hover:opacity-90 transition-opacity duration-200" /></a><p>For more details, please click <a href="https://www.constructionspecifier.com/publications/de/202110/index.html" target="_blank" rel="noopener noreferrer">here</a>.</p>',
     order: 25,
-  },
-  {
-    title: 'Glossary',
-    slug: 'glossary',
-    description:
-      'An A\u2013Z glossary of resilient flooring terms, certifications, product types, and technical language used throughout RFCI resources.',
-    type: 'guide',
-    category: 'Reference',
-    internalUrl: '/resources/glossary',
-    thumbnailUrl:
-      '/images/inspiration/applications/homes/EL04-RS.jpg',
-    order: 32,
   },
 
   // External Websites

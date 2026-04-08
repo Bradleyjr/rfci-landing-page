@@ -2,7 +2,7 @@ export const SITE_SETTINGS = {
   // Hero
   heroLine1: 'RESILIENT FLOOR',
   heroLine2: 'COVERING',
-  heroSubheading: 'The trade association representing the resilient flooring industry in North America since 1976. Our Goal: Enhancing the long-term growth and well-being of the North American resilient floor covering industry',
+  heroSubheading: 'The trade association representing the resilient flooring industry in North America since 1976.\n\nOur Goal: Enhancing the long-term growth and well-being of the North American resilient floor covering industry',
   heroCta: 'Explore RFCI',
   heroBoxText: 'Discover our certification programs, meet our member manufacturers, and learn how RFCI protects and promotes the resilient flooring industry.',
 
@@ -44,8 +44,8 @@ export const SITE_SETTINGS = {
   ],
 
   // Standards
-  standardsHeading: 'Sustainability programs you can rely on',
-  standardsSubheading: 'RFCI manages these sustainability programs\u2014built on rigorous third-party testing, transparency, and continuous improvement.',
+  standardsHeading: 'Key Certifications for Resilient Flooring',
+  standardsSubheading: 'If you are considering Resilient Flooring, you will want to learn more about these key certifications!',
   standardsCtaText: 'Explore our sustainability programs',
 
   // Education

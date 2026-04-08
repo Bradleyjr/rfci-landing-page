@@ -75,9 +75,9 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
   return (
     <PageLayout>
       <SplitPageHero
-        label="Sustainability"
-        heading={pageSettings?.heroHeading || <>Sustainability programs you can <span className="font-semibold">rely on.</span></>}
-        subheading={pageSettings?.heroSubheading || "RFCI's sustainability programs verify indoor air quality, environmental performance, and material transparency—giving architects and designers confidence in every specification."}
+        label="Certifications"
+        heading={pageSettings?.heroHeading || <>Key Certifications for <span className="font-semibold">Resilient Flooring</span></>}
+        subheading={pageSettings?.heroSubheading || "If you are considering resilient flooring, you will want to learn more about these key certifications."}
         theme="blue"
         photo={{ src: '/media/mission/sustainability-programs.jpg', alt: 'RFCI sustainability programs' }}
       />
@@ -125,7 +125,7 @@ export function CertificationsHub({ certifications, pageSettings }: { certificat
                       </h3>
 
                       <p className="text-base text-rfci-black/60 leading-relaxed mb-6">
-                        {cert.description}
+                        {(cert as CertDoc & { summary?: string }).summary || cert.description}
                       </p>
 
                       {/* Stats */}

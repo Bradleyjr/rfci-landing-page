@@ -11,7 +11,7 @@ import { EnvironmentsSection } from '../sections/EnvironmentsSection'
 import { WhyResilientSection } from '../sections/WhyResilientSection'
 import { MissionSection } from '../sections/MissionSection'
 import { StandardsSection } from '../sections/StandardsSection'
-import { EcomedesSection } from '../sections/EcomedesSection'
+import { EPDSection } from '../sections/EPDSection'
 import { BeautifullyResponsibleSection } from '../sections/BeautifullyResponsibleSection'
 import { CommunitySection } from '../sections/CommunitySection'
 import { LinkedInFeedSection } from '../sections/LinkedInFeedSection'
@@ -65,7 +65,7 @@ export function LandingPage() {
 
         <StandardsSection />
 
-        <EcomedesSection />
+        <EPDSection />
 
         <BeautifullyResponsibleSection />
 

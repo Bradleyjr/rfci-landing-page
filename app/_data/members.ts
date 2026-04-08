@@ -13,7 +13,7 @@ export const MEMBERS: Member[] = [
   // Board members (Flooring Manufacturers) — Row 1
   { name: 'AHF Products',      logoUrl: '/media/member-logos/ahf-products.png',      website: 'https://ahfproducts.com',       tier: 'board', row: '1', order: 1 },
   { name: 'American Biltrite', logoUrl: '/media/member-logos/american-biltrite.png',  website: 'https://american-biltrite.com', tier: 'board', row: '1', order: 2 },
-  { name: 'Beauflor',          logoUrl: '/media/member-logos/beauflor.png',           website: 'https://beauflor.com',          tier: 'board', row: '1', order: 3 },
+  { name: 'Beaulieu',          logoUrl: '/media/member-logos/beaulieu.png',           website: 'https://beaulieu.com',          tier: 'board', row: '1', order: 3 },
   { name: 'Bentley',           logoUrl: '/media/member-logos/bentley.png',            website: 'https://bentleymills.com',      tier: 'associate', order: 30 },
   { name: 'CFL',               logoUrl: '/media/member-logos/cfl.png',               website: 'https://cflflooring.com',       tier: 'board', row: '1', order: 5 },
   { name: 'Classen',           logoUrl: '/media/member-logos/classen.png',            website: 'https://classengroup.com',      tier: 'board', row: '1', order: 6 },
