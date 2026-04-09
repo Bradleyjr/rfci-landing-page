@@ -14,6 +14,7 @@ import { StandardsSection } from '../sections/StandardsSection'
 import { EcomedesSection } from '../sections/EcomedesSection'
 import { BeautifullyResponsibleSection } from '../sections/BeautifullyResponsibleSection'
 import { CommunitySection } from '../sections/CommunitySection'
+import { TestimonialsSection } from '../sections/TestimonialsSection'
 import { LinkedInFeedSection } from '../sections/LinkedInFeedSection'
 import { MembersSection } from '../sections/MembersSection'
 
@@ -70,6 +71,8 @@ export function LandingPage() {
         <BeautifullyResponsibleSection />
 
         <CommunitySection />
+
+        <TestimonialsSection />
 
         <LinkedInFeedSection />
 
