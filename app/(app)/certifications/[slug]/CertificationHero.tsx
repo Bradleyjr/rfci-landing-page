@@ -37,7 +37,7 @@ export function CertificationHero({ cert, stats }: CertificationHeroProps) {
           {/* Logo — large, above heading (not for EPD) */}
           {!isEpd && cert.logoUrl && (
             <div className="mb-8">
-              {cert.logoUrl.endsWith('.png') ? (
+              {cert.logoUrl.endsWith('.png') || cert.logoUrl.endsWith('.jpg') ? (
                 <div className="inline-flex items-center justify-center bg-white p-3">
                   <img
                     src={cert.logoUrl}

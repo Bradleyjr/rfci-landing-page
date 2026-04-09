@@ -223,8 +223,6 @@ export const CERTIFICATIONS: Certification[] = [
       { title: 'Vinyl Tile', year: '2019', category: '2019 Archived Industry Wide EPDs', url: 'https://rfci.com/wp-content/uploads/2019/01/106.1_RFCI_EPD_Vinyl-Tile.pdf' },
       { title: 'Vinyl Composition Tile', year: '2019', category: '2019 Archived Industry Wide EPDs', url: 'https://rfci.com/wp-content/uploads/2019/01/105.1_RFCI_EPD_Vinyl-Composition-Tile.pdf' },
     ],
-    ctaText: 'View All EPDs on RFCI.com',
-    ctaUrl: 'https://rfci.com/environmental-product-declaration/',
     image: { url: '/media/cert-photos/epd.jpg' },
     order: 4,
   },

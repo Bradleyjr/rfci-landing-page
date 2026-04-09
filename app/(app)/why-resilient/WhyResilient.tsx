@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowRight } from '@phosphor-icons/react'
+import { ArrowRight, ArrowSquareOut } from '@phosphor-icons/react'
 import { PageLayout } from '../../_components/PageLayout'
 import { SplitPageHero } from '../../_components/SplitPageHero'
 import { SectionReveal } from '../../_components/SectionReveal'
@@ -96,22 +96,28 @@ export function WhyResilient({ pageData }: { pageData: any }) {
 
           <div className="grid sm:grid-cols-2 gap-6">
             {[
-              { label: 'Learn more about the various resilient flooring categories', href: '/flooring' },
-              { label: 'Learn about key certifications in resilient flooring', href: '/certifications' },
-              { label: 'Learn about Industry Wide Environmental Product Declarations (EPDs) in Resilient Flooring', href: '/certifications/epd' },
-              { label: 'Learn more about ecomedes\u00ae and resilient products', href: 'https://rfci.ecomedes.com/', external: true },
+              { title: 'Resilient Flooring Categories', description: 'Learn more about the various resilient flooring categories.', href: '/flooring', external: false },
+              { title: 'Key Certifications', description: 'Learn about key certifications in resilient flooring.', href: '/certifications', external: false },
+              { title: 'Industry Wide EPDs', description: 'Learn about Industry Wide Environmental Product Declarations (EPDs) in Resilient Flooring.', href: '/certifications/epd', external: false },
+              { title: 'ecomedes\u00ae Product Database', description: 'Learn more about ecomedes\u00ae and resilient products.', href: 'https://rfci.ecomedes.com/', external: true },
             ].map((link, idx) => (
               <SectionReveal key={idx} delay={(idx % 2) * 0.06}>
                 <a
                   href={link.href}
                   target={link.external ? '_blank' : undefined}
                   rel={link.external ? 'noopener noreferrer' : undefined}
-                  className="group flex items-start gap-4 p-6 bg-rfci-cream border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200"
+                  className="group block p-6 bg-white border border-black/5 hover:border-rfci-blue/20 hover:shadow-lg transition-all duration-200 h-full"
                 >
-                  <ArrowRight className="w-5 h-5 mt-0.5 text-rfci-blue shrink-0 group-hover:translate-x-1 transition-transform duration-200" />
-                  <span className="text-base text-rfci-black/70 font-light leading-relaxed group-hover:text-rfci-blue transition-colors duration-200">
-                    {link.label}
-                  </span>
+                  <div className="w-10 h-10 bg-rfci-blue/10 flex items-center justify-center text-rfci-blue group-hover:bg-rfci-blue group-hover:text-white transition-colors shrink-0 mb-3">
+                    {link.external ? <ArrowSquareOut className="w-5 h-5" /> : <ArrowRight className="w-5 h-5" />}
+                  </div>
+                  <h4 className="text-lg font-display font-medium text-rfci-black mb-1 leading-snug group-hover:text-rfci-blue transition-colors duration-200">
+                    {link.title}
+                  </h4>
+                  <p className="text-xs text-rfci-black/50 leading-relaxed font-light mb-3">{link.description}</p>
+                  <div className="flex items-center gap-1.5 text-rfci-blue text-xs font-semibold mt-auto">
+                    {link.external ? <><ArrowSquareOut className="w-4 h-4" /> Visit Website</> : <><ArrowRight className="w-4 h-4" /> View Page</>}
+                  </div>
                 </a>
               </SectionReveal>
             ))}
